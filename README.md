@@ -1,1 +1,1 @@
-# coinTradingApp
+# CloneCryptocurrencyExchangeApp
