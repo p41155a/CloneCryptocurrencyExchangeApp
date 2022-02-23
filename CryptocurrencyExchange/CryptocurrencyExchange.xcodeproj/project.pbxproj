@@ -7,66 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF19E19E27C3DC6400DBD52D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E19D27C3DC6400DBD52D /* AppDelegate.swift */; };
-		FF19E1A027C3DC6400DBD52D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E19F27C3DC6400DBD52D /* SceneDelegate.swift */; };
-		FF19E1A227C3DC6400DBD52D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1A127C3DC6400DBD52D /* ViewController.swift */; };
-		FF19E1A527C3DC6400DBD52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1A327C3DC6400DBD52D /* Main.storyboard */; };
-		FF19E1A727C3DC6500DBD52D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1A627C3DC6500DBD52D /* Assets.xcassets */; };
-		FF19E1AA27C3DC6500DBD52D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1A827C3DC6500DBD52D /* LaunchScreen.storyboard */; };
-		FF19E1B527C3DC6500DBD52D /* coinTradingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1B427C3DC6500DBD52D /* coinTradingAppTests.swift */; };
-		FF19E1BF27C3DC6500DBD52D /* coinTradingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1BE27C3DC6500DBD52D /* coinTradingAppUITests.swift */; };
-		FF19E1C127C3DC6500DBD52D /* coinTradingAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1C027C3DC6500DBD52D /* coinTradingAppUITestsLaunchTests.swift */; };
+		FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */; };
+		FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */; };
+		FF19E1F027C628DD00DBD52D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1EF27C628DD00DBD52D /* ViewController.swift */; };
+		FF19E1F327C628DD00DBD52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1F127C628DD00DBD52D /* Main.storyboard */; };
+		FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1F427C628E100DBD52D /* Assets.xcassets */; };
+		FF19E1F827C628E100DBD52D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1F627C628E100DBD52D /* LaunchScreen.storyboard */; };
+		FF19E20327C628E100DBD52D /* CryptocurrencyExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E20227C628E100DBD52D /* CryptocurrencyExchangeTests.swift */; };
+		FF19E20D27C628E100DBD52D /* CryptocurrencyExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E20C27C628E100DBD52D /* CryptocurrencyExchangeUITests.swift */; };
+		FF19E20F27C628E100DBD52D /* CryptocurrencyExchangeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E20E27C628E100DBD52D /* CryptocurrencyExchangeUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FF19E1B127C3DC6500DBD52D /* PBXContainerItemProxy */ = {
+		FF19E1FF27C628E100DBD52D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FF19E19227C3DC6300DBD52D /* Project object */;
+			containerPortal = FF19E1E027C628DD00DBD52D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FF19E19927C3DC6400DBD52D;
-			remoteInfo = coinTradingApp;
+			remoteGlobalIDString = FF19E1E727C628DD00DBD52D;
+			remoteInfo = CryptocurrencyExchange;
 		};
-		FF19E1BB27C3DC6500DBD52D /* PBXContainerItemProxy */ = {
+		FF19E20927C628E100DBD52D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FF19E19227C3DC6300DBD52D /* Project object */;
+			containerPortal = FF19E1E027C628DD00DBD52D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FF19E19927C3DC6400DBD52D;
-			remoteInfo = coinTradingApp;
+			remoteGlobalIDString = FF19E1E727C628DD00DBD52D;
+			remoteInfo = CryptocurrencyExchange;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FF19E19A27C3DC6400DBD52D /* coinTradingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coinTradingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF19E19D27C3DC6400DBD52D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF19E19F27C3DC6400DBD52D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FF19E1A127C3DC6400DBD52D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FF19E1A427C3DC6400DBD52D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FF19E1A627C3DC6500DBD52D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FF19E1A927C3DC6500DBD52D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FF19E1AB27C3DC6500DBD52D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF19E1B027C3DC6500DBD52D /* coinTradingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coinTradingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF19E1B427C3DC6500DBD52D /* coinTradingAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coinTradingAppTests.swift; sourceTree = "<group>"; };
-		FF19E1BA27C3DC6500DBD52D /* coinTradingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coinTradingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF19E1BE27C3DC6500DBD52D /* coinTradingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coinTradingAppUITests.swift; sourceTree = "<group>"; };
-		FF19E1C027C3DC6500DBD52D /* coinTradingAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coinTradingAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FF19E1E827C628DD00DBD52D /* CryptocurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptocurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FF19E1EF27C628DD00DBD52D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF19E1F227C628DD00DBD52D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FF19E1F427C628E100DBD52D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF19E1F727C628E100DBD52D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FF19E1F927C628E100DBD52D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF19E1FE27C628E100DBD52D /* CryptocurrencyExchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptocurrencyExchangeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF19E20227C628E100DBD52D /* CryptocurrencyExchangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyExchangeTests.swift; sourceTree = "<group>"; };
+		FF19E20827C628E100DBD52D /* CryptocurrencyExchangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptocurrencyExchangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF19E20C27C628E100DBD52D /* CryptocurrencyExchangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyExchangeUITests.swift; sourceTree = "<group>"; };
+		FF19E20E27C628E100DBD52D /* CryptocurrencyExchangeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyExchangeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FF19E19727C3DC6400DBD52D /* Frameworks */ = {
+		FF19E1E527C628DD00DBD52D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF19E1AD27C3DC6500DBD52D /* Frameworks */ = {
+		FF19E1FB27C628E100DBD52D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF19E1B727C3DC6500DBD52D /* Frameworks */ = {
+		FF19E20527C628E100DBD52D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,137 +76,137 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FF19E19127C3DC6300DBD52D = {
+		FF19E1DF27C628DD00DBD52D = {
 			isa = PBXGroup;
 			children = (
-				FF19E19C27C3DC6400DBD52D /* coinTradingApp */,
-				FF19E1B327C3DC6500DBD52D /* coinTradingAppTests */,
-				FF19E1BD27C3DC6500DBD52D /* coinTradingAppUITests */,
-				FF19E19B27C3DC6400DBD52D /* Products */,
+				FF19E1EA27C628DD00DBD52D /* CryptocurrencyExchange */,
+				FF19E20127C628E100DBD52D /* CryptocurrencyExchangeTests */,
+				FF19E20B27C628E100DBD52D /* CryptocurrencyExchangeUITests */,
+				FF19E1E927C628DD00DBD52D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FF19E19B27C3DC6400DBD52D /* Products */ = {
+		FF19E1E927C628DD00DBD52D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FF19E19A27C3DC6400DBD52D /* coinTradingApp.app */,
-				FF19E1B027C3DC6500DBD52D /* coinTradingAppTests.xctest */,
-				FF19E1BA27C3DC6500DBD52D /* coinTradingAppUITests.xctest */,
+				FF19E1E827C628DD00DBD52D /* CryptocurrencyExchange.app */,
+				FF19E1FE27C628E100DBD52D /* CryptocurrencyExchangeTests.xctest */,
+				FF19E20827C628E100DBD52D /* CryptocurrencyExchangeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FF19E19C27C3DC6400DBD52D /* coinTradingApp */ = {
+		FF19E1EA27C628DD00DBD52D /* CryptocurrencyExchange */ = {
 			isa = PBXGroup;
 			children = (
-				FF19E19D27C3DC6400DBD52D /* AppDelegate.swift */,
-				FF19E19F27C3DC6400DBD52D /* SceneDelegate.swift */,
-				FF19E1A127C3DC6400DBD52D /* ViewController.swift */,
-				FF19E1A327C3DC6400DBD52D /* Main.storyboard */,
-				FF19E1A627C3DC6500DBD52D /* Assets.xcassets */,
-				FF19E1A827C3DC6500DBD52D /* LaunchScreen.storyboard */,
-				FF19E1AB27C3DC6500DBD52D /* Info.plist */,
+				FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */,
+				FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */,
+				FF19E1EF27C628DD00DBD52D /* ViewController.swift */,
+				FF19E1F127C628DD00DBD52D /* Main.storyboard */,
+				FF19E1F427C628E100DBD52D /* Assets.xcassets */,
+				FF19E1F627C628E100DBD52D /* LaunchScreen.storyboard */,
+				FF19E1F927C628E100DBD52D /* Info.plist */,
 			);
-			path = coinTradingApp;
+			path = CryptocurrencyExchange;
 			sourceTree = "<group>";
 		};
-		FF19E1B327C3DC6500DBD52D /* coinTradingAppTests */ = {
+		FF19E20127C628E100DBD52D /* CryptocurrencyExchangeTests */ = {
 			isa = PBXGroup;
 			children = (
-				FF19E1B427C3DC6500DBD52D /* coinTradingAppTests.swift */,
+				FF19E20227C628E100DBD52D /* CryptocurrencyExchangeTests.swift */,
 			);
-			path = coinTradingAppTests;
+			path = CryptocurrencyExchangeTests;
 			sourceTree = "<group>";
 		};
-		FF19E1BD27C3DC6500DBD52D /* coinTradingAppUITests */ = {
+		FF19E20B27C628E100DBD52D /* CryptocurrencyExchangeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				FF19E1BE27C3DC6500DBD52D /* coinTradingAppUITests.swift */,
-				FF19E1C027C3DC6500DBD52D /* coinTradingAppUITestsLaunchTests.swift */,
+				FF19E20C27C628E100DBD52D /* CryptocurrencyExchangeUITests.swift */,
+				FF19E20E27C628E100DBD52D /* CryptocurrencyExchangeUITestsLaunchTests.swift */,
 			);
-			path = coinTradingAppUITests;
+			path = CryptocurrencyExchangeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FF19E19927C3DC6400DBD52D /* coinTradingApp */ = {
+		FF19E1E727C628DD00DBD52D /* CryptocurrencyExchange */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FF19E1C427C3DC6500DBD52D /* Build configuration list for PBXNativeTarget "coinTradingApp" */;
+			buildConfigurationList = FF19E21227C628E100DBD52D /* Build configuration list for PBXNativeTarget "CryptocurrencyExchange" */;
 			buildPhases = (
-				FF19E19627C3DC6400DBD52D /* Sources */,
-				FF19E19727C3DC6400DBD52D /* Frameworks */,
-				FF19E19827C3DC6400DBD52D /* Resources */,
+				FF19E1E427C628DD00DBD52D /* Sources */,
+				FF19E1E527C628DD00DBD52D /* Frameworks */,
+				FF19E1E627C628DD00DBD52D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = coinTradingApp;
-			productName = coinTradingApp;
-			productReference = FF19E19A27C3DC6400DBD52D /* coinTradingApp.app */;
+			name = CryptocurrencyExchange;
+			productName = CryptocurrencyExchange;
+			productReference = FF19E1E827C628DD00DBD52D /* CryptocurrencyExchange.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FF19E1AF27C3DC6500DBD52D /* coinTradingAppTests */ = {
+		FF19E1FD27C628E100DBD52D /* CryptocurrencyExchangeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FF19E1C727C3DC6500DBD52D /* Build configuration list for PBXNativeTarget "coinTradingAppTests" */;
+			buildConfigurationList = FF19E21527C628E100DBD52D /* Build configuration list for PBXNativeTarget "CryptocurrencyExchangeTests" */;
 			buildPhases = (
-				FF19E1AC27C3DC6500DBD52D /* Sources */,
-				FF19E1AD27C3DC6500DBD52D /* Frameworks */,
-				FF19E1AE27C3DC6500DBD52D /* Resources */,
+				FF19E1FA27C628E100DBD52D /* Sources */,
+				FF19E1FB27C628E100DBD52D /* Frameworks */,
+				FF19E1FC27C628E100DBD52D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FF19E1B227C3DC6500DBD52D /* PBXTargetDependency */,
+				FF19E20027C628E100DBD52D /* PBXTargetDependency */,
 			);
-			name = coinTradingAppTests;
-			productName = coinTradingAppTests;
-			productReference = FF19E1B027C3DC6500DBD52D /* coinTradingAppTests.xctest */;
+			name = CryptocurrencyExchangeTests;
+			productName = CryptocurrencyExchangeTests;
+			productReference = FF19E1FE27C628E100DBD52D /* CryptocurrencyExchangeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FF19E1B927C3DC6500DBD52D /* coinTradingAppUITests */ = {
+		FF19E20727C628E100DBD52D /* CryptocurrencyExchangeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FF19E1CA27C3DC6500DBD52D /* Build configuration list for PBXNativeTarget "coinTradingAppUITests" */;
+			buildConfigurationList = FF19E21827C628E100DBD52D /* Build configuration list for PBXNativeTarget "CryptocurrencyExchangeUITests" */;
 			buildPhases = (
-				FF19E1B627C3DC6500DBD52D /* Sources */,
-				FF19E1B727C3DC6500DBD52D /* Frameworks */,
-				FF19E1B827C3DC6500DBD52D /* Resources */,
+				FF19E20427C628E100DBD52D /* Sources */,
+				FF19E20527C628E100DBD52D /* Frameworks */,
+				FF19E20627C628E100DBD52D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FF19E1BC27C3DC6500DBD52D /* PBXTargetDependency */,
+				FF19E20A27C628E100DBD52D /* PBXTargetDependency */,
 			);
-			name = coinTradingAppUITests;
-			productName = coinTradingAppUITests;
-			productReference = FF19E1BA27C3DC6500DBD52D /* coinTradingAppUITests.xctest */;
+			name = CryptocurrencyExchangeUITests;
+			productName = CryptocurrencyExchangeUITests;
+			productReference = FF19E20827C628E100DBD52D /* CryptocurrencyExchangeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FF19E19227C3DC6300DBD52D /* Project object */ = {
+		FF19E1E027C628DD00DBD52D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					FF19E19927C3DC6400DBD52D = {
+					FF19E1E727C628DD00DBD52D = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
-					FF19E1AF27C3DC6500DBD52D = {
+					FF19E1FD27C628E100DBD52D = {
 						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = FF19E19927C3DC6400DBD52D;
+						TestTargetID = FF19E1E727C628DD00DBD52D;
 					};
-					FF19E1B927C3DC6500DBD52D = {
+					FF19E20727C628E100DBD52D = {
 						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = FF19E19927C3DC6400DBD52D;
+						TestTargetID = FF19E1E727C628DD00DBD52D;
 					};
 				};
 			};
-			buildConfigurationList = FF19E19527C3DC6300DBD52D /* Build configuration list for PBXProject "coinTradingApp" */;
+			buildConfigurationList = FF19E1E327C628DD00DBD52D /* Build configuration list for PBXProject "CryptocurrencyExchange" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -214,37 +214,37 @@
 				en,
 				Base,
 			);
-			mainGroup = FF19E19127C3DC6300DBD52D;
-			productRefGroup = FF19E19B27C3DC6400DBD52D /* Products */;
+			mainGroup = FF19E1DF27C628DD00DBD52D;
+			productRefGroup = FF19E1E927C628DD00DBD52D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FF19E19927C3DC6400DBD52D /* coinTradingApp */,
-				FF19E1AF27C3DC6500DBD52D /* coinTradingAppTests */,
-				FF19E1B927C3DC6500DBD52D /* coinTradingAppUITests */,
+				FF19E1E727C628DD00DBD52D /* CryptocurrencyExchange */,
+				FF19E1FD27C628E100DBD52D /* CryptocurrencyExchangeTests */,
+				FF19E20727C628E100DBD52D /* CryptocurrencyExchangeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FF19E19827C3DC6400DBD52D /* Resources */ = {
+		FF19E1E627C628DD00DBD52D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF19E1AA27C3DC6500DBD52D /* LaunchScreen.storyboard in Resources */,
-				FF19E1A727C3DC6500DBD52D /* Assets.xcassets in Resources */,
-				FF19E1A527C3DC6400DBD52D /* Main.storyboard in Resources */,
+				FF19E1F827C628E100DBD52D /* LaunchScreen.storyboard in Resources */,
+				FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */,
+				FF19E1F327C628DD00DBD52D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF19E1AE27C3DC6500DBD52D /* Resources */ = {
+		FF19E1FC27C628E100DBD52D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF19E1B827C3DC6500DBD52D /* Resources */ = {
+		FF19E20627C628E100DBD52D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -254,61 +254,61 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FF19E19627C3DC6400DBD52D /* Sources */ = {
+		FF19E1E427C628DD00DBD52D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF19E1A227C3DC6400DBD52D /* ViewController.swift in Sources */,
-				FF19E19E27C3DC6400DBD52D /* AppDelegate.swift in Sources */,
-				FF19E1A027C3DC6400DBD52D /* SceneDelegate.swift in Sources */,
+				FF19E1F027C628DD00DBD52D /* ViewController.swift in Sources */,
+				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
+				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF19E1AC27C3DC6500DBD52D /* Sources */ = {
+		FF19E1FA27C628E100DBD52D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF19E1B527C3DC6500DBD52D /* coinTradingAppTests.swift in Sources */,
+				FF19E20327C628E100DBD52D /* CryptocurrencyExchangeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF19E1B627C3DC6500DBD52D /* Sources */ = {
+		FF19E20427C628E100DBD52D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF19E1BF27C3DC6500DBD52D /* coinTradingAppUITests.swift in Sources */,
-				FF19E1C127C3DC6500DBD52D /* coinTradingAppUITestsLaunchTests.swift in Sources */,
+				FF19E20D27C628E100DBD52D /* CryptocurrencyExchangeUITests.swift in Sources */,
+				FF19E20F27C628E100DBD52D /* CryptocurrencyExchangeUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FF19E1B227C3DC6500DBD52D /* PBXTargetDependency */ = {
+		FF19E20027C628E100DBD52D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FF19E19927C3DC6400DBD52D /* coinTradingApp */;
-			targetProxy = FF19E1B127C3DC6500DBD52D /* PBXContainerItemProxy */;
+			target = FF19E1E727C628DD00DBD52D /* CryptocurrencyExchange */;
+			targetProxy = FF19E1FF27C628E100DBD52D /* PBXContainerItemProxy */;
 		};
-		FF19E1BC27C3DC6500DBD52D /* PBXTargetDependency */ = {
+		FF19E20A27C628E100DBD52D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FF19E19927C3DC6400DBD52D /* coinTradingApp */;
-			targetProxy = FF19E1BB27C3DC6500DBD52D /* PBXContainerItemProxy */;
+			target = FF19E1E727C628DD00DBD52D /* CryptocurrencyExchange */;
+			targetProxy = FF19E20927C628E100DBD52D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FF19E1A327C3DC6400DBD52D /* Main.storyboard */ = {
+		FF19E1F127C628DD00DBD52D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FF19E1A427C3DC6400DBD52D /* Base */,
+				FF19E1F227C628DD00DBD52D /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		FF19E1A827C3DC6500DBD52D /* LaunchScreen.storyboard */ = {
+		FF19E1F627C628E100DBD52D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FF19E1A927C3DC6500DBD52D /* Base */,
+				FF19E1F727C628E100DBD52D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		FF19E1C227C3DC6500DBD52D /* Debug */ = {
+		FF19E21027C628E100DBD52D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -377,7 +377,7 @@
 			};
 			name = Debug;
 		};
-		FF19E1C327C3DC6500DBD52D /* Release */ = {
+		FF19E21127C628E100DBD52D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -432,7 +432,7 @@
 			};
 			name = Release;
 		};
-		FF19E1C527C3DC6500DBD52D /* Debug */ = {
+		FF19E21327C628E100DBD52D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -441,18 +441,19 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AZX9TD66UC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = coinTradingApp/Info.plist;
+				INFOPLIST_FILE = CryptocurrencyExchange/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.coinTradingApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.CryptocurrencyExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -460,7 +461,7 @@
 			};
 			name = Debug;
 		};
-		FF19E1C627C3DC6500DBD52D /* Release */ = {
+		FF19E21427C628E100DBD52D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -469,18 +470,19 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AZX9TD66UC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = coinTradingApp/Info.plist;
+				INFOPLIST_FILE = CryptocurrencyExchange/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.coinTradingApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.CryptocurrencyExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -488,7 +490,7 @@
 			};
 			name = Release;
 		};
-		FF19E1C827C3DC6500DBD52D /* Debug */ = {
+		FF19E21627C628E100DBD52D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -499,16 +501,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.coinTradingAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.CryptocurrencyExchangeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coinTradingApp.app/coinTradingApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CryptocurrencyExchange.app/CryptocurrencyExchange";
 			};
 			name = Debug;
 		};
-		FF19E1C927C3DC6500DBD52D /* Release */ = {
+		FF19E21727C628E100DBD52D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -519,16 +521,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.coinTradingAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.CryptocurrencyExchangeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coinTradingApp.app/coinTradingApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CryptocurrencyExchange.app/CryptocurrencyExchange";
 			};
 			name = Release;
 		};
-		FF19E1CB27C3DC6500DBD52D /* Debug */ = {
+		FF19E21927C628E100DBD52D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -537,16 +539,16 @@
 				DEVELOPMENT_TEAM = AZX9TD66UC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.coinTradingAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.CryptocurrencyExchangeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = coinTradingApp;
+				TEST_TARGET_NAME = CryptocurrencyExchange;
 			};
 			name = Debug;
 		};
-		FF19E1CC27C3DC6500DBD52D /* Release */ = {
+		FF19E21A27C628E100DBD52D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -555,55 +557,55 @@
 				DEVELOPMENT_TEAM = AZX9TD66UC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.coinTradingAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.CryptocurrencyExchangeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = coinTradingApp;
+				TEST_TARGET_NAME = CryptocurrencyExchange;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FF19E19527C3DC6300DBD52D /* Build configuration list for PBXProject "coinTradingApp" */ = {
+		FF19E1E327C628DD00DBD52D /* Build configuration list for PBXProject "CryptocurrencyExchange" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FF19E1C227C3DC6500DBD52D /* Debug */,
-				FF19E1C327C3DC6500DBD52D /* Release */,
+				FF19E21027C628E100DBD52D /* Debug */,
+				FF19E21127C628E100DBD52D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FF19E1C427C3DC6500DBD52D /* Build configuration list for PBXNativeTarget "coinTradingApp" */ = {
+		FF19E21227C628E100DBD52D /* Build configuration list for PBXNativeTarget "CryptocurrencyExchange" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FF19E1C527C3DC6500DBD52D /* Debug */,
-				FF19E1C627C3DC6500DBD52D /* Release */,
+				FF19E21327C628E100DBD52D /* Debug */,
+				FF19E21427C628E100DBD52D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FF19E1C727C3DC6500DBD52D /* Build configuration list for PBXNativeTarget "coinTradingAppTests" */ = {
+		FF19E21527C628E100DBD52D /* Build configuration list for PBXNativeTarget "CryptocurrencyExchangeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FF19E1C827C3DC6500DBD52D /* Debug */,
-				FF19E1C927C3DC6500DBD52D /* Release */,
+				FF19E21627C628E100DBD52D /* Debug */,
+				FF19E21727C628E100DBD52D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FF19E1CA27C3DC6500DBD52D /* Build configuration list for PBXNativeTarget "coinTradingAppUITests" */ = {
+		FF19E21827C628E100DBD52D /* Build configuration list for PBXNativeTarget "CryptocurrencyExchangeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FF19E1CB27C3DC6500DBD52D /* Debug */,
-				FF19E1CC27C3DC6500DBD52D /* Release */,
+				FF19E21927C628E100DBD52D /* Debug */,
+				FF19E21A27C628E100DBD52D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FF19E19227C3DC6300DBD52D /* Project object */;
+	rootObject = FF19E1E027C628DD00DBD52D /* Project object */;
 }

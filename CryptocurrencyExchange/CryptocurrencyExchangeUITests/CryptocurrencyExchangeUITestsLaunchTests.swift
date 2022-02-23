@@ -1,13 +1,13 @@
 //
-//  coinTradingAppUITestsLaunchTests.swift
-//  coinTradingAppUITests
+//  CryptocurrencyExchangeUITestsLaunchTests.swift
+//  CryptocurrencyExchangeUITests
 //
-//  Created by Yoojin Park on 2022/02/21.
+//  Created by Yoojin Park on 2022/02/23.
 //
 
 import XCTest
 
-class coinTradingAppUITestsLaunchTests: XCTestCase {
+class CryptocurrencyExchangeUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
