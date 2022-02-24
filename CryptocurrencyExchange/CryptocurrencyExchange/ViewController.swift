@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        apiManager.assetsStatus(orderCurrency: "BTC", success: {}, failure: {_ in })
+        apiManager.assetsStatus(orderCurrency: .all, success: {}, failure: {_ in })
     }
 
 
