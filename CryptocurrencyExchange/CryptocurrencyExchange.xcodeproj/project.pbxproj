@@ -20,6 +20,9 @@
 		FF19E22027C62B8700DBD52D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF19E21F27C62B8700DBD52D /* Kingfisher */; };
 		FF19E22327C62BA000DBD52D /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = FF19E22227C62BA000DBD52D /* Starscream */; };
 		FF19E22627C62BC900DBD52D /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = FF19E22527C62BC900DBD52D /* Charts */; };
+		FF19E28127C7280600DBD52D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28027C7280600DBD52D /* APIService.swift */; };
+		FF19E28327C72AF200DBD52D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28227C72AF200DBD52D /* APIManager.swift */; };
+		FF19E28527C74FA600DBD52D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28427C74FA600DBD52D /* APIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		FF19E20827C628E100DBD52D /* CryptocurrencyExchangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptocurrencyExchangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF19E20C27C628E100DBD52D /* CryptocurrencyExchangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyExchangeUITests.swift; sourceTree = "<group>"; };
 		FF19E20E27C628E100DBD52D /* CryptocurrencyExchangeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyExchangeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FF19E28027C7280600DBD52D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		FF19E28227C72AF200DBD52D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		FF19E28427C74FA600DBD52D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 		FF19E1EA27C628DD00DBD52D /* CryptocurrencyExchange */ = {
 			isa = PBXGroup;
 			children = (
+				FF19E27F27C7271000DBD52D /* Network */,
 				FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */,
 				FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */,
 				FF19E1EF27C628DD00DBD52D /* ViewController.swift */,
@@ -133,6 +140,16 @@
 				FF19E20E27C628E100DBD52D /* CryptocurrencyExchangeUITestsLaunchTests.swift */,
 			);
 			path = CryptocurrencyExchangeUITests;
+			sourceTree = "<group>";
+		};
+		FF19E27F27C7271000DBD52D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FF19E28027C7280600DBD52D /* APIService.swift */,
+				FF19E28227C72AF200DBD52D /* APIManager.swift */,
+				FF19E28427C74FA600DBD52D /* APIError.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +297,10 @@
 			files = (
 				FF19E1F027C628DD00DBD52D /* ViewController.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
+				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
+				FF19E28327C72AF200DBD52D /* APIManager.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
+				FF19E28527C74FA600DBD52D /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
