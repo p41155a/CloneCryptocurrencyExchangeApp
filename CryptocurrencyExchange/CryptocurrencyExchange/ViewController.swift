@@ -14,7 +14,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        apiManager.assetsStatus(orderCurrency: .all, success: {}, failure: {_ in })
+        apiManager.assetsStatus { result in
+            switch result {
+            case .success(let data):
+                print(data)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
 
