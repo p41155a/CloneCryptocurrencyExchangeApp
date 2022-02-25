@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var apiManager = APIManager()
+    var apiManager = AssetsAPIManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
