@@ -19,8 +19,7 @@ final class DemoSocketViewController: UIViewController {
         connect()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    deinit {
         disconnect()
     }
     
@@ -37,6 +36,7 @@ final class DemoSocketViewController: UIViewController {
     
     private func disconnect() {
         socket?.disconnect()
+        socket?.delegate = nil
     }
 }
 
@@ -44,9 +44,9 @@ extension DemoSocketViewController: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(let headers):
-            let params: [String: Any] = ["type":"ticker",
-                                         "symbols":["BTC_KRW"],
-                                         "tickTypes": ["MID"]]
+            let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
+                                         "symbols":["BTC_\(paymentCurrency.KRW.rawValue)"],
+                                         "tickTypes": [WebSocketTickType.tickMID.rawValue]]
             
             let jParams = try! JSONSerialization.data(withJSONObject: params, options: [])
             client.write(string: String(data:jParams, encoding: .utf8)!, completion: nil)
@@ -54,7 +54,13 @@ extension DemoSocketViewController: WebSocketDelegate {
         case .disconnected(let reason, let code):
             print("websocket is disconnected: \(reason) with code: \(code)")
         case .text(let string):
-            print("Received text: \(string)")
+            do {
+                let data = string.data(using: .utf8)!
+                let json = try JSONDecoder().decode(WebSocketTickerEntity.self, from: data)
+                print("파싱완료한 데이터: \(json)")
+            } catch  {
+                print("Received text: \(string)")
+            }
         case .binary(let data):
             print("Received data: \(data.count)")
         case .error(let error):

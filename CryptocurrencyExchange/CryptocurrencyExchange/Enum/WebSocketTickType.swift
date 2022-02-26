@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WebSocketTickType: String {
+enum WebSocketTickType: String, Codable, CodingKey {
     case tick30M = "30M"
     case tick1H = "1H"
     case tick12H = "12H"
