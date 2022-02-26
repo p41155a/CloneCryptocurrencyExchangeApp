@@ -73,6 +73,13 @@ extension APIService {
         urlComponents.scheme = scheme
         urlComponents.host = host
         urlComponents.path = path
+        switch method {
+        case .get:
+            let query = setQuery()
+            urlComponents.queryItems = query
+        default:
+            break
+        }
         return urlComponents
     }
     
@@ -82,13 +89,10 @@ extension APIService {
         }
     }
     
-    func setURLRequest() -> URLRequest? {
-        var URLComponents = setURLComponents()
-        let query = setQuery()
-        URLComponents.queryItems = query
-        
-        guard let url: URL = URLComponents.url else { return nil }
-        
+    func setRequest() -> URLRequest? {
+        let urlComponents = setURLComponents()
+        guard let url: URL = urlComponents.url else { return nil }
+    
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         
