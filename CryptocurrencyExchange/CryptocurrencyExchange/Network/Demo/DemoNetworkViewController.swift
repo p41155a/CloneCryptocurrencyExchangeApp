@@ -8,7 +8,7 @@
 import UIKit
 import Starscream
 
-final class DemoNetworkViewController: UIViewController {
+final class DemoSocketViewController: UIViewController {
     // MARK: - Property
     private var socket: WebSocket?
     var apiManager = AssetsAPIManager()
@@ -17,15 +17,6 @@ final class DemoNetworkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        apiManager.assetsStatus { result in
-            switch result {
-            case .success(let data):
-                print(data)
-            case .failure(let error):
-                print("error: \(error)")
-            }
-        }
-        
         connect()
     }
     
@@ -50,7 +41,7 @@ final class DemoNetworkViewController: UIViewController {
     }
 }
 
-extension DemoNetworkViewController: WebSocketDelegate {
+extension DemoSocketViewController: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(let headers):
