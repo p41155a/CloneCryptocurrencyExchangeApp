@@ -1,5 +1,5 @@
 //
-//  AssetsStatus.swift
+//  AssetsStatusEntity.swift
 //  CryptocurrencyExchange
 //
 //  Created by Yoojin Park on 2022/02/24.
@@ -8,12 +8,12 @@
 import Foundation
 
 /// AppointedAssetsStatus
-struct AppointedAssetsStatus: Codable {
+struct AppointedAssetsStatusEntity: Codable {
     let status: String
     let accountStatus: EachAccountStatus
 }
 
-extension AppointedAssetsStatus {
+extension AppointedAssetsStatusEntity {
     enum CodingKeys: String, CodingKey {
         case status = "status"
         case accountStatus = "data"
@@ -21,12 +21,12 @@ extension AppointedAssetsStatus {
 }
 
 /// AssetsStatus
-struct AssetsStatus: Codable {
+struct AssetsStatusEntity: Codable {
     let status: String
     let accountStatus: [String: EachAccountStatus]
 }
 
-extension AssetsStatus {
+extension AssetsStatusEntity {
     enum CodingKeys: String, CodingKey {
         case status = "status"
         case accountStatus = "data"
