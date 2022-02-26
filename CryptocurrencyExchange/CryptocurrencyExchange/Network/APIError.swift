@@ -7,17 +7,23 @@
 
 import Foundation
 
-public enum APIError: Error {
+enum APIError: Error {
+    case bithumbDefinedError(error: ErrorEnity)
     case invalidURL
-    case deserializationError(error: Swift.Error)
+    case incorrectFormat
+    case failureResponse(error: Error)
 }
 extension APIError: CustomDebugStringConvertible {
     public var debugDescription: String {
         switch self {
+        case let .bithumbDefinedError(error):
+            return "\(error.message)"
         case .invalidURL:
             return "유효하지 않은 url 입니다."
-        case let .deserializationError(error):
-            return "Error during deserialization of the response: \(error)"
+        case .incorrectFormat:
+            return "정의되지 않은 데이터 형식입니다."
+        case let .failureResponse(error):
+            return "\(error.localizedDescription)"
         }
     }
 }

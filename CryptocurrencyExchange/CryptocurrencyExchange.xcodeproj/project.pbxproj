@@ -26,6 +26,7 @@
 		FF19E28827C753CC00DBD52D /* AssetsStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28727C753CC00DBD52D /* AssetsStatus.swift */; };
 		FF19E28A27C75F2000DBD52D /* ParamOptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28927C75F2000DBD52D /* ParamOptionData.swift */; };
 		FF19E28D27C8DB3600DBD52D /* AssetsAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28C27C8DB3600DBD52D /* AssetsAPIManager.swift */; };
+		FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E29027C9DECB00DBD52D /* ErrorEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		FF19E28727C753CC00DBD52D /* AssetsStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatus.swift; sourceTree = "<group>"; };
 		FF19E28927C75F2000DBD52D /* ParamOptionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamOptionData.swift; sourceTree = "<group>"; };
 		FF19E28C27C8DB3600DBD52D /* AssetsAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsAPIManager.swift; sourceTree = "<group>"; };
+		FF19E29027C9DECB00DBD52D /* ErrorEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		FF19E27F27C7271000DBD52D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FF19E28B27C8DB1100DBD52D /* DemoManager */,
 				FF19E28627C753B300DBD52D /* Entity */,
 				FF19E28027C7280600DBD52D /* APIService.swift */,
 				FF19E28227C72AF200DBD52D /* APIManager.swift */,
@@ -164,7 +167,7 @@
 			children = (
 				FF19E28727C753CC00DBD52D /* AssetsStatus.swift */,
 				FF19E28927C75F2000DBD52D /* ParamOptionData.swift */,
-				FF19E28B27C8DB1100DBD52D /* DemoManager */,
+				FF19E29027C9DECB00DBD52D /* ErrorEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				FF19E28327C72AF200DBD52D /* APIManager.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
 				FF19E28527C74FA600DBD52D /* APIError.swift in Sources */,
+				FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,7 @@ class ViewController: UIViewController {
             case .success(let data):
                 print(data)
             case .failure(let error):
-                print(error)
+                print("error: \(error)")
             }
         }
     }
