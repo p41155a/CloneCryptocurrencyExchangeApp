@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */; };
 		B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
 		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInNavigation.swift; sourceTree = "<group>"; };
 		B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
 		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */,
+				B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			files = (
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
+				B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */,
 				B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */,
 				B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */,
 				B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */,
