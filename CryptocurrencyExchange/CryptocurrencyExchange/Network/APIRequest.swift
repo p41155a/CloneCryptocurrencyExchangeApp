@@ -1,5 +1,5 @@
 //
-//  APIManager.swift
+//  APIRequest.swift
 //  CryptocurrencyExchange
 //
 //  Created by Yoojin Park on 2022/02/24.
@@ -8,12 +8,12 @@
 import Foundation
 import Alamofire
 
-protocol APIManager {
-    func apiRequest<T: Codable>(request: URLRequestConvertible ,type: T.Type, completion: @escaping (Result<T, APIError>) -> ())
+protocol APIRequest {
+    func request<T: Codable>(requestURL: URLRequestConvertible ,type: T.Type, completion: @escaping (Result<T, APIError>) -> ())
 }
-extension APIManager {
-    func apiRequest<T: Codable>(request: URLRequestConvertible ,type: T.Type, completion: @escaping (Result<T, APIError>) -> ()) {
-        AF.request(request)
+extension APIRequest {
+    func request<T: Codable>(requestURL: URLRequestConvertible ,type: T.Type, completion: @escaping (Result<T, APIError>) -> ()) {
+        AF.request(requestURL)
             .responseData { (response) in
                 let result = self.getResult(type: type, response: response)
                 completion(result)
