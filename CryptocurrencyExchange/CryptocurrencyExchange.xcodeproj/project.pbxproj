@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
-		B4E57FE327CA165B007C3BF3 /* ViewControllerInTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE227CA165B007C3BF3 /* ViewControllerInTabBar.swift */; };
 		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
 		B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */; };
 		B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F5AF7E27C8D3EB00EB60A1 /* ExchangeViewController.xib */; };
@@ -47,7 +46,6 @@
 /* Begin PBXFileReference section */
 		B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
 		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		B4E57FE227CA165B007C3BF3 /* ViewControllerInTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInTabBar.swift; sourceTree = "<group>"; };
 		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		B4F5AF7E27C8D3EB00EB60A1 /* ExchangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExchangeViewController.xib; sourceTree = "<group>"; };
@@ -102,18 +100,10 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		B498EF4A27C8DE5700C8F5FC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		B4E57FE127CA07F4007C3BF3 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
 				B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */,
-				B4E57FE227CA165B007C3BF3 /* ViewControllerInTabBar.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -121,7 +111,6 @@
 		B4F5AF7C27C8D3D700EB60A1 /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
-				B498EF4A27C8DE5700C8F5FC /* Model */,
 				B498EF4727C8DC5500C8F5FC /* ViewModel */,
 				B4F5AF8127C8D3EF00EB60A1 /* View */,
 			);
@@ -367,7 +356,6 @@
 			files = (
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
-				B4E57FE327CA165B007C3BF3 /* ViewControllerInTabBar.swift in Sources */,
 				B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */,
 				B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */,
 				B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */,
