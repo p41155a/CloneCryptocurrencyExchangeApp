@@ -29,11 +29,11 @@
 		FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E29027C9DECB00DBD52D /* ErrorEntity.swift */; };
 		FF19E29327C9F74100DBD52D /* DemoNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E29227C9F74100DBD52D /* DemoNetworkViewController.swift */; };
 		FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E29727C9FB6D00DBD52D /* WebSoketType.swift */; };
-		FF19E29A27C9FCD600DBD52D /* TickTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E29927C9FCD600DBD52D /* TickTypes.swift */; };
 		FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E29C27C9FFC700DBD52D /* WebSocketTickerEntity.swift */; };
 		FF19E29F27CA00B900DBD52D /* WebSocketOrderbookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E29E27CA00B900DBD52D /* WebSocketOrderbookEntity.swift */; };
 		FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A027CA00D700DBD52D /* WebSocketTransactionEntity.swift */; };
 		FF19E2A627CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */; };
+		FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A827CA73C300DBD52D /* WebSocketTickType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,11 +76,11 @@
 		FF19E29027C9DECB00DBD52D /* ErrorEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEntity.swift; sourceTree = "<group>"; };
 		FF19E29227C9F74100DBD52D /* DemoNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoNetworkViewController.swift; sourceTree = "<group>"; };
 		FF19E29727C9FB6D00DBD52D /* WebSoketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSoketType.swift; sourceTree = "<group>"; };
-		FF19E29927C9FCD600DBD52D /* TickTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TickTypes.swift; path = ../../../../../../TickTypes.swift; sourceTree = "<group>"; };
 		FF19E29C27C9FFC700DBD52D /* WebSocketTickerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTickerEntity.swift; sourceTree = "<group>"; };
 		FF19E29E27CA00B900DBD52D /* WebSocketOrderbookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketOrderbookEntity.swift; sourceTree = "<group>"; };
 		FF19E2A027CA00D700DBD52D /* WebSocketTransactionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTransactionEntity.swift; sourceTree = "<group>"; };
 		FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyExchangeAPITests.swift; sourceTree = "<group>"; };
+		FF19E2A827CA73C300DBD52D /* WebSocketTickType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTickType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +135,8 @@
 		FF19E1EA27C628DD00DBD52D /* CryptocurrencyExchange */ = {
 			isa = PBXGroup;
 			children = (
+				FF19E29627C9FAB600DBD52D /* Enum */,
+				FF19E2A727CA732400DBD52D /* WebSocket */,
 				FF19E27F27C7271000DBD52D /* Network */,
 				FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */,
 				FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */,
@@ -168,9 +170,7 @@
 		FF19E27F27C7271000DBD52D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				FF19E29627C9FAB600DBD52D /* Enum */,
-				FF19E28B27C8DB1100DBD52D /* Demo */,
-				FF19E29B27C9FF8500DBD52D /* WebSocketEntity */,
+				FF19E2AA27CA749300DBD52D /* APIManagerDemo */,
 				FF19E28627C753B300DBD52D /* Entity */,
 				FF19E28027C7280600DBD52D /* APIService.swift */,
 				FF19E28227C72AF200DBD52D /* APIProvider.swift */,
@@ -191,7 +191,6 @@
 		FF19E28B27C8DB1100DBD52D /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				FF19E28C27C8DB3600DBD52D /* AssetsAPIManager.swift */,
 				FF19E29227C9F74100DBD52D /* DemoNetworkViewController.swift */,
 			);
 			path = Demo;
@@ -202,7 +201,7 @@
 			children = (
 				FF19E28927C75F2000DBD52D /* ParamOptionDataType.swift */,
 				FF19E29727C9FB6D00DBD52D /* WebSoketType.swift */,
-				FF19E29927C9FCD600DBD52D /* TickTypes.swift */,
+				FF19E2A827CA73C300DBD52D /* WebSocketTickType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -215,6 +214,23 @@
 				FF19E2A027CA00D700DBD52D /* WebSocketTransactionEntity.swift */,
 			);
 			path = WebSocketEntity;
+			sourceTree = "<group>";
+		};
+		FF19E2A727CA732400DBD52D /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				FF19E29B27C9FF8500DBD52D /* WebSocketEntity */,
+				FF19E28B27C8DB1100DBD52D /* Demo */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		FF19E2AA27CA749300DBD52D /* APIManagerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				FF19E28C27C8DB3600DBD52D /* AssetsAPIManager.swift */,
+			);
+			path = APIManagerDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +382,7 @@
 				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
+				FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */,
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
 				FF19E28A27C75F2000DBD52D /* ParamOptionDataType.swift in Sources */,
 				FF19E28327C72AF200DBD52D /* APIProvider.swift in Sources */,
@@ -373,7 +390,6 @@
 				FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */,
 				FF19E29F27CA00B900DBD52D /* WebSocketOrderbookEntity.swift in Sources */,
 				FF19E28527C74FA600DBD52D /* APIError.swift in Sources */,
-				FF19E29A27C9FCD600DBD52D /* TickTypes.swift in Sources */,
 				FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
 			);

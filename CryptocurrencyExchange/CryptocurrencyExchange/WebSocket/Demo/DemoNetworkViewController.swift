@@ -1,5 +1,5 @@
 //
-//  DemoNetworkViewController.swift
+//  DemoSocketViewController.swift
 //  CryptocurrencyExchange
 //
 //  Created by Yoojin Park on 2022/02/26.
@@ -11,7 +11,6 @@ import Starscream
 final class DemoSocketViewController: UIViewController {
     // MARK: - Property
     private var socket: WebSocket?
-    var apiManager = AssetsAPIManager()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -47,7 +46,7 @@ extension DemoSocketViewController: WebSocketDelegate {
         case .connected(let headers):
             let params: [String: Any] = ["type":"ticker",
                                          "symbols":["BTC_KRW"],
-                                         "tickTypes": ["24H"]]
+                                         "tickTypes": ["MID"]]
             
             let jParams = try! JSONSerialization.data(withJSONObject: params, options: [])
             client.write(string: String(data:jParams, encoding: .utf8)!, completion: nil)
