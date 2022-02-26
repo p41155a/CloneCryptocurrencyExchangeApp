@@ -1,5 +1,5 @@
 //
-//  ParamOptionData.swift
+//  ParamOptionDataType.swift
 //  CryptocurrencyExchange
 //
 //  Created by Yoojin Park on 2022/02/24.
