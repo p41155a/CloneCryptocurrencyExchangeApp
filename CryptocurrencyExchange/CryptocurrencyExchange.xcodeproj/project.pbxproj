@@ -33,6 +33,7 @@
 		FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E29C27C9FFC700DBD52D /* WebSocketTickerEntity.swift */; };
 		FF19E29F27CA00B900DBD52D /* WebSocketOrderbookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E29E27CA00B900DBD52D /* WebSocketOrderbookEntity.swift */; };
 		FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A027CA00D700DBD52D /* WebSocketTransactionEntity.swift */; };
+		FF19E2A627CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		FF19E29C27C9FFC700DBD52D /* WebSocketTickerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTickerEntity.swift; sourceTree = "<group>"; };
 		FF19E29E27CA00B900DBD52D /* WebSocketOrderbookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketOrderbookEntity.swift; sourceTree = "<group>"; };
 		FF19E2A027CA00D700DBD52D /* WebSocketTransactionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTransactionEntity.swift; sourceTree = "<group>"; };
+		FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyExchangeAPITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,7 +368,7 @@
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
 				FF19E28A27C75F2000DBD52D /* ParamOptionDataType.swift in Sources */,
-				FF19E28327C72AF200DBD52D /* APIRequest.swift in Sources */,
+				FF19E28327C72AF200DBD52D /* APIProvider.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
 				FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */,
 				FF19E29F27CA00B900DBD52D /* WebSocketOrderbookEntity.swift in Sources */,
