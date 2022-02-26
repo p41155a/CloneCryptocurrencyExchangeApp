@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        apiManager.assetsStatus { result in
+        apiManager.fetchAssetsStatus(cryptocurrencyName: "BTC") { result in
             switch result {
             case .success(let data):
                 print(data)

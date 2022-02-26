@@ -1,5 +1,5 @@
 //
-//  APIRequest.swift
+//  APIProvider.swift
 //  CryptocurrencyExchange
 //
 //  Created by Yoojin Park on 2022/02/24.
@@ -8,11 +8,11 @@
 import Foundation
 import Alamofire
 
-protocol APIRequest {
-    func request<T: Codable>(requestURL: URLRequestConvertible ,type: T.Type, completion: @escaping (Result<T, APIError>) -> ())
+protocol APIProvider {
+    func fetchResponse<T: Codable>(requestURL: URLRequestConvertible ,type: T.Type, completion: @escaping (Result<T, APIError>) -> ())
 }
-extension APIRequest {
-    func request<T: Codable>(requestURL: URLRequestConvertible ,type: T.Type, completion: @escaping (Result<T, APIError>) -> ()) {
+extension APIProvider {
+    func fetchResponse<T: Codable>(requestURL: URLRequestConvertible ,type: T.Type, completion: @escaping (Result<T, APIError>) -> ()) {
         AF.request(requestURL)
             .responseData { (response) in
                 let result = self.getResult(type: type, response: response)

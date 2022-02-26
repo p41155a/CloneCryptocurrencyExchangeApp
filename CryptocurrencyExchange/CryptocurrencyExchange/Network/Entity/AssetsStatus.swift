@@ -44,11 +44,4 @@ extension EachAccountStatus {
         case depositStatus = "deposit_status"
         case withdrawalStatus = "withdrawal_status"
     }
-    
-    init(from decoder: Decoder) throws {
-        let container = try? decoder.container(keyedBy: CodingKeys.self)
-        
-        depositStatus = (try? container?.decode(Int.self, forKey: .depositStatus)) ?? 0
-        withdrawalStatus = (try? container?.decode(Int.self, forKey: .withdrawalStatus)) ?? 0
-    }
 }
