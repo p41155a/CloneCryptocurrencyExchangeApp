@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90BD15CE27CD12C900C5CBAC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD15CD27CD12C900C5CBAC /* UIColor.swift */; };
 		FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */; };
 		FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */; };
 		FF19E1F027C628DD00DBD52D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1EF27C628DD00DBD52D /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90BD15CD27CD12C900C5CBAC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		FF19E1E827C628DD00DBD52D /* CryptocurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptocurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90BD15CC27CD12B700C5CBAC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				90BD15CD27CD12C900C5CBAC /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FF19E1DF27C628DD00DBD52D = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +120,7 @@
 				FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */,
 				FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */,
 				FF19E1EF27C628DD00DBD52D /* ViewController.swift */,
+				90BD15CC27CD12B700C5CBAC /* Extensions */,
 				FF19E1F127C628DD00DBD52D /* Main.storyboard */,
 				FF19E1F427C628E100DBD52D /* Assets.xcassets */,
 				FF19E1F627C628E100DBD52D /* LaunchScreen.storyboard */,
@@ -279,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF19E1F027C628DD00DBD52D /* ViewController.swift in Sources */,
+				90BD15CE27CD12C900C5CBAC /* UIColor.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
 			);
