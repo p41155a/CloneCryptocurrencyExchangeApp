@@ -12,6 +12,11 @@ extension UIColor {
         return UIColor(named: "backgroundColor")
     }
     
+    /// base color - (215, 217, 217, 100%)
+    class var baseColor: UIColor? {
+        return UIColor(named: "baseColor")
+    }
+    
     /// contour color - (202, 204, 204, 100%)
     class var contourColor: UIColor? {
         return UIColor(named: "contourColor")
