@@ -7,64 +7,18 @@
 
 import Foundation
 
-enum APIService {
-    case assetsStatus(orderCurrency: String) // 입출금 현황 정보
+protocol APIService {
+    var scheme: String { get }
+    var host: String { get }
+    var path: String { get }
+    var method: Method { get }
+    var request: RequestType { get }
+    var parameters: [String: Any] { get }
+    var headers: [String: String]? { get }
 }
-
 extension APIService {
-    
     var scheme: String { return "https" }
-    
     var host: String { return "api.bithumb.com" }
-    
-    var path: String {
-        switch self {
-        case .assetsStatus(let orderCurrency):
-            return "/public/assetsstatus/\(orderCurrency)"
-        }
-    }
-    
-    var method: Method {
-        switch self {
-        case .assetsStatus:
-            return .get
-        }
-    }
-    
-    var request: RequestType {
-        switch self {
-        case .assetsStatus:
-            return .query
-        }
-    }
-    
-    var parameters: [String: Any] {
-        switch self {
-        case .assetsStatus:
-            return [:]
-        }
-    }
-    
-    var headers: [String: String]? {
-        switch self {
-        case .assetsStatus:
-            return nil // ex. ["Content-Type": "application/json"]
-        }
-    }
-}
-
-extension APIService {
-    enum Method: String {
-        case get
-        case post
-        case put
-        case delete
-    }
-
-    enum RequestType {
-        case json
-        case query
-    }
 }
 
 extension APIService {
@@ -110,4 +64,16 @@ extension APIService {
         
         return request
     }
+}
+
+enum Method: String {
+    case get
+    case post
+    case put
+    case delete
+}
+
+enum RequestType {
+    case json
+    case query
 }

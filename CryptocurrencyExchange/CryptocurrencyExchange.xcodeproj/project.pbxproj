@@ -34,6 +34,7 @@
 		FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A027CA00D700DBD52D /* WebSocketTransactionEntity.swift */; };
 		FF19E2A627CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */; };
 		FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A827CA73C300DBD52D /* WebSocketTickType.swift */; };
+		FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		FF19E2A027CA00D700DBD52D /* WebSocketTransactionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTransactionEntity.swift; sourceTree = "<group>"; };
 		FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyExchangeAPITests.swift; sourceTree = "<group>"; };
 		FF19E2A827CA73C300DBD52D /* WebSocketTickType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTickType.swift; sourceTree = "<group>"; };
+		FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +172,7 @@
 		FF19E27F27C7271000DBD52D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				FF19E2AA27CA749300DBD52D /* APIManagerDemo */,
+				FF19E2AA27CA749300DBD52D /* Assets */,
 				FF19E28627C753B300DBD52D /* Entity */,
 				FF19E28027C7280600DBD52D /* APIService.swift */,
 				FF19E28227C72AF200DBD52D /* APIProvider.swift */,
@@ -225,12 +227,13 @@
 			path = WebSocket;
 			sourceTree = "<group>";
 		};
-		FF19E2AA27CA749300DBD52D /* APIManagerDemo */ = {
+		FF19E2AA27CA749300DBD52D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				FF19E28C27C8DB3600DBD52D /* AssetsAPIManager.swift */,
+				FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */,
 			);
-			path = APIManagerDemo;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +389,7 @@
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
 				FF19E28A27C75F2000DBD52D /* ParamOptionDataType.swift in Sources */,
 				FF19E28327C72AF200DBD52D /* APIProvider.swift in Sources */,
+				FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
 				FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */,
 				FF19E29F27CA00B900DBD52D /* WebSocketOrderbookEntity.swift in Sources */,
