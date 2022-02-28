@@ -9,25 +9,25 @@ import Foundation
 import Alamofire
 
 protocol APIProvider {
-    func fetchResponse<T: Codable>(requestURL: URLRequestConvertible ,type: T.Type, completion: @escaping (Result<T, APIError>) -> ())
+    func fetchResponse<T: Codable>(requestURL: URLRequestConvertible ,completion: @escaping (Result<T, APIError>) -> ())
 }
 extension APIProvider {
-    func fetchResponse<T: Codable>(requestURL: URLRequestConvertible ,type: T.Type, completion: @escaping (Result<T, APIError>) -> ()) {
+    func fetchResponse<T: Codable>(requestURL: URLRequestConvertible ,completion: @escaping (Result<T, APIError>) -> ()) {
         AF.request(requestURL)
             .responseData { (response) in
-                let result = self.getResult(type: type, response: response)
+                let result: Result<T, APIError> = self.getResult(response: response)
                 completion(result)
             }
     }
     
-    private func getResult<T: Codable>(type: T.Type, response: AFDataResponse<Data>) -> Result<T, APIError> {
+    private func getResult<T: Codable>(response: AFDataResponse<Data>) -> Result<T, APIError> {
         let result = response.result
         switch result {
         case .success(let data):
             do {
                 let statusCode: Int = response.response?.statusCode ?? 0
                 if statusCode == 200 {
-                    let json = try JSONDecoder().decode(type, from: data)
+                    let json = try JSONDecoder().decode(T.self, from: data)
                     return .success(json)
                 } else {
                     let json = try JSONDecoder().decode(ErrorEnity.self, from: data)

@@ -14,7 +14,7 @@ class AssetsAPIManager: APIProvider {
             completion(.failure(APIError.invalidURL))
             return
         }
-        fetchResponse(requestURL: requestURL, type: AssetsStatusEntity.self, completion: completion)
+        fetchResponse(requestURL: requestURL, completion: completion)
     }
     
     /// 각 자산 검색
@@ -23,6 +23,6 @@ class AssetsAPIManager: APIProvider {
             completion(.failure(APIError.invalidURL))
             return
         }
-        fetchResponse(requestURL: requestURL, type: AppointedAssetsStatusEntity.self, completion: completion)
+        fetchResponse(requestURL: requestURL, completion: completion)
     }
 }

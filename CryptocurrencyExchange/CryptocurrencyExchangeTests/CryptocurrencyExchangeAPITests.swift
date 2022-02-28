@@ -12,7 +12,7 @@ import Alamofire
 class CryptocurrencyExchangeAPITests: XCTestCase, APIProvider {
     func test_assetsstatus_BTC를_알맞은_Entity로_요청하면_정상코드() {
         let expectation = XCTestExpectation()
-        fetchResponse(requestURL: setURLRequest(url: "https://api.bithumb.com/public/assetsstatus/BTC?")!, type: AppointedAssetsStatusEntity.self) { result in
+        fetchResponse(requestURL: setURLRequest(url: "https://api.bithumb.com/public/assetsstatus/BTC?")!) { (result: Result<AppointedAssetsStatusEntity, APIError>) in
             switch result {
             case .success(let data):
                 XCTAssertEqual(data.status, "0000") // 정상: 0000, 그 외 에러 코드
@@ -26,7 +26,7 @@ class CryptocurrencyExchangeAPITests: XCTestCase, APIProvider {
     
     func test_assetsstatus_BTC를_ALL의_Entity로_요청하면_다른_포멧으로_요청했다고_에러출력() {
         let expectation = XCTestExpectation()
-        fetchResponse(requestURL: setURLRequest(url: "https://api.bithumb.com/public/assetsstatus/BTC?")!, type: AssetsStatusEntity.self) { result in
+        fetchResponse(requestURL: setURLRequest(url: "https://api.bithumb.com/public/assetsstatus/BTC?")!) { (result: Result<AssetsStatusEntity, APIError>) in
             switch result {
             case .success(_):
                 XCTFail()
@@ -40,7 +40,7 @@ class CryptocurrencyExchangeAPITests: XCTestCase, APIProvider {
     
     func test_assetsstatus에서_s가_하나빠진_없는_URL로_요청하면_bithumb에러_출력() {
         let expectation = XCTestExpectation()
-        fetchResponse(requestURL: setURLRequest(url: "https://api.bithumb.com/public/assetstatus/BTC?")!, type: AppointedAssetsStatusEntity.self) { result in
+        fetchResponse(requestURL: setURLRequest(url: "https://api.bithumb.com/public/assetstatus/BTC?")!) { (result: Result<AppointedAssetsStatusEntity, APIError>) in
             switch result {
             case .success(_):
                 XCTFail()
