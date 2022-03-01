@@ -17,7 +17,7 @@ class CoinDetailViewController: ViewControllerInjectingViewModel<CoindDetailView
         let chartView = ChartView(
             frame: CGRect(
                 origin: CGPoint(x: 0, y: 100),
-                size: CGSize(width: view.width, height: view.height - 250)
+                size: CGSize(width: UIScreen.main.bounds.width, height: view.height - 250)
             )
         )
         self.view.addSubview(chartView)
