@@ -26,7 +26,7 @@ extension APIProvider {
         case .success(let data):
             do {
                 let statusCode: Int = response.response?.statusCode ?? 0
-                if statusCode == 200 {
+                if statusCode >= 200 && statusCode < 300 {
                     let json = try JSONDecoder().decode(T.self, from: data)
                     return .success(json)
                 } else {
