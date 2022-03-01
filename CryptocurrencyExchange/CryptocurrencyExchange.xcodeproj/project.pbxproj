@@ -52,6 +52,9 @@
 		FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7197A27CE16F7008DF7B9 /* UITableViewCell+Extension.swift */; };
 		FFE7197E27CE1AA0008DF7B9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FFE7197D27CE1AA0008DF7B9 /* SnapKit */; };
 		FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198027CE648D008DF7B9 /* TabButton.swift */; };
+		FFE7198427CE8539008DF7B9 /* TickerAPIMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198327CE8539008DF7B9 /* TickerAPIMananger.swift */; };
+		FFE7198627CE8546008DF7B9 /* TickerAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198527CE8546008DF7B9 /* TickerAPIService.swift */; };
+		FFE7198927CE88A0008DF7B9 /* CryptocurrencyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198827CE88A0008DF7B9 /* CryptocurrencyListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +119,9 @@
 		FFE7197827CE0E95008DF7B9 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		FFE7197A27CE16F7008DF7B9 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		FFE7198027CE648D008DF7B9 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		FFE7198327CE8539008DF7B9 /* TickerAPIMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAPIMananger.swift; sourceTree = "<group>"; };
+		FFE7198527CE8546008DF7B9 /* TickerAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAPIService.swift; sourceTree = "<group>"; };
+		FFE7198827CE88A0008DF7B9 /* CryptocurrencyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +283,7 @@
 		FF19E27F27C7271000DBD52D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FFE7198227CE851F008DF7B9 /* Ticker */,
 				FF19E2AA27CA749300DBD52D /* Assets */,
 				FF19E28627C753B300DBD52D /* Entity */,
 				FF19E28027C7280600DBD52D /* APIService.swift */,
@@ -355,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				FFE7197F27CE6461008DF7B9 /* Custom */,
+				FFE7198727CE8881008DF7B9 /* Model */,
 				FFE7196627CE032C008DF7B9 /* ViewModel */,
 				FFE7196527CE0328008DF7B9 /* View */,
 				FFE7196D27CE0364008DF7B9 /* ContentView */,
@@ -412,6 +420,23 @@
 				FFE7198027CE648D008DF7B9 /* TabButton.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		FFE7198227CE851F008DF7B9 /* Ticker */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7198327CE8539008DF7B9 /* TickerAPIMananger.swift */,
+				FFE7198527CE8546008DF7B9 /* TickerAPIService.swift */,
+			);
+			path = Ticker;
+			sourceTree = "<group>";
+		};
+		FFE7198727CE8881008DF7B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7198827CE88A0008DF7B9 /* CryptocurrencyListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,6 +593,7 @@
 				FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */,
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
+				FFE7198427CE8539008DF7B9 /* TickerAPIMananger.swift in Sources */,
 				FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */,
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
 				FF19E28A27C75F2000DBD52D /* ParamOptionDataType.swift in Sources */,
@@ -581,6 +607,7 @@
 				FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
 				FFE7197627CE0864008DF7B9 /* CrypocurrencyListTableViewCell.swift in Sources */,
+				FFE7198927CE88A0008DF7B9 /* CryptocurrencyListModel.swift in Sources */,
 				FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */,
 				FFE7196927CE0349008DF7B9 /* CryptocurrencyListViewController.swift in Sources */,
 				FFE7197027CE03FF008DF7B9 /* CryptocurrencyListView.swift in Sources */,
@@ -591,6 +618,7 @@
 				B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */,
 				B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */,
 				B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */,
+				FFE7198627CE8546008DF7B9 /* TickerAPIService.swift in Sources */,
 				B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

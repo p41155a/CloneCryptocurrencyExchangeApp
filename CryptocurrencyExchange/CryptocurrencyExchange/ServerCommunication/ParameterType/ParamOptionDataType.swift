@@ -21,7 +21,7 @@ enum OrderCurrency {
     }
 }
 
-enum paymentCurrency: String {
+enum PaymentCurrency: String {
     case KRW
     case BTC
     
