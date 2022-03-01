@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+class CandleStickAPIManager: APIProvider {
+    func candleStick(
+        parameters: CandleStickParameters,
+        completion: @escaping (Result<CandleStickEntity, APIError>) -> ()
+    ) {
+        guard let requestURL = CandleStickAPIService
+                .candleStick(candleStickParameters: parameters)
+                .setRequest()
+        else {
+            completion(.failure(APIError.invalidURL))
+            return
+        }
+        fetchResponse(requestURL: requestURL, completion: completion)
+    }
+}
