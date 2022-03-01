@@ -11,6 +11,9 @@ import UIKit
 class ExchangeViewController: ViewControllerInjectingViewModel<ExchangeViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.title = "홈 타이틀"
 
     }
 }
+

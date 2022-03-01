@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ExchangeViewModel: ViewControllerFromNib {
+class ExchangeViewModel: XIBInformation {
     var nibName: String?
     
     init(nibName: String? = nil) {
