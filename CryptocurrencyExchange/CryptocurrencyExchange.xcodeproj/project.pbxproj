@@ -51,6 +51,7 @@
 		FFE7197927CE0E95008DF7B9 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7197827CE0E95008DF7B9 /* UIView+Extension.swift */; };
 		FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7197A27CE16F7008DF7B9 /* UITableViewCell+Extension.swift */; };
 		FFE7197E27CE1AA0008DF7B9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FFE7197D27CE1AA0008DF7B9 /* SnapKit */; };
+		FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198027CE648D008DF7B9 /* TabButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		FFE7197527CE0864008DF7B9 /* CrypocurrencyListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrypocurrencyListTableViewCell.xib; sourceTree = "<group>"; };
 		FFE7197827CE0E95008DF7B9 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		FFE7197A27CE16F7008DF7B9 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		FFE7198027CE648D008DF7B9 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 		FFE7196427CE030D008DF7B9 /* CryptocurrencyList */ = {
 			isa = PBXGroup;
 			children = (
+				FFE7197F27CE6461008DF7B9 /* Custom */,
 				FFE7196627CE032C008DF7B9 /* ViewModel */,
 				FFE7196527CE0328008DF7B9 /* View */,
 				FFE7196D27CE0364008DF7B9 /* ContentView */,
@@ -401,6 +404,14 @@
 				FFE7197527CE0864008DF7B9 /* CrypocurrencyListTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		FFE7197F27CE6461008DF7B9 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7198027CE648D008DF7B9 /* TabButton.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,6 +565,7 @@
 				FF19E28D27C8DB3600DBD52D /* AssetsAPIManager.swift in Sources */,
 				FF19E29327C9F74100DBD52D /* DemoSocketViewController.swift in Sources */,
 				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
+				FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */,
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
 				FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */,

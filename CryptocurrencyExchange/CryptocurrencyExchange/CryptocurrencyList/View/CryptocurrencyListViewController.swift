@@ -11,8 +11,23 @@ import SnapKit
 final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<CryptocurrencyListViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let loadedNib = Bundle.main.loadNibNamed(String(describing: CryptocurrencyListView.self), owner: self, options: nil) else { return }
-        guard let cryptocurrencyListView = loadedNib.first as? CryptocurrencyListView else { return }
+        configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func configureUI() {
+        setContentView()
+        setTabButton()
+    }
+    
+    private func setContentView() {
+        guard let cryptocurrencyListView = CryptocurrencyListView.loadFromNib() else {
+            return
+        }
         contentView.addSubview(cryptocurrencyListView)
         
         cryptocurrencyListView.snp.makeConstraints { make in
@@ -23,9 +38,24 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
+    private func setTabButton() {
+        tabButtonList = [krwTabButton, btcTabButton, interestTabButton, popularTabButton]
+        tabButtonList.forEach { button in
+            button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
+        }
     }
+    
+    @objc private func buttonDidTap(_ sender: TabButton) {
+        tabButtonList.forEach { button in
+            button.isSelected = false
+        }
+        sender.isSelected = true
+    }
+    
+    private var tabButtonList: [TabButton] = []
+    @IBOutlet weak var krwTabButton: TabButton!
+    @IBOutlet weak var btcTabButton: TabButton!
+    @IBOutlet weak var interestTabButton: TabButton!
+    @IBOutlet weak var popularTabButton: TabButton!
     @IBOutlet weak var contentView: UIView!
 }
