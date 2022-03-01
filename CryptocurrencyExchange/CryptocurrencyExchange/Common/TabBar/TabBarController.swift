@@ -35,7 +35,7 @@ class TabBarController: UITabBarController {
     
     private func configureViewControllers() {
         let viewControllersInNavigation = [exchangeViewController].map {
-            $0.viewControllerInNavigation()
+            $0.navigationControllerIncludingViewController()
         }
         setViewControllers(viewControllersInNavigation, animated: false)
     }

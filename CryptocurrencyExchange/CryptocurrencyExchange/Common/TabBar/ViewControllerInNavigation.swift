@@ -22,7 +22,7 @@ struct ViewControllerInNavigation {
         self.info = info
     }
     
-    func viewControllerInNavigation() -> UINavigationController {
+    func navigationControllerIncludingViewController() -> UINavigationController {
         let navigation = UINavigationController(rootViewController: info.viewController)
         navigation.tabBarItem = UITabBarItem(
             title: info.tabTitle,
