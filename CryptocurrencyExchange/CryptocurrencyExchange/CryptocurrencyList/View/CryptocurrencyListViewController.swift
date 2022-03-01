@@ -40,6 +40,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     private func setTabButton() {
         tabButtonList = [krwTabButton, btcTabButton, interestTabButton, popularTabButton]
+        tabButtonList.first?.isChoice = true
         tabButtonList.forEach { button in
             button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
         }
@@ -47,9 +48,9 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     @objc private func buttonDidTap(_ sender: TabButton) {
         tabButtonList.forEach { button in
-            button.isSelected = false
+            button.isChoice = false
         }
-        sender.isSelected = true
+        sender.isChoice = true
     }
     
     private var tabButtonList: [TabButton] = []

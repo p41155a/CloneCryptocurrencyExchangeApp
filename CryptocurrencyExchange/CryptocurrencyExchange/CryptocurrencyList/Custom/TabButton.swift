@@ -10,9 +10,9 @@ import UIKit
 final class TabButton: UIButton {
     var bottomBar = UIView()
     
-    override var isSelected: Bool {
+    var isChoice: Bool = false {
         didSet {
-            configureForSelect(isSelected: isSelected)
+            configureForSelect(isSelected: isChoice)
         }
     }
     
@@ -45,6 +45,6 @@ final class TabButton: UIButton {
     
     private func configureForSelect(isSelected: Bool) {
         bottomBar.isHidden = !isSelected
-        titleLabel?.textColor = isSelected ? .black : .darkgrayColor
+        titleLabel?.tintColor = isSelected ? .black : .darkgrayColor
     }
 }
