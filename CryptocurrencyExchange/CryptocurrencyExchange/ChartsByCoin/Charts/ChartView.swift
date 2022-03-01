@@ -24,7 +24,6 @@ class ChartView: UIView {
         dataSet.decreasingFilled = true
         dataSet.increasingColor = UIColor.increasingColor
         dataSet.increasingFilled = true
-        dataSet.barSpace = 0
         dataSet.drawValuesEnabled = false
         dataSet.highlightColor = .lightGray
         return dataSet
@@ -47,13 +46,14 @@ class ChartView: UIView {
         superView.layoutIfNeeded()
         
         self.setChartUI()
-        self.dataEntries = self.chartData(10, range: 5)
-        self.setChart(dataSet: self.dataSet)
+        self.drawCandleSticks()
     }
     
     private func setChartUI() {
         chartView.dragEnabled = true
         chartView.scaleYEnabled = false
+
+        chartView.autoScaleMinMaxEnabled = true
 
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawLabelsEnabled = false
@@ -62,27 +62,41 @@ class ChartView: UIView {
         chartView.leftAxis.enabled = false
 
         let yAxisRight = chartView.rightAxis
-        yAxisRight.drawGridLinesEnabled = false
+        yAxisRight.gridColor = .systemGray6
         yAxisRight.enabled = true
-
+        
     }
     
-    private func chartData(_ count: Int, range: UInt32) -> [CandleChartDataEntry] {
-        return (0..<count).map { (i) -> CandleChartDataEntry in
-            let mult = range + 1
-            let val = Double(arc4random_uniform(40) + mult)
-            let high = Double(arc4random_uniform(9) + 8)
-            let low = Double(arc4random_uniform(9) + 8)
-            let open = Double(arc4random_uniform(6) + 1)
-            let close = Double(arc4random_uniform(6) + 1)
-            let even = i % 2 == 0
+    private func drawCandleSticks() {
+        CandleStickAPIManager().candleStick(
+            parameters: CandleStickParameters(
+                orderCurrency: .appoint(name: "BTC"),
+                paymentCurrency: .KRW,
+                chartInterval: .oneMinute
+            )) { result in
+                switch result {
+                case .success(let data):
+                    self.dataEntries = self.chartData(from: data.data)
+                    self.setChart(dataSet: self.dataSet)
+                    
+                default: break
+                }
+            }
+    }
+    
+    private func chartData(from stickValues: [[StickValue]]) -> [CandleChartDataEntry] {
+        return stickValues.enumerated().map { (index, value) -> CandleChartDataEntry in
+            let high = value[3].value
+            let low = value[4].value
+            let open = value[1].value
+            let close = value[2].value
             
             return CandleChartDataEntry(
-                x: Double(i),
-                shadowH: val + high,
-                shadowL: val - low,
-                open: even ? val + open : val - open,
-                close: even ? val - close : val + close,
+                x: Double(index),
+                shadowH: high,
+                shadowL: low,
+                open: open,
+                close: close,
                 icon: nil
             )
         }
@@ -92,4 +106,6 @@ class ChartView: UIView {
         let data = CandleChartData(dataSet: dataSet)
         chartView.data = data
     }
+    
+    
 }
