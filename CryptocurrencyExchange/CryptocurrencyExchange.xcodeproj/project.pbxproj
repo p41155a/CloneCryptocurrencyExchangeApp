@@ -10,6 +10,11 @@
 		90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD15D427CDE68700C5CBAC /* UIColor.swift */; };
 		B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */; };
 		B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */; };
+		B4BC4E8F27CDF70900DE19EC /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */; };
+		B4BC4E9027CDF70900DE19EC /* CoinDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4BC4E8E27CDF70900DE19EC /* CoinDetailViewController.xib */; };
+		B4BC4E9427CDF7B400DE19EC /* CoindDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E9327CDF7B400DE19EC /* CoindDetailViewModel.swift */; };
+		B4BC4E9727CE00F600DE19EC /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E9627CE00F600DE19EC /* ChartView.swift */; };
+		B4BC4E9927CE012400DE19EC /* ChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4BC4E9827CE012400DE19EC /* ChartView.xib */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
 		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
 		B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */; };
@@ -64,6 +69,11 @@
 		90BD15D427CDE68700C5CBAC /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInNavigation.swift; sourceTree = "<group>"; };
 		B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
+		B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
+		B4BC4E8E27CDF70900DE19EC /* CoinDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinDetailViewController.xib; sourceTree = "<group>"; };
+		B4BC4E9327CDF7B400DE19EC /* CoindDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoindDetailViewModel.swift; sourceTree = "<group>"; };
+		B4BC4E9627CE00F600DE19EC /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		B4BC4E9827CE012400DE19EC /* ChartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartView.xib; sourceTree = "<group>"; };
 		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +142,42 @@
 				B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B4BC4E8C27CDF65D00DE19EC /* ChartsByCoin */ = {
+			isa = PBXGroup;
+			children = (
+				B4BC4E9527CDFE2C00DE19EC /* Charts */,
+				B4BC4E9227CDF7A100DE19EC /* ViewModel */,
+				B4BC4E9127CDF79400DE19EC /* View */,
+			);
+			path = ChartsByCoin;
+			sourceTree = "<group>";
+		};
+		B4BC4E9127CDF79400DE19EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */,
+				B4BC4E8E27CDF70900DE19EC /* CoinDetailViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B4BC4E9227CDF7A100DE19EC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4BC4E9327CDF7B400DE19EC /* CoindDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B4BC4E9527CDFE2C00DE19EC /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				B4BC4E9627CE00F600DE19EC /* ChartView.swift */,
+				B4BC4E9827CE012400DE19EC /* ChartView.xib */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 		B4E57FE127CA07F4007C3BF3 /* TabBar */ = {
@@ -228,6 +274,7 @@
 				B4F5AF8327C8D7A000EB60A1 /* Extensions */,
 				B4F5AF8227C8D79800EB60A1 /* Common */,
 				B4F5AF7C27C8D3D700EB60A1 /* Exchange */,
+				B4BC4E8C27CDF65D00DE19EC /* ChartsByCoin */,
 				B4F5AF8527C8D82400EB60A1 /* Supporting Files */,
 			);
 			path = CryptocurrencyExchange;
@@ -434,8 +481,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4BC4E9027CDF70900DE19EC /* CoinDetailViewController.xib in Resources */,
 				FF19E1F827C628E100DBD52D /* LaunchScreen.storyboard in Resources */,
 				FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */,
+				B4BC4E9927CE012400DE19EC /* ChartView.xib in Resources */,
 				B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,10 +511,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF19E28D27C8DB3600DBD52D /* AssetsAPIManager.swift in Sources */,
-				FF19E1F027C628DD00DBD52D /* ViewController.swift in Sources */,
+				B4BC4E9727CE00F600DE19EC /* ChartView.swift in Sources */,
 				FF19E29327C9F74100DBD52D /* DemoSocketViewController.swift in Sources */,
 				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
+				B4BC4E8F27CDF70900DE19EC /* CoinDetailViewController.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
 				FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */,
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
@@ -475,6 +525,7 @@
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
 				FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */,
 				FF19E29F27CA00B900DBD52D /* WebSocketOrderbookEntity.swift in Sources */,
+				B4BC4E9427CDF7B400DE19EC /* CoindDetailViewModel.swift in Sources */,
 				FF19E28527C74FA600DBD52D /* APIError.swift in Sources */,
 				FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,

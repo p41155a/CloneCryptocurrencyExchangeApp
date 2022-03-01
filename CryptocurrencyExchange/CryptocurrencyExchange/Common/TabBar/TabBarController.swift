@@ -27,6 +27,22 @@ class TabBarController: UITabBarController {
         )
     }()
     
+    var coindDetailViewController: ViewControllerInNavigation = {
+        let coinDetailViewController = CoinDetailViewController(
+            viewModel: CoindDetailViewModel(
+                nibName: "CoinDetailViewController"
+            )
+        )
+        
+        return ViewControllerInNavigation(
+            with: TabInformation(
+                viewController: coinDetailViewController,
+                tabTitle: "코인",
+                image: UIImage.checkmark // 임시 이미지 입니다
+            )
+        )
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +50,10 @@ class TabBarController: UITabBarController {
     }
     
     private func configureViewControllers() {
-        let viewControllersInNavigation = [exchangeViewController].map {
+        let viewControllersInNavigation = [
+            coindDetailViewController,
+            exchangeViewController
+        ].map {
             $0.navigationControllerIncludingViewController()
         }
         setViewControllers(viewControllersInNavigation, animated: false)
