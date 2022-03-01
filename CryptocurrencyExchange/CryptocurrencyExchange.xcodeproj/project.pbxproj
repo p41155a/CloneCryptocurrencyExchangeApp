@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */; };
+		B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */; };
+		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
+		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
+		B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */; };
+		B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F5AF7E27C8D3EB00EB60A1 /* ExchangeViewController.xib */; };
+		B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */; };
 		FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */; };
 		FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */; };
-		FF19E1F027C628DD00DBD52D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1EF27C628DD00DBD52D /* ViewController.swift */; };
-		FF19E1F327C628DD00DBD52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1F127C628DD00DBD52D /* Main.storyboard */; };
 		FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1F427C628E100DBD52D /* Assets.xcassets */; };
 		FF19E1F827C628E100DBD52D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1F627C628E100DBD52D /* LaunchScreen.storyboard */; };
 		FF19E20327C628E100DBD52D /* CryptocurrencyExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E20227C628E100DBD52D /* CryptocurrencyExchangeTests.swift */; };
@@ -40,11 +45,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInNavigation.swift; sourceTree = "<group>"; };
+		B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
+		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
+		B4F5AF7E27C8D3EB00EB60A1 /* ExchangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExchangeViewController.xib; sourceTree = "<group>"; };
+		B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInjectingViewModel.swift; sourceTree = "<group>"; };
 		FF19E1E827C628DD00DBD52D /* CryptocurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptocurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FF19E1EF27C628DD00DBD52D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FF19E1F227C628DD00DBD52D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF19E1F427C628E100DBD52D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF19E1F727C628E100DBD52D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF19E1F927C628E100DBD52D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +94,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B498EF4727C8DC5500C8F5FC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B4E57FE127CA07F4007C3BF3 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */,
+				B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		B4F5AF7C27C8D3D700EB60A1 /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				B498EF4727C8DC5500C8F5FC /* ViewModel */,
+				B4F5AF8127C8D3EF00EB60A1 /* View */,
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
+		B4F5AF8127C8D3EF00EB60A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4F5AF7E27C8D3EB00EB60A1 /* ExchangeViewController.xib */,
+				B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B4F5AF8227C8D79800EB60A1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B4E57FE127CA07F4007C3BF3 /* TabBar */,
+				B4F5AF8427C8D7A800EB60A1 /* ViewController */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B4F5AF8327C8D7A000EB60A1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B4F5AF8427C8D7A800EB60A1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B4F5AF8527C8D82400EB60A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF19E1F427C628E100DBD52D /* Assets.xcassets */,
+				FF19E1F627C628E100DBD52D /* LaunchScreen.storyboard */,
+				FF19E1F927C628E100DBD52D /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		FF19E1DF27C628DD00DBD52D = {
 			isa = PBXGroup;
 			children = (
@@ -109,11 +189,10 @@
 			children = (
 				FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */,
 				FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */,
-				FF19E1EF27C628DD00DBD52D /* ViewController.swift */,
-				FF19E1F127C628DD00DBD52D /* Main.storyboard */,
-				FF19E1F427C628E100DBD52D /* Assets.xcassets */,
-				FF19E1F627C628E100DBD52D /* LaunchScreen.storyboard */,
-				FF19E1F927C628E100DBD52D /* Info.plist */,
+				B4F5AF8327C8D7A000EB60A1 /* Extensions */,
+				B4F5AF8227C8D79800EB60A1 /* Common */,
+				B4F5AF7C27C8D3D700EB60A1 /* Exchange */,
+				B4F5AF8527C8D82400EB60A1 /* Supporting Files */,
 			);
 			path = CryptocurrencyExchange;
 			sourceTree = "<group>";
@@ -253,7 +332,7 @@
 			files = (
 				FF19E1F827C628E100DBD52D /* LaunchScreen.storyboard in Resources */,
 				FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */,
-				FF19E1F327C628DD00DBD52D /* Main.storyboard in Resources */,
+				B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,9 +357,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF19E1F027C628DD00DBD52D /* ViewController.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
+				B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */,
+				B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */,
+				B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */,
+				B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */,
+				B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */,
+				B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,14 +401,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FF19E1F127C628DD00DBD52D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FF19E1F227C628DD00DBD52D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FF19E1F627C628E100DBD52D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -461,10 +537,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AZX9TD66UC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CryptocurrencyExchange/Info.plist;
+				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -490,10 +566,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AZX9TD66UC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CryptocurrencyExchange/Info.plist;
+				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
