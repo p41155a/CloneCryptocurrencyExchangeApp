@@ -220,11 +220,9 @@
 		FF19E1EA27C628DD00DBD52D /* CryptocurrencyExchange */ = {
 			isa = PBXGroup;
 			children = (
-				FF19E29627C9FAB600DBD52D /* Enum */,
-				FF19E2A727CA732400DBD52D /* WebSocket */,
-				FF19E27F27C7271000DBD52D /* Network */,
 				FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */,
 				FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */,
+				FF8CDF6B27CDF49B00957015 /* ServerCommunication */,
 				B4F5AF8327C8D7A000EB60A1 /* Extensions */,
 				B4F5AF8227C8D79800EB60A1 /* Common */,
 				B4F5AF7C27C8D3D700EB60A1 /* Exchange */,
@@ -280,14 +278,14 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
-		FF19E29627C9FAB600DBD52D /* Enum */ = {
+		FF19E29627C9FAB600DBD52D /* ParameterType */ = {
 			isa = PBXGroup;
 			children = (
 				FF19E28927C75F2000DBD52D /* ParamOptionDataType.swift */,
 				FF19E29727C9FB6D00DBD52D /* WebSoketType.swift */,
 				FF19E2A827CA73C300DBD52D /* WebSocketTickType.swift */,
 			);
-			path = Enum;
+			path = ParameterType;
 			sourceTree = "<group>";
 		};
 		FF19E29B27C9FF8500DBD52D /* WebSocketEntity */ = {
@@ -316,6 +314,16 @@
 				FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		FF8CDF6B27CDF49B00957015 /* ServerCommunication */ = {
+			isa = PBXGroup;
+			children = (
+				FF19E29627C9FAB600DBD52D /* ParameterType */,
+				FF19E2A727CA732400DBD52D /* WebSocket */,
+				FF19E27F27C7271000DBD52D /* Network */,
+			);
+			path = ServerCommunication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,7 +470,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF19E28D27C8DB3600DBD52D /* AssetsAPIManager.swift in Sources */,
-				FF19E1F027C628DD00DBD52D /* ViewController.swift in Sources */,
 				FF19E29327C9F74100DBD52D /* DemoSocketViewController.swift in Sources */,
 				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
