@@ -73,9 +73,6 @@
 		FFE7198427CE8539008DF7B9 /* TickerAPIMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198327CE8539008DF7B9 /* TickerAPIMananger.swift */; };
 		FFE7198627CE8546008DF7B9 /* TickerAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198527CE8546008DF7B9 /* TickerAPIService.swift */; };
 		FFE7198927CE88A0008DF7B9 /* CryptocurrencyListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198827CE88A0008DF7B9 /* CryptocurrencyListEntity.swift */; };
-		FFE7199027CF56AD008DF7B9 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198F27CF56AD008DF7B9 /* AnyCodable.swift */; };
-		FFE7199227CF56D5008DF7B9 /* AnyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7199127CF56D5008DF7B9 /* AnyDecodable.swift */; };
-		FFE7199427CF56DF008DF7B9 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7199327CF56DF008DF7B9 /* AnyEncodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,9 +158,6 @@
 		FFE7198327CE8539008DF7B9 /* TickerAPIMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAPIMananger.swift; sourceTree = "<group>"; };
 		FFE7198527CE8546008DF7B9 /* TickerAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAPIService.swift; sourceTree = "<group>"; };
 		FFE7198827CE88A0008DF7B9 /* CryptocurrencyListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyListEntity.swift; sourceTree = "<group>"; };
-		FFE7198F27CF56AD008DF7B9 /* AnyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
-		FFE7199127CF56D5008DF7B9 /* AnyDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDecodable.swift; sourceTree = "<group>"; };
-		FFE7199327CF56DF008DF7B9 /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -455,7 +449,6 @@
 		FF19E27F27C7271000DBD52D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				FFE7199527CF5C42008DF7B9 /* AnyObject */,
 				FFE7198227CE851F008DF7B9 /* Ticker */,
 				FF19E2AA27CA749300DBD52D /* Assets */,
 				FF19E28627C753B300DBD52D /* Entity */,
@@ -610,16 +603,6 @@
 				FFE7198827CE88A0008DF7B9 /* CryptocurrencyListEntity.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		FFE7199527CF5C42008DF7B9 /* AnyObject */ = {
-			isa = PBXGroup;
-			children = (
-				FFE7198F27CF56AD008DF7B9 /* AnyCodable.swift */,
-				FFE7199127CF56D5008DF7B9 /* AnyDecodable.swift */,
-				FFE7199327CF56DF008DF7B9 /* AnyEncodable.swift */,
-			);
-			path = AnyObject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -780,7 +763,6 @@
 				FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */,
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
 				B4BC4E8F27CDF70900DE19EC /* CoinDetailViewController.swift in Sources */,
-				FFE7199027CF56AD008DF7B9 /* AnyCodable.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
 				FFE7198427CE8539008DF7B9 /* TickerAPIMananger.swift in Sources */,
 				FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */,
@@ -792,7 +774,6 @@
 				9B778C6327CF128A0009D343 /* ChartViewModel.swift in Sources */,
 				FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */,
 				FFE7196C27CE035D008DF7B9 /* CryptocurrencyListViewModel.swift in Sources */,
-				FFE7199227CF56D5008DF7B9 /* AnyDecodable.swift in Sources */,
 				9B778C7227CF4D9C0009D343 /* CandleStickRepository.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
 				FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */,
@@ -820,7 +801,6 @@
 				B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */,
 				B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */,
 				FFE7198627CE8546008DF7B9 /* TickerAPIService.swift in Sources */,
-				FFE7199427CF56DF008DF7B9 /* AnyEncodable.swift in Sources */,
 				B4BC4E9E27CE66EE00DE19EC /* CandleStickAPIManager.swift in Sources */,
 				B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */,
 			);

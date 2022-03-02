@@ -10,13 +10,45 @@ import Foundation
 /// AssetsStatus
 struct TickerEntity: Codable {
     let status: String
-    let currentInfo: [String: AnyCodable]
+    let currentInfo: CurrentInfo
 }
 
 extension TickerEntity {
     enum CodingKeys: String, CodingKey {
         case status = "status"
         case currentInfo = "data"
+    }
+}
+
+struct CurrentInfo: Codable {
+    var current: [TickerInfo]
+    
+    private struct DynamicCodingKeys: CodingKey {
+        var stringValue: String
+        init?(stringValue: String) {
+            self.stringValue = stringValue
+        }
+
+        var intValue: Int?
+        init?(intValue: Int) {
+            return nil
+        }
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: DynamicCodingKeys.self)
+
+        var tempArray = [TickerInfo]()
+
+        for key in container.allKeys {
+            do {
+                let decodedObject = try container.decode(TickerInfo.self, forKey: DynamicCodingKeys(stringValue: key.stringValue)!)
+                tempArray.append(decodedObject)
+            } catch {
+                
+            }
+        }
+        current = tempArray
     }
 }
 
@@ -34,6 +66,7 @@ struct TickerInfo: Codable {
     let fluctate24H: String?
     let fluctateRate24H: String?
     let date: String?
+    let currentName: String?
 }
 
 extension TickerInfo {
@@ -50,5 +83,25 @@ extension TickerInfo {
         case fluctate24H = "fluctate_24H"
         case fluctateRate24H = "fluctate_rate_24H"
         case date = "date"
+    }
+    
+    init(from decoder: Decoder) throws {
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        openingPrice = try? container.decode(String.self, forKey: CodingKeys.openingPrice)
+        closingPrice = try? container.decode(String.self, forKey: CodingKeys.closingPrice)
+        minPrice = try? container.decode(String.self, forKey: CodingKeys.minPrice)
+        maxPrice = try? container.decode(String.self, forKey: CodingKeys.maxPrice)
+        unitsTraded = try? container.decode(String.self, forKey: CodingKeys.unitsTraded)
+        accTradeValue = try? container.decode(String.self, forKey: CodingKeys.accTradeValue)
+        prevClosingPrice = try? container.decode(String.self, forKey: CodingKeys.prevClosingPrice)
+        unitsTraded24H = try? container.decode(String.self, forKey: CodingKeys.unitsTraded24H)
+        accTradeValue24H = try? container.decode(String.self, forKey: CodingKeys.accTradeValue24H)
+        fluctate24H = try? container.decode(String.self, forKey: CodingKeys.fluctate24H)
+        fluctateRate24H = try? container.decode(String.self, forKey: CodingKeys.fluctateRate24H)
+        date = try? container.decode(String.self, forKey: CodingKeys.date)
+
+        currentName = container.codingPath[1].stringValue
     }
 }
