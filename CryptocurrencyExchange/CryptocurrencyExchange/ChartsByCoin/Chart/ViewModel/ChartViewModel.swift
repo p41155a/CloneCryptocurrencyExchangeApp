@@ -15,6 +15,7 @@ class ChartViewModel {
         self.dataEntries = dataEntries
     }
     
+    /// 서버데이터를 차트를 그리는데 필요한 데이터 형태로 업데이트
     func setChartData(from stickValues: [[StickValue]]) {
         self.dataEntries.value = stickValues.enumerated().map { (index, value) -> CandleChartDataEntry in
             let high = value[3].value
@@ -33,6 +34,7 @@ class ChartViewModel {
         }
     }
     
+    /// 차트를 보여줄 때 원하는 갯수만큼 보이도록 zoomFactor 계산
     func zoomFactors(totalCount: Int) -> ChartZoomFactor {
         let visibleNumOfSticks = 30
         let scaleX: CGFloat = CGFloat(totalCount/visibleNumOfSticks)

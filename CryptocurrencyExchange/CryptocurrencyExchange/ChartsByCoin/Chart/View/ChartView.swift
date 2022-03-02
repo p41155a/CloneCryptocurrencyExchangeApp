@@ -31,7 +31,9 @@ class ChartView: UIView {
         superView.layoutIfNeeded()
         
         self.setChartUI()
-        self.drawCandleSticks()
+        self.getCandleStickData { stickValues in
+            self.viewModel.setChartData(from: stickValues)
+        }
         self.bindClosures()
     }
     
@@ -53,7 +55,7 @@ class ChartView: UIView {
         
     }
     
-    private func drawCandleSticks() {
+    private func getCandleStickData(completion: @escaping ([[StickValue]]) -> Void) {
         CandleStickAPIManager().candleStick(
             parameters: CandleStickParameters(
                 orderCurrency: .appoint(name: "BTC"),
@@ -62,8 +64,9 @@ class ChartView: UIView {
             )) { result in
                 switch result {
                 case .success(let data):
-                    self.viewModel.setChartData(from: data.data)
-                default: break
+                    completion(data.data)
+                default:
+                    completion([[]])
                 }
             }
     }
@@ -76,13 +79,17 @@ class ChartView: UIView {
             guard let entryArr = entries else { return }
             let dataSet = BithumbCandleChartDataSet(entryArr)
             self.setChart(dataSet: dataSet)
+            self.setChartZoom(totalCount: entryArr.count)
         }
     }
     
     private func setChart(dataSet: CandleChartDataSet) {
         let data = CandleChartData(dataSet: dataSet)
         chartView.data = data
-        let zoomFactor = self.viewModel.zoomFactors(totalCount: data.entryCount)
+    }
+    
+    private func setChartZoom(totalCount: Int) {
+        let zoomFactor = self.viewModel.zoomFactors(totalCount: totalCount)
         chartView.zoom(
             scaleX: zoomFactor.scaleX,
             scaleY: zoomFactor.scaleY,
@@ -90,6 +97,5 @@ class ChartView: UIView {
             yValue: zoomFactor.yValue,
             axis: .right
         )
-        
     }
 }
