@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD15D427CDE68700C5CBAC /* UIColor.swift */; };
+		9B778C6327CF128A0009D343 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6227CF128A0009D343 /* ChartViewModel.swift */; };
+		9B778C6527CF14350009D343 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6427CF14350009D343 /* Observable.swift */; };
+		9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */; };
+		9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6B27CF33170009D343 /* ChartZoomFactor.swift */; };
 		B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */; };
 		B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */; };
 		B4BC4E8F27CDF70900DE19EC /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */; };
@@ -72,6 +76,10 @@
 
 /* Begin PBXFileReference section */
 		90BD15D427CDE68700C5CBAC /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9B778C6227CF128A0009D343 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		9B778C6427CF14350009D343 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbCandleStickDataSet.swift; sourceTree = "<group>"; };
+		9B778C6B27CF33170009D343 /* ChartZoomFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartZoomFactor.swift; sourceTree = "<group>"; };
 		B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInNavigation.swift; sourceTree = "<group>"; };
 		B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
 		B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +154,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B778C5E27CF0E1D0009D343 /* ChartsByCoin */ = {
+			isa = PBXGroup;
+			children = (
+				9B778C5F27CF0E3B0009D343 /* Chart */,
+			);
+			path = ChartsByCoin;
+			sourceTree = "<group>";
+		};
+		9B778C5F27CF0E3B0009D343 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		9B778C6027CF124B0009D343 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4BC4E9627CE00F600DE19EC /* ChartView.swift */,
+				B4BC4E9827CE012400DE19EC /* ChartView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9B778C6127CF125B0009D343 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9B778C6227CF128A0009D343 /* ChartViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9B778C6827CF31B00009D343 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */,
+				9B778C6B27CF33170009D343 /* ChartZoomFactor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B498EF4727C8DC5500C8F5FC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				B4BC4E9C27CE647D00DE19EC /* CandleStick */,
-				B4BC4E9527CDFE2C00DE19EC /* Charts */,
+				B4BC4E9527CDFE2C00DE19EC /* Chart */,
 				B4BC4E9227CDF7A100DE19EC /* ViewModel */,
 				B4BC4E9127CDF79400DE19EC /* View */,
 			);
@@ -182,13 +231,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		B4BC4E9527CDFE2C00DE19EC /* Charts */ = {
+		B4BC4E9527CDFE2C00DE19EC /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				B4BC4E9627CE00F600DE19EC /* ChartView.swift */,
-				B4BC4E9827CE012400DE19EC /* ChartView.xib */,
+				9B778C6827CF31B00009D343 /* Model */,
+				9B778C6127CF125B0009D343 /* ViewModel */,
+				9B778C6027CF124B0009D343 /* View */,
 			);
-			path = Charts;
+			path = Chart;
 			sourceTree = "<group>";
 		};
 		B4BC4E9C27CE647D00DE19EC /* CandleStick */ = {
@@ -243,6 +293,7 @@
 			children = (
 				B4E57FE127CA07F4007C3BF3 /* TabBar */,
 				B4F5AF8427C8D7A800EB60A1 /* ViewController */,
+				9B778C6427CF14350009D343 /* Observable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -314,6 +365,7 @@
 		FF19E20127C628E100DBD52D /* CryptocurrencyExchangeTests */ = {
 			isa = PBXGroup;
 			children = (
+				9B778C5E27CF0E1D0009D343 /* ChartsByCoin */,
 				FF19E20227C628E100DBD52D /* CryptocurrencyExchangeTests.swift */,
 				FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */,
 			);
@@ -554,6 +606,7 @@
 				B4BC4EA027CE66FF00DE19EC /* CandleStickAPIService.swift in Sources */,
 				B4BC4EA227CE680C00DE19EC /* CandleStickIntervals.swift in Sources */,
 				FF19E28327C72AF200DBD52D /* APIProvider.swift in Sources */,
+				9B778C6327CF128A0009D343 /* ChartViewModel.swift in Sources */,
 				FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
 				FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */,
@@ -562,7 +615,10 @@
 				FF19E28527C74FA600DBD52D /* APIError.swift in Sources */,
 				FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
+				9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */,
+				9B778C6527CF14350009D343 /* Observable.swift in Sources */,
 				B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */,
+				9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */,
 				B4BC4EA427CE6AEE00DE19EC /* CandleStickParameters.swift in Sources */,
 				B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */,
 				B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */,
