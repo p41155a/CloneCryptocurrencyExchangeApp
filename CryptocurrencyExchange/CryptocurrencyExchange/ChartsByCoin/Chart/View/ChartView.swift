@@ -31,9 +31,7 @@ class ChartView: UIView {
         superView.layoutIfNeeded()
         
         self.setChartUI()
-        self.getCandleStickData { stickValues in
-            self.viewModel.setChartData(from: stickValues)
-        }
+        self.viewModel.getCandleStickData()
         self.bindClosures()
     }
     
@@ -54,25 +52,7 @@ class ChartView: UIView {
         yAxisRight.enabled = true
         
     }
-    
-    private func getCandleStickData(completion: @escaping ([[StickValue]]) -> Void) {
-        CandleStickAPIManager().candleStick(
-            parameters: CandleStickParameters(
-                orderCurrency: .appoint(name: "BTC"),
-                paymentCurrency: .KRW,
-                chartInterval: .oneMinute
-            )) { result in
-                switch result {
-                case .success(let data):
-                    completion(data.data)
-                default:
-                    completion([[]])
-                }
-            }
-    }
-
-
-    
+     
     private func bindClosures() {
         self.viewModel.dataEntries.bind { [weak self] entries in
             guard let `self` = self else { return }

@@ -7,10 +7,17 @@
 
 import Foundation
 
-class CandleStickAPIManager: APIProvider {
+protocol CandleStickRepository: APIProvider {
     func candleStick(
         parameters: CandleStickParameters,
-        completion: @escaping (Result<CandleStickEntity, APIError>) -> ()
+        completion: @escaping (Result<CandleStickEntity, APIError>?) -> ()
+    )
+}
+
+class CandleStickAPIManager: CandleStickRepository {
+    func candleStick(
+        parameters: CandleStickParameters,
+        completion: @escaping (Result<CandleStickEntity, APIError>?) -> ()
     ) {
         guard let requestURL = CandleStickAPIService
                 .candleStick(candleStickParameters: parameters)

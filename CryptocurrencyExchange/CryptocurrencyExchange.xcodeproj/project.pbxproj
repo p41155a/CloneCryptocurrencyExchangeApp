@@ -13,6 +13,8 @@
 		9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */; };
 		9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6B27CF33170009D343 /* ChartZoomFactor.swift */; };
 		9B778C6F27CF3D1D0009D343 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6E27CF3D1D0009D343 /* ChartViewModel.swift */; };
+		9B778C7227CF4D9C0009D343 /* CandleStickRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */; };
+		9B778C7627CF4EB40009D343 /* MockCandleStickRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C7527CF4EB40009D343 /* MockCandleStickRepository.swift */; };
 		B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */; };
 		B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */; };
 		B4BC4E8F27CDF70900DE19EC /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */; };
@@ -82,6 +84,8 @@
 		9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbCandleStickDataSet.swift; sourceTree = "<group>"; };
 		9B778C6B27CF33170009D343 /* ChartZoomFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartZoomFactor.swift; sourceTree = "<group>"; };
 		9B778C6E27CF3D1D0009D343 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickRepository.swift; sourceTree = "<group>"; };
+		9B778C7527CF4EB40009D343 /* MockCandleStickRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCandleStickRepository.swift; sourceTree = "<group>"; };
 		B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInNavigation.swift; sourceTree = "<group>"; };
 		B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
 		B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				9B778C6227CF128A0009D343 /* ChartViewModel.swift */,
+				9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -204,6 +209,22 @@
 				9B778C6E27CF3D1D0009D343 /* ChartViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9B778C7327CF4E6F0009D343 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9B778C7427CF4E960009D343 /* CandleStick */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		9B778C7427CF4E960009D343 /* CandleStick */ = {
+			isa = PBXGroup;
+			children = (
+				9B778C7527CF4EB40009D343 /* MockCandleStickRepository.swift */,
+			);
+			path = CandleStick;
 			sourceTree = "<group>";
 		};
 		B498EF4727C8DC5500C8F5FC /* ViewModel */ = {
@@ -376,6 +397,7 @@
 		FF19E20127C628E100DBD52D /* CryptocurrencyExchangeTests */ = {
 			isa = PBXGroup;
 			children = (
+				9B778C7327CF4E6F0009D343 /* Mocks */,
 				9B778C5E27CF0E1D0009D343 /* ChartsByCoin */,
 				FF19E20227C628E100DBD52D /* CryptocurrencyExchangeTests.swift */,
 				FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */,
@@ -619,6 +641,7 @@
 				FF19E28327C72AF200DBD52D /* APIProvider.swift in Sources */,
 				9B778C6327CF128A0009D343 /* ChartViewModel.swift in Sources */,
 				FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */,
+				9B778C7227CF4D9C0009D343 /* CandleStickRepository.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
 				FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */,
 				FF19E29F27CA00B900DBD52D /* WebSocketOrderbookEntity.swift in Sources */,
@@ -647,6 +670,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B778C6F27CF3D1D0009D343 /* ChartViewModel.swift in Sources */,
+				9B778C7627CF4EB40009D343 /* MockCandleStickRepository.swift in Sources */,
 				FF19E20327C628E100DBD52D /* CryptocurrencyExchangeTests.swift in Sources */,
 				FF19E2A627CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift in Sources */,
 			);

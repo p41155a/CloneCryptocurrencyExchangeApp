@@ -36,6 +36,7 @@ class ChartViewModelTests: XCTestCase {
             lowPrice,
             1.78628663
         ].map({ StickValue(value: $0) })
+        #warning("setChartData 메서드가 private func이 됨에 따라 접근할 수 없는 문제 발생")
         viewModel.setChartData(from: [stickValue])
         
         // then
