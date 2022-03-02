@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CarPlay
 
 /// AppointedAssetsStatus
 struct AppointedTickerEntity: Codable {
@@ -24,7 +23,7 @@ extension AppointedTickerEntity {
 /// AssetsStatus
 struct TickerEntity: Codable {
     let status: String
-    let currentInfo: [String: TickerInfo]
+    let currentInfo: [String: AnyCodable]
 }
 
 extension TickerEntity {
