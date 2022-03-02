@@ -12,23 +12,8 @@ class ChartView: UIView {
 
     @IBOutlet weak var chartView: CandleStickChartView!
     
-    var dataEntries: [CandleChartDataEntry] = []
-    
-    lazy var dataSet: CandleChartDataSet = {
-        let dataSet = CandleChartDataSet(entries: dataEntries)
-        dataSet.axisDependency = .right
-        dataSet.drawIconsEnabled = false
-        dataSet.shadowColor = .darkGray
-        dataSet.shadowWidth = 0.7
-        dataSet.decreasingColor = UIColor.decreasingColor
-        dataSet.decreasingFilled = true
-        dataSet.increasingColor = UIColor.increasingColor
-        dataSet.increasingFilled = true
-        dataSet.drawValuesEnabled = false
-        dataSet.highlightColor = .lightGray
-        return dataSet
-    }()
-    
+    var viewModel = ChartViewModel()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -47,6 +32,7 @@ class ChartView: UIView {
         
         self.setChartUI()
         self.drawCandleSticks()
+        self.bindClosures()
     }
     
     private func setChartUI() {
@@ -76,36 +62,34 @@ class ChartView: UIView {
             )) { result in
                 switch result {
                 case .success(let data):
-                    self.dataEntries = self.chartData(from: data.data)
-                    self.setChart(dataSet: self.dataSet)
-                    
+                    self.viewModel.setChartData(from: data.data)
                 default: break
                 }
             }
     }
+
+
     
-    private func chartData(from stickValues: [[StickValue]]) -> [CandleChartDataEntry] {
-        return stickValues.enumerated().map { (index, value) -> CandleChartDataEntry in
-            let high = value[3].value
-            let low = value[4].value
-            let open = value[1].value
-            let close = value[2].value
-            
-            return CandleChartDataEntry(
-                x: Double(index),
-                shadowH: high,
-                shadowL: low,
-                open: open,
-                close: close,
-                icon: nil
-            )
+    private func bindClosures() {
+        self.viewModel.dataEntries.bind { [weak self] entries in
+            guard let `self` = self else { return }
+            guard let entryArr = entries else { return }
+            let dataSet = BithumbCandleChartDataSet(entryArr)
+            self.setChart(dataSet: dataSet)
         }
     }
     
     private func setChart(dataSet: CandleChartDataSet) {
         let data = CandleChartData(dataSet: dataSet)
         chartView.data = data
+        let zoomFactor = self.viewModel.zoomFactors(totalCount: data.entryCount)
+        chartView.zoom(
+            scaleX: zoomFactor.scaleX,
+            scaleY: zoomFactor.scaleY,
+            xValue: zoomFactor.xValue,
+            yValue: zoomFactor.yValue,
+            axis: .right
+        )
+        
     }
-    
-    
 }
