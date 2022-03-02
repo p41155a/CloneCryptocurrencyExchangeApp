@@ -9,33 +9,14 @@ import UIKit
 import Charts
 
 class ChartViewModel {
-    var dataEntries: Observable<[CandleChartDataEntry]?>
-    var repository: ProductionCandleStickRepository
+    var dataEntries: Observable<CandleChartDataEntries?>
+    var repository: CandleStickChartRepository
 
-    init(dataEntries: Observable<[CandleChartDataEntry]?> = Observable(nil),
-         repository: ProductionCandleStickRepository = ProductionCandleStickRepository()
+    init(dataEntries: Observable<CandleChartDataEntries?> = Observable(nil),
+         repository: CandleStickChartRepository
     ) {
         self.dataEntries = dataEntries
         self.repository = repository
-    }
-    
-    /// 서버데이터를 차트를 그리는데 필요한 데이터 형태로 업데이트
-    private func setChartData(from stickValues: [[StickValue]]) {
-        self.dataEntries.value = stickValues.enumerated().map { (index, value) -> CandleChartDataEntry in
-            let high = value[3].value
-            let low = value[4].value
-            let open = value[1].value
-            let close = value[2].value
-            
-            return CandleChartDataEntry(
-                x: Double(index),
-                shadowH: high,
-                shadowL: low,
-                open: open,
-                close: close,
-                icon: nil
-            )
-        }
     }
     
     /// 차트를 보여줄 때 원하는 갯수만큼 보이도록 zoomFactor 계산
@@ -51,14 +32,11 @@ class ChartViewModel {
     }
     
     /// 레파지토리에 candleStick API 호출하도록 요청
-    func getCandleStickData() {
+    func getCandleStickData(parameter: CandleStickParameters) {
         self.repository.getCandleStickData(
-            parameter: CandleStickParameters(
-                orderCurrency: .appoint(name: "BTC"),
-                paymentCurrency: .KRW,
-                chartInterval: .oneMinute
-            )) { stickValues in
-                self.setChartData(from: stickValues)
+            parameter: parameter
+        ) { stickValues in
+                self.dataEntries.value = try? CandleChartDataEntries(with: stickValues)
             }
     }
 }
