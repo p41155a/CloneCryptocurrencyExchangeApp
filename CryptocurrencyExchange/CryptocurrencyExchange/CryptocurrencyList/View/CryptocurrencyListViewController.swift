@@ -11,15 +11,26 @@ import Starscream
 
 final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<CryptocurrencyListViewModel> {
     private var socket: WebSocket?
+    private var currencyList: [String] = []
+    private var currencyListKRW: [String] = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-//        apiManager.fetchAssetsStatus { data in
-//            print(data)
-//        }
-//        connect()
+        apiManager.fetchAssetsStatus { [weak self] data in
+            switch data {
+            case .success(let data):
+                let accountStatus: [String: EachAccountStatus] = data.accountStatus.filter { status in
+                    return status.value.depositStatus == 1 && status.value.withdrawalStatus == 1
+                }
+                self?.currencyList = accountStatus.keys.sorted()
+                self?.currencyListKRW = self?.currencyList.map { "\($0)_\(PaymentCurrency.KRW.value)"} ?? []
+            case .failure(let error):
+                print(error)
+            }
+        }
+        connect()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +39,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     }
     
     deinit {
-//        disconnect()
+        disconnect()
     }
     
     // MARK: - func<UI>
@@ -96,7 +107,7 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
         switch event {
         case .connected(let headers):
             let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
-                                         "symbols":["BTC_\(PaymentCurrency.KRW.rawValue)"],
+                                         "symbols": self.currencyListKRW,
                                          "tickTypes": [WebSocketTickType.tickMID.rawValue]]
             
             let jParams = try! JSONSerialization.data(withJSONObject: params, options: [])
