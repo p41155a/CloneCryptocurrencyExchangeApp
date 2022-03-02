@@ -122,24 +122,27 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBd-Oe-MOq">
-                                <rect key="frame" x="380" y="0.0" width="4" height="56"/>
+                                <rect key="frame" x="380" y="0.0" width="32" height="56"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnQ-qY-Rku">
+                                        <rect key="frame" x="4" y="14" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="LMi-ny-VvR"/>
+                                            <constraint firstAttribute="width" secondItem="hnQ-qY-Rku" secondAttribute="height" multiplier="1:1" id="M2C-LC-YYt"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="starClickedIcon"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="4" id="ndh-sf-ufw"/>
+                                    <constraint firstItem="hnQ-qY-Rku" firstAttribute="centerY" secondItem="VBd-Oe-MOq" secondAttribute="centerY" id="2ce-4V-dkx"/>
+                                    <constraint firstItem="hnQ-qY-Rku" firstAttribute="leading" secondItem="VBd-Oe-MOq" secondAttribute="leading" constant="4" id="ZCw-Xj-yki"/>
+                                    <constraint firstAttribute="trailing" secondItem="hnQ-qY-Rku" secondAttribute="trailing" id="xqt-ld-b9s"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnQ-qY-Rku">
-                                <rect key="frame" x="384" y="14" width="28" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="28" id="LMi-ny-VvR"/>
-                                    <constraint firstAttribute="width" secondItem="hnQ-qY-Rku" secondAttribute="height" multiplier="1:1" id="M2C-LC-YYt"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="starClickedIcon"/>
-                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="hnQ-qY-Rku" firstAttribute="centerY" secondItem="twY-tc-duK" secondAttribute="centerY" id="aUw-5H-H8m"/>
                             <constraint firstAttribute="height" constant="56" id="bFv-Je-STB"/>
                         </constraints>
                     </stackView>

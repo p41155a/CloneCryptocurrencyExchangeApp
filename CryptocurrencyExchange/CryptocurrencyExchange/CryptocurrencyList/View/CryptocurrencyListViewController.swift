@@ -16,12 +16,9 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        apiManager.fetchTickerStatus(cryptocurrencyName: "BTC", paymentCurrency: .KRW) { data in
-            print(data)
-        }
-        apiManager.fetchTickerStatus(paymentCurrency: .KRW) { data in
-            print(data)
-        }
+//        apiManager.fetchAssetsStatus { data in
+//            print(data)
+//        }
 //        connect()
     }
     
@@ -87,7 +84,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     // MARK: - Property
     private var tabButtonList: [TabButton] = []
-    private var apiManager = TickerAPIManager()
+    private var apiManager = AssetsAPIManager()
     @IBOutlet weak var krwTabButton: TabButton!
     @IBOutlet weak var btcTabButton: TabButton!
     @IBOutlet weak var interestTabButton: TabButton!
