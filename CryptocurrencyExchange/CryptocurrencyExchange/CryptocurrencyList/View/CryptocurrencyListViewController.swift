@@ -10,17 +10,12 @@ import SnapKit
 import Starscream
 
 final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<CryptocurrencyListViewModel> {
-    private var socket: WebSocket?
-    private var currencyList: [String] = []
-    private var currencyListKRW: [String] = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        apiManager.fetchTickerStatus(paymentCurrency: .KRW) { data in
-            print(data)
-        }
+        viewModel.setInitialData()
 //        connect()
     }
     
@@ -85,8 +80,8 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     }
     
     // MARK: - Property
+    private var socket: WebSocket?
     private var tabButtonList: [TabButton] = []
-    private var apiManager = TickerAPIManager()
     @IBOutlet weak var krwTabButton: TabButton!
     @IBOutlet weak var btcTabButton: TabButton!
     @IBOutlet weak var interestTabButton: TabButton!
@@ -98,7 +93,7 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
         switch event {
         case .connected(let headers):
             let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
-                                         "symbols": self.currencyListKRW,
+                                         "symbols": self.viewModel.currencyListKRW,
                                          "tickTypes": [WebSocketTickType.tickMID.rawValue]]
             
             let jParams = try! JSONSerialization.data(withJSONObject: params, options: [])

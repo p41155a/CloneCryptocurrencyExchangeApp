@@ -9,7 +9,7 @@ import Foundation
 
 struct CandleStickParameters {
     let orderCurrency: OrderCurrency
-    let paymentCurrency: paymentCurrency
+    let paymentCurrency: PaymentCurrency
     let chartInterval: CandleStickIntervals
     
     func path() -> String {

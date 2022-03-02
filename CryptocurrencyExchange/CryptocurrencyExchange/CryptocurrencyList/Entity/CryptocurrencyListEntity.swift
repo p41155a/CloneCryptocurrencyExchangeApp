@@ -7,19 +7,6 @@
 
 import Foundation
 
-/// AppointedAssetsStatus
-struct AppointedTickerEntity: Codable {
-    let status: String
-    let currentInfo: TickerInfo
-}
-
-extension AppointedTickerEntity {
-    enum CodingKeys: String, CodingKey {
-        case status = "status"
-        case currentInfo = "data"
-    }
-}
-
 /// AssetsStatus
 struct TickerEntity: Codable {
     let status: String

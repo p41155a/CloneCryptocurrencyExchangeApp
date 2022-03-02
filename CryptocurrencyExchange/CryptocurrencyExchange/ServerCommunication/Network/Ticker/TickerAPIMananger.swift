@@ -9,21 +9,9 @@ import Foundation
 
 class TickerAPIManager: APIProvider {
     /// 모든 현재가 검색
-    func fetchTickerStatus(paymentCurrency: PaymentCurrency,
+    func fetchTicker(paymentCurrency: PaymentCurrency,
                            completion: @escaping (Result<TickerEntity, APIError>) -> ()) {
         guard let requestURL = TickerAPIService.ticker(orderCurrency: OrderCurrency.all,
-                                                       paymentCurrency: paymentCurrency).setRequest() else {
-            completion(.failure(APIError.invalidURL))
-            return
-        }
-        fetchResponse(requestURL: requestURL, completion: completion)
-    }
-    
-    /// 각 현재가 검색
-    func fetchTickerStatus(cryptocurrencyName: String,
-                           paymentCurrency: PaymentCurrency,
-                           completion: @escaping (Result<AppointedTickerEntity, APIError>) -> ()) {
-        guard let requestURL = TickerAPIService.ticker(orderCurrency: OrderCurrency.appoint(name: cryptocurrencyName),
                                                        paymentCurrency: paymentCurrency).setRequest() else {
             completion(.failure(APIError.invalidURL))
             return
