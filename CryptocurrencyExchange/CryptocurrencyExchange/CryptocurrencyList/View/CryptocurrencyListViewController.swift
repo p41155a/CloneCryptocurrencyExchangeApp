@@ -30,29 +30,17 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     func bind() {
         self.viewModel.tickerKRWList.bind { [weak self] data in
-            self?.cryptocurrencyListView?.dataForTableView.value = data
+            self?.tableView.reloadData()
         }
         self.viewModel.currencyNameList.bind { [weak self] currencyNameList in
-            self?.cryptocurrencyListView?.currencyNameList = currencyNameList
+            self?.tableView.reloadData()
         }
     }
     
     // MARK: - func<UI>
     private func configureUI() {
-        setContentView()
+        CrypocurrencyListTableViewCell.register(tableView: tableView)
         setTabButton()
-    }
-    
-    private func setContentView() {
-        guard let cryptocurrencyListView = cryptocurrencyListView else { return }
-        contentView.addSubview(cryptocurrencyListView)
-        
-        cryptocurrencyListView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-        }
     }
     
     private func setTabButton() {
@@ -87,15 +75,31 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     }
     
     // MARK: - Property
-    let cryptocurrencyListView = CryptocurrencyListView.loadFromNib()
     private var socket: WebSocket?
     private var tabButtonList: [TabButton] = []
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var krwTabButton: TabButton!
     @IBOutlet weak var btcTabButton: TabButton!
     @IBOutlet weak var interestTabButton: TabButton!
     @IBOutlet weak var popularTabButton: TabButton!
-    @IBOutlet weak var contentView: UIView!
 }
+// MARK: - TableView
+extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.currencyNameList.value.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let currentName = viewModel.currencyNameList.value[indexPath.row]
+        guard let data = viewModel.tickerKRWList.value[currentName] else {
+            return UITableViewCell()
+        }
+        let cell = CrypocurrencyListTableViewCell.dequeueReusableCell(tableView: tableView)
+        cell.setData(data: data)
+        return cell
+    }
+}
+// MARK: - TableView
 extension CryptocurrencyListViewController: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
