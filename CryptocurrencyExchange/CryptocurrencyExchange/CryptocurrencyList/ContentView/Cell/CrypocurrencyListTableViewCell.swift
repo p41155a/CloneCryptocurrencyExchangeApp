@@ -8,7 +8,12 @@
 import UIKit
 
 class CrypocurrencyListTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var currencyNameLabel: UILabel!
+    @IBOutlet weak var currentPriceLabel: UILabel!
+    @IBOutlet weak var chageRateLabel: UILabel!
+    @IBOutlet weak var chageAmountLabel: UILabel!
+    @IBOutlet weak var transactionAmountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +23,11 @@ class CrypocurrencyListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+     
+    func setData(data: CrypotocurrencyListTableViewEntity) {
+        self.currencyNameLabel.text = data.symbol
+        self.currentPriceLabel.text = data.currentPrice
     }
     
 }

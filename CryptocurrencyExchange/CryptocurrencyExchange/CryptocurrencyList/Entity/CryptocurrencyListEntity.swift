@@ -66,6 +66,7 @@ struct TickerInfo: Codable {
     let fluctate24H: String?
     let fluctateRate24H: String?
     let date: String?
+    let currentName: String?
 }
 
 extension TickerInfo {
@@ -100,5 +101,7 @@ extension TickerInfo {
         fluctate24H = try? container.decode(String.self, forKey: CodingKeys.fluctate24H)
         fluctateRate24H = try? container.decode(String.self, forKey: CodingKeys.fluctateRate24H)
         date = try? container.decode(String.self, forKey: CodingKeys.date)
+
+        currentName = container.codingPath[1].stringValue
     }
 }

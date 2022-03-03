@@ -10,13 +10,13 @@ import SnapKit
 import Starscream
 
 final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<CryptocurrencyListViewModel> {
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        viewModel.setInitialData()
-//        connect()
+        viewModel.setKRWInitialData()
+        bind()
+        //        connect()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,7 +25,13 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     }
     
     deinit {
-//        disconnect()
+        //        disconnect()
+    }
+    
+    func bind() {
+        self.viewModel.krwData.bind { [weak self] data in
+            self?.cryptocurrencyListView?.data.value = data
+        }
     }
     
     // MARK: - func<UI>
@@ -35,9 +41,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     }
     
     private func setContentView() {
-        guard let cryptocurrencyListView = CryptocurrencyListView.loadFromNib() else {
-            return
-        }
+        guard let cryptocurrencyListView = cryptocurrencyListView else { return }
         contentView.addSubview(cryptocurrencyListView)
         
         cryptocurrencyListView.snp.makeConstraints { make in
@@ -80,6 +84,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     }
     
     // MARK: - Property
+    let cryptocurrencyListView = CryptocurrencyListView.loadFromNib()
     private var socket: WebSocket?
     private var tabButtonList: [TabButton] = []
     @IBOutlet weak var krwTabButton: TabButton!
@@ -93,7 +98,7 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
         switch event {
         case .connected(let headers):
             let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
-                                         "symbols": self.viewModel.currencyListKRW,
+                                         "symbols": self.viewModel.currencyNameList.map { "\($0)_\(PaymentCurrency.KRW.value)" },
                                          "tickTypes": [WebSocketTickType.tickMID.rawValue]]
             
             let jParams = try! JSONSerialization.data(withJSONObject: params, options: [])

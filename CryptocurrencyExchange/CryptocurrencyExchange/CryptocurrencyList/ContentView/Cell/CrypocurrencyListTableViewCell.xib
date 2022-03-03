@@ -165,6 +165,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="chageAmountLabel" destination="mqd-D5-RYj" id="uJy-Bj-brP"/>
+                <outlet property="chageRateLabel" destination="f1a-o5-rTq" id="KdS-WK-kxB"/>
+                <outlet property="currencyNameLabel" destination="BPx-Bc-NxI" id="mOO-2x-9Sw"/>
+                <outlet property="currentPriceLabel" destination="CKU-go-LEt" id="lPt-Rt-Lll"/>
+                <outlet property="transactionAmountLabel" destination="bes-j9-QZb" id="eDp-NM-gaB"/>
+            </connections>
             <point key="canvasLocation" x="204.34782608695653" y="136.60714285714286"/>
         </tableViewCell>
     </objects>
