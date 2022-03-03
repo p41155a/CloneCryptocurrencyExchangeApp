@@ -16,7 +16,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         configureUI()
         viewModel.setKRWInitialData()
         bind()
-        //        connect()
+        connect()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,7 +25,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     }
     
     deinit {
-        //        disconnect()
+        disconnect()
     }
     
     func bind() {
@@ -110,7 +110,7 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
             do {
                 let data = string.data(using: .utf8)!
                 let json = try JSONDecoder().decode(WebSocketTickerEntity.self, from: data)
-                print("파싱완료한 데이터: \(json)")
+                viewModel.setWebSocketData(with: json)
             } catch  {
                 print("Received text: \(string)")
             }
@@ -124,4 +124,3 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
         }
     }
 }
-

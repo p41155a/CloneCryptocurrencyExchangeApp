@@ -11,7 +11,7 @@ protocol CryptocurrencyListViewModelDelegate: AnyObject {
     func showAlert(message: String)
 }
 class CryptocurrencyListViewModel: XIBInformation {
-    private var tickerList: [String: TickerInfo] = [:]
+    private var tickerKRWList: [String: CrypotocurrencyListTableViewEntity] = [:]
     var currencyNameList: [String] = []
     var krwData: Observable<[CrypotocurrencyListTableViewEntity]> = Observable([])
     private var apiManager = TickerAPIManager()
@@ -27,19 +27,39 @@ class CryptocurrencyListViewModel: XIBInformation {
             switch result {
             case .success(let data):
                 let cryptocurrencyData = data.currentInfo.current
-                self.tickerList = cryptocurrencyData
-                self.currencyNameList = cryptocurrencyData.keys.sorted()
-                self.krwData.value = cryptocurrencyData.values.map { tickerInfo in
-                    return CrypotocurrencyListTableViewEntity(symbol: "\(tickerInfo.currentName ?? "")_\(PaymentCurrency.KRW)",
-                                                              currentPrice: tickerInfo.closingPrice ?? "",
-                                                              chageRate: "",
-                                                              chageAmount: "",
-                                                              transactionAmount: "")
+                var krwData: [CrypotocurrencyListTableViewEntity] = []
+                cryptocurrencyData.forEach { data in
+                    let currentName = data.key
+                    let tickerInfo = data.value
+                    let tableData = CrypotocurrencyListTableViewEntity(symbol: "\(tickerInfo.currentName ?? "")_\(PaymentCurrency.KRW)",
+                                                                       currentPrice: tickerInfo.closingPrice ?? "",
+                                                                       chageRate: "",
+                                                                       chageAmount: "",
+                                                                       transactionAmount: "")
+                    self.currencyNameList.append(currentName)
+                    self.tickerKRWList[currentName] = tableData
+                    krwData.append(tableData)
                 }
-                print(cryptocurrencyData)
+                self.krwData.value = krwData
             case .failure(let error):
                 self.delegate?.showAlert(message: error.debugDescription)
             }
+        }
+    }
+    
+    func setWebSocketData(with entity: WebSocketTickerEntity) {
+        let splitedSymbol: [String] = entity.content.symbol.split(separator: "_").map { "\($0)" }
+        let currentName = splitedSymbol[0]
+        let payment = splitedSymbol[1]
+        if payment == PaymentCurrency.KRW.value {
+            let tickerInfo = entity.content
+            let tableData = CrypotocurrencyListTableViewEntity(symbol: "\(currentName)_\(PaymentCurrency.KRW)",
+                                                               currentPrice: tickerInfo.closePrice,
+                                                               chageRate: tickerInfo.chgRate,
+                                                               chageAmount: tickerInfo.chgAmt,
+                                                               transactionAmount: tickerInfo.value)
+            tickerKRWList[currentName] = tableData
+            print(tableData)
         }
     }
 }
