@@ -9,17 +9,35 @@ import UIKit
 
 class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesViewModel> {
 
+    @IBOutlet weak var intervalStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let chartView = ChartView()
-        chartView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(chartView)
-        NSLayoutConstraint.activate([
-            chartView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            chartView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            chartView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            chartView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
+        setStackViewUI()
+    }
+    
+    // 각 시간간격 버튼의 tag, title, 버튼 event 설정
+    private func setStackViewUI() {
+        intervalStackView.arrangedSubviews.enumerated().forEach { (index, subview) in
+            guard let button = subview as? IntervalButton else { return }
+            guard let type = TimeIntervalInChart(rawValue: index) else { return }
+            button.tag = index
+            button.setTitle(type.title, for: .normal)
+            button.addTarget(
+                self,
+                action: #selector(didTap(intervalButton:)),
+                for: .touchUpInside
+            )
+        }
+    }
+    
+    // 각 시간간격 버튼의 눌림 상태 업데이트
+    @objc
+    private func didTap(intervalButton: UIButton) {
+        intervalStackView.arrangedSubviews.enumerated().forEach { (index, subview) in
+            guard let button = subview as? UIButton else { return }
+            button.isSelected = intervalButton.tag == index
+        }
     }
 }
