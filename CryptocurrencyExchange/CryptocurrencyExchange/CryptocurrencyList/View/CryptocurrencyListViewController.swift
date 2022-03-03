@@ -29,8 +29,11 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     }
     
     func bind() {
-        self.viewModel.krwData.bind { [weak self] data in
-            self?.cryptocurrencyListView?.data.value = data
+        self.viewModel.tickerKRWList.bind { [weak self] data in
+            self?.cryptocurrencyListView?.dataForTableView.value = data
+        }
+        self.viewModel.currencyNameList.bind { [weak self] currencyNameList in
+            self?.cryptocurrencyListView?.currencyNameList = currencyNameList
         }
     }
     
@@ -98,7 +101,7 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
         switch event {
         case .connected(let headers):
             let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
-                                         "symbols": self.viewModel.currencyNameList.map { "\($0)_\(PaymentCurrency.KRW.value)" },
+                                         "symbols": self.viewModel.currencyNameList.value.map { "\($0)_\(PaymentCurrency.KRW.value)" },
                                          "tickTypes": [WebSocketTickType.tickMID.rawValue]]
             
             let jParams = try! JSONSerialization.data(withJSONObject: params, options: [])

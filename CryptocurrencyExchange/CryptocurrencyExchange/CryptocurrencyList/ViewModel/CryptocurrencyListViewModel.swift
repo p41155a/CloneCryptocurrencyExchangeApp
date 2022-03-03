@@ -11,9 +11,8 @@ protocol CryptocurrencyListViewModelDelegate: AnyObject {
     func showAlert(message: String)
 }
 class CryptocurrencyListViewModel: XIBInformation {
-    private var tickerKRWList: [String: CrypotocurrencyListTableViewEntity] = [:]
-    var currencyNameList: [String] = []
-    var krwData: Observable<[CrypotocurrencyListTableViewEntity]> = Observable([])
+    let tickerKRWList: Observable<[String: CrypotocurrencyListTableViewEntity]> = Observable([:])
+    var currencyNameList: Observable<[String]> = Observable([])
     private var apiManager = TickerAPIManager()
     weak var delegate: CryptocurrencyListViewModelDelegate?
     var nibName: String?
@@ -27,7 +26,8 @@ class CryptocurrencyListViewModel: XIBInformation {
             switch result {
             case .success(let data):
                 let cryptocurrencyData = data.currentInfo.current
-                var krwData: [CrypotocurrencyListTableViewEntity] = []
+                var tickerKRWList: [String: CrypotocurrencyListTableViewEntity] = [:]
+                var currencyNameList: [String] = []
                 cryptocurrencyData.forEach { data in
                     let currentName = data.key
                     let tickerInfo = data.value
@@ -36,11 +36,11 @@ class CryptocurrencyListViewModel: XIBInformation {
                                                                        chageRate: "",
                                                                        chageAmount: "",
                                                                        transactionAmount: "")
-                    self.currencyNameList.append(currentName)
-                    self.tickerKRWList[currentName] = tableData
-                    krwData.append(tableData)
+                    currencyNameList.append(currentName)
+                    tickerKRWList[currentName] = tableData
                 }
-                self.krwData.value = krwData
+                self.tickerKRWList.value = tickerKRWList
+                self.currencyNameList.value = currencyNameList
             case .failure(let error):
                 self.delegate?.showAlert(message: error.debugDescription)
             }
@@ -58,7 +58,7 @@ class CryptocurrencyListViewModel: XIBInformation {
                                                                chageRate: tickerInfo.chgRate,
                                                                chageAmount: tickerInfo.chgAmt,
                                                                transactionAmount: tickerInfo.value)
-            tickerKRWList[currentName] = tableData
+            tickerKRWList.value[currentName] = tableData
             print(tableData)
         }
     }

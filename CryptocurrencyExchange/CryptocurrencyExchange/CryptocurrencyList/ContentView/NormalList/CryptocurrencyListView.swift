@@ -10,7 +10,8 @@ import UIKit
 final class CryptocurrencyListView: UIView {
     @IBOutlet weak var tableView: UITableView!
     let cells = [CrypocurrencyListTableViewCell.self]
-    var data: Observable<[CrypotocurrencyListTableViewEntity]> = Observable([])
+    var currencyNameList: [String] = []
+    var dataForTableView: Observable<[String: CrypotocurrencyListTableViewEntity]> = Observable([:])
     
     override func awakeFromNib() {
         tableView.delegate = self
@@ -22,19 +23,23 @@ final class CryptocurrencyListView: UIView {
     }
     
     func bind() {
-        self.data.bind { [weak self] data in
+        self.dataForTableView.bind { [weak self] data in
             self?.tableView.reloadData()
         }
     }
 }
 extension CryptocurrencyListView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.value.count
+        return currencyNameList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let currentName = currencyNameList[indexPath.row]
+        guard let data = dataForTableView.value[currentName] else {
+            return UITableViewCell()
+        }
         let cell = CrypocurrencyListTableViewCell.dequeueReusableCell(tableView: tableView)
-        cell.setData(data: data.value[indexPath.row])
+        cell.setData(data: data)
         return cell
     }
 }
