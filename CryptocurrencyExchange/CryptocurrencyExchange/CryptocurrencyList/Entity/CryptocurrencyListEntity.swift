@@ -21,7 +21,7 @@ extension TickerEntity {
 }
 
 struct CurrentInfo: Codable {
-    var current: [TickerInfo]
+    var current: [String: TickerInfo]
     
     private struct DynamicCodingKeys: CodingKey {
         var stringValue: String
@@ -38,17 +38,17 @@ struct CurrentInfo: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: DynamicCodingKeys.self)
 
-        var tempArray = [TickerInfo]()
+        var tempDic = [String: TickerInfo]()
 
         for key in container.allKeys {
             do {
                 let decodedObject = try container.decode(TickerInfo.self, forKey: DynamicCodingKeys(stringValue: key.stringValue)!)
-                tempArray.append(decodedObject)
+                tempDic[key.stringValue] = decodedObject
             } catch {
                 
             }
         }
-        current = tempArray
+        current = tempDic
     }
 }
 
@@ -66,7 +66,6 @@ struct TickerInfo: Codable {
     let fluctate24H: String?
     let fluctateRate24H: String?
     let date: String?
-    let currentName: String?
 }
 
 extension TickerInfo {
@@ -101,7 +100,5 @@ extension TickerInfo {
         fluctate24H = try? container.decode(String.self, forKey: CodingKeys.fluctate24H)
         fluctateRate24H = try? container.decode(String.self, forKey: CodingKeys.fluctateRate24H)
         date = try? container.decode(String.self, forKey: CodingKeys.date)
-
-        currentName = container.codingPath[1].stringValue
     }
 }

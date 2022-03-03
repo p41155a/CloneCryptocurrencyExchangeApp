@@ -11,7 +11,7 @@ protocol CryptocurrencyListViewModelDelegate: AnyObject {
     func showAlert(message: String)
 }
 class CryptocurrencyListViewModel: XIBInformation {
-    private var currencyList: [TickerInfo] = []
+    private var currencyList: [String: TickerInfo] = [:]
     var currencyListKRW: [String] = []
     private var apiManager = TickerAPIManager()
     weak var delegate: CryptocurrencyListViewModelDelegate?
@@ -27,6 +27,7 @@ class CryptocurrencyListViewModel: XIBInformation {
             case .success(let data):
                 let cryptocurrencyData = data.currentInfo.current
                 self.currencyList = cryptocurrencyData
+                print(cryptocurrencyData)
             case .failure(let error):
                 self.delegate?.showAlert(message: error.debugDescription)
             }
