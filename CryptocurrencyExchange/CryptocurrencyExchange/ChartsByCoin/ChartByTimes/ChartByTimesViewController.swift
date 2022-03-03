@@ -7,23 +7,19 @@
 
 import UIKit
 
-class ChartByTimesViewController: UIViewController {
+class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let chartView = ChartView()
+        chartView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(chartView)
+        NSLayoutConstraint.activate([
+            chartView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            chartView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            chartView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            chartView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
