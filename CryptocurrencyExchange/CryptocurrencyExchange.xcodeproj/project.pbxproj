@@ -11,6 +11,8 @@
 		9B16F5B827D08C26003DC9BC /* ChartByTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */; };
 		9B16F5B927D08C26003DC9BC /* ChartByTimesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */; };
 		9B16F5BB27D08CB9003DC9BC /* ChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */; };
+		9B16F5BD27D09E2A003DC9BC /* ChartByTimesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */; };
+		9B16F5BF27D0AFC5003DC9BC /* IntervalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */; };
 		9B778C6327CF128A0009D343 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6227CF128A0009D343 /* ChartViewModel.swift */; };
 		9B778C6527CF14350009D343 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6427CF14350009D343 /* Observable.swift */; };
 		9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */; };
@@ -96,6 +98,8 @@
 		9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewController.swift; sourceTree = "<group>"; };
 		9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartByTimesViewController.xib; sourceTree = "<group>"; };
 		9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewModel.swift; sourceTree = "<group>"; };
+		9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesModel.swift; sourceTree = "<group>"; };
+		9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalButton.swift; sourceTree = "<group>"; };
 		9B778C6227CF128A0009D343 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		9B778C6427CF14350009D343 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbCandleStickDataSet.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				B4BC4E9527CDFE2C00DE19EC /* Chart */,
+				9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */,
+				9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */,
 				9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */,
 				9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */,
 				9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */,
@@ -752,6 +758,7 @@
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
 				B4BC4E8F27CDF70900DE19EC /* CoinDetailViewController.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
+				9B16F5BD27D09E2A003DC9BC /* ChartByTimesModel.swift in Sources */,
 				FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */,
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
 				B4471E5E27CFBDB700668B64 /* QuoteViewController.swift in Sources */,
@@ -763,6 +770,7 @@
 				FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */,
 				9B778C7227CF4D9C0009D343 /* CandleStickRepository.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
+				9B16F5BF27D0AFC5003DC9BC /* IntervalButton.swift in Sources */,
 				FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */,
 				FF19E29F27CA00B900DBD52D /* WebSocketOrderbookEntity.swift in Sources */,
 				B4BC4E9427CDF7B400DE19EC /* CoindDetailViewModel.swift in Sources */,
