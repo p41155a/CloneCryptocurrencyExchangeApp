@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum TimeIntervalInChart: Int {
+enum TimeIntervalInChart: Int, PersistableEnum {
     case oneMinute = 0
     case tenMinutes = 1
     case thirtyMinutes = 2
@@ -21,6 +22,16 @@ enum TimeIntervalInChart: Int {
         case .thirtyMinutes: return "30분"
         case .anHour: return "1시간"
         case .OneDay: return "일"
+        }
+    }
+    
+    var urlParameter: String {
+        switch self {
+        case .oneMinute: return "1m"
+        case .tenMinutes: return "10m"
+        case .thirtyMinutes: return "30m"
+        case .anHour: return "1h"
+        case .OneDay: return "24h"
         }
     }
 }
