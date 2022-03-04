@@ -74,6 +74,15 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         socket?.delegate = nil
     }
     
+    private func writeToSocket(paymentCurrency: PaymentCurrency, tickTypes: [WebSocketTickType]) {
+        let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
+                                     "symbols": self.viewModel.currencyNameList.value.map { "\($0)_\(paymentCurrency.value)" },
+                                     "tickTypes": tickTypes.map { $0.rawValue } ]
+        
+        let json = try! JSONSerialization.data(withJSONObject: params, options: [])
+        socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
+    }
+    
     // MARK: - Property
     private var socket: WebSocket?
     private var tabButtonList: [TabButton] = []
@@ -103,16 +112,8 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
 extension CryptocurrencyListViewController: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
-        case .connected(let headers):
-            let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
-                                         "symbols": self.viewModel.currencyNameList.value.map { "\($0)_\(PaymentCurrency.KRW.value)" },
-                                         "tickTypes": [WebSocketTickType.tickMID.rawValue]]
-            
-            let jParams = try! JSONSerialization.data(withJSONObject: params, options: [])
-            client.write(string: String(data:jParams, encoding: .utf8)!, completion: nil)
-            print("websocket is connected: \(headers)")
-        case .disconnected(let reason, let code):
-            print("websocket is disconnected: \(reason) with code: \(code)")
+        case .connected(_):
+            writeToSocket(paymentCurrency: .KRW, tickTypes: [.tickMID])
         case .text(let string):
             do {
                 let data = string.data(using: .utf8)!
@@ -121,11 +122,6 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
             } catch  {
                 print("Received text: \(string)")
             }
-        case .binary(let data):
-            print("Received data: \(data.count)")
-        case .error(let error):
-            print(error?.localizedDescription ?? "")
-            break
         default:
             break
         }
