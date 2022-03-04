@@ -37,6 +37,28 @@ class ProductionCandleStickRepository: CandleStickChartRepository {
 
 /// DB에 캔들스틱 data 추가/조회/업데이트
 extension ProductionCandleStickRepository {
+    /// API의 응답데이터를 DB에 추가
+    private func writeCandleStickDatas(
+        with data: [[StickValue]],
+        intervalType: TimeIntervalInChart,
+        completion: @escaping ([CandleStickData]?) -> Void
+    ) {
+        var candleStickDatas = [CandleStickData]()
+        try! realm.write {
+            let sticksByTimeInterval = CandleStickByTimeInterval(
+                interval: intervalType,
+                lastUpdated: Date()
+            )
+            data.forEach { stickValues in
+                let data = CandleStickData(values: stickValues)
+                sticksByTimeInterval.stickDatas.append(data)
+                candleStickDatas.append(data)
+            }
+            realm.add(sticksByTimeInterval)
+            completion(candleStickDatas)
+        }
+    }
+    
     /// DB에 저장되어 있는 캔들스틱 Data 반환
     func candleStickDatas(by timeInterval: TimeIntervalInChart) -> [CandleStickData]? {
         let candleSticks = realm.objects(CandleStickByTimeInterval.self)
