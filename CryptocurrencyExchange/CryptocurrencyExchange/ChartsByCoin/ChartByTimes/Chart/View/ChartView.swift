@@ -52,6 +52,10 @@ class ChartView: UIView {
         
     }
      
+    func updateDataEntries(from dbData: [CandleStickData]) {
+        self.viewModel.updateEntries(from: dbData)
+    }
+    
     private func bindClosures() {
         self.viewModel.dataEntries.bind { [weak self] entries in
             guard let `self` = self else { return }

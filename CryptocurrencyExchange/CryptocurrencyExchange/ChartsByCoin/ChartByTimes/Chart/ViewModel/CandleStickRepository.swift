@@ -9,29 +9,42 @@ import Foundation
 import RealmSwift
 
 protocol CandleStickChartRepository {
-    func getCandleStickData(parameter: CandleStickParameters, completion: @escaping ([[StickValue]]) -> Void)
+    func getCandleStickData(parameter: CandleStickParameters, completion: @escaping ([CandleStickData]?) -> Void)
     func candleStickDatas(by timeInterval: TimeIntervalInChart) -> [CandleStickData]?
 }
 
 ///  CandleStickAPIManager의 candleStick 메서드 호출
 ///  메서드 내에서 실제 API 호출
 class ProductionCandleStickRepository: CandleStickChartRepository {
-    func getCandleStickData(parameter: CandleStickParameters, completion: @escaping ([[StickValue]]) -> Void) {
     let realm: Realm
     
     init() {
         self.realm = try! Realm()
     }
+    
+    func getCandleStickData(
+        parameter: CandleStickParameters,
+        completion: @escaping ([CandleStickData]?) -> Void
+    ) {
+        if let candleStickDatas = candleStickDatas(by: parameter.chartInterval) {
+            completion(candleStickDatas)
+            return
+        }
+        
         CandleStickAPIManager().candleStick(
             parameters: parameter
         ) { result in
-                switch result {
-                case .success(let data):
-                    completion(data.data)
-                default:
-                    completion([[]])
-                }
+            switch result {
+            case .success(let data):
+                self.writeCandleStickDatas(
+                    with: data.data,
+                    intervalType: parameter.chartInterval,
+                    completion: completion
+                )
+            default:
+                completion(nil)
             }
+        }
     }
 }
 

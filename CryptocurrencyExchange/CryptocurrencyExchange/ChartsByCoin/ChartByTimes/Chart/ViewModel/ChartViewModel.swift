@@ -27,4 +27,8 @@ class ChartViewModel {
             yValue: 0.0
         )
     }
+    
+    func updateEntries(from dbData: [CandleStickData]) {
+        self.dataEntries.value = CandleChartDataEntries(dataFromDB: dbData)
+    }
 }

@@ -14,6 +14,7 @@
 		9B16F5BD27D09E2A003DC9BC /* ChartByTimesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */; };
 		9B16F5BF27D0AFC5003DC9BC /* IntervalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */; };
 		9B16F5C227D0B939003DC9BC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B16F5C127D0B939003DC9BC /* RealmSwift */; };
+		9B745FAE27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */; };
 		9B778C6327CF128A0009D343 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6227CF128A0009D343 /* ChartViewModel.swift */; };
 		9B778C6527CF14350009D343 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6427CF14350009D343 /* Observable.swift */; };
 		9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */; };
@@ -101,6 +102,7 @@
 		9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewModel.swift; sourceTree = "<group>"; };
 		9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesModel.swift; sourceTree = "<group>"; };
 		9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalButton.swift; sourceTree = "<group>"; };
+		9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickByTimeInterval.swift; sourceTree = "<group>"; };
 		9B778C6227CF128A0009D343 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		9B778C6427CF14350009D343 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbCandleStickDataSet.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		9B16F5B527D08BFB003DC9BC /* ChartByTimes */ = {
 			isa = PBXGroup;
 			children = (
+				9B745FAC27D1D1240001C0D3 /* DB */,
 				B4BC4E9527CDFE2C00DE19EC /* Chart */,
 				9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */,
 				9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */,
@@ -205,6 +208,14 @@
 				9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */,
 			);
 			path = ChartByTimes;
+			sourceTree = "<group>";
+		};
+		9B745FAC27D1D1240001C0D3 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		9B778C5E27CF0E1D0009D343 /* ChartsByCoin */ = {
@@ -780,6 +791,7 @@
 				B4BC4E9427CDF7B400DE19EC /* CoindDetailViewModel.swift in Sources */,
 				FF19E28527C74FA600DBD52D /* APIError.swift in Sources */,
 				9B16F5B827D08C26003DC9BC /* ChartByTimesViewController.swift in Sources */,
+				9B745FAE27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift in Sources */,
 				FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */,
 				9B16F5BB27D08CB9003DC9BC /* ChartByTimesViewModel.swift in Sources */,
 				9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */,

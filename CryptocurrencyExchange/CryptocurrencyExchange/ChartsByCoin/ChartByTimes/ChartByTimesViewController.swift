@@ -11,6 +11,7 @@ import RealmSwift
 class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesViewModel> {
 
     @IBOutlet weak var intervalStackView: UIStackView!
+    @IBOutlet weak var chartView: ChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +21,18 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
     
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
+        
+        let interval: TimeIntervalInChart = .oneMinute
         self.viewModel.getCandleStickData(
             parameter: CandleStickParameters(
                 orderCurrency: .appoint(name: "BTC"),
                 paymentCurrency: .KRW,
-                chartInterval: .oneMinute
+                chartInterval: interval
             )
-        )
+        ) { datas in
+            self.chartView.updateDataEntries(from: datas)
+        }
+        
     }
     
     // 각 시간간격 버튼의 tag, title, 버튼 event 설정

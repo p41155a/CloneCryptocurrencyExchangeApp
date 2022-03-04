@@ -21,11 +21,11 @@ class ChartByTimesViewModel: XIBInformation {
     }
     
     /// 레파지토리에 candleStick API 호출하도록 요청
-    func getCandleStickData(parameter: CandleStickParameters) {
+    func getCandleStickData(parameter: CandleStickParameters, completion: @escaping ([CandleStickData]) -> Void) {
         self.repository.getCandleStickData(
             parameter: parameter
-        ) { stickValues in
-            // 추후 db에 저장해야 함
+        ) { datas in
+            completion(datas ?? [])
         }
     }
 }
