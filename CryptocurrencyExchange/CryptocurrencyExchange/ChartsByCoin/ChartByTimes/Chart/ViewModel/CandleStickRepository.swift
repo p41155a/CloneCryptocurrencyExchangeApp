@@ -22,6 +22,9 @@ class ProductionCandleStickRepository: CandleStickChartRepository {
         self.realm = try! Realm()
     }
     
+    /// 시간 간격별 캔들스틱 데이터 반환
+    /// DB에 저장되어 있는 해당 시간 간격의 데이터가 있을 경우: DB 데이터 반환
+    /// 없을 경우: API 호출하여 반환
     func getCandleStickData(
         parameter: CandleStickParameters,
         completion: @escaping ([CandleStickData]?) -> Void

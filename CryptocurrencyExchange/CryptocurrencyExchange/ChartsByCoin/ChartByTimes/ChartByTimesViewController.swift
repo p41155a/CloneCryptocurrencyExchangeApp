@@ -22,6 +22,7 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         
+        /// 임시로 1분 단위의 캔들 스틱 데이터를 받고, 차트를 그리도록 함
         let interval: TimeIntervalInChart = .oneMinute
         self.viewModel.getCandleStickData(
             parameter: CandleStickParameters(
@@ -32,7 +33,6 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
         ) { datas in
             self.chartView.updateDataEntries(from: datas)
         }
-        
     }
     
     // 각 시간간격 버튼의 tag, title, 버튼 event 설정
@@ -42,6 +42,7 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
             guard let type = TimeIntervalInChart(rawValue: index) else { return }
             button.tag = index
             button.setTitle(type.title, for: .normal)
+            button.isSelected = index == 0
             button.addTarget(
                 self,
                 action: #selector(didTap(intervalButton:)),
