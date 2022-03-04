@@ -22,6 +22,11 @@ final class CrypocurrencyListTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.currencyNameLabel.text = nil
+        self.currentPriceLabel.text = nil
+        self.changeRateLabel.text = nil
+        self.changeAmountLabel.text = nil
+        self.transactionAmountLabel.text = nil
     }
      
     func setData(data: CrypotocurrencyListTableViewEntity) {

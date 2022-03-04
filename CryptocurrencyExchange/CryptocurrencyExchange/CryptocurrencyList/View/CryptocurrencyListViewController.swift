@@ -30,9 +30,16 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     func bind() {
         self.viewModel.tickerKRWList.bind { [weak self] data in
-            self?.tableView.reloadData()
+            if self?.viewModel.currentTag != 1 {
+                self?.tableView.reloadData()
+            }
         }
-        self.viewModel.currencyNameList.bind { [weak self] currencyNameList in
+        self.viewModel.tickerBTCList.bind { [weak self] data in
+            if self?.viewModel.currentTag == 1, self?.viewModel.currentTag == 2 {
+                self?.tableView.reloadData()
+            }
+        }
+        self.viewModel.currentList.bind { [weak self] currencyNameList in
             self?.tableView.reloadData()
         }
     }
@@ -45,8 +52,8 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     private func setTabButton() {
         tabButtonList = [krwTabButton, btcTabButton, interestTabButton, popularTabButton]
-        tabButtonList.first?.isChoice = true
-        tabButtonList.forEach { button in
+        tabButtonList[0].isChoice = true
+        tabButtonList.forEach { (button: TabButton) in
             button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
         }
     }
@@ -56,6 +63,10 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
             button.isChoice = false
         }
         sender.isChoice = true
+        viewModel.currentTag = sender.tag
+        if sender.tag == 1, viewModel.tabBTCList.isEmpty {
+            viewModel.setBTCInitialData()
+        }
     }
     
     // MARK: - func<websocket>
@@ -76,9 +87,8 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     private func writeToSocket(paymentCurrency: PaymentCurrency, tickTypes: [WebSocketTickType]) {
         let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
-                                     "symbols": self.viewModel.currencyNameList.value.map { "\($0)_\(paymentCurrency.value)" },
+                                     "symbols": self.viewModel.currentList.value.map { "\($0.0)_\(paymentCurrency.value)" },
                                      "tickTypes": tickTypes.map { $0.rawValue } ]
-        
         let json = try! JSONSerialization.data(withJSONObject: params, options: [])
         socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
     }
@@ -95,16 +105,24 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
 // MARK: - TableView
 extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.currencyNameList.value.count
+        return viewModel.currentList.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentName = viewModel.currencyNameList.value[indexPath.row]
-        guard let data = viewModel.tickerKRWList.value[currentName] else {
+        let currentName = viewModel.currentList.value[indexPath.row].0
+        var data: CrypotocurrencyListTableViewEntity?
+        switch viewModel.currentList.value[indexPath.row].1 {
+        case .KRW:
+            data = viewModel.tickerKRWList.value[currentName]
+        case .BTC:
+            data = viewModel.tickerBTCList.value[currentName]
+        }
+        guard let crypotocurrencyInfo = data else {
             return UITableViewCell()
         }
+
         let cell = CrypocurrencyListTableViewCell.dequeueReusableCell(tableView: tableView)
-        cell.setData(data: data)
+        cell.setData(data: crypotocurrencyInfo)
         return cell
     }
 }

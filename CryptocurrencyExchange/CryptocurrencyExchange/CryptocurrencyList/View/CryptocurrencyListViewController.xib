@@ -75,19 +75,19 @@
                             </state>
                             <buttonConfiguration key="configuration" style="plain" title="원화"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9n-OE-W8x" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9n-OE-W8x" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                             <rect key="frame" x="68" y="0.0" width="60" height="40"/>
                             <color key="tintColor" name="darkgrayColor"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="BTC"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pF-CZ-U1o" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pF-CZ-U1o" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                             <rect key="frame" x="136" y="0.0" width="60" height="40"/>
                             <color key="tintColor" name="darkgrayColor"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="관심"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waR-2b-xDR" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waR-2b-xDR" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                             <rect key="frame" x="204" y="0.0" width="60" height="40"/>
                             <color key="tintColor" name="darkgrayColor"/>
                             <state key="normal" title="Button"/>
