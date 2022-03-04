@@ -18,8 +18,6 @@
 		90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD15D427CDE68700C5CBAC /* UIColor.swift */; };
 		90E12E6727D2511800373FF9 /* ConclusionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E6527D2511800373FF9 /* ConclusionViewCell.swift */; };
 		90E12E6827D2511800373FF9 /* ConclusionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E6627D2511800373FF9 /* ConclusionViewCell.xib */; };
-		90E12E6B27D2513700373FF9 /* TradeDescriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E6927D2513700373FF9 /* TradeDescriptionViewCell.swift */; };
-		90E12E6C27D2513700373FF9 /* TradeDescriptionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E6A27D2513700373FF9 /* TradeDescriptionViewCell.xib */; };
 		90E12E7327D251B900373FF9 /* BuyPriceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E7127D251B900373FF9 /* BuyPriceViewCell.swift */; };
 		90E12E7427D251B900373FF9 /* BuyPriceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E7227D251B900373FF9 /* BuyPriceViewCell.xib */; };
 		90E12E7727D251CC00373FF9 /* BuyQuantityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E7527D251CC00373FF9 /* BuyQuantityViewCell.swift */; };
@@ -29,6 +27,12 @@
 		90E12E7F27D251FE00373FF9 /* SellQuantityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E7D27D251FE00373FF9 /* SellQuantityViewCell.swift */; };
 		90E12E8027D251FE00373FF9 /* SellQuantityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E7E27D251FE00373FF9 /* SellQuantityViewCell.xib */; };
 		90E12E8427D25E7E00373FF9 /* Spreadsheet+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E8327D25E7E00373FF9 /* Spreadsheet+Extensions.swift */; };
+		90E12E8827D26B9000373FF9 /* TransactionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E8627D26B9000373FF9 /* TransactionViewCell.swift */; };
+		90E12E8927D26B9000373FF9 /* TransactionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E8727D26B9000373FF9 /* TransactionViewCell.xib */; };
+		90E12E9C27D274A100373FF9 /* TopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E9A27D274A100373FF9 /* TopViewCell.swift */; };
+		90E12E9D27D274A100373FF9 /* TopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E9B27D274A100373FF9 /* TopViewCell.xib */; };
+		90E12EA027D274AD00373FF9 /* BottomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E9E27D274AD00373FF9 /* BottomViewCell.swift */; };
+		90E12EA127D274AD00373FF9 /* BottomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E9F27D274AD00373FF9 /* BottomViewCell.xib */; };
 		B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */; };
 		B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
@@ -97,8 +101,6 @@
 		90BD15D427CDE68700C5CBAC /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		90E12E6527D2511800373FF9 /* ConclusionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionViewCell.swift; sourceTree = "<group>"; };
 		90E12E6627D2511800373FF9 /* ConclusionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConclusionViewCell.xib; sourceTree = "<group>"; };
-		90E12E6927D2513700373FF9 /* TradeDescriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeDescriptionViewCell.swift; sourceTree = "<group>"; };
-		90E12E6A27D2513700373FF9 /* TradeDescriptionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TradeDescriptionViewCell.xib; sourceTree = "<group>"; };
 		90E12E7127D251B900373FF9 /* BuyPriceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyPriceViewCell.swift; sourceTree = "<group>"; };
 		90E12E7227D251B900373FF9 /* BuyPriceViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyPriceViewCell.xib; sourceTree = "<group>"; };
 		90E12E7527D251CC00373FF9 /* BuyQuantityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyQuantityViewCell.swift; sourceTree = "<group>"; };
@@ -108,6 +110,12 @@
 		90E12E7D27D251FE00373FF9 /* SellQuantityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellQuantityViewCell.swift; sourceTree = "<group>"; };
 		90E12E7E27D251FE00373FF9 /* SellQuantityViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellQuantityViewCell.xib; sourceTree = "<group>"; };
 		90E12E8327D25E7E00373FF9 /* Spreadsheet+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spreadsheet+Extensions.swift"; sourceTree = "<group>"; };
+		90E12E8627D26B9000373FF9 /* TransactionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewCell.swift; sourceTree = "<group>"; };
+		90E12E8727D26B9000373FF9 /* TransactionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionViewCell.xib; sourceTree = "<group>"; };
+		90E12E9A27D274A100373FF9 /* TopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewCell.swift; sourceTree = "<group>"; };
+		90E12E9B27D274A100373FF9 /* TopViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewCell.xib; sourceTree = "<group>"; };
+		90E12E9E27D274AD00373FF9 /* BottomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewCell.swift; sourceTree = "<group>"; };
+		90E12E9F27D274AD00373FF9 /* BottomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomViewCell.xib; sourceTree = "<group>"; };
 		92774D2EEF35C757FAE75845 /* Pods_CryptocurrencyExchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptocurrencyExchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F4A9C36FC00016C5418E89 /* Pods-CryptocurrencyExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange.release.xcconfig"; sourceTree = "<group>"; };
 		B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInNavigation.swift; sourceTree = "<group>"; };
@@ -234,6 +242,7 @@
 				90E12E6E27D2515B00373FF9 /* SellPrice */,
 				90E12E6427D2509500373FF9 /* TradeDescription */,
 				90E12E6327D2508100373FF9 /* Conclusion */,
+				90E12E8527D26B4D00373FF9 /* Transaction */,
 				90E12E7027D2519300373FF9 /* BuyQuantity */,
 				90E12E6D27D2515300373FF9 /* BuyPrice */,
 			);
@@ -252,8 +261,10 @@
 		90E12E6427D2509500373FF9 /* TradeDescription */ = {
 			isa = PBXGroup;
 			children = (
-				90E12E6927D2513700373FF9 /* TradeDescriptionViewCell.swift */,
-				90E12E6A27D2513700373FF9 /* TradeDescriptionViewCell.xib */,
+				90E12E9A27D274A100373FF9 /* TopViewCell.swift */,
+				90E12E9B27D274A100373FF9 /* TopViewCell.xib */,
+				90E12E9E27D274AD00373FF9 /* BottomViewCell.swift */,
+				90E12E9F27D274AD00373FF9 /* BottomViewCell.xib */,
 			);
 			path = TradeDescription;
 			sourceTree = "<group>";
@@ -292,6 +303,15 @@
 				90E12E7627D251CC00373FF9 /* BuyQuantityViewCell.xib */,
 			);
 			path = BuyQuantity;
+			sourceTree = "<group>";
+		};
+		90E12E8527D26B4D00373FF9 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				90E12E8627D26B9000373FF9 /* TransactionViewCell.swift */,
+				90E12E8727D26B9000373FF9 /* TransactionViewCell.xib */,
+			);
+			path = Transaction;
 			sourceTree = "<group>";
 		};
 		B498EF4727C8DC5500C8F5FC /* ViewModel */ = {
@@ -637,11 +657,13 @@
 				90E12E7827D251CC00373FF9 /* BuyQuantityViewCell.xib in Resources */,
 				909BEEE327D1196500E4EE87 /* OrderBookViewController.xib in Resources */,
 				90E12E7427D251B900373FF9 /* BuyPriceViewCell.xib in Resources */,
+				90E12E8927D26B9000373FF9 /* TransactionViewCell.xib in Resources */,
 				90E12E7C27D251E600373FF9 /* SellPriceViewCell.xib in Resources */,
 				90E12E6827D2511800373FF9 /* ConclusionViewCell.xib in Resources */,
+				90E12E9D27D274A100373FF9 /* TopViewCell.xib in Resources */,
 				90E12E8027D251FE00373FF9 /* SellQuantityViewCell.xib in Resources */,
-				90E12E6C27D2513700373FF9 /* TradeDescriptionViewCell.xib in Resources */,
 				B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */,
+				90E12EA127D274AD00373FF9 /* BottomViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,7 +793,6 @@
 			files = (
 				FF19E28D27C8DB3600DBD52D /* AssetsAPIManager.swift in Sources */,
 				FF19E29327C9F74100DBD52D /* DemoSocketViewController.swift in Sources */,
-				90E12E6B27D2513700373FF9 /* TradeDescriptionViewCell.swift in Sources */,
 				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
 				90E12E6727D2511800373FF9 /* ConclusionViewCell.swift in Sources */,
 				909BEED327D1129D00E4EE87 /* ConclusionSheetViewEntity.swift in Sources */,
@@ -794,6 +815,7 @@
 				B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */,
 				B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */,
 				90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */,
+				90E12E8827D26B9000373FF9 /* TransactionViewCell.swift in Sources */,
 				B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */,
 				909BEEE227D1196500E4EE87 /* OrderBookViewController.swift in Sources */,
 				909BEED827D1148000E4EE87 /* OrderBookSheetEntity.swift in Sources */,
@@ -803,7 +825,9 @@
 				90E12E8427D25E7E00373FF9 /* Spreadsheet+Extensions.swift in Sources */,
 				90E12E7B27D251E600373FF9 /* SellPriceViewCell.swift in Sources */,
 				90E12E7727D251CC00373FF9 /* BuyQuantityViewCell.swift in Sources */,
+				90E12E9C27D274A100373FF9 /* TopViewCell.swift in Sources */,
 				B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */,
+				90E12EA027D274AD00373FF9 /* BottomViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
