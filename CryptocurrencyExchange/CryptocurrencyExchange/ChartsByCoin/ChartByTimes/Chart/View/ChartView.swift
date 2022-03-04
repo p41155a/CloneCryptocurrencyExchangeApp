@@ -12,7 +12,7 @@ class ChartView: UIView {
 
     @IBOutlet weak var chartView: CandleStickChartView!
     
-    var viewModel = ChartViewModel(repository: ProductionCandleStickRepository())
+    var viewModel = ChartViewModel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,13 +31,6 @@ class ChartView: UIView {
         superView.layoutIfNeeded()
         
         self.setChartUI()
-        self.viewModel.getCandleStickData(
-            parameter: CandleStickParameters(
-                orderCurrency: .appoint(name: "BTC"),
-                paymentCurrency: .KRW,
-                chartInterval: .oneMinute
-            )
-        )
         self.bindClosures()
     }
     

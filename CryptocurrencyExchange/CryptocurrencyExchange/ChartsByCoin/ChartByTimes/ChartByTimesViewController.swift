@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesViewModel> {
 
@@ -15,6 +16,17 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
         super.viewDidLoad()
 
         setStackViewUI()
+    }
+    
+    override func didMove(toParent parent: UIViewController?) {
+        super.didMove(toParent: parent)
+        self.viewModel.getCandleStickData(
+            parameter: CandleStickParameters(
+                orderCurrency: .appoint(name: "BTC"),
+                paymentCurrency: .KRW,
+                chartInterval: .oneMinute
+            )
+        )
     }
     
     // 각 시간간격 버튼의 tag, title, 버튼 event 설정

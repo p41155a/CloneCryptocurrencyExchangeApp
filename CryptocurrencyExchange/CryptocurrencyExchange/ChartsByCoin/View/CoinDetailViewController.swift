@@ -14,7 +14,8 @@ class CoinDetailViewController: ViewControllerInjectingViewModel<CoindDetailView
     var chartViewController: ViewControllerInjectingViewModel<ChartByTimesViewModel> = {
         let viewController = ChartByTimesViewController(
             viewModel: ChartByTimesViewModel(
-                nibName: "ChartByTimesViewController"
+                nibName: "ChartByTimesViewController",
+                repository: ProductionCandleStickRepository()
             )
         )
         return viewController
