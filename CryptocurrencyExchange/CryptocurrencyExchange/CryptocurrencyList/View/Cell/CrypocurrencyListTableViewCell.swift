@@ -31,6 +31,7 @@ final class CrypocurrencyListTableViewCell: UITableViewCell {
      
     func setData(data: CrypotocurrencyListTableViewEntity) {
         self.currencyNameLabel.text = data.symbol
+        self.currencySubNameLabel.text = data.payment.value
         self.currentPriceLabel.text = data.currentPrice
         self.changeRateLabel.text = data.changeRate
         self.changeAmountLabel.text = data.changeAmount
@@ -39,6 +40,7 @@ final class CrypocurrencyListTableViewCell: UITableViewCell {
     
     // MARK: - Property
     @IBOutlet weak var currencyNameLabel: UILabel!
+    @IBOutlet weak var currencySubNameLabel: UILabel!
     @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var changeRateLabel: UILabel!
     @IBOutlet weak var changeAmountLabel: UILabel!

@@ -45,7 +45,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
     
     // MARK: - Func
     func setKRWInitialData() {
-        apiManager.fetchTicker(paymentCurrency: .KRW) { result in
+        let paymentCurrency: PaymentCurrency = .KRW
+        apiManager.fetchTicker(paymentCurrency: paymentCurrency) { result in
             switch result {
             case .success(let data):
                 let cryptocurrencyData = data.currentInfo.current
@@ -54,7 +55,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
                 cryptocurrencyData.forEach { data in
                     let currentName = data.key
                     let tickerInfo = data.value
-                    let tableData = self.setTableData(symbol: "\(tickerInfo.currentName ?? "")_KRW",
+                    let tableData = self.setTableData(symbol: tickerInfo.currentName ?? "",
+                                                      payment: paymentCurrency,
                                                       currentPrice: tickerInfo.closingPrice ?? "",
                                                       changeRate: tickerInfo.fluctateRate24H ?? "",
                                                       changeAmount: tickerInfo.fluctate24H ?? "",
@@ -72,7 +74,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     func setBTCInitialData() {
-        apiManager.fetchTicker(paymentCurrency: .BTC) { result in
+        let paymentCurrency: PaymentCurrency = .BTC
+        apiManager.fetchTicker(paymentCurrency: paymentCurrency) { result in
             switch result {
             case .success(let data):
                 let cryptocurrencyData = data.currentInfo.current
@@ -81,7 +84,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
                 cryptocurrencyData.forEach { data in
                     let currentName = data.key
                     let tickerInfo = data.value
-                    let tableData = self.setTableData(symbol: "\(tickerInfo.currentName ?? "")_BTC",
+                    let tableData = self.setTableData(symbol: tickerInfo.currentName ?? "",
+                                                      payment: paymentCurrency,
                                                       currentPrice: tickerInfo.closingPrice ?? "",
                                                       changeRate: tickerInfo.fluctateRate24H ?? "",
                                                       changeAmount: tickerInfo.fluctate24H ?? "",
@@ -103,8 +107,12 @@ final class CryptocurrencyListViewModel: XIBInformation {
         let splitedSymbol: [String] = tickerInfo.symbol.split(separator: "_").map { "\($0)" }
         let currentName = splitedSymbol[0]
         let payment = splitedSymbol[1]
-        
-        let tableData = setTableData(symbol: "\(currentName)_\(payment)",
+        print(payment)
+        if payment == "BTC" {
+            print(entity)
+        }
+        let tableData = setTableData(symbol: "\(currentName)",
+                                     payment: PaymentCurrency.init(rawValue: payment) ?? .KRW,
                                      currentPrice: tickerInfo.closePrice,
                                      changeRate: tickerInfo.chgRate,
                                      changeAmount: tickerInfo.chgAmt,
@@ -117,13 +125,14 @@ final class CryptocurrencyListViewModel: XIBInformation {
         }
     }
     
-    private func setTableData(symbol: String, currentPrice: String, changeRate: String, changeAmount: String, transactionAmount: String) -> CrypotocurrencyListTableViewEntity {
+    private func setTableData(symbol: String, payment: PaymentCurrency, currentPrice: String, changeRate: String, changeAmount: String, transactionAmount: String) -> CrypotocurrencyListTableViewEntity {
         let currentPrice: String = currentPrice.setNumStringForm(isDecimalType: true)
         let changeRate: String = "\(changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
         let changeAmount: String = changeAmount.setNumStringForm(isDecimalType: true, isMarkPlusMiuns: true)
         let transactionAmount: String = "\(Int((transactionAmount.doubleValue ?? 0) / 1000000).decimalType ?? "")백만"
         
         return CrypotocurrencyListTableViewEntity(symbol: symbol,
+                                                  payment: payment,
                                                   currentPrice: currentPrice,
                                                   changeRate: changeRate,
                                                   changeAmount: changeAmount,

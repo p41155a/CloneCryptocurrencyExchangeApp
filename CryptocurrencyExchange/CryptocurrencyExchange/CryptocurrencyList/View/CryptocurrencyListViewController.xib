@@ -102,7 +102,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VnI-EY-7ar">
-                    <rect key="frame" x="0.0" y="144" width="414" height="44"/>
+                    <rect key="frame" x="8" y="144" width="414" height="44"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMb-ic-yqe">
                             <rect key="frame" x="0.0" y="0.0" width="117" height="44"/>
@@ -216,7 +216,7 @@
                     </constraints>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a9u-Rf-bAU">
-                    <rect key="frame" x="0.0" y="188" width="414" height="674"/>
+                    <rect key="frame" x="8" y="188" width="398" height="674"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="KnI-5Q-VTM"/>
@@ -230,12 +230,12 @@
                 <constraint firstItem="T5F-eX-gJb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="3Ea-r1-Wft"/>
                 <constraint firstItem="a9u-Rf-bAU" firstAttribute="top" secondItem="VnI-EY-7ar" secondAttribute="bottom" id="BSg-U3-qtE"/>
                 <constraint firstItem="VnI-EY-7ar" firstAttribute="top" secondItem="T5F-eX-gJb" secondAttribute="bottom" id="HBu-QW-dk8"/>
-                <constraint firstItem="VnI-EY-7ar" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="O4y-XO-Zug"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="a9u-Rf-bAU" secondAttribute="trailing" id="R4Q-3f-yjy"/>
+                <constraint firstItem="VnI-EY-7ar" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="8" id="O4y-XO-Zug"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="a9u-Rf-bAU" secondAttribute="trailing" constant="8" id="R4Q-3f-yjy"/>
                 <constraint firstItem="T5F-eX-gJb" firstAttribute="top" secondItem="rC5-2m-7Op" secondAttribute="bottom" constant="16" id="U4H-rx-vom"/>
                 <constraint firstItem="rC5-2m-7Op" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZcZ-6V-kyu"/>
-                <constraint firstItem="VnI-EY-7ar" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bbR-WJ-VXB"/>
-                <constraint firstItem="a9u-Rf-bAU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dop-nk-Fgh"/>
+                <constraint firstItem="VnI-EY-7ar" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="bbR-WJ-VXB"/>
+                <constraint firstItem="a9u-Rf-bAU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="dop-nk-Fgh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="a9u-Rf-bAU" secondAttribute="bottom" id="fqN-eu-SKT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rC5-2m-7Op" secondAttribute="trailing" constant="8" id="orT-cG-ZHp"/>
                 <constraint firstItem="rC5-2m-7Op" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="yt4-yg-53F"/>
