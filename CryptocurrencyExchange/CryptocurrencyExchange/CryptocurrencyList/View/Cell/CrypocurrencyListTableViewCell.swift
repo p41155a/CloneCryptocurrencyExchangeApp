@@ -36,6 +36,13 @@ final class CrypocurrencyListTableViewCell: UITableViewCell {
         self.changeRateLabel.text = data.changeRate
         self.changeAmountLabel.text = data.changeAmount
         self.transactionAmountLabel.text = data.transactionAmount
+        setColor(updown: UpDown(rawValue: data.changeAmount.first ?? "+") ?? .Up)
+    }
+    
+    private func setColor(updown: UpDown) {
+        currentPriceLabel.textColor = updown.color
+        changeRateLabel.textColor = updown.color
+        changeAmountLabel.textColor = updown.color
     }
     
     // MARK: - Property
@@ -45,4 +52,18 @@ final class CrypocurrencyListTableViewCell: UITableViewCell {
     @IBOutlet weak var changeRateLabel: UILabel!
     @IBOutlet weak var changeAmountLabel: UILabel!
     @IBOutlet weak var transactionAmountLabel: UILabel!
+}
+
+enum UpDown: Character {
+    case Up = "+"
+    case Down = "-"
+    
+    var color: UIColor {
+        switch self {
+        case .Up:
+            return .red
+        case .Down:
+            return .blue
+        }
+    }
 }

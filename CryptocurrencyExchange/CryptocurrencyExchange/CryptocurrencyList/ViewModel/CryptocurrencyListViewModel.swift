@@ -107,10 +107,6 @@ final class CryptocurrencyListViewModel: XIBInformation {
         let splitedSymbol: [String] = tickerInfo.symbol.split(separator: "_").map { "\($0)" }
         let currentName = splitedSymbol[0]
         let payment = splitedSymbol[1]
-        print(payment)
-        if payment == "BTC" {
-            print(entity)
-        }
         let tableData = setTableData(symbol: "\(currentName)",
                                      payment: PaymentCurrency.init(rawValue: payment) ?? .KRW,
                                      currentPrice: tickerInfo.closePrice,
