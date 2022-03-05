@@ -32,6 +32,18 @@ struct CandleChartDataEntries {
             )
         }
     }
+    
+    init(dataFromDB: [CandleStickData]) {
+        self.values = dataFromDB.enumerated().map({ (index, stickData) in
+            return CandleChartDataEntry(
+                x: Double(index),
+                shadowH: stickData.high,
+                shadowL: stickData.low,
+                open: stickData.open,
+                close: stickData.close
+            )
+        })
+    }
 }
 
 

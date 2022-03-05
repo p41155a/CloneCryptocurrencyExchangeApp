@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD15D427CDE68700C5CBAC /* UIColor.swift */; };
+		9B16F5B827D08C26003DC9BC /* ChartByTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */; };
+		9B16F5B927D08C26003DC9BC /* ChartByTimesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */; };
+		9B16F5BB27D08CB9003DC9BC /* ChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */; };
+		9B16F5BD27D09E2A003DC9BC /* ChartByTimesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */; };
+		9B16F5BF27D0AFC5003DC9BC /* IntervalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */; };
+		9B16F5C227D0B939003DC9BC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B16F5C127D0B939003DC9BC /* RealmSwift */; };
+		9B745FAE27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */; };
 		9B778C6327CF128A0009D343 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6227CF128A0009D343 /* ChartViewModel.swift */; };
 		9B778C6527CF14350009D343 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6427CF14350009D343 /* Observable.swift */; };
 		9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */; };
@@ -90,6 +97,12 @@
 
 /* Begin PBXFileReference section */
 		90BD15D427CDE68700C5CBAC /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewController.swift; sourceTree = "<group>"; };
+		9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartByTimesViewController.xib; sourceTree = "<group>"; };
+		9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewModel.swift; sourceTree = "<group>"; };
+		9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesModel.swift; sourceTree = "<group>"; };
+		9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalButton.swift; sourceTree = "<group>"; };
+		9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickByTimeInterval.swift; sourceTree = "<group>"; };
 		9B778C6227CF128A0009D343 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		9B778C6427CF14350009D343 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbCandleStickDataSet.swift; sourceTree = "<group>"; };
@@ -161,6 +174,7 @@
 				FF19E22027C62B8700DBD52D /* Kingfisher in Frameworks */,
 				FF19E21D27C62A9A00DBD52D /* Alamofire in Frameworks */,
 				FF19E22327C62BA000DBD52D /* Starscream in Frameworks */,
+				9B16F5C227D0B939003DC9BC /* RealmSwift in Frameworks */,
 				FF19E22627C62BC900DBD52D /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +196,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B16F5B527D08BFB003DC9BC /* ChartByTimes */ = {
+			isa = PBXGroup;
+			children = (
+				9B745FAC27D1D1240001C0D3 /* DB */,
+				B4BC4E9527CDFE2C00DE19EC /* Chart */,
+				9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */,
+				9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */,
+				9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */,
+				9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */,
+				B498E2DE27D30BA400E4B787 /* ViewModel */,
+			);
+			path = ChartByTimes;
+			sourceTree = "<group>";
+		};
+		9B745FAC27D1D1240001C0D3 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		9B778C5E27CF0E1D0009D343 /* ChartsByCoin */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				9B778C6227CF128A0009D343 /* ChartViewModel.swift */,
-				9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -315,6 +350,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B498E2DE27D30BA400E4B787 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */,
+				9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B498EF4727C8DC5500C8F5FC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,10 +370,10 @@
 		B4BC4E8C27CDF65D00DE19EC /* ChartsByCoin */ = {
 			isa = PBXGroup;
 			children = (
-				B4BC4E9C27CE647D00DE19EC /* CandleStick */,
-				B4BC4E9527CDFE2C00DE19EC /* Chart */,
+				B4BC4E9C27CE647D00DE19EC /* CandleStickAPI */,
 				B4BC4E9227CDF7A100DE19EC /* ViewModel */,
 				B4BC4E9127CDF79400DE19EC /* View */,
+				9B16F5B527D08BFB003DC9BC /* ChartByTimes */,
 			);
 			path = ChartsByCoin;
 			sourceTree = "<group>";
@@ -361,7 +405,7 @@
 			path = Chart;
 			sourceTree = "<group>";
 		};
-		B4BC4E9C27CE647D00DE19EC /* CandleStick */ = {
+		B4BC4E9C27CE647D00DE19EC /* CandleStickAPI */ = {
 			isa = PBXGroup;
 			children = (
 				B4BC4EA527CE6C4B00DE19EC /* Entity */,
@@ -370,7 +414,7 @@
 				B4BC4E9D27CE66EE00DE19EC /* CandleStickAPIManager.swift */,
 				B4BC4E9F27CE66FF00DE19EC /* CandleStickAPIService.swift */,
 			);
-			path = CandleStick;
+			path = CandleStickAPI;
 			sourceTree = "<group>";
 		};
 		B4BC4EA527CE6C4B00DE19EC /* Entity */ = {
@@ -599,6 +643,7 @@
 				FF19E21F27C62B8700DBD52D /* Kingfisher */,
 				FF19E22227C62BA000DBD52D /* Starscream */,
 				FF19E22527C62BC900DBD52D /* Charts */,
+				9B16F5C127D0B939003DC9BC /* RealmSwift */,
 			);
 			productName = CryptocurrencyExchange;
 			productReference = FF19E1E827C628DD00DBD52D /* CryptocurrencyExchange.app */;
@@ -677,6 +722,7 @@
 				FF19E21E27C62B8600DBD52D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FF19E22127C62BA000DBD52D /* XCRemoteSwiftPackageReference "Starscream" */,
 				FF19E22427C62BC900DBD52D /* XCRemoteSwiftPackageReference "Charts" */,
+				9B16F5C027D0B939003DC9BC /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = FF19E1E927C628DD00DBD52D /* Products */;
 			projectDirPath = "";
@@ -700,6 +746,7 @@
 				B4BC4E9027CDF70900DE19EC /* CoinDetailViewController.xib in Resources */,
 				FF19E1F827C628E100DBD52D /* LaunchScreen.storyboard in Resources */,
 				FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */,
+				9B16F5B927D08C26003DC9BC /* ChartByTimesViewController.xib in Resources */,
 				B4BC4E9927CE012400DE19EC /* ChartView.xib in Resources */,
 				B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */,
 			);
@@ -734,6 +781,7 @@
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
 				B4BC4E8F27CDF70900DE19EC /* CoinDetailViewController.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
+				9B16F5BD27D09E2A003DC9BC /* ChartByTimesModel.swift in Sources */,
 				FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */,
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
 				B4471E5E27CFBDB700668B64 /* QuoteViewController.swift in Sources */,
@@ -745,11 +793,15 @@
 				FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */,
 				9B778C7227CF4D9C0009D343 /* CandleStickRepository.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
+				9B16F5BF27D0AFC5003DC9BC /* IntervalButton.swift in Sources */,
 				FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */,
 				FF19E29F27CA00B900DBD52D /* WebSocketOrderbookEntity.swift in Sources */,
 				B4BC4E9427CDF7B400DE19EC /* CoindDetailViewModel.swift in Sources */,
 				FF19E28527C74FA600DBD52D /* APIError.swift in Sources */,
+				9B16F5B827D08C26003DC9BC /* ChartByTimesViewController.swift in Sources */,
+				9B745FAE27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift in Sources */,
 				FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */,
+				9B16F5BB27D08CB9003DC9BC /* ChartByTimesViewModel.swift in Sources */,
 				9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
 				9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */,
@@ -1118,6 +1170,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9B16F5C027D0B939003DC9BC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.23.0;
+			};
+		};
 		FF19E21B27C62A9A00DBD52D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -1153,6 +1213,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9B16F5C127D0B939003DC9BC /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B16F5C027D0B939003DC9BC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		FF19E21C27C62A9A00DBD52D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FF19E21B27C62A9A00DBD52D /* XCRemoteSwiftPackageReference "Alamofire" */;

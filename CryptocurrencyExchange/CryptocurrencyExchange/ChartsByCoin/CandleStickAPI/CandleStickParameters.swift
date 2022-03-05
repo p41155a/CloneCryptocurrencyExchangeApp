@@ -10,9 +10,9 @@ import Foundation
 struct CandleStickParameters {
     let orderCurrency: OrderCurrency
     let paymentCurrency: paymentCurrency
-    let chartInterval: CandleStickIntervals
+    let chartInterval: TimeIntervalInChart
     
     func path() -> String {
-        return "\(orderCurrency.value)_\(paymentCurrency.value)/\(chartInterval.rawValue)"
+        return "\(orderCurrency.value)_\(paymentCurrency.value)/\(chartInterval.urlParameter)"
     }
 }
