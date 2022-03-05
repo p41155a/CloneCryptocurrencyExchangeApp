@@ -11,9 +11,9 @@ import UIKit
 class TabBarController: UITabBarController {
     
     var exchangeViewController: ViewControllerInNavigation = {
-        let exchangeViewController = ExchangeViewController(
-            viewModel: ExchangeViewModel(
-                nibName: "ExchangeViewController"
+        let exchangeViewController = CryptocurrencyListViewController(
+            viewModel: CryptocurrencyListViewModel(
+                nibName: "CryptocurrencyListViewController"
             )
         )
 //        exchangeViewController.title = "홈 타이틀"             // 타이틀이 없을경우 미호출
