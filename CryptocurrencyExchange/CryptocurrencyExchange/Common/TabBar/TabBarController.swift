@@ -26,23 +26,7 @@ class TabBarController: UITabBarController {
             )
         )
     }()
-    
-    var orderbookViewController: ViewControllerInNavigation = {
-        let orderbookDetailViewController = OrderbookViewController(
-            viewModel: OrderbookViewModel(
-                nibName: "OrderbookViewController"
-            )
-        )
-        
-        return ViewControllerInNavigation(
-            with: TabInformation(
-                viewController: orderbookDetailViewController,
-                tabTitle: "호가창",
-                image: UIImage.checkmark // 임시 이미지 입니다
-            )
-        )
-    }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,10 +34,7 @@ class TabBarController: UITabBarController {
     }
     
     private func configureViewControllers() {
-        let viewControllersInNavigation = [
-            exchangeViewController,
-            orderbookViewController
-        ].map {
+        let viewControllersInNavigation = [exchangeViewController].map {
             $0.navigationControllerIncludingViewController()
         }
         setViewControllers(viewControllersInNavigation, animated: false)
