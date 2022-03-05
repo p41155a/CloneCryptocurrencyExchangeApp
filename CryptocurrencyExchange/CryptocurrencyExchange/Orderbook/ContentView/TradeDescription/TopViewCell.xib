@@ -89,6 +89,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="XKW-Cu-qkx"/>
+            <connections>
+                <outlet property="tradeValueLabel" destination="TE8-wz-Gjw" id="2Gh-J2-jyi"/>
+                <outlet property="tradeVolumeLabel" destination="yJ2-D9-hcb" id="8Ch-3i-VvO"/>
+            </connections>
             <point key="canvasLocation" x="202.89855072463769" y="132.92410714285714"/>
         </tableViewCell>
     </objects>

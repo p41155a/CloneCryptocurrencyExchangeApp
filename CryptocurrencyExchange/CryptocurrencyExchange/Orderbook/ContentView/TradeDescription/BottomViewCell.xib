@@ -130,6 +130,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="n5s-v3-yPJ"/>
+            <connections>
+                <outlet property="highPriceLabel" destination="Uab-9B-QL2" id="Zy7-sf-udc"/>
+                <outlet property="lowPriceLabel" destination="aE2-eM-MI5" id="MEx-Ve-N98"/>
+                <outlet property="openPriceLabel" destination="aOe-Xl-Brg" id="dYR-gh-rEB"/>
+                <outlet property="prevClosePriceLabel" destination="c4o-bF-94e" id="gVs-l8-oIp"/>
+            </connections>
             <point key="canvasLocation" x="202.89855072463769" y="132.92410714285714"/>
         </tableViewCell>
     </objects>

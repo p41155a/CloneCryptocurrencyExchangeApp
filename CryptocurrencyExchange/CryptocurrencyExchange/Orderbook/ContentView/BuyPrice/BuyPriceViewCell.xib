@@ -55,6 +55,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="buyPriceLabel" destination="9x0-y8-DWH" id="HR0-gn-3KC"/>
+                <outlet property="buyPriceRateLabel" destination="y6l-Ot-lOu" id="I08-3D-VWA"/>
+            </connections>
             <point key="canvasLocation" x="138" y="96"/>
         </tableViewCell>
     </objects>
@@ -63,7 +67,7 @@
             <color red="0.94900000095367432" green="0.2669999897480011" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="increasingColorBackgroundColor">
-            <color red="1" green="0.78431372549019607" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="0.7839999794960022" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

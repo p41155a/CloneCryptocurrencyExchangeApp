@@ -9,15 +9,30 @@ import UIKit
 import Starscream
 import SpreadsheetView
 
-final class OrderBookViewController: ViewControllerInjectingViewModel<OrderBookViewModel> {
+final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookViewModel> {
     var coinName: String = ""
     var currrencyType: String = ""
     
-    @IBOutlet private var spreadsheetView: SpreadsheetView!
+    var spreadsheetView = SpreadsheetView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let view = self.view.frame
+        spreadsheetView = SpreadsheetView(
+            frame: CGRect(
+                origin: CGPoint(x: 0, y: 100),
+                size: CGSize(width: UIScreen.main.bounds.width, height: view.height - 250)
+            )
+        )
+        self.view.addSubview(spreadsheetView)
+        
         configureSpreadsheetView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.spreadsheetView.flashScrollIndicators()
     }
     
     private func configureSpreadsheetView() {
@@ -27,26 +42,19 @@ final class OrderBookViewController: ViewControllerInjectingViewModel<OrderBookV
     }
     
     private func registerCell() {
-        self.spreadsheetView.register(SellQuantityViewCell.self,
-                                      forCellWithReuseIdentifier: String(describing: SellQuantityViewCell.self))
-        self.spreadsheetView.register(SellPriceViewCell.self,
-                                      forCellWithReuseIdentifier: String(describing: SellPriceViewCell.self))
+        SellQuantityViewCell.register(spreadsheet: spreadsheetView.self)
+        SellPriceViewCell.register(spreadsheet: spreadsheetView.self)
         
-        self.spreadsheetView.register(TopViewCell.self,
-                                      forCellWithReuseIdentifier: String(describing: TopViewCell.self))
-        self.spreadsheetView.register(BottomViewCell.self,
-                                      forCellWithReuseIdentifier: String(describing: BottomViewCell.self))
+        TopViewCell.register(spreadsheet: spreadsheetView.self)
+        BottomViewCell.register(spreadsheet: spreadsheetView.self)
         
-        self.spreadsheetView.register(ConclusionViewCell.self,
-                                      forCellWithReuseIdentifier: String(describing: ConclusionViewCell.self))
-        self.spreadsheetView.register(BuyQuantityViewCell.self,
-                                      forCellWithReuseIdentifier: String(describing: BuyQuantityViewCell.self))
-        self.spreadsheetView.register(BuyPriceViewCell.self,
-                                      forCellWithReuseIdentifier: String(describing: BuyPriceViewCell.self))
+        FasteningStrengthViewCell.register(spreadsheet: spreadsheetView.self)
+        BuyQuantityViewCell.register(spreadsheet: spreadsheetView.self)
+        BuyPriceViewCell.register(spreadsheet: spreadsheetView.self)
     }
 }
 
-extension OrderBookViewController: WebSocketDelegate {
+extension OrderbookViewController: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(let headers):
