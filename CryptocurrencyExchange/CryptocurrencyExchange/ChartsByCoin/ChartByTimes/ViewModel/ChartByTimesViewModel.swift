@@ -11,14 +11,14 @@ class ChartByTimesViewModel: XIBInformation {
     var nibName: String?
     var repository: CandleStickChartRepository
     var orderCurrency: OrderCurrency
-    var paymentCurrency: paymentCurrency
+    var paymentCurrency: PaymentCurrency
     var candleStickData: Observable<[CandleStickData]?>
     
     init(
         nibName: String?,
         repository: CandleStickChartRepository,
         orderCurrency: OrderCurrency,
-        paymentCurrency: paymentCurrency
+        paymentCurrency: PaymentCurrency
     ) {
         self.nibName = nibName
         self.repository = repository
@@ -40,8 +40,8 @@ class ChartByTimesViewModel: XIBInformation {
     private func candleStickParmeters(with intervalType: TimeIntervalInChart) -> CandleStickParameters {
         return CandleStickParameters(
             orderCurrency: self.orderCurrency,
-            paymentCurrency: self.paymentCurrency,
-            chartInterval: intervalType
+            chartInterval: intervalType,
+            paymentCurrency: self.paymentCurrency
         )
     }
     
