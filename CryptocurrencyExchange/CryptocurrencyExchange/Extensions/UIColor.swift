@@ -12,6 +12,11 @@ extension UIColor {
         return UIColor(named: "backgroundColor")
     }
     
+    /// darkGray color - (102, 102, 102, 100%)
+    class var darkgrayColor: UIColor? {
+        return UIColor(named: "darkgrayColor")
+    }
+    
     /// base color - (215, 217, 217, 100%)
     class var baseColor: UIColor? {
         return UIColor(named: "baseColor")

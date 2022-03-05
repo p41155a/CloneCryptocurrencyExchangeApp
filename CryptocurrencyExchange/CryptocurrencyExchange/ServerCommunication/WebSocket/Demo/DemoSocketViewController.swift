@@ -45,7 +45,7 @@ extension DemoSocketViewController: WebSocketDelegate {
         switch event {
         case .connected(let headers):
             let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
-                                         "symbols":["BTC_\(paymentCurrency.KRW.rawValue)"],
+                                         "symbols":["BTC_\(PaymentCurrency.KRW.rawValue)"],
                                          "tickTypes": [WebSocketTickType.tickMID.rawValue]]
             
             let jParams = try! JSONSerialization.data(withJSONObject: params, options: [])

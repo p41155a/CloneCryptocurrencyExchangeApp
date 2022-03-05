@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EC431CCFA701BD008A774AD /* Pods_CryptocurrencyExchangeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4F6DDAE798D7DB5DC5EBC8 /* Pods_CryptocurrencyExchangeTests.framework */; };
+		823FD35ADE207D7092B07C15 /* Pods_CryptocurrencyExchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92774D2EEF35C757FAE75845 /* Pods_CryptocurrencyExchange.framework */; };
+		909BEED327D1129D00E4EE87 /* ConclusionSheetViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909BEED227D1129D00E4EE87 /* ConclusionSheetViewEntity.swift */; };
+		909BEED527D112A500E4EE87 /* TransactionDescriptionSheetViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909BEED427D112A500E4EE87 /* TransactionDescriptionSheetViewEntity.swift */; };
+		909BEED827D1148000E4EE87 /* OrderBookSheetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909BEED727D1148000E4EE87 /* OrderBookSheetEntity.swift */; };
+		909BEEDF27D1183E00E4EE87 /* OrderbookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909BEEDE27D1183E00E4EE87 /* OrderbookViewModel.swift */; };
 		90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD15D427CDE68700C5CBAC /* UIColor.swift */; };
 		9B16F5B827D08C26003DC9BC /* ChartByTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */; };
 		9B16F5B927D08C26003DC9BC /* ChartByTimesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */; };
@@ -23,6 +29,25 @@
 		9B778C7227CF4D9C0009D343 /* CandleStickRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */; };
 		9B778C7627CF4EB40009D343 /* MockCandleStickRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C7527CF4EB40009D343 /* MockCandleStickRepository.swift */; };
 		9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C7727CF53900009D343 /* CandleChartDataEntries.swift */; };
+		90E12E6727D2511800373FF9 /* FasteningStrengthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E6527D2511800373FF9 /* FasteningStrengthViewCell.swift */; };
+		90E12E6827D2511800373FF9 /* FasteningStrengthViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E6627D2511800373FF9 /* FasteningStrengthViewCell.xib */; };
+		90E12E7327D251B900373FF9 /* BuyPriceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E7127D251B900373FF9 /* BuyPriceViewCell.swift */; };
+		90E12E7427D251B900373FF9 /* BuyPriceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E7227D251B900373FF9 /* BuyPriceViewCell.xib */; };
+		90E12E7727D251CC00373FF9 /* BuyQuantityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E7527D251CC00373FF9 /* BuyQuantityViewCell.swift */; };
+		90E12E7827D251CC00373FF9 /* BuyQuantityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E7627D251CC00373FF9 /* BuyQuantityViewCell.xib */; };
+		90E12E7B27D251E600373FF9 /* SellPriceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E7927D251E600373FF9 /* SellPriceViewCell.swift */; };
+		90E12E7C27D251E600373FF9 /* SellPriceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E7A27D251E600373FF9 /* SellPriceViewCell.xib */; };
+		90E12E7F27D251FE00373FF9 /* SellQuantityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E7D27D251FE00373FF9 /* SellQuantityViewCell.swift */; };
+		90E12E8027D251FE00373FF9 /* SellQuantityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E7E27D251FE00373FF9 /* SellQuantityViewCell.xib */; };
+		90E12E8827D26B9000373FF9 /* ConcludedQuantityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E8627D26B9000373FF9 /* ConcludedQuantityViewCell.swift */; };
+		90E12E8927D26B9000373FF9 /* ConcludedQuantityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E8727D26B9000373FF9 /* ConcludedQuantityViewCell.xib */; };
+		90E12E9C27D274A100373FF9 /* TopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E9A27D274A100373FF9 /* TopViewCell.swift */; };
+		90E12E9D27D274A100373FF9 /* TopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E9B27D274A100373FF9 /* TopViewCell.xib */; };
+		90E12EA027D274AD00373FF9 /* BottomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E9E27D274AD00373FF9 /* BottomViewCell.swift */; };
+		90E12EA127D274AD00373FF9 /* BottomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E9F27D274AD00373FF9 /* BottomViewCell.xib */; };
+		90E12EAA27D32BA600373FF9 /* SpreadsheetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12EA927D32BA600373FF9 /* SpreadsheetViewCell.swift */; };
+		90E12EB527D335AF00373FF9 /* OrderbookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12EB327D335AF00373FF9 /* OrderbookViewController.swift */; };
+		90E12EB627D335AF00373FF9 /* OrderbookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12EB427D335AF00373FF9 /* OrderbookViewController.xib */; };
 		B4471E5727CFB47100668B64 /* CoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4471E5527CFB47100668B64 /* CoinDetailsViewController.swift */; };
 		B4471E5827CFB47100668B64 /* CoinDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4471E5627CFB47100668B64 /* CoinDetailsViewController.xib */; };
 		B4471E5A27CFB9AD00668B64 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */; };
@@ -50,6 +75,7 @@
 		B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */; };
 		B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F5AF7E27C8D3EB00EB60A1 /* ExchangeViewController.xib */; };
 		B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */; };
+		EDCFD65469C27236139337F8 /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06048D9DCE94D9D66ABFD58E /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework */; };
 		FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */; };
 		FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */; };
 		FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1F427C628E100DBD52D /* Assets.xcassets */; };
@@ -76,6 +102,22 @@
 		FF19E2A627CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */; };
 		FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A827CA73C300DBD52D /* WebSocketTickType.swift */; };
 		FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */; };
+		FFB2EFB427D05F0D00944E97 /* CrypotocurrencyListTableViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB2EFB327D05F0D00944E97 /* CrypotocurrencyListTableViewEntity.swift */; };
+		FFB2EFC427D1415F00944E97 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB2EFC327D1415F00944E97 /* String+Extension.swift */; };
+		FFB2EFC827D147E800944E97 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB2EFC727D147E800944E97 /* Int+Extension.swift */; };
+		FFB2EFD927D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB2EFD727D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.swift */; };
+		FFB2EFDA27D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB2EFD827D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.xib */; };
+		FFE7196927CE0349008DF7B9 /* CryptocurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7196727CE0349008DF7B9 /* CryptocurrencyListViewController.swift */; };
+		FFE7196A27CE0349008DF7B9 /* CryptocurrencyListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE7196827CE0349008DF7B9 /* CryptocurrencyListViewController.xib */; };
+		FFE7196C27CE035D008DF7B9 /* CryptocurrencyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7196B27CE035D008DF7B9 /* CryptocurrencyListViewModel.swift */; };
+		FFE7197627CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7197427CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.swift */; };
+		FFE7197727CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE7197527CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.xib */; };
+		FFE7197927CE0E95008DF7B9 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7197827CE0E95008DF7B9 /* UIView+Extension.swift */; };
+		FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7197A27CE16F7008DF7B9 /* UITableViewCell+Extension.swift */; };
+		FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198027CE648D008DF7B9 /* TabButton.swift */; };
+		FFE7198427CE8539008DF7B9 /* TickerAPIMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198327CE8539008DF7B9 /* TickerAPIMananger.swift */; };
+		FFE7198627CE8546008DF7B9 /* TickerAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198527CE8546008DF7B9 /* TickerAPIService.swift */; };
+		FFE7198927CE88A0008DF7B9 /* CryptocurrencyListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7198827CE88A0008DF7B9 /* CryptocurrencyListEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +138,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06048D9DCE94D9D66ABFD58E /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		185920FF1D7CA3D8ECC400E7 /* Pods-CryptocurrencyExchangeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchangeTests.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchangeTests/Pods-CryptocurrencyExchangeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3A5B013781AF6099AFC036C9 /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5F4F6DDAE798D7DB5DC5EBC8 /* Pods_CryptocurrencyExchangeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptocurrencyExchangeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B1A9CA03976733F87E2FBA /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		909BEED227D1129D00E4EE87 /* ConclusionSheetViewEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionSheetViewEntity.swift; sourceTree = "<group>"; };
+		909BEED427D112A500E4EE87 /* TransactionDescriptionSheetViewEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDescriptionSheetViewEntity.swift; sourceTree = "<group>"; };
+		909BEED727D1148000E4EE87 /* OrderBookSheetEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookSheetEntity.swift; sourceTree = "<group>"; };
+		909BEEDE27D1183E00E4EE87 /* OrderbookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookViewModel.swift; sourceTree = "<group>"; };
 		90BD15D427CDE68700C5CBAC /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewController.swift; sourceTree = "<group>"; };
 		9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartByTimesViewController.xib; sourceTree = "<group>"; };
@@ -121,6 +172,27 @@
 		B4471E6427CFBE5100668B64 /* ChartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartViewController.xib; sourceTree = "<group>"; };
 		B4471E6727CFBE5F00668B64 /* ChartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewModel.swift; sourceTree = "<group>"; };
 		B4471E6927CFC3ED00668B64 /* CoinDetailsTopTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsTopTabs.swift; sourceTree = "<group>"; };
+		90E12E6527D2511800373FF9 /* FasteningStrengthViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FasteningStrengthViewCell.swift; sourceTree = "<group>"; };
+		90E12E6627D2511800373FF9 /* FasteningStrengthViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FasteningStrengthViewCell.xib; sourceTree = "<group>"; };
+		90E12E7127D251B900373FF9 /* BuyPriceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyPriceViewCell.swift; sourceTree = "<group>"; };
+		90E12E7227D251B900373FF9 /* BuyPriceViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyPriceViewCell.xib; sourceTree = "<group>"; };
+		90E12E7527D251CC00373FF9 /* BuyQuantityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyQuantityViewCell.swift; sourceTree = "<group>"; };
+		90E12E7627D251CC00373FF9 /* BuyQuantityViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyQuantityViewCell.xib; sourceTree = "<group>"; };
+		90E12E7927D251E600373FF9 /* SellPriceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellPriceViewCell.swift; sourceTree = "<group>"; };
+		90E12E7A27D251E600373FF9 /* SellPriceViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellPriceViewCell.xib; sourceTree = "<group>"; };
+		90E12E7D27D251FE00373FF9 /* SellQuantityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellQuantityViewCell.swift; sourceTree = "<group>"; };
+		90E12E7E27D251FE00373FF9 /* SellQuantityViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellQuantityViewCell.xib; sourceTree = "<group>"; };
+		90E12E8627D26B9000373FF9 /* ConcludedQuantityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcludedQuantityViewCell.swift; sourceTree = "<group>"; };
+		90E12E8727D26B9000373FF9 /* ConcludedQuantityViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConcludedQuantityViewCell.xib; sourceTree = "<group>"; };
+		90E12E9A27D274A100373FF9 /* TopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewCell.swift; sourceTree = "<group>"; };
+		90E12E9B27D274A100373FF9 /* TopViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewCell.xib; sourceTree = "<group>"; };
+		90E12E9E27D274AD00373FF9 /* BottomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewCell.swift; sourceTree = "<group>"; };
+		90E12E9F27D274AD00373FF9 /* BottomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomViewCell.xib; sourceTree = "<group>"; };
+		90E12EA927D32BA600373FF9 /* SpreadsheetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreadsheetViewCell.swift; sourceTree = "<group>"; };
+		90E12EB327D335AF00373FF9 /* OrderbookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookViewController.swift; sourceTree = "<group>"; };
+		90E12EB427D335AF00373FF9 /* OrderbookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderbookViewController.xib; sourceTree = "<group>"; };
+		92774D2EEF35C757FAE75845 /* Pods_CryptocurrencyExchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptocurrencyExchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1F4A9C36FC00016C5418E89 /* Pods-CryptocurrencyExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange.release.xcconfig"; sourceTree = "<group>"; };
 		B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInNavigation.swift; sourceTree = "<group>"; };
 		B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
 		B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +210,8 @@
 		B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		B4F5AF7E27C8D3EB00EB60A1 /* ExchangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExchangeViewController.xib; sourceTree = "<group>"; };
 		B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInjectingViewModel.swift; sourceTree = "<group>"; };
+		EE86B47D3BAF18DE190AF792 /* Pods-CryptocurrencyExchangeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchangeTests.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchangeTests/Pods-CryptocurrencyExchangeTests.release.xcconfig"; sourceTree = "<group>"; };
+		F19B2A7442316AB646DD3F53 /* Pods-CryptocurrencyExchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange.debug.xcconfig"; sourceTree = "<group>"; };
 		FF19E1E827C628DD00DBD52D /* CryptocurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptocurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +238,22 @@
 		FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyExchangeAPITests.swift; sourceTree = "<group>"; };
 		FF19E2A827CA73C300DBD52D /* WebSocketTickType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTickType.swift; sourceTree = "<group>"; };
 		FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsAPIService.swift; sourceTree = "<group>"; };
+		FFB2EFB327D05F0D00944E97 /* CrypotocurrencyListTableViewEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrypotocurrencyListTableViewEntity.swift; sourceTree = "<group>"; };
+		FFB2EFC327D1415F00944E97 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		FFB2EFC727D147E800944E97 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		FFB2EFD727D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrypocurrencyBTCListTableViewCell.swift; sourceTree = "<group>"; };
+		FFB2EFD827D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrypocurrencyBTCListTableViewCell.xib; sourceTree = "<group>"; };
+		FFE7196727CE0349008DF7B9 /* CryptocurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyListViewController.swift; sourceTree = "<group>"; };
+		FFE7196827CE0349008DF7B9 /* CryptocurrencyListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CryptocurrencyListViewController.xib; sourceTree = "<group>"; };
+		FFE7196B27CE035D008DF7B9 /* CryptocurrencyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyListViewModel.swift; sourceTree = "<group>"; };
+		FFE7197427CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrypocurrencyKRWListTableViewCell.swift; sourceTree = "<group>"; };
+		FFE7197527CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrypocurrencyKRWListTableViewCell.xib; sourceTree = "<group>"; };
+		FFE7197827CE0E95008DF7B9 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		FFE7197A27CE16F7008DF7B9 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		FFE7198027CE648D008DF7B9 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		FFE7198327CE8539008DF7B9 /* TickerAPIMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAPIMananger.swift; sourceTree = "<group>"; };
+		FFE7198527CE8546008DF7B9 /* TickerAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAPIService.swift; sourceTree = "<group>"; };
+		FFE7198827CE88A0008DF7B9 /* CryptocurrencyListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyListEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +266,7 @@
 				FF19E22327C62BA000DBD52D /* Starscream in Frameworks */,
 				9B16F5C227D0B939003DC9BC /* RealmSwift in Frameworks */,
 				FF19E22627C62BC900DBD52D /* Charts in Frameworks */,
+				823FD35ADE207D7092B07C15 /* Pods_CryptocurrencyExchange.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +274,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EC431CCFA701BD008A774AD /* Pods_CryptocurrencyExchangeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +282,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDCFD65469C27236139337F8 /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +311,142 @@
 			path = DB;
 			sourceTree = "<group>";
 		};
+		7910D8DEA98D65E63D77153C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92774D2EEF35C757FAE75845 /* Pods_CryptocurrencyExchange.framework */,
+				06048D9DCE94D9D66ABFD58E /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework */,
+				5F4F6DDAE798D7DB5DC5EBC8 /* Pods_CryptocurrencyExchangeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		909BEED027D1126700E4EE87 /* Orderbook */ = {
+			isa = PBXGroup;
+			children = (
+				909BEED127D1127B00E4EE87 /* Entity */,
+				909BEEDD27D1182700E4EE87 /* ViewModel */,
+				909BEEDA27D117D600E4EE87 /* View */,
+				90E12E6227D2506400373FF9 /* ContentView */,
+			);
+			path = Orderbook;
+			sourceTree = "<group>";
+		};
+		909BEED127D1127B00E4EE87 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				909BEED227D1129D00E4EE87 /* ConclusionSheetViewEntity.swift */,
+				909BEED727D1148000E4EE87 /* OrderBookSheetEntity.swift */,
+				909BEED427D112A500E4EE87 /* TransactionDescriptionSheetViewEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		909BEEDA27D117D600E4EE87 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90E12EB327D335AF00373FF9 /* OrderbookViewController.swift */,
+				90E12EB427D335AF00373FF9 /* OrderbookViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		909BEEDD27D1182700E4EE87 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				909BEEDE27D1183E00E4EE87 /* OrderbookViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		90E12E6227D2506400373FF9 /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				90E12E6F27D2518A00373FF9 /* SellQuantity */,
+				90E12E6E27D2515B00373FF9 /* SellPrice */,
+				90E12E6427D2509500373FF9 /* TradeDescription */,
+				90E12E6327D2508100373FF9 /* FasteningStrength */,
+				90E12E8527D26B4D00373FF9 /* ConcludedQuantity */,
+				90E12E7027D2519300373FF9 /* BuyQuantity */,
+				90E12E6D27D2515300373FF9 /* BuyPrice */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
+		90E12E6327D2508100373FF9 /* FasteningStrength */ = {
+			isa = PBXGroup;
+			children = (
+				90E12E6527D2511800373FF9 /* FasteningStrengthViewCell.swift */,
+				90E12E6627D2511800373FF9 /* FasteningStrengthViewCell.xib */,
+			);
+			path = FasteningStrength;
+			sourceTree = "<group>";
+		};
+		90E12E6427D2509500373FF9 /* TradeDescription */ = {
+			isa = PBXGroup;
+			children = (
+				90E12E9A27D274A100373FF9 /* TopViewCell.swift */,
+				90E12E9B27D274A100373FF9 /* TopViewCell.xib */,
+				90E12E9E27D274AD00373FF9 /* BottomViewCell.swift */,
+				90E12E9F27D274AD00373FF9 /* BottomViewCell.xib */,
+			);
+			path = TradeDescription;
+			sourceTree = "<group>";
+		};
+		90E12E6D27D2515300373FF9 /* BuyPrice */ = {
+			isa = PBXGroup;
+			children = (
+				90E12E7127D251B900373FF9 /* BuyPriceViewCell.swift */,
+				90E12E7227D251B900373FF9 /* BuyPriceViewCell.xib */,
+			);
+			path = BuyPrice;
+			sourceTree = "<group>";
+		};
+		90E12E6E27D2515B00373FF9 /* SellPrice */ = {
+			isa = PBXGroup;
+			children = (
+				90E12E7927D251E600373FF9 /* SellPriceViewCell.swift */,
+				90E12E7A27D251E600373FF9 /* SellPriceViewCell.xib */,
+			);
+			path = SellPrice;
+			sourceTree = "<group>";
+		};
+		90E12E6F27D2518A00373FF9 /* SellQuantity */ = {
+			isa = PBXGroup;
+			children = (
+				90E12E7D27D251FE00373FF9 /* SellQuantityViewCell.swift */,
+				90E12E7E27D251FE00373FF9 /* SellQuantityViewCell.xib */,
+			);
+			path = SellQuantity;
+			sourceTree = "<group>";
+		};
+		90E12E7027D2519300373FF9 /* BuyQuantity */ = {
+			isa = PBXGroup;
+			children = (
+				90E12E7527D251CC00373FF9 /* BuyQuantityViewCell.swift */,
+				90E12E7627D251CC00373FF9 /* BuyQuantityViewCell.xib */,
+			);
+			path = BuyQuantity;
+			sourceTree = "<group>";
+		};
+		90E12E8527D26B4D00373FF9 /* ConcludedQuantity */ = {
+			isa = PBXGroup;
+			children = (
+				90E12E8627D26B9000373FF9 /* ConcludedQuantityViewCell.swift */,
+				90E12E8727D26B9000373FF9 /* ConcludedQuantityViewCell.xib */,
+			);
+			path = ConcludedQuantity;
+			sourceTree = "<group>";
+		};
+		B498EF4727C8DC5500C8F5FC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+
 		9B778C5E27CF0E1D0009D343 /* ChartsByCoin */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +696,11 @@
 			children = (
 				90BD15D427CDE68700C5CBAC /* UIColor.swift */,
 				B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */,
+				FFE7197827CE0E95008DF7B9 /* UIView+Extension.swift */,
+				FFE7197A27CE16F7008DF7B9 /* UITableViewCell+Extension.swift */,
+				FFB2EFC327D1415F00944E97 /* String+Extension.swift */,
+				FFB2EFC727D147E800944E97 /* Int+Extension.swift */,
+				90E12EA927D32BA600373FF9 /* SpreadsheetViewCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -489,6 +723,19 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EC5B631D48BD412919773915 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F19B2A7442316AB646DD3F53 /* Pods-CryptocurrencyExchange.debug.xcconfig */,
+				B1F4A9C36FC00016C5418E89 /* Pods-CryptocurrencyExchange.release.xcconfig */,
+				66B1A9CA03976733F87E2FBA /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.debug.xcconfig */,
+				3A5B013781AF6099AFC036C9 /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.release.xcconfig */,
+				185920FF1D7CA3D8ECC400E7 /* Pods-CryptocurrencyExchangeTests.debug.xcconfig */,
+				EE86B47D3BAF18DE190AF792 /* Pods-CryptocurrencyExchangeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FF19E1DF27C628DD00DBD52D = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +743,8 @@
 				FF19E20127C628E100DBD52D /* CryptocurrencyExchangeTests */,
 				FF19E20B27C628E100DBD52D /* CryptocurrencyExchangeUITests */,
 				FF19E1E927C628DD00DBD52D /* Products */,
+				EC5B631D48BD412919773915 /* Pods */,
+				7910D8DEA98D65E63D77153C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -520,6 +769,8 @@
 				B4F5AF7C27C8D3D700EB60A1 /* Exchange */,
 				B4BC4E8C27CDF65D00DE19EC /* ChartsByCoin */,
 				B4471E5427CFB3FE00668B64 /* CoinDetails */,
+				FFE7196427CE030D008DF7B9 /* CryptocurrencyList */,
+				909BEED027D1126700E4EE87 /* Orderbook */,
 				B4F5AF8527C8D82400EB60A1 /* Supporting Files */,
 			);
 			path = CryptocurrencyExchange;
@@ -548,6 +799,7 @@
 		FF19E27F27C7271000DBD52D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FFE7198227CE851F008DF7B9 /* Ticker */,
 				FF19E2AA27CA749300DBD52D /* Assets */,
 				FF19E28627C753B300DBD52D /* Entity */,
 				FF19E28027C7280600DBD52D /* APIService.swift */,
@@ -622,6 +874,88 @@
 			path = ServerCommunication;
 			sourceTree = "<group>";
 		};
+		FFB2EFD527D3429A00944E97 /* KRWCell */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7197427CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.swift */,
+				FFE7197527CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.xib */,
+			);
+			path = KRWCell;
+			sourceTree = "<group>";
+		};
+		FFB2EFD627D342AC00944E97 /* BTCCell */ = {
+			isa = PBXGroup;
+			children = (
+				FFB2EFD727D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.swift */,
+				FFB2EFD827D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.xib */,
+			);
+			path = BTCCell;
+			sourceTree = "<group>";
+		};
+		FFE7196427CE030D008DF7B9 /* CryptocurrencyList */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7197F27CE6461008DF7B9 /* Custom */,
+				FFE7198727CE8881008DF7B9 /* Entity */,
+				FFE7196627CE032C008DF7B9 /* ViewModel */,
+				FFE7196527CE0328008DF7B9 /* View */,
+			);
+			path = CryptocurrencyList;
+			sourceTree = "<group>";
+		};
+		FFE7196527CE0328008DF7B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7196727CE0349008DF7B9 /* CryptocurrencyListViewController.swift */,
+				FFE7196827CE0349008DF7B9 /* CryptocurrencyListViewController.xib */,
+				FFE7197327CE082D008DF7B9 /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FFE7196627CE032C008DF7B9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7196B27CE035D008DF7B9 /* CryptocurrencyListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FFE7197327CE082D008DF7B9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FFB2EFD527D3429A00944E97 /* KRWCell */,
+				FFB2EFD627D342AC00944E97 /* BTCCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FFE7197F27CE6461008DF7B9 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7198027CE648D008DF7B9 /* TabButton.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		FFE7198227CE851F008DF7B9 /* Ticker */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7198327CE8539008DF7B9 /* TickerAPIMananger.swift */,
+				FFE7198527CE8546008DF7B9 /* TickerAPIService.swift */,
+			);
+			path = Ticker;
+			sourceTree = "<group>";
+		};
+		FFE7198727CE8881008DF7B9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7198827CE88A0008DF7B9 /* CryptocurrencyListEntity.swift */,
+				FFB2EFB327D05F0D00944E97 /* CrypotocurrencyListTableViewEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -629,9 +963,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF19E21227C628E100DBD52D /* Build configuration list for PBXNativeTarget "CryptocurrencyExchange" */;
 			buildPhases = (
+				B42F948997BA2E35CE7C9BDB /* [CP] Check Pods Manifest.lock */,
 				FF19E1E427C628DD00DBD52D /* Sources */,
 				FF19E1E527C628DD00DBD52D /* Frameworks */,
 				FF19E1E627C628DD00DBD52D /* Resources */,
+				2462A62E0275000B1D457B67 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -653,6 +989,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF19E21527C628E100DBD52D /* Build configuration list for PBXNativeTarget "CryptocurrencyExchangeTests" */;
 			buildPhases = (
+				89C1D9159FDE1E308777F55B /* [CP] Check Pods Manifest.lock */,
 				FF19E1FA27C628E100DBD52D /* Sources */,
 				FF19E1FB27C628E100DBD52D /* Frameworks */,
 				FF19E1FC27C628E100DBD52D /* Resources */,
@@ -671,9 +1008,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF19E21827C628E100DBD52D /* Build configuration list for PBXNativeTarget "CryptocurrencyExchangeUITests" */;
 			buildPhases = (
+				D852D928BFA9334D6609B68E /* [CP] Check Pods Manifest.lock */,
 				FF19E20427C628E100DBD52D /* Sources */,
 				FF19E20527C628E100DBD52D /* Frameworks */,
 				FF19E20627C628E100DBD52D /* Resources */,
+				0F540157B10CC63B0994AB11 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -744,11 +1083,24 @@
 				B4471E6627CFBE5100668B64 /* ChartViewController.xib in Resources */,
 				B4471E5827CFB47100668B64 /* CoinDetailsViewController.xib in Resources */,
 				B4BC4E9027CDF70900DE19EC /* CoinDetailViewController.xib in Resources */,
+				FFE7196A27CE0349008DF7B9 /* CryptocurrencyListViewController.xib in Resources */,
 				FF19E1F827C628E100DBD52D /* LaunchScreen.storyboard in Resources */,
 				FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */,
 				9B16F5B927D08C26003DC9BC /* ChartByTimesViewController.xib in Resources */,
 				B4BC4E9927CE012400DE19EC /* ChartView.xib in Resources */,
 				B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */,
+				FFB2EFDA27D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.xib in Resources */,
+				FFE7197727CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.xib in Resources */,
+				90E12E7827D251CC00373FF9 /* BuyQuantityViewCell.xib in Resources */,
+				90E12E7427D251B900373FF9 /* BuyPriceViewCell.xib in Resources */,
+				90E12E8927D26B9000373FF9 /* ConcludedQuantityViewCell.xib in Resources */,
+				90E12E7C27D251E600373FF9 /* SellPriceViewCell.xib in Resources */,
+				90E12EB627D335AF00373FF9 /* OrderbookViewController.xib in Resources */,
+				90E12E6827D2511800373FF9 /* FasteningStrengthViewCell.xib in Resources */,
+				90E12E9D27D274A100373FF9 /* TopViewCell.xib in Resources */,
+				90E12E8027D251FE00373FF9 /* SellQuantityViewCell.xib in Resources */,
+				B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */,
+				90E12EA127D274AD00373FF9 /* BottomViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,6 +1120,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F540157B10CC63B0994AB11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2462A62E0275000B1D457B67 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89C1D9159FDE1E308777F55B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CryptocurrencyExchangeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B42F948997BA2E35CE7C9BDB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CryptocurrencyExchange-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D852D928BFA9334D6609B68E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FF19E1E427C628DD00DBD52D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -778,9 +1233,13 @@
 				FF19E29327C9F74100DBD52D /* DemoSocketViewController.swift in Sources */,
 				B4471E6A27CFC3ED00668B64 /* CoinDetailsTopTabs.swift in Sources */,
 				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
+				FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */,
+				90E12E6727D2511800373FF9 /* FasteningStrengthViewCell.swift in Sources */,
+				909BEED327D1129D00E4EE87 /* ConclusionSheetViewEntity.swift in Sources */,
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
 				B4BC4E8F27CDF70900DE19EC /* CoinDetailViewController.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
+				FFE7198427CE8539008DF7B9 /* TickerAPIMananger.swift in Sources */,
 				9B16F5BD27D09E2A003DC9BC /* ChartByTimesModel.swift in Sources */,
 				FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */,
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
@@ -790,13 +1249,18 @@
 				B4BC4EA227CE680C00DE19EC /* CandleStickIntervals.swift in Sources */,
 				FF19E28327C72AF200DBD52D /* APIProvider.swift in Sources */,
 				9B778C6327CF128A0009D343 /* ChartViewModel.swift in Sources */,
+				FFB2EFC427D1415F00944E97 /* String+Extension.swift in Sources */,
 				FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */,
+				FFE7196C27CE035D008DF7B9 /* CryptocurrencyListViewModel.swift in Sources */,
 				9B778C7227CF4D9C0009D343 /* CandleStickRepository.swift in Sources */,
+				FFB2EFD927D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.swift in Sources */,
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
 				9B16F5BF27D0AFC5003DC9BC /* IntervalButton.swift in Sources */,
 				FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */,
 				FF19E29F27CA00B900DBD52D /* WebSocketOrderbookEntity.swift in Sources */,
 				B4BC4E9427CDF7B400DE19EC /* CoindDetailViewModel.swift in Sources */,
+				90E12E7327D251B900373FF9 /* BuyPriceViewCell.swift in Sources */,
+				90E12EAA27D32BA600373FF9 /* SpreadsheetViewCell.swift in Sources */,
 				FF19E28527C74FA600DBD52D /* APIError.swift in Sources */,
 				9B16F5B827D08C26003DC9BC /* ChartByTimesViewController.swift in Sources */,
 				9B745FAE27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift in Sources */,
@@ -810,6 +1274,7 @@
 				9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */,
 				B4471E5A27CFB9AD00668B64 /* CoinDetailsViewModel.swift in Sources */,
 				9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */,
+				FFB2EFB427D05F0D00944E97 /* CrypotocurrencyListTableViewEntity.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
 				B4471E6127CFBDD600668B64 /* QuoteViewModel.swift in Sources */,
 				B4471E6827CFBE5F00668B64 /* ChartsViewModel.swift in Sources */,
@@ -820,14 +1285,31 @@
 				9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */,
 				B4471E5727CFB47100668B64 /* CoinDetailsViewController.swift in Sources */,
 				B4BC4EA427CE6AEE00DE19EC /* CandleStickParameters.swift in Sources */,
+				FFE7197627CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.swift in Sources */,
+				FFB2EFC827D147E800944E97 /* Int+Extension.swift in Sources */,
+				FFE7198927CE88A0008DF7B9 /* CryptocurrencyListEntity.swift in Sources */,
+				FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */,
+				FFE7196927CE0349008DF7B9 /* CryptocurrencyListViewController.swift in Sources */,
+				909BEED527D112A500E4EE87 /* TransactionDescriptionSheetViewEntity.swift in Sources */,
+				90E12E7F27D251FE00373FF9 /* SellQuantityViewCell.swift in Sources */,
 				B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */,
 				B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */,
+				FFE7197927CE0E95008DF7B9 /* UIView+Extension.swift in Sources */,
 				90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */,
+				90E12E8827D26B9000373FF9 /* ConcludedQuantityViewCell.swift in Sources */,
 				B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */,
+				909BEED827D1148000E4EE87 /* OrderBookSheetEntity.swift in Sources */,
 				B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */,
 				B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */,
+				FFE7198627CE8546008DF7B9 /* TickerAPIService.swift in Sources */,
 				B4BC4E9E27CE66EE00DE19EC /* CandleStickAPIManager.swift in Sources */,
+				909BEEDF27D1183E00E4EE87 /* OrderbookViewModel.swift in Sources */,
+				90E12EB527D335AF00373FF9 /* OrderbookViewController.swift in Sources */,
+				90E12E7B27D251E600373FF9 /* SellPriceViewCell.swift in Sources */,
+				90E12E7727D251CC00373FF9 /* BuyQuantityViewCell.swift in Sources */,
+				90E12E9C27D274A100373FF9 /* TopViewCell.swift in Sources */,
 				B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */,
+				90E12EA027D274AD00373FF9 /* BottomViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,12 +1478,13 @@
 		};
 		FF19E21327C628E100DBD52D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F19B2A7442316AB646DD3F53 /* Pods-CryptocurrencyExchange.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZX9TD66UC;
+				DEVELOPMENT_TEAM = X6WTK8Z5MC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1018,6 +1501,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.CryptocurrencyExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1025,12 +1509,13 @@
 		};
 		FF19E21427C628E100DBD52D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1F4A9C36FC00016C5418E89 /* Pods-CryptocurrencyExchange.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZX9TD66UC;
+				DEVELOPMENT_TEAM = X6WTK8Z5MC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1047,6 +1532,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.happyu.CryptocurrencyExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1054,6 +1540,7 @@
 		};
 		FF19E21627C628E100DBD52D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 185920FF1D7CA3D8ECC400E7 /* Pods-CryptocurrencyExchangeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1074,6 +1561,7 @@
 		};
 		FF19E21727C628E100DBD52D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE86B47D3BAF18DE190AF792 /* Pods-CryptocurrencyExchangeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1094,6 +1582,7 @@
 		};
 		FF19E21927C628E100DBD52D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66B1A9CA03976733F87E2FBA /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1112,6 +1601,7 @@
 		};
 		FF19E21A27C628E100DBD52D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A5B013781AF6099AFC036C9 /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
