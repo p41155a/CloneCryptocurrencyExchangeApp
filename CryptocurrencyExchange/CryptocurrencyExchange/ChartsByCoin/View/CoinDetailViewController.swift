@@ -15,7 +15,9 @@ class CoinDetailViewController: ViewControllerInjectingViewModel<CoindDetailView
         let viewController = ChartByTimesViewController(
             viewModel: ChartByTimesViewModel(
                 nibName: "ChartByTimesViewController",
-                repository: ProductionCandleStickRepository()
+                repository: ProductionCandleStickRepository(),
+                orderCurrency: .appoint(name: "BTC"),
+                paymentCurrency: .KRW
             )
         )
         return viewController

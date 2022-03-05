@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-enum TimeIntervalInChart: Int, PersistableEnum {
+enum TimeIntervalInChart: Int, PersistableEnum, CaseIterable {
     case oneMinute = 0
     case tenMinutes = 1
     case thirtyMinutes = 2

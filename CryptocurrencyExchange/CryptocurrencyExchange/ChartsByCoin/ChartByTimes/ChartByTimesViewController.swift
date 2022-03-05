@@ -17,21 +17,19 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
         super.viewDidLoad()
 
         setStackViewUI()
+        bindObservables()
     }
     
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         
-        /// 임시로 1분 단위의 캔들 스틱 데이터를 받고, 차트를 그리도록 함
-        let interval: TimeIntervalInChart = .oneMinute
-        self.viewModel.getCandleStickData(
-            parameter: CandleStickParameters(
-                orderCurrency: .appoint(name: "BTC"),
-                paymentCurrency: .KRW,
-                chartInterval: interval
-            )
-        ) { datas in
-            self.chartView.updateDataEntries(from: datas)
+        self.viewModel.updateCandleStickData()
+    }
+    
+    private func bindObservables() {
+        self.viewModel.candleStickData.bind { [weak self] datas in
+            guard let entryDatas = datas else { return }
+            self?.chartView.updateDataEntries(from: entryDatas)
         }
     }
     
@@ -51,12 +49,15 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
         }
     }
     
-    // 각 시간간격 버튼의 눌림 상태 업데이트
+    // 1분/10분/30분/1시간/일 버튼의 눌림 이벤트 처리
     @objc
     private func didTap(intervalButton: UIButton) {
         intervalStackView.arrangedSubviews.enumerated().forEach { (index, subview) in
             guard let button = subview as? UIButton else { return }
             button.isSelected = intervalButton.tag == index
         }
+        
+        guard let intervalType = TimeIntervalInChart(rawValue: intervalButton.tag) else { return }
+        self.viewModel.getCandleStickData(intervalType: intervalType)
     }
 }

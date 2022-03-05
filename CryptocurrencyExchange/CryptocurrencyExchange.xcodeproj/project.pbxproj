@@ -205,7 +205,7 @@
 				9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */,
 				9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */,
 				9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */,
-				9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */,
+				B498E2DE27D30BA400E4B787 /* ViewModel */,
 			);
 			path = ChartByTimes;
 			sourceTree = "<group>";
@@ -247,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				9B778C6227CF128A0009D343 /* ChartViewModel.swift */,
-				9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -347,6 +346,15 @@
 			isa = PBXGroup;
 			children = (
 				B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B498E2DE27D30BA400E4B787 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */,
+				9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
