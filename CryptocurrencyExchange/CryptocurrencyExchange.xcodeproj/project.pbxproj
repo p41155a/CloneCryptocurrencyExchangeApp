@@ -1539,14 +1539,6 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		FFE7198C27CF5568008DF7B9 /* XCRemoteSwiftPackageReference "AnyCodable" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Flight-School/AnyCodable";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.6.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
