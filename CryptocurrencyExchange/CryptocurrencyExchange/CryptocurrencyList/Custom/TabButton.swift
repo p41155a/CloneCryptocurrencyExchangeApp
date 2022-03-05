@@ -33,12 +33,14 @@ final class TabButton: UIButton {
         bottomBar.backgroundColor = .black
         
         addSubview(bottomBar)
-        bottomBar.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.height.equalTo(2)
-        }
+        
+        bottomBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            bottomBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            bottomBar.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            bottomBar.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            bottomBar.heightAnchor.constraint(equalToConstant: 2)
+        ])
         
         configureForSelect(isSelected: isSelected)
     }

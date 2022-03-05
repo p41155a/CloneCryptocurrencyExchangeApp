@@ -16,8 +16,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
     weak var delegate: CryptocurrencyListViewModelDelegate?
     var nibName: String?
     /// Property about data
-    let tickerKRWList: Observable<[String: CrypotocurrencyListTableViewEntity]> = Observable([:])
-    let tickerBTCList: Observable<[String: CrypotocurrencyListTableViewEntity]> = Observable([:])
+    let tickerKRWList: Observable<[String: CrypotocurrencyKRWListTableViewEntity]> = Observable([:])
+    let tickerBTCList: Observable<[String: CrypotocurrencyBTCListTableViewEntity]> = Observable([:])
     var tabKRWList: [(String, PaymentCurrency)] = []
     var tabBTCList: [(String, PaymentCurrency)] = []
     var tabInterestList: [(String, PaymentCurrency)] = []
@@ -50,12 +50,12 @@ final class CryptocurrencyListViewModel: XIBInformation {
             switch result {
             case .success(let data):
                 let cryptocurrencyData = data.currentInfo.current
-                var tickerKRWList: [String: CrypotocurrencyListTableViewEntity] = [:]
+                var tickerKRWList: [String: CrypotocurrencyKRWListTableViewEntity] = [:]
                 var currencyNameList: [(String, PaymentCurrency)] = []
                 cryptocurrencyData.forEach { data in
                     let currentName = data.key
                     let tickerInfo = data.value
-                    let tableData = self.setTableData(symbol: tickerInfo.currentName ?? "",
+                    let tableData = self.setKRWTableData(symbol: tickerInfo.currentName ?? "",
                                                       payment: paymentCurrency,
                                                       currentPrice: tickerInfo.closingPrice ?? "",
                                                       changeRate: tickerInfo.fluctateRate24H ?? "",
@@ -79,16 +79,15 @@ final class CryptocurrencyListViewModel: XIBInformation {
             switch result {
             case .success(let data):
                 let cryptocurrencyData = data.currentInfo.current
-                var tickerBTCList: [String: CrypotocurrencyListTableViewEntity] = [:]
+                var tickerBTCList: [String: CrypotocurrencyBTCListTableViewEntity] = [:]
                 var currencyNameList: [(String, PaymentCurrency)] = []
                 cryptocurrencyData.forEach { data in
                     let currentName = data.key
                     let tickerInfo = data.value
-                    let tableData = self.setTableData(symbol: tickerInfo.currentName ?? "",
+                    let tableData = self.setBTCTableData(symbol: tickerInfo.currentName ?? "",
                                                       payment: paymentCurrency,
                                                       currentPrice: tickerInfo.closingPrice ?? "",
                                                       changeRate: tickerInfo.fluctateRate24H ?? "",
-                                                      changeAmount: tickerInfo.fluctate24H ?? "",
                                                       transactionAmount: tickerInfo.accTradeValue ?? "")
                     currencyNameList.append((currentName, PaymentCurrency.BTC))
                     tickerBTCList[currentName] = tableData
@@ -107,31 +106,56 @@ final class CryptocurrencyListViewModel: XIBInformation {
         let splitedSymbol: [String] = tickerInfo.symbol.split(separator: "_").map { "\($0)" }
         let currentName = splitedSymbol[0]
         let payment = splitedSymbol[1]
-        let tableData = setTableData(symbol: "\(currentName)",
-                                     payment: PaymentCurrency.init(rawValue: payment) ?? .KRW,
-                                     currentPrice: tickerInfo.closePrice,
-                                     changeRate: tickerInfo.chgRate,
-                                     changeAmount: tickerInfo.chgAmt,
-                                     transactionAmount: tickerInfo.value)
         
         if payment == PaymentCurrency.KRW.value {           /// 지불 방식: KRW
-            tickerKRWList.value[currentName] = tableData
-        } else if payment == PaymentCurrency.BTC.value {    /// 지불 방식: BTC
-            tickerBTCList.value[currentName] = tableData
+            tickerKRWList.value[currentName] = setKRWTableData(symbol: "\(currentName)",
+                                         payment: PaymentCurrency.init(rawValue: payment) ?? .KRW,
+                                         currentPrice: tickerInfo.closePrice,
+                                         changeRate: tickerInfo.chgRate,
+                                         changeAmount: tickerInfo.chgAmt,
+                                         transactionAmount: tickerInfo.value)
+        } else if payment == PaymentCurrency.BTC.value {    /// 지불 방식: BTC]
+            tickerBTCList.value[currentName] = setBTCTableData(symbol: "\(currentName)",
+                                         payment: PaymentCurrency.init(rawValue: payment) ?? .KRW,
+                                         currentPrice: tickerInfo.closePrice,
+                                         changeRate: tickerInfo.chgRate,
+                                         transactionAmount: tickerInfo.value)
         }
     }
     
-    private func setTableData(symbol: String, payment: PaymentCurrency, currentPrice: String, changeRate: String, changeAmount: String, transactionAmount: String) -> CrypotocurrencyListTableViewEntity {
+    // MARK: - Private Func
+    private func setKRWTableData(symbol: String,
+                                 payment: PaymentCurrency,
+                                 currentPrice: String,
+                                 changeRate: String,
+                                 changeAmount: String,
+                                 transactionAmount: String) -> CrypotocurrencyKRWListTableViewEntity {
         let currentPrice: String = currentPrice.setNumStringForm(isDecimalType: true)
         let changeRate: String = "\(changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
         let changeAmount: String = changeAmount.setNumStringForm(isDecimalType: true, isMarkPlusMiuns: true)
         let transactionAmount: String = "\(Int((transactionAmount.doubleValue ?? 0) / 1000000).decimalType ?? "")백만"
         
-        return CrypotocurrencyListTableViewEntity(symbol: symbol,
+        return CrypotocurrencyKRWListTableViewEntity(symbol: symbol,
                                                   payment: payment,
                                                   currentPrice: currentPrice,
                                                   changeRate: changeRate,
                                                   changeAmount: changeAmount,
+                                                  transactionAmount: transactionAmount)
+    }
+    
+    private func setBTCTableData(symbol: String,
+                                 payment: PaymentCurrency,
+                                 currentPrice: String,
+                                 changeRate: String,
+                                 transactionAmount: String) -> CrypotocurrencyBTCListTableViewEntity {
+        let currentPrice: String = currentPrice.displayDecimal(to: 8)
+        let changeRate: String = changeRate == "" ? "0.00%" : "\(changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
+        let transactionAmount: String = transactionAmount.displayDecimal(to: 3)
+        
+        return CrypotocurrencyBTCListTableViewEntity(symbol: symbol,
+                                                  payment: payment,
+                                                  currentPrice: currentPrice,
+                                                  changeRate: changeRate,
                                                   transactionAmount: transactionAmount)
     }
 }

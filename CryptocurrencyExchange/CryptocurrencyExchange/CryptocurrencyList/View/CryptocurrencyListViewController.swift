@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 import Starscream
 
 final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<CryptocurrencyListViewModel> {
@@ -46,7 +45,8 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     // MARK: - func<UI>
     private func configureUI() {
-        CrypocurrencyListTableViewCell.register(tableView: tableView)
+        CrypocurrencyKRWListTableViewCell.register(tableView: tableView)
+        CrypocurrencyBTCListTableViewCell.register(tableView: tableView)
         setTabButton()
     }
     
@@ -110,20 +110,23 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentName = viewModel.currentList.value[indexPath.row].0
-        var data: CrypotocurrencyListTableViewEntity?
         switch viewModel.currentList.value[indexPath.row].1 {
         case .KRW:
-            data = viewModel.tickerKRWList.value[currentName]
+            guard let data = viewModel.tickerKRWList.value[currentName] else {
+                return UITableViewCell()
+            }
+            let cell = CrypocurrencyKRWListTableViewCell.dequeueReusableCell(tableView: tableView) as CrypocurrencyKRWListTableViewCell
+            cell.setData(data: data)
+            return cell
         case .BTC:
-            data = viewModel.tickerBTCList.value[currentName]
+            guard let btcData = viewModel.tickerBTCList.value[currentName] else {
+                return UITableViewCell()
+            }
+            let krwData: CrypotocurrencyKRWListTableViewEntity = viewModel.tickerKRWList.value[currentName] ?? CrypotocurrencyKRWListTableViewEntity()
+            let cell = CrypocurrencyBTCListTableViewCell.dequeueReusableCell(tableView: tableView)
+            cell.setData(krwData: krwData, btcData: btcData)
+            return cell
         }
-        guard let crypotocurrencyInfo = data else {
-            return UITableViewCell()
-        }
-
-        let cell = CrypocurrencyListTableViewCell.dequeueReusableCell(tableView: tableView)
-        cell.setData(data: crypotocurrencyInfo)
-        return cell
     }
 }
 // MARK: - TableView

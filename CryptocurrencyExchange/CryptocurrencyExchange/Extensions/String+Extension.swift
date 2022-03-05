@@ -30,7 +30,7 @@ extension String {
             result = numberFormatter.string(from: NSNumber(value: doubleValue)) ?? self
         }
         if isMarkPlusMiuns {
-            result = doubleValue < 0 ? result : "+\(result)"
+            result = doubleValue > 0 ? "+\(result)" : result
         }
         return result
     }

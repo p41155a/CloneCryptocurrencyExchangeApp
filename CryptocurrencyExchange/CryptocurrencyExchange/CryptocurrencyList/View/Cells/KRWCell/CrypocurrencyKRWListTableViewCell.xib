@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CrypocurrencyListTableViewCell" rowHeight="61" id="KGk-i7-Jjw" customClass="CrypocurrencyListTableViewCell" customModule="CryptocurrencyExchange" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CrypocurrencyKRWListTableViewCell" rowHeight="61" id="KGk-i7-Jjw" customClass="CrypocurrencyKRWListTableViewCell" customModule="CryptocurrencyExchange" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="412" height="62"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -67,21 +67,12 @@
                                         <color key="textColor" name="increasingColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+4,176,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ks6-Vy-YUf">
-                                        <rect key="frame" x="0.0" y="37" width="90" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" name="increasingColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="CKU-go-LEt" firstAttribute="top" secondItem="OHw-YF-eFT" secondAttribute="top" constant="12" id="D7f-8b-zjt"/>
                                     <constraint firstAttribute="width" constant="90" id="YKM-du-zt7"/>
                                     <constraint firstAttribute="trailing" secondItem="CKU-go-LEt" secondAttribute="trailing" id="blV-WT-cNK"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ks6-Vy-YUf" secondAttribute="bottom" constant="12" id="c3i-Fj-ki3"/>
-                                    <constraint firstItem="Ks6-Vy-YUf" firstAttribute="leading" secondItem="OHw-YF-eFT" secondAttribute="leading" id="eBj-SS-pmt"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ks6-Vy-YUf" secondAttribute="trailing" id="rxC-VD-4nw"/>
                                     <constraint firstItem="CKU-go-LEt" firstAttribute="leading" secondItem="OHw-YF-eFT" secondAttribute="leading" id="xG5-fl-WO5"/>
                                 </constraints>
                             </view>
@@ -115,12 +106,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EqT-A5-Ebu">
                                 <rect key="frame" x="285" y="0.0" width="95" height="61"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+4,176,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOv-Rm-kDK">
-                                        <rect key="frame" x="0.0" y="37" width="95" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" name="contourColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="256,242백만" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bes-j9-QZb">
                                         <rect key="frame" x="0.0" y="12" width="95" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -131,12 +116,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="bes-j9-QZb" firstAttribute="top" secondItem="EqT-A5-Ebu" secondAttribute="top" constant="12" id="5RD-Z4-dWM"/>
-                                    <constraint firstItem="sOv-Rm-kDK" firstAttribute="leading" secondItem="EqT-A5-Ebu" secondAttribute="leading" id="Jns-aI-nXc"/>
                                     <constraint firstItem="bes-j9-QZb" firstAttribute="leading" secondItem="EqT-A5-Ebu" secondAttribute="leading" id="bNf-aW-pJh"/>
                                     <constraint firstAttribute="width" constant="95" id="d6u-2g-Nib"/>
                                     <constraint firstAttribute="trailing" secondItem="bes-j9-QZb" secondAttribute="trailing" id="u1X-r7-n9b"/>
-                                    <constraint firstAttribute="trailing" secondItem="sOv-Rm-kDK" secondAttribute="trailing" id="wiX-o3-RXc"/>
-                                    <constraint firstAttribute="bottom" secondItem="sOv-Rm-kDK" secondAttribute="bottom" constant="12" id="xpd-T1-td6"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBd-Oe-MOq">
@@ -184,14 +166,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="changeAmountLabel" destination="mqd-D5-RYj" id="wkA-M8-9Ms"/>
                 <outlet property="changeRateLabel" destination="f1a-o5-rTq" id="xCI-nh-ph0"/>
-                <outlet property="changeRateSubLabel" destination="mqd-D5-RYj" id="1pB-CS-IiN"/>
                 <outlet property="currencyNameLabel" destination="BPx-Bc-NxI" id="mOO-2x-9Sw"/>
                 <outlet property="currencyNameSubNameLabel" destination="Iku-gx-5gZ" id="HzL-dU-9BW"/>
                 <outlet property="currentPriceLabel" destination="CKU-go-LEt" id="lPt-Rt-Lll"/>
-                <outlet property="currentPriceSubLabel" destination="Ks6-Vy-YUf" id="lij-Mf-nrB"/>
                 <outlet property="transactionAmountLabel" destination="bes-j9-QZb" id="eDp-NM-gaB"/>
-                <outlet property="transactionAmountSubLabel" destination="sOv-Rm-kDK" id="OQZ-bq-IJv"/>
             </connections>
             <point key="canvasLocation" x="204.34782608695653" y="136.60714285714286"/>
         </tableViewCell>
