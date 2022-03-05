@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChartByTimesViewController" customModule="CryptocurrencyExchange" customModuleProvider="target">
+            <connections>
+                <outlet property="chartView" destination="Leq-To-eSc" id="1qh-p4-z1w"/>
+                <outlet property="intervalStackView" destination="V8T-mV-zCQ" id="9j4-A1-4zv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="656"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vz-N5-OZU">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="V8T-mV-zCQ">
+                            <rect key="frame" x="16" y="8" width="386" height="32"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXy-bq-XcB" customClass="IntervalButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="74" height="32"/>
+                                    <color key="tintColor" name="titleColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button">
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
+                                    </buttonConfiguration>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avI-wn-887" customClass="IntervalButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                    <rect key="frame" x="78" y="0.0" width="74" height="32"/>
+                                    <color key="tintColor" name="titleColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button">
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
+                                    </buttonConfiguration>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUi-UN-bHD" customClass="IntervalButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                    <rect key="frame" x="156" y="0.0" width="74" height="32"/>
+                                    <color key="tintColor" name="titleColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button">
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
+                                    </buttonConfiguration>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwT-O8-Rbs" customClass="IntervalButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                    <rect key="frame" x="234" y="0.0" width="74" height="32"/>
+                                    <color key="tintColor" name="titleColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button">
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
+                                    </buttonConfiguration>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itw-zk-KIW" customClass="IntervalButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                    <rect key="frame" x="312" y="0.0" width="74" height="32"/>
+                                    <color key="tintColor" name="titleColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button">
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
+                                    </buttonConfiguration>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFB-Pj-YzM">
+                            <rect key="frame" x="0.0" y="47" width="414" height="1"/>
+                            <color key="backgroundColor" name="baseColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="jcs-vs-HGs"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="rFB-Pj-YzM" secondAttribute="trailing" id="GdP-HI-7Pu"/>
+                        <constraint firstAttribute="bottom" secondItem="rFB-Pj-YzM" secondAttribute="bottom" id="Gz3-ri-6dy"/>
+                        <constraint firstItem="V8T-mV-zCQ" firstAttribute="top" secondItem="8vz-N5-OZU" secondAttribute="top" constant="8" id="JxA-5A-Pdh"/>
+                        <constraint firstAttribute="height" constant="48" id="NfO-a2-rtg"/>
+                        <constraint firstItem="rFB-Pj-YzM" firstAttribute="leading" secondItem="8vz-N5-OZU" secondAttribute="leading" id="QAi-lZ-UZ7"/>
+                        <constraint firstAttribute="bottom" secondItem="V8T-mV-zCQ" secondAttribute="bottom" constant="8" id="R3C-Te-LDu"/>
+                        <constraint firstItem="V8T-mV-zCQ" firstAttribute="leading" secondItem="8vz-N5-OZU" secondAttribute="leading" constant="16" id="dw3-0L-8hf"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-To-eSc" customClass="ChartView" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="48" width="414" height="608"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Leq-To-eSc" firstAttribute="top" secondItem="8vz-N5-OZU" secondAttribute="bottom" id="0e3-fi-n1J"/>
+                <constraint firstItem="8vz-N5-OZU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BwS-Wi-M7n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8vz-N5-OZU" secondAttribute="trailing" id="E7g-zS-YAJ"/>
+                <constraint firstItem="8vz-N5-OZU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OSN-2q-L5T"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Leq-To-eSc" secondAttribute="trailing" id="QsH-4M-wZc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Leq-To-eSc" secondAttribute="bottom" id="Sax-nZ-qLa"/>
+                <constraint firstItem="Leq-To-eSc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZTL-tc-70p"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="142.02898550724638" y="4.0178571428571423"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="baseColor">
+            <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="titleColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

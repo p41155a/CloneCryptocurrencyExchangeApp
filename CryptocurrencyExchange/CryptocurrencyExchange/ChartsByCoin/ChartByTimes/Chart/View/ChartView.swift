@@ -12,7 +12,7 @@ class ChartView: UIView {
 
     @IBOutlet weak var chartView: CandleStickChartView!
     
-    var viewModel = ChartViewModel(repository: ProductionCandleStickRepository())
+    var viewModel = ChartViewModel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,13 +31,6 @@ class ChartView: UIView {
         superView.layoutIfNeeded()
         
         self.setChartUI()
-        self.viewModel.getCandleStickData(
-            parameter: CandleStickParameters(
-                orderCurrency: .appoint(name: "BTC"),
-                paymentCurrency: .KRW,
-                chartInterval: .oneMinute
-            )
-        )
         self.bindClosures()
     }
     
@@ -59,6 +52,10 @@ class ChartView: UIView {
         
     }
      
+    func updateDataEntries(from dbData: [CandleStickData]) {
+        self.viewModel.updateEntries(from: dbData)
+    }
+    
     private func bindClosures() {
         self.viewModel.dataEntries.bind { [weak self] entries in
             guard let `self` = self else { return }
