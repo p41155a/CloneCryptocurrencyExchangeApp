@@ -30,9 +30,9 @@
 		90E12E9D27D274A100373FF9 /* TopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E9B27D274A100373FF9 /* TopViewCell.xib */; };
 		90E12EA027D274AD00373FF9 /* BottomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E9E27D274AD00373FF9 /* BottomViewCell.swift */; };
 		90E12EA127D274AD00373FF9 /* BottomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E9F27D274AD00373FF9 /* BottomViewCell.xib */; };
-		90E12EA627D311A900373FF9 /* OrderbookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12EA427D311A900373FF9 /* OrderbookViewController.swift */; };
-		90E12EA727D311A900373FF9 /* OrderbookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12EA527D311A900373FF9 /* OrderbookViewController.xib */; };
 		90E12EAA27D32BA600373FF9 /* SpreadsheetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12EA927D32BA600373FF9 /* SpreadsheetViewCell.swift */; };
+		90E12EB527D335AF00373FF9 /* OrderbookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12EB327D335AF00373FF9 /* OrderbookViewController.swift */; };
+		90E12EB627D335AF00373FF9 /* OrderbookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12EB427D335AF00373FF9 /* OrderbookViewController.xib */; };
 		B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */; };
 		B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
@@ -113,9 +113,9 @@
 		90E12E9B27D274A100373FF9 /* TopViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewCell.xib; sourceTree = "<group>"; };
 		90E12E9E27D274AD00373FF9 /* BottomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewCell.swift; sourceTree = "<group>"; };
 		90E12E9F27D274AD00373FF9 /* BottomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomViewCell.xib; sourceTree = "<group>"; };
-		90E12EA427D311A900373FF9 /* OrderbookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookViewController.swift; sourceTree = "<group>"; };
-		90E12EA527D311A900373FF9 /* OrderbookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderbookViewController.xib; sourceTree = "<group>"; };
 		90E12EA927D32BA600373FF9 /* SpreadsheetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreadsheetViewCell.swift; sourceTree = "<group>"; };
+		90E12EB327D335AF00373FF9 /* OrderbookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookViewController.swift; sourceTree = "<group>"; };
+		90E12EB427D335AF00373FF9 /* OrderbookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderbookViewController.xib; sourceTree = "<group>"; };
 		92774D2EEF35C757FAE75845 /* Pods_CryptocurrencyExchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptocurrencyExchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F4A9C36FC00016C5418E89 /* Pods-CryptocurrencyExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange.release.xcconfig"; sourceTree = "<group>"; };
 		B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInNavigation.swift; sourceTree = "<group>"; };
@@ -221,8 +221,8 @@
 		909BEEDA27D117D600E4EE87 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				90E12EA427D311A900373FF9 /* OrderbookViewController.swift */,
-				90E12EA527D311A900373FF9 /* OrderbookViewController.xib */,
+				90E12EB327D335AF00373FF9 /* OrderbookViewController.swift */,
+				90E12EB427D335AF00373FF9 /* OrderbookViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,7 +238,6 @@
 		90E12E6227D2506400373FF9 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
-				90E12EA827D3199100373FF9 /* View */,
 				90E12E6F27D2518A00373FF9 /* SellQuantity */,
 				90E12E6E27D2515B00373FF9 /* SellPrice */,
 				90E12E6427D2509500373FF9 /* TradeDescription */,
@@ -313,13 +312,6 @@
 				90E12E8727D26B9000373FF9 /* ConcludedQuantityViewCell.xib */,
 			);
 			path = ConcludedQuantity;
-			sourceTree = "<group>";
-		};
-		90E12EA827D3199100373FF9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		B498EF4727C8DC5500C8F5FC /* ViewModel */ = {
@@ -666,7 +658,7 @@
 				90E12E7427D251B900373FF9 /* BuyPriceViewCell.xib in Resources */,
 				90E12E8927D26B9000373FF9 /* ConcludedQuantityViewCell.xib in Resources */,
 				90E12E7C27D251E600373FF9 /* SellPriceViewCell.xib in Resources */,
-				90E12EA727D311A900373FF9 /* OrderbookViewController.xib in Resources */,
+				90E12EB627D335AF00373FF9 /* OrderbookViewController.xib in Resources */,
 				90E12E6827D2511800373FF9 /* FasteningStrengthViewCell.xib in Resources */,
 				90E12E9D27D274A100373FF9 /* TopViewCell.xib in Resources */,
 				90E12E8027D251FE00373FF9 /* SellQuantityViewCell.xib in Resources */,
@@ -830,7 +822,7 @@
 				B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */,
 				B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */,
 				909BEEDF27D1183E00E4EE87 /* OrderbookViewModel.swift in Sources */,
-				90E12EA627D311A900373FF9 /* OrderbookViewController.swift in Sources */,
+				90E12EB527D335AF00373FF9 /* OrderbookViewController.swift in Sources */,
 				90E12E7B27D251E600373FF9 /* SellPriceViewCell.swift in Sources */,
 				90E12E7727D251CC00373FF9 /* BuyQuantityViewCell.swift in Sources */,
 				90E12E9C27D274A100373FF9 /* TopViewCell.swift in Sources */,

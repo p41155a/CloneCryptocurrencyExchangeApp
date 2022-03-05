@@ -1,8 +1,8 @@
 //
-//  OrderBookViewController.swift
+//  OrderbookViewController.swift
 //  CryptocurrencyExchange
 //
-//  Created by Derrick kim on 2022/03/04.
+//  Created by Derrick kim on 2022/03/05.
 //
 
 import UIKit
@@ -13,21 +13,15 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
     var coinName: String = ""
     var currrencyType: String = ""
     
-    var spreadsheetView = SpreadsheetView()
+    @IBOutlet weak var spreadsheetView: SpreadsheetView!
+    
+    var tradeDescriptionColumn: Bool = true
+    var isTransactionColumn: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let view = self.view.frame
-        spreadsheetView = SpreadsheetView(
-            frame: CGRect(
-                origin: CGPoint(x: 0, y: 100),
-                size: CGSize(width: UIScreen.main.bounds.width, height: view.height - 250)
-            )
-        )
-        self.view.addSubview(spreadsheetView)
-        
         configureSpreadsheetView()
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,16 +33,19 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
         self.spreadsheetView.delegate = self
         self.spreadsheetView.dataSource = self
         registerCell()
+     
     }
     
     private func registerCell() {
         SellQuantityViewCell.register(spreadsheet: spreadsheetView.self)
         SellPriceViewCell.register(spreadsheet: spreadsheetView.self)
-        
+
         TopViewCell.register(spreadsheet: spreadsheetView.self)
         BottomViewCell.register(spreadsheet: spreadsheetView.self)
-        
+
         FasteningStrengthViewCell.register(spreadsheet: spreadsheetView.self)
+        ConcludedQuantityViewCell.register(spreadsheet: spreadsheetView.self)
+        
         BuyQuantityViewCell.register(spreadsheet: spreadsheetView.self)
         BuyPriceViewCell.register(spreadsheet: spreadsheetView.self)
     }
@@ -59,8 +56,7 @@ extension OrderbookViewController: WebSocketDelegate {
         switch event {
         case .connected(let headers):
             let params: [String: Any] = ["type": WebSocketType.orderbookdepth.rawValue,
-                                         "symbols": "\(coinName)_\(currrencyType)"
-            ]
+                                         "symbols": "\(coinName)_\(currrencyType)"]
             
             let jParams = try! JSONSerialization.data(withJSONObject: params, options: [])
             client.write(string: String(data:jParams, encoding: .utf8)!, completion: nil)
