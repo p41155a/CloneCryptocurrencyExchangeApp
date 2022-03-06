@@ -28,13 +28,14 @@ final class CrypocurrencyKRWListTableViewCell: UITableViewCell {
         self.transactionAmountLabel.text = nil
     }
     
-    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
+    func setData(data: CrypotocurrencyKRWListTableViewEntity, isInterest: Bool) {
         self.currencyNameLabel.text = data.symbol
         self.currencyNameSubNameLabel.text = data.payment.value
         self.currentPriceLabel.text = data.currentPrice
         self.changeRateLabel.text = data.changeRate
         self.changeAmountLabel.text = data.changeAmount
         self.transactionAmountLabel.text = data.transactionAmount
+        self.interestButton.isSelected = isInterest
         setColor(updown: UpDown(rawValue: data.changeAmount.first ?? "0") ?? .zero)
     }
     
@@ -46,9 +47,19 @@ final class CrypocurrencyKRWListTableViewCell: UITableViewCell {
     
     @IBAction func interestButtonTap(_ sender: StarButton) {
         sender.isSelected.toggle()
+        guard let currencyName = self.currencyNameLabel.text else {
+            return
+        }
+        delegate?.setInterestData(
+            interest: InterestCurrency(
+                currency: "\(currencyName)_KRW",
+                interest: interestButton.isSelected
+            )
+        )
     }
     
     // MARK: - Property
+    weak var delegate: CrypocurrencyListTableViewCellDelegate?
     @IBOutlet weak var currencyNameLabel: UILabel!
     @IBOutlet weak var currencyNameSubNameLabel: UILabel!
     @IBOutlet weak var currentPriceLabel: UILabel!

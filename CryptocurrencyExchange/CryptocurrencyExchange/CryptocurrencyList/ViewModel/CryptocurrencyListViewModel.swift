@@ -150,6 +150,15 @@ final class CryptocurrencyListViewModel: XIBInformation {
             realm.add(interest)
         }
     }
+
+    func isInterest(interestKey: String) -> Bool {
+        let splitedSymbol: [String] = interestKey.split(separator: "_").map { "\($0)" }
+        let currentName = splitedSymbol[0]
+        let payment = splitedSymbol[1]
+        return !tabInterestList.filter { (name, paymentEnum) in
+            return currentName == name && paymentEnum.value == payment
+        }.isEmpty
+    }
     
     // MARK: - Private Func
     private func setKRWTableData(symbol: String,

@@ -115,20 +115,22 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
             guard let data = viewModel.tickerKRWList.value[currentName] else {
                 return UITableViewCell()
             }
-//            let currency = "\(data.symbol)_\(data.payment.value)"
+            let currency = "\(data.symbol)_KRW"
             let cell = CrypocurrencyKRWListTableViewCell.dequeueReusableCell(tableView: tableView) as CrypocurrencyKRWListTableViewCell
-//            cell.setData(data: data,
-//                         isInterest: viewModel.getInterestInfo(currency: currency))
-            cell.setData(data: data)
+            cell.delegate = self
+            cell.setData(data: data,
+                         isInterest: viewModel.isInterest(interestKey: currency))
             return cell
         case .BTC:
             guard let btcData = viewModel.tickerBTCList.value[currentName] else {
                 return UITableViewCell()
             }
+            let currency = "\(btcData.symbol)_BTC"
             let krwData: CrypotocurrencyKRWListTableViewEntity = viewModel.tickerKRWList.value[currentName] ?? CrypotocurrencyKRWListTableViewEntity()
             let cell = CrypocurrencyBTCListTableViewCell.dequeueReusableCell(tableView: tableView)
             cell.delegate = self
-            cell.setData(krwData: krwData, btcData: btcData)
+            cell.setData(krwData: krwData, btcData: btcData,
+                         isInterest: viewModel.isInterest(interestKey: currency))
             return cell
         }
     }

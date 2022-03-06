@@ -33,7 +33,7 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell {
         self.transactionKRWAmountLabel.text = nil
     }
     
-    func setData(krwData: CrypotocurrencyKRWListTableViewEntity, btcData: CrypotocurrencyBTCListTableViewEntity) {
+    func setData(krwData: CrypotocurrencyKRWListTableViewEntity, btcData: CrypotocurrencyBTCListTableViewEntity, isInterest: Bool) {
         self.currencyNameLabel.text = btcData.symbol
         self.currencyNameSubNameLabel.text = btcData.payment.value
         self.currentPriceLabel.text = btcData.currentPrice
@@ -41,6 +41,7 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell {
         self.changeRateLabel.text = btcData.changeRate
         self.transactionAmountLabel.text = btcData.transactionAmount
         self.transactionKRWAmountLabel.text = krwData.transactionAmount
+        self.interestButton.isSelected = isInterest
         setColor(updown: UpDown(rawValue: btcData.changeRate.first ?? "0") ?? .zero)
     }
     
