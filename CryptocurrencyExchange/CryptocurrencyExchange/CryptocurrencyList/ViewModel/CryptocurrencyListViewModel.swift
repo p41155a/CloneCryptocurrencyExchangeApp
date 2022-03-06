@@ -35,7 +35,6 @@ final class CryptocurrencyListViewModel: XIBInformation {
             case 2:
                 setInterestList() { [weak self] in
                     guard let self = self else { return }
-                    print(self.tabInterestList)
                     self.currentList.value = self.tabInterestList
                 }
             default:
