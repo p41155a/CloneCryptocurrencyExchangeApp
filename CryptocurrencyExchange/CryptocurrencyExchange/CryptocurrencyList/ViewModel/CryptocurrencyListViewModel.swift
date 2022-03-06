@@ -13,7 +13,9 @@ protocol CryptocurrencyListViewModelDelegate: AnyObject {
 }
 final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - Property
-    let realm: Realm
+    private var timeTrigger = true
+    private var timer = Timer()
+    private let realm: Realm
     private var apiManager = TickerAPIManager()
     weak var delegate: CryptocurrencyListViewModelDelegate?
     var nibName: String?
@@ -25,25 +27,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
     var tabInterestList: [(String, PaymentCurrency)] = []
     var tabPopularList: [(String, PaymentCurrency)] = []
     var currentList: Observable<[(String, PaymentCurrency)]> = Observable([])
-    var currentTag: Int = 0 {
-        didSet {
-            switch currentTag {
-            case 0:
-                currentList.value = tabKRWList
-            case 1:
-                currentList.value = tabBTCList
-            case 2:
-                setInterestList() { [weak self] in
-                    guard let self = self else { return }
-                    self.currentList.value = self.tabInterestList
-                }
-            case 3:
-                sortCurrentTapList()
-            default:
-                break
-            }
-        }
-    }
+    private var currentTab: Int = 0
     
     // MARK: - init
     init(nibName: String? = nil) {
@@ -109,8 +93,9 @@ final class CryptocurrencyListViewModel: XIBInformation {
         }.isEmpty
     }
     
-    func sortCurrentTapList() {
-        switch currentTag {
+    @objc
+    func sortCurrentTabList() {
+        switch currentTab {
         case 0:
             break
         case 1:
@@ -132,6 +117,36 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     // MARK: - Private Func
+    func chageCurrentTab(_ currentTab: Int) {
+        self.currentTab = currentTab
+        
+        switch currentTab {
+        case 0:
+            currentList.value = tabKRWList
+        case 1:
+            currentList.value = tabBTCList
+        case 2:
+            setInterestList() { [weak self] in
+                guard let self = self else { return }
+                self.currentList.value = self.tabInterestList
+            }
+        default:
+            break
+        }
+        
+        /// 인기 리스트는 한번만 리스트가 세팅되지 않고 10초마다 한번씩 체결강도따라 리스트가 바뀜
+        if currentTab == 3 {
+            startTimer(interval: 10)
+        } else {
+            stopTimer()
+        }
+    }
+    
+    /// currentTab을 직접 세팅되지 않게하기 위함
+    func getCurrentTab() -> Int {
+        return currentTab
+    }
+    
     private func setKRWInitialData(_ completion: @escaping () -> ()) {
         let paymentCurrency: PaymentCurrency = .KRW
         apiManager.fetchTicker(paymentCurrency: paymentCurrency) { result in
@@ -224,5 +239,18 @@ final class CryptocurrencyListViewModel: XIBInformation {
                                                   changeRate: changeRate,
                                                   transactionAmount: transactionAmount,
                                                   volumePower: volumePower)
+    }
+    
+    private func startTimer(interval: Double) {
+        if(timeTrigger) {
+            timer = Timer.scheduledTimer(timeInterval: interval, target: self,
+                    selector: #selector(sortCurrentTabList), userInfo: nil, repeats: true)
+            timeTrigger = false
+        }
+    }
+    
+    private func stopTimer() {
+        timeTrigger = true
+        timer.invalidate()
     }
 }

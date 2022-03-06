@@ -32,7 +32,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
             self?.tableView.reloadData()
         }
         self.viewModel.tickerBTCList.bind { [weak self] data in
-            if self?.viewModel.currentTag == 1 || self?.viewModel.currentTag == 2 {
+            if self?.viewModel.getCurrentTab() == 1 || self?.viewModel.getCurrentTab() == 2 {
                 self?.tableView.reloadData()
             }
         }
@@ -58,7 +58,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     @objc private func buttonDidTap(_ sender: TabButton) {
         setChoiceOnlyCurrentTap(sender)
-        viewModel.currentTag = sender.tag
+        viewModel.chageCurrentTab(sender.tag)
     }
     
     private func setChoiceOnlyCurrentTap(_ sender: TabButton) {
