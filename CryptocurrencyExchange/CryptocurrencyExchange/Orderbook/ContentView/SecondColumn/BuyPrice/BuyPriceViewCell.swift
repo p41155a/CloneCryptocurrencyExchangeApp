@@ -9,8 +9,8 @@ import UIKit
 import SpreadsheetView
 
 final class BuyPriceViewCell: Cell {
-    @IBOutlet weak var buyPriceLabel: UILabel!
-    @IBOutlet weak var buyPriceRateLabel: UILabel!
+    @IBOutlet private var buyPriceLabel: UILabel!
+    @IBOutlet private var buyPriceRateLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,5 +18,10 @@ final class BuyPriceViewCell: Cell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
+        self.buyPriceLabel.text = data.symbol
+        self.buyPriceRateLabel.text = data.symbol
     }
 }

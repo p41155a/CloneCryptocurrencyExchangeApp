@@ -9,10 +9,10 @@ import UIKit
 import SpreadsheetView
 
 final class BottomViewCell: Cell {
-    @IBOutlet weak var prevClosePriceLabel: UILabel!
-    @IBOutlet weak var openPriceLabel: UILabel!
-    @IBOutlet weak var highPriceLabel: UILabel!
-    @IBOutlet weak var lowPriceLabel: UILabel!
+    @IBOutlet private var prevClosePriceLabel: UILabel!
+    @IBOutlet private var openPriceLabel: UILabel!
+    @IBOutlet private var highPriceLabel: UILabel!
+    @IBOutlet private var lowPriceLabel: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +20,13 @@ final class BottomViewCell: Cell {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
+        self.prevClosePriceLabel.text = data.symbol
+        self.openPriceLabel.text = data.symbol
+        self.highPriceLabel.text = data.symbol
+        self.lowPriceLabel.text = data.symbol
     }
 }
 

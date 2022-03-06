@@ -9,8 +9,8 @@ import UIKit
 import SpreadsheetView
 
 final class TopViewCell: Cell {
-    @IBOutlet weak var tradeVolumeLabel: UILabel!
-    @IBOutlet weak var tradeValueLabel: UILabel!
+    @IBOutlet private var tradeVolumeLabel: UILabel!
+    @IBOutlet private var tradeValueLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,5 +18,10 @@ final class TopViewCell: Cell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
+        self.tradeVolumeLabel.text = data.symbol
+        self.tradeValueLabel.text = data.symbol
     }
 }

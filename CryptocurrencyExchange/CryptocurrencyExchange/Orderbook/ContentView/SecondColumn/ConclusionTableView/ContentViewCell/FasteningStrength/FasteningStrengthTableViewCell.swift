@@ -8,7 +8,7 @@
 import UIKit
 
 class FasteningStrengthTableViewCell: UITableViewCell {
-    @IBOutlet weak var fasteningStrengthLabel: UILabel!
+    @IBOutlet private var fasteningStrengthLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,5 +20,9 @@ class FasteningStrengthTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         self.fasteningStrengthLabel.text = nil
+    }
+    
+    func setData(data: ConclusionTableViewEntity) {
+        self.fasteningStrengthLabel.text = data.fasteningStrength
     }
 }

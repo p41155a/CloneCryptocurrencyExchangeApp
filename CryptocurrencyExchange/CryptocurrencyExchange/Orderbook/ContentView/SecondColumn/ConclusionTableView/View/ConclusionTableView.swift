@@ -7,9 +7,13 @@
 
 import UIKit
 import SpreadsheetView
+import Starscream
 
 class ConclusionTableView: Cell {
     @IBOutlet weak var conclusionTableView: UITableView!
+    
+    var coinName: String = ""
+    var currrencyType: String = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,21 +52,20 @@ extension ConclusionTableView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 29
+        return 30
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let fasteningStrengthTableCell = tableView.dequeueReusableCell(withIdentifier: String(describing: FasteningStrengthTableViewCell.self), for: indexPath) as! FasteningStrengthTableViewCell
+            let fasteningStrengthTableCell = FasteningStrengthTableViewCell.dequeueReusableCell(tableView: tableView)
             
-            fasteningStrengthTableCell.fasteningStrengthLabel.text! = "111.14%"
+//            fasteningStrengthTableCell.setData(data: <#T##ConclusionTableViewEntity#>)
             
             return fasteningStrengthTableCell
         } else {
-            let concludedQuantityTableCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ConcludedQuantityTableViewCell.self), for: indexPath) as! ConcludedQuantityTableViewCell
+            let concludedQuantityTableCell = ConcludedQuantityTableViewCell.dequeueReusableCell(tableView: tableView)
             
-            concludedQuantityTableCell.concludedPriceLabel.text! = "48.200,000"
-            concludedQuantityTableCell.concludedQuantityLabel.text! = "0.1314"
+//            concludedQuantityTableCell.setData(data: <#T##ConclusionTableViewEntity#>)
             
             return concludedQuantityTableCell
         }

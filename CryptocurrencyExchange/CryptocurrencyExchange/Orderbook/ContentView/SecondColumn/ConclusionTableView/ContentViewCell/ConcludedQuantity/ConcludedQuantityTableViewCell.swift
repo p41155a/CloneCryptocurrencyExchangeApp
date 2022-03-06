@@ -8,8 +8,8 @@
 import UIKit
 
 class ConcludedQuantityTableViewCell: UITableViewCell {
-    @IBOutlet weak var concludedPriceLabel: UILabel!
-    @IBOutlet weak var concludedQuantityLabel: UILabel!
+    @IBOutlet private var concludedPriceLabel: UILabel!
+    @IBOutlet private var concludedQuantityLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +22,10 @@ class ConcludedQuantityTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         self.concludedPriceLabel.text = nil
         self.concludedQuantityLabel.text = nil
+    }
+    
+    func setData(data: ConclusionTableViewEntity) {
+        self.concludedPriceLabel.text = data.contPrice
+        self.concludedQuantityLabel.text = data.contQty
     }
 }

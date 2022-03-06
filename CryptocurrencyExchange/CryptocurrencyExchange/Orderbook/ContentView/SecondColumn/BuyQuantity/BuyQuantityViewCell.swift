@@ -9,7 +9,7 @@ import UIKit
 import SpreadsheetView
 
 final class BuyQuantityViewCell: Cell {
-    @IBOutlet weak var buyQuantityLabel: UILabel!
+    @IBOutlet private var buyQuantityLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,5 +17,9 @@ final class BuyQuantityViewCell: Cell {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
+        self.buyQuantityLabel.text = data.symbol
     }
 }
