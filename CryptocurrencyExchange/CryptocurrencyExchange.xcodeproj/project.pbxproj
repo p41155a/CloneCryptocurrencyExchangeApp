@@ -72,6 +72,9 @@
 		B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
 		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
+		B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */; };
+		B4F2787127D4687600BEBFD2 /* BarChartByTimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */; };
+		B4F2787427D47E0400BEBFD2 /* BarChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */; };
 		B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */; };
 		B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F5AF7E27C8D3EB00EB60A1 /* ExchangeViewController.xib */; };
 		B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */; };
@@ -207,6 +210,9 @@
 		B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickEntity.swift; sourceTree = "<group>"; };
 		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartByTimesView.xib; sourceTree = "<group>"; };
+		B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartByTimesView.swift; sourceTree = "<group>"; };
+		B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartByTimesViewModel.swift; sourceTree = "<group>"; };
 		B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		B4F5AF7E27C8D3EB00EB60A1 /* ExchangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExchangeViewController.xib; sourceTree = "<group>"; };
 		B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInjectingViewModel.swift; sourceTree = "<group>"; };
@@ -699,6 +705,7 @@
 		B4F2786C27D467BC00BEBFD2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -706,6 +713,8 @@
 		B4F2786D27D467C800BEBFD2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */,
+				B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1127,6 +1136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4471E5F27CFBDB700668B64 /* QuoteViewController.xib in Resources */,
+				B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */,
 				B4471E6627CFBE5100668B64 /* ChartViewController.xib in Resources */,
 				B4471E5827CFB47100668B64 /* CoinDetailsViewController.xib in Resources */,
 				B4BC4E9027CDF70900DE19EC /* CoinDetailViewController.xib in Resources */,
@@ -1314,6 +1324,7 @@
 				FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */,
 				9B16F5BB27D08CB9003DC9BC /* ChartByTimesViewModel.swift in Sources */,
 				9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */,
+				B4F2787127D4687600BEBFD2 /* BarChartByTimesView.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
 				9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */,
 				9B778C6527CF14350009D343 /* Observable.swift in Sources */,
@@ -1339,6 +1350,7 @@
 				FFE7196927CE0349008DF7B9 /* CryptocurrencyListViewController.swift in Sources */,
 				909BEED527D112A500E4EE87 /* TransactionDescriptionSheetViewEntity.swift in Sources */,
 				90E12E7F27D251FE00373FF9 /* SellQuantityViewCell.swift in Sources */,
+				B4F2787427D47E0400BEBFD2 /* BarChartByTimesViewModel.swift in Sources */,
 				B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */,
 				B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */,
 				FFE7197927CE0E95008DF7B9 /* UIView+Extension.swift in Sources */,
