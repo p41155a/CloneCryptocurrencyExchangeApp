@@ -1,5 +1,5 @@
 //
-//  ChartViewModel.swift
+//  CandleStickChartByTimesViewModel.swift
 //  CryptocurrencyExchange
 //
 //  Created by 정다연 on 3/2/22.
@@ -8,7 +8,7 @@
 import UIKit
 import Charts
 
-class ChartViewModel {
+class CandleStickChartByTimesViewModel {
     var dataEntries: Observable<CandleChartDataEntries?>
 
     init(dataEntries: Observable<CandleChartDataEntries?> = Observable(nil)

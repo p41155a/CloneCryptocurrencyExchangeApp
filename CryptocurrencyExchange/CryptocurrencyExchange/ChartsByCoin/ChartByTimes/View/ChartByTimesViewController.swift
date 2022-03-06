@@ -11,7 +11,7 @@ import RealmSwift
 class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesViewModel> {
 
     @IBOutlet weak var intervalStackView: UIStackView!
-    @IBOutlet weak var chartView: ChartView!
+    @IBOutlet weak var chartView: CandleStickChartByTimesView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

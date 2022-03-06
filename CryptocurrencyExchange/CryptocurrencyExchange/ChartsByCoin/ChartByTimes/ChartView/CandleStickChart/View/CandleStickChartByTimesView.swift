@@ -1,5 +1,5 @@
 //
-//  ChartView.swift
+//  CandleStickChartByTimesView.swift
 //  CryptocurrencyExchange
 //
 //  Created by Dayeon Jung on 2022/03/01.
@@ -8,11 +8,11 @@
 import UIKit
 import Charts
 
-class ChartView: UIView {
+class CandleStickChartByTimesView: UIView {
 
     @IBOutlet weak var chartView: CandleStickChartView!
     
-    var viewModel = ChartViewModel()
+    var viewModel = CandleStickChartByTimesViewModel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ class ChartView: UIView {
     }
     
     private func commonInit() {
-        let superView = Bundle.main.loadNibNamed("ChartView", owner: self, options: nil)?.first as! UIView
+        let superView = Bundle.main.loadNibNamed("CandleStickChartByTimesView", owner: self, options: nil)?.first as! UIView
         self.addSubview(superView)
         superView.frame = self.bounds
         superView.layoutIfNeeded()

@@ -89,7 +89,7 @@
                         <constraint firstItem="V8T-mV-zCQ" firstAttribute="leading" secondItem="8vz-N5-OZU" secondAttribute="leading" constant="16" id="dw3-0L-8hf"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-To-eSc" customClass="ChartView" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-To-eSc" customClass="CandleStickChartByTimesView" customModule="CryptocurrencyExchange" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="48" width="414" height="608"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
