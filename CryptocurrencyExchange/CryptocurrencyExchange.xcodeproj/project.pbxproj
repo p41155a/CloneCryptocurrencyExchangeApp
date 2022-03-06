@@ -273,7 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				9071201D27D44D670033B4A5 /* View */,
-				9071201E27D460AD0033B4A5 /* ContentView */,
+				9071201E27D460AD0033B4A5 /* ContentViewCell */,
 				9071201A27D44C050033B4A5 /* Entity */,
 			);
 			path = ConclusionTableView;
@@ -316,13 +316,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		9071201E27D460AD0033B4A5 /* ContentView */ = {
+		9071201E27D460AD0033B4A5 /* ContentViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				90E12E6327D2508100373FF9 /* FasteningStrength */,
 				90E12E8527D26B4D00373FF9 /* ConcludedQuantity */,
 			);
-			path = ContentView;
+			path = ContentViewCell;
 			sourceTree = "<group>";
 		};
 		909BEED027D1126700E4EE87 /* Orderbook */ = {

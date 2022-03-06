@@ -61,6 +61,7 @@ extension OrderbookViewController: SpreadsheetViewDataSource {
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
         switch indexPath.column {
         case 0:
+
             if indexPath.row < 30 {
                 let sellQuantityCell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: SellQuantityViewCell.self), for: indexPath) as? SellQuantityViewCell
 

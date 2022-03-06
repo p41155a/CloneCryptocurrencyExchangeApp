@@ -49,6 +49,7 @@
                             <constraint firstItem="nFL-px-r8T" firstAttribute="leading" secondItem="OgX-jC-ITX" secondAttribute="leading" id="412-lZ-rk7"/>
                             <constraint firstItem="nFL-px-r8T" firstAttribute="top" secondItem="OgX-jC-ITX" secondAttribute="top" id="bZw-tD-dwy"/>
                             <constraint firstAttribute="trailing" secondItem="nFL-px-r8T" secondAttribute="trailing" id="f6O-UC-2Fb"/>
+                            <constraint firstAttribute="height" constant="30" id="hZA-mv-Ucc"/>
                             <constraint firstAttribute="bottom" secondItem="nFL-px-r8T" secondAttribute="bottom" id="zRg-Vt-kSa"/>
                         </constraints>
                     </view>

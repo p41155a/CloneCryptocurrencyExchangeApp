@@ -12,7 +12,12 @@ final class SellPriceViewCell: Cell {
     @IBOutlet weak var sellPriceLabel: UILabel!
     @IBOutlet weak var sellPriceRateLabel: UILabel!
     
+    init() {
+        super.init(frame: .zero)
+    }
+    
     override init(frame: CGRect) {
+
         super.init(frame: frame)
     }
 

@@ -27,7 +27,7 @@
                                 <color key="backgroundColor" name="increasingColorBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="2ij-io-xUG"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="cnm-YG-dkY"/>
+                                    <constraint firstAttribute="height" constant="30" id="cnm-YG-dkY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" name="titleColor"/>
