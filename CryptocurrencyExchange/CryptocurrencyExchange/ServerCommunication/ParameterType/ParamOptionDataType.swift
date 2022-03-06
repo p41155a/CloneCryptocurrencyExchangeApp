@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 enum OrderCurrency {
     case all
@@ -21,7 +22,7 @@ enum OrderCurrency {
     }
 }
 
-enum PaymentCurrency: String {
+enum PaymentCurrency: String, PersistableEnum {
     case KRW
     case BTC
     

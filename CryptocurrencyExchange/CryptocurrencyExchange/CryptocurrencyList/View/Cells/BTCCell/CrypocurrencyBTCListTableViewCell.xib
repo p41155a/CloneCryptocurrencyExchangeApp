@@ -133,14 +133,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9L9-4C-gdH">
                                 <rect key="frame" x="380" y="0.0" width="32" height="61"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNN-4z-4gq">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNN-4z-4gq" customClass="StarButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                         <rect key="frame" x="4" y="16.5" width="28" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="NNN-4z-4gq" secondAttribute="height" multiplier="1:1" id="ngW-8B-PWq"/>
                                             <constraint firstAttribute="width" constant="28" id="uuf-9V-H6v"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="starClickedIcon"/>
+                                        <state key="normal" image="starIcon"/>
+                                        <connections>
+                                            <action selector="interestButtonTap:" destination="ixg-1g-Qjs" eventType="touchUpInside" id="06Q-5h-tMn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -180,6 +183,7 @@
                 <outlet property="currencyNameSubNameLabel" destination="6x6-Qr-8lA" id="YXh-jk-TG2"/>
                 <outlet property="currentKRWPriceLabel" destination="4ht-mr-ZFF" id="cZW-jP-0yF"/>
                 <outlet property="currentPriceLabel" destination="mg0-dN-FRq" id="dn6-5q-akW"/>
+                <outlet property="interestButton" destination="NNN-4z-4gq" id="TQ3-zK-4LM"/>
                 <outlet property="transactionAmountLabel" destination="PLh-bK-BuM" id="GNQ-Sq-aUV"/>
                 <outlet property="transactionKRWAmountLabel" destination="cB6-uI-55O" id="bAK-m9-C36"/>
             </connections>
@@ -187,7 +191,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="starClickedIcon" width="34" height="34"/>
+        <image name="starIcon" width="34" height="34"/>
         <namedColor name="baseColor">
             <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

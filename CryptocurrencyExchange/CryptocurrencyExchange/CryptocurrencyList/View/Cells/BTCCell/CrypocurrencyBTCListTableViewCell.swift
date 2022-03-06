@@ -7,6 +7,9 @@
 
 import UIKit
 
+protocol CrypocurrencyListTableViewCellDelegate: AnyObject {
+    func setInterestData(interest: InterestCurrency)
+}
 class CrypocurrencyBTCListTableViewCell: UITableViewCell {
     // MARK: - func
     override func awakeFromNib() {
@@ -47,7 +50,21 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell {
         changeRateLabel.textColor = updown.color
     }
     
+    @IBAction func interestButtonTap(_ sender: StarButton) {
+        sender.isSelected.toggle()
+        guard let currencyName = self.currencyNameLabel.text else {
+            return
+        }
+        delegate?.setInterestData(
+            interest: InterestCurrency(
+                currency: "\(currencyName)_BTC",
+                interest: interestButton.isSelected
+            )
+        )
+    }
+    
     // MARK: - Property
+    weak var delegate: CrypocurrencyListTableViewCellDelegate?
     @IBOutlet weak var currencyNameLabel: UILabel!
     @IBOutlet weak var currencyNameSubNameLabel: UILabel!
     @IBOutlet weak var currentPriceLabel: UILabel!
@@ -55,4 +72,5 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell {
     @IBOutlet weak var changeRateLabel: UILabel!
     @IBOutlet weak var transactionAmountLabel: UILabel!
     @IBOutlet weak var transactionKRWAmountLabel: UILabel!
+    @IBOutlet weak var interestButton: StarButton!
 }

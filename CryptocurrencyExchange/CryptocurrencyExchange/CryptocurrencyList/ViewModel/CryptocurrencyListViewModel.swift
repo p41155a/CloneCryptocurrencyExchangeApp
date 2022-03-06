@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol CryptocurrencyListViewModelDelegate: AnyObject {
     func showAlert(message: String)
 }
 final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - Property
+    let realm: Realm
     private var apiManager = TickerAPIManager()
     weak var delegate: CryptocurrencyListViewModelDelegate?
     var nibName: String?
@@ -31,7 +33,11 @@ final class CryptocurrencyListViewModel: XIBInformation {
             case 1:
                 currentList.value = tabBTCList
             case 2:
-                currentList.value = tabInterestList
+                setInterestList() { [weak self] in
+                    guard let self = self else { return }
+                    print(self.tabInterestList)
+                    self.currentList.value = self.tabInterestList
+                }
             default:
                 currentList.value = tabPopularList
             }
@@ -41,6 +47,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - init
     init(nibName: String? = nil) {
         self.nibName = nibName
+        realm = try! Realm()
     }
     
     // MARK: - Func
@@ -120,6 +127,27 @@ final class CryptocurrencyListViewModel: XIBInformation {
                                          currentPrice: tickerInfo.closePrice,
                                          changeRate: tickerInfo.chgRate,
                                          transactionAmount: tickerInfo.value)
+        }
+    }
+    
+    func setInterestList(_ completion: @escaping () -> ()) {
+        let interestData = realm.objects(InterestCurrency.self)
+        
+        tabInterestList = interestData.filter { interestInfo in
+            interestInfo.interest == true
+        }.map { interestInfo in
+            let splitedSymbol: [String] = interestInfo.currency.split(separator: "_").map { "\($0)" }
+            let currentName = splitedSymbol[0]
+            let payment = splitedSymbol[1]
+            return (currentName, PaymentCurrency.init(rawValue: payment) ?? .KRW)
+        }
+        
+        completion()
+    }
+    
+    func setInterestData(interest: InterestCurrency) {
+        try! realm.write {
+            realm.add(interest)
         }
     }
     

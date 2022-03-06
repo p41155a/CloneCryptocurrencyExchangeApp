@@ -8,7 +8,6 @@
 import UIKit
 
 final class CrypocurrencyKRWListTableViewCell: UITableViewCell {
-    // MARK: - func
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -45,6 +44,10 @@ final class CrypocurrencyKRWListTableViewCell: UITableViewCell {
         changeAmountLabel.textColor = updown.color
     }
     
+    @IBAction func interestButtonTap(_ sender: StarButton) {
+        sender.isSelected.toggle()
+    }
+    
     // MARK: - Property
     @IBOutlet weak var currencyNameLabel: UILabel!
     @IBOutlet weak var currencyNameSubNameLabel: UILabel!
@@ -52,6 +55,7 @@ final class CrypocurrencyKRWListTableViewCell: UITableViewCell {
     @IBOutlet weak var changeRateLabel: UILabel!
     @IBOutlet weak var changeAmountLabel: UILabel!
     @IBOutlet weak var transactionAmountLabel: UILabel!
+    @IBOutlet weak var interestButton: StarButton!
 }
 
 enum UpDown: Character {
