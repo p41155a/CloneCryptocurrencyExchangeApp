@@ -243,8 +243,11 @@ final class CryptocurrencyListViewModel: XIBInformation {
     
     private func startTimer(interval: Double) {
         if(timeTrigger) {
-            timer = Timer.scheduledTimer(timeInterval: interval, target: self,
-                    selector: #selector(sortCurrentTabList), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: interval,
+                                         target: self,
+                                         selector: #selector(sortCurrentTabList),
+                                         userInfo: nil,
+                                         repeats: true)
             timeTrigger = false
         }
     }
