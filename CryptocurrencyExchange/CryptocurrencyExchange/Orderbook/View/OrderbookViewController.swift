@@ -21,21 +21,20 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSpreadsheetView()
-       
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.spreadsheetView.flashScrollIndicators()
     }
     
     private func configureSpreadsheetView() {
         self.spreadsheetView.delegate = self
         self.spreadsheetView.dataSource = self
         registerCell()
-     
+        focusToCenter(of: self.spreadsheetView)
     }
     
+    /// SpreadsheetView를 위한 Cell 등록을 합니다.
     private func registerCell() {
         SellQuantityViewCell.register(spreadsheet: spreadsheetView.self)
         SellPriceViewCell.register(spreadsheet: spreadsheetView.self)
@@ -43,11 +42,19 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
         TopViewCell.register(spreadsheet: spreadsheetView.self)
         BottomViewCell.register(spreadsheet: spreadsheetView.self)
 
-        FasteningStrengthViewCell.register(spreadsheet: spreadsheetView.self)
-        ConcludedQuantityViewCell.register(spreadsheet: spreadsheetView.self)
+        ConclusionTableView.register(spreadsheet: spreadsheetView.self)
         
         BuyQuantityViewCell.register(spreadsheet: spreadsheetView.self)
         BuyPriceViewCell.register(spreadsheet: spreadsheetView.self)
+    }
+    
+    /// View가 Center에서 시작을 할 수 있도록 설정합니다.
+    private func focusToCenter(of contentView: SpreadsheetView) {
+        self.view.layoutIfNeeded()
+        let centerOffsetX = (contentView.contentSize.width - contentView.frame.size.width) / 2
+        let centerOffsetY = (contentView.contentSize.height - contentView.frame.size.height) / 2
+        let centerPoint = CGPoint(x: centerOffsetX, y: centerOffsetY)
+        contentView.setContentOffset(centerPoint, animated: false)
     }
 }
 

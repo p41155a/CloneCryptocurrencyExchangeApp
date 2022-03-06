@@ -19,4 +19,9 @@ final class TopViewCell: Cell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+//    override func prepareForReuse() {
+//        self.tradeVolumeLabel.text = nil
+//        self.tradeValueLabel.text = nil
+//    }
 }

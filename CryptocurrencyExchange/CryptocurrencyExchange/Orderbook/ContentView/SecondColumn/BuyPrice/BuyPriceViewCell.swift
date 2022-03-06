@@ -19,4 +19,9 @@ final class BuyPriceViewCell: Cell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+ 
+//    override func prepareForReuse() {
+//        self.buyPriceLabel.text = nil
+//        self.buyPriceRateLabel.text = nil
+//    }
 }

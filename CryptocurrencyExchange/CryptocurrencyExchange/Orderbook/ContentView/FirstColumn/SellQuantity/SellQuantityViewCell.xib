@@ -18,23 +18,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.123123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jy6-SR-DAY">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHC-M6-Ssy">
                         <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.123123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jy6-SR-DAY">
+                                <rect key="frame" x="82.5" y="4" width="43.5" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" name="titleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" name="decreasingBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="Fik-UR-RTu"/>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="r6Y-Yy-VF1"/>
+                            <constraint firstAttribute="bottom" secondItem="Jy6-SR-DAY" secondAttribute="bottom" constant="4" id="1mt-Lh-llE"/>
+                            <constraint firstItem="Jy6-SR-DAY" firstAttribute="top" secondItem="CHC-M6-Ssy" secondAttribute="top" constant="4" id="bO6-tW-uP4"/>
+                            <constraint firstAttribute="trailing" secondItem="Jy6-SR-DAY" secondAttribute="trailing" constant="4" id="p51-mp-agw"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <color key="textColor" name="titleColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" name="decreasingBackgroundColor"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Jy6-SR-DAY" secondAttribute="trailing" id="1Ko-Dp-TNd"/>
-                    <constraint firstItem="Jy6-SR-DAY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5Cb-Ri-x91"/>
-                    <constraint firstAttribute="bottom" secondItem="Jy6-SR-DAY" secondAttribute="bottom" id="Vo2-ip-axV"/>
-                    <constraint firstItem="Jy6-SR-DAY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yep-tM-ubq"/>
+                    <constraint firstItem="CHC-M6-Ssy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ian-PJ-EOn"/>
+                    <constraint firstAttribute="bottom" secondItem="CHC-M6-Ssy" secondAttribute="bottom" id="JNF-PM-J8C"/>
+                    <constraint firstAttribute="trailing" secondItem="CHC-M6-Ssy" secondAttribute="trailing" id="K3P-lA-pIu"/>
+                    <constraint firstItem="CHC-M6-Ssy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qVt-fG-3vt"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

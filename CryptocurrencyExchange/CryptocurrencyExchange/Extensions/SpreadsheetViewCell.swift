@@ -54,8 +54,7 @@ extension OrderbookViewController: SpreadsheetViewDataSource {
         return [
             CellRange(from: (row: 0, column: 2), to: (row: 25, column: 2)),
             CellRange(from: (row: 27, column: 2), to: (row: 29, column: 2)),
-            CellRange(from: (row: 30, column: 0), to: (row: 31, column: 0)),
-            CellRange(from: (row: 32, column: 0), to: (row: 59, column: 0))
+            CellRange(from: (row: 30, column: 0), to: (row: 59, column: 0))
         ]
     }
     
@@ -68,25 +67,12 @@ extension OrderbookViewController: SpreadsheetViewDataSource {
                 sellQuantityCell?.sellQuantityLabel.text! = "0.2405"
 
                 return sellQuantityCell
-            }else {
+            } else if indexPath.row == 30 {
+                let conclusionTableViewCell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ConclusionTableView.self), for: indexPath) as? ConclusionTableView
                 
-            }
-            if indexPath.row == 30 {
-                let fasteningStrengthCell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: FasteningStrengthViewCell.self), for: indexPath) as? FasteningStrengthViewCell
-
-                fasteningStrengthCell?.fasteningStrengthLabel.text! = "111.14%"
-
-                return fasteningStrengthCell
+                return conclusionTableViewCell
             }
             
-            if indexPath.row >= 31 {
-                let concludedQuantityViewCell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ConcludedQuantityViewCell.self), for: indexPath) as? ConcludedQuantityViewCell
-
-                concludedQuantityViewCell?.concludedPriceLabel.text! = "48.200,000"
-                concludedQuantityViewCell?.concludedQuantityLabel.text! = "0.1314"
-
-                return concludedQuantityViewCell
-            }
         case 1:
             if indexPath.row < 30 {
                 let sellPriceViewCell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: SellPriceViewCell.self), for: indexPath) as? SellPriceViewCell
@@ -114,18 +100,18 @@ extension OrderbookViewController: SpreadsheetViewDataSource {
             } else if indexPath.row == 26 {
                 let descriptionTopCell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: TopViewCell.self), for: indexPath) as? TopViewCell
 
-//                descriptionTopCell?.tradeVolumeLabel.text! = "3,360,062 BTC"
-//                descriptionTopCell?.tradeValueLabel.text! = "1,676,600 억"
+                descriptionTopCell?.tradeVolumeLabel.text! = "3,360,062 BTC"
+                descriptionTopCell?.tradeValueLabel.text! = "1,676,600 억"
                 
                 return descriptionTopCell
             } else if indexPath.row == 27 {
       
                 let descriptionBottomCell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: BottomViewCell.self), for: indexPath) as? BottomViewCell
 
-//                descriptionBottomCell?.prevClosePriceLabel.text! = "50,550,000"
-//                descriptionBottomCell?.openPriceLabel.text! = "50,560,000"
-//                descriptionBottomCell?.highPriceLabel.text! = "50,691,000\n0.28%"
-//                descriptionBottomCell?.lowPriceLabel.text! = "47,900,000\n-5.24%"
+                descriptionBottomCell?.prevClosePriceLabel.text! = "50,550,000"
+                descriptionBottomCell?.openPriceLabel.text! = "50,560,000"
+                descriptionBottomCell?.highPriceLabel.text! = "50,691,000\n0.28%"
+                descriptionBottomCell?.lowPriceLabel.text! = "47,900,000\n-5.24%"
                 
                 return descriptionBottomCell
             }
