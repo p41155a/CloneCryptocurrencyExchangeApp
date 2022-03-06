@@ -37,8 +37,10 @@ final class CryptocurrencyListViewModel: XIBInformation {
                     guard let self = self else { return }
                     self.currentList.value = self.tabInterestList
                 }
+            case 3:
+                sortCurrentTapList()
             default:
-                currentList.value = tabPopularList
+                break
             }
         }
     }
@@ -58,7 +60,6 @@ final class CryptocurrencyListViewModel: XIBInformation {
         }
     }
     
-    
     func setWebSocketData(with entity: WebSocketTickerEntity) {
         let tickerInfo = entity.content
         let splitedSymbol: [String] = tickerInfo.symbol.split(separator: "_").map { "\($0)" }
@@ -67,17 +68,17 @@ final class CryptocurrencyListViewModel: XIBInformation {
         
         if payment == PaymentCurrency.KRW.value {           /// 지불 방식: KRW
             tickerKRWList.value[currentName] = setKRWTableData(symbol: "\(currentName)",
-                                         payment: PaymentCurrency.init(rawValue: payment) ?? .KRW,
                                          currentPrice: tickerInfo.closePrice,
                                          changeRate: tickerInfo.chgRate,
                                          changeAmount: tickerInfo.chgAmt,
-                                         transactionAmount: tickerInfo.value)
+                                         transactionAmount: tickerInfo.value,
+                                         volumePower: tickerInfo.volumePower)
         } else if payment == PaymentCurrency.BTC.value {    /// 지불 방식: BTC]
             tickerBTCList.value[currentName] = setBTCTableData(symbol: "\(currentName)",
-                                         payment: PaymentCurrency.init(rawValue: payment) ?? .KRW,
                                          currentPrice: tickerInfo.closePrice,
                                          changeRate: tickerInfo.chgRate,
-                                         transactionAmount: tickerInfo.value)
+                                         transactionAmount: tickerInfo.value,
+                                         volumePower: tickerInfo.volumePower)
         }
     }
     
@@ -108,6 +109,28 @@ final class CryptocurrencyListViewModel: XIBInformation {
         }.isEmpty
     }
     
+    func sortCurrentTapList() {
+        switch currentTag {
+        case 0:
+            break
+        case 1:
+            break
+        case 2:
+            break
+        case 3:
+            tabPopularList = Array(tabKRWList.sorted {
+                guard let frontVolumPower = tickerKRWList.value[$0.0]?.volumePower.doubleValue,
+                      let backVolumPower = tickerKRWList.value[$1.0]?.volumePower.doubleValue else {
+                          return true
+                      }
+                return frontVolumPower > backVolumPower
+            }[0..<5])
+            currentList.value = tabPopularList
+        default:
+            break
+        }
+    }
+    
     // MARK: - Private Func
     private func setKRWInitialData(_ completion: @escaping () -> ()) {
         let paymentCurrency: PaymentCurrency = .KRW
@@ -121,11 +144,11 @@ final class CryptocurrencyListViewModel: XIBInformation {
                     let currentName = data.key
                     let tickerInfo = data.value
                     let tableData = self.setKRWTableData(symbol: tickerInfo.currentName ?? "",
-                                                      payment: paymentCurrency,
                                                       currentPrice: tickerInfo.closingPrice ?? "",
                                                       changeRate: tickerInfo.fluctateRate24H ?? "",
                                                       changeAmount: tickerInfo.fluctate24H ?? "",
-                                                      transactionAmount: tickerInfo.accTradeValue ?? "")
+                                                      transactionAmount: tickerInfo.accTradeValue ?? "",
+                                                      volumePower: "")
                     currencyNameList.append((currentName, PaymentCurrency.KRW))
                     tickerKRWList[currentName] = tableData
                 }
@@ -151,10 +174,10 @@ final class CryptocurrencyListViewModel: XIBInformation {
                     let currentName = data.key
                     let tickerInfo = data.value
                     let tableData = self.setBTCTableData(symbol: tickerInfo.currentName ?? "",
-                                                      payment: paymentCurrency,
                                                       currentPrice: tickerInfo.closingPrice ?? "",
                                                       changeRate: tickerInfo.fluctateRate24H ?? "",
-                                                      transactionAmount: tickerInfo.accTradeValue ?? "")
+                                                      transactionAmount: tickerInfo.accTradeValue ?? "",
+                                                      volumePower: "")
                     currencyNameList.append((currentName, PaymentCurrency.BTC))
                     tickerBTCList[currentName] = tableData
                 }
@@ -169,37 +192,37 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     private func setKRWTableData(symbol: String,
-                                 payment: PaymentCurrency,
                                  currentPrice: String,
                                  changeRate: String,
                                  changeAmount: String,
-                                 transactionAmount: String) -> CrypotocurrencyKRWListTableViewEntity {
+                                 transactionAmount: String,
+                                 volumePower: String) -> CrypotocurrencyKRWListTableViewEntity {
         let currentPrice: String = currentPrice.setNumStringForm(isDecimalType: true)
         let changeRate: String = "\(changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
         let changeAmount: String = changeAmount.setNumStringForm(isDecimalType: true, isMarkPlusMiuns: true)
         let transactionAmount: String = "\(Int((transactionAmount.doubleValue ?? 0) / 1000000).decimalType ?? "")백만"
         
         return CrypotocurrencyKRWListTableViewEntity(symbol: symbol,
-                                                  payment: payment,
                                                   currentPrice: currentPrice,
                                                   changeRate: changeRate,
                                                   changeAmount: changeAmount,
-                                                  transactionAmount: transactionAmount)
+                                                  transactionAmount: transactionAmount,
+                                                  volumePower: volumePower)
     }
     
     private func setBTCTableData(symbol: String,
-                                 payment: PaymentCurrency,
                                  currentPrice: String,
                                  changeRate: String,
-                                 transactionAmount: String) -> CrypotocurrencyBTCListTableViewEntity {
+                                 transactionAmount: String,
+                                 volumePower: String) -> CrypotocurrencyBTCListTableViewEntity {
         let currentPrice: String = currentPrice.displayDecimal(to: 8)
         let changeRate: String = changeRate == "" ? "0.00%" : "\(changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
         let transactionAmount: String = transactionAmount.displayDecimal(to: 3)
         
         return CrypotocurrencyBTCListTableViewEntity(symbol: symbol,
-                                                  payment: payment,
                                                   currentPrice: currentPrice,
                                                   changeRate: changeRate,
-                                                  transactionAmount: transactionAmount)
+                                                  transactionAmount: transactionAmount,
+                                                  volumePower: volumePower)
     }
 }

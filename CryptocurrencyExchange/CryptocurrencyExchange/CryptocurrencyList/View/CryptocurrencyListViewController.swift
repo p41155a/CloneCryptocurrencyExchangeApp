@@ -57,11 +57,17 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     }
     
     @objc private func buttonDidTap(_ sender: TabButton) {
+        setChoiceOnlyCurrentTap(sender)
+        viewModel.currentTag = sender.tag
+    }
+    
+    private func setChoiceOnlyCurrentTap(_ sender: TabButton) {
         tabButtonList.forEach { button in
             button.isChoice = false
         }
         sender.isChoice = true
-        viewModel.currentTag = sender.tag
+        sortStackView.isHidden = sender.tag == 3 // 인기일때만 숨김
+        explainPopolurRuleLabel.isHidden = !(sender.tag == 3)
     }
     
     // MARK: - func<websocket>
@@ -91,6 +97,8 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     // MARK: - Property
     private var socket: WebSocket?
     private var tabButtonList: [TabButton] = []
+    @IBOutlet weak var explainPopolurRuleLabel: UILabel!
+    @IBOutlet weak var sortStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var krwTabButton: TabButton!
     @IBOutlet weak var btcTabButton: TabButton!
@@ -105,7 +113,8 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentName = viewModel.currentList.value[indexPath.row].0
-        switch viewModel.currentList.value[indexPath.row].1 {
+        let paymentCurrency = viewModel.currentList.value[indexPath.row].1
+        switch paymentCurrency {
         case .KRW:
             guard let data = viewModel.tickerKRWList.value[currentName] else {
                 return UITableViewCell()
