@@ -16,8 +16,8 @@ class TabBarController: UITabBarController {
                 nibName: "CryptocurrencyListViewController"
             )
         )
-//        exchangeViewController.title = "홈 타이틀"             // 타이틀이 없을경우 미호출
-
+        //        exchangeViewController.title = "홈 타이틀"             // 타이틀이 없을경우 미호출
+        
         return ViewControllerInNavigation(
             with: TabInformation(
                 viewController: exchangeViewController,

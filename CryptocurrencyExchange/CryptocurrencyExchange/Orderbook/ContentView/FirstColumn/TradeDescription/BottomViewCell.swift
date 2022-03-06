@@ -21,12 +21,5 @@ final class BottomViewCell: Cell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-//    
-//    override func prepareForReuse() {
-//        self.prevClosePriceLabel.text = nil
-//        self.openPriceLabel.text = nil
-//        self.highPriceLabel.text = nil
-//        self.lowPriceLabel.text = nil
-//    }
 }
 

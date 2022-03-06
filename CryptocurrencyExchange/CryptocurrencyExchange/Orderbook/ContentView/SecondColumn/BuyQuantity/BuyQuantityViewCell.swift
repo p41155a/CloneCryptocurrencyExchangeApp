@@ -18,8 +18,4 @@ final class BuyQuantityViewCell: Cell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-//    override func prepareForReuse() {
-//        self.buyQuantityLabel.text = nil
-//    }
 }

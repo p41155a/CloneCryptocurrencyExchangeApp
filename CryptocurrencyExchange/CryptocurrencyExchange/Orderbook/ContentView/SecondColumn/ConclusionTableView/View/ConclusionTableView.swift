@@ -19,7 +19,7 @@ class ConclusionTableView: Cell {
         self.conclusionTableView.delegate = self
         self.conclusionTableView.dataSource = self
         self.conclusionTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-
+        
         FasteningStrengthTableViewCell.register(tableView: conclusionTableView)
         ConcludedQuantityTableViewCell.register(tableView: conclusionTableView)
     }
@@ -56,14 +56,14 @@ extension ConclusionTableView: UITableViewDataSource {
             let fasteningStrengthTableCell = tableView.dequeueReusableCell(withIdentifier: String(describing: FasteningStrengthTableViewCell.self), for: indexPath) as! FasteningStrengthTableViewCell
             
             fasteningStrengthTableCell.fasteningStrengthLabel.text! = "111.14%"
-
+            
             return fasteningStrengthTableCell
         } else {
             let concludedQuantityTableCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ConcludedQuantityTableViewCell.self), for: indexPath) as! ConcludedQuantityTableViewCell
-
+            
             concludedQuantityTableCell.concludedPriceLabel.text! = "48.200,000"
             concludedQuantityTableCell.concludedQuantityLabel.text! = "0.1314"
-
+            
             return concludedQuantityTableCell
         }
     }
