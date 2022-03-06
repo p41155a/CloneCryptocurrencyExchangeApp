@@ -141,22 +141,19 @@ final class CryptocurrencyListViewModel: XIBInformation {
             let payment = splitedSymbol[1]
             return (currentName, PaymentCurrency.init(rawValue: payment) ?? .KRW)
         }
-        
         completion()
     }
     
     func setInterestData(interest: InterestCurrency) {
         try! realm.write {
-            realm.add(interest)
+            realm.add(interest, update: .modified)
         }
     }
 
     func isInterest(interestKey: String) -> Bool {
-        let splitedSymbol: [String] = interestKey.split(separator: "_").map { "\($0)" }
-        let currentName = splitedSymbol[0]
-        let payment = splitedSymbol[1]
-        return !tabInterestList.filter { (name, paymentEnum) in
-            return currentName == name && paymentEnum.value == payment
+        let interestData = realm.objects(InterestCurrency.self)
+        return !interestData.filter { interestInfo in
+            return interestInfo.currency == interestKey && interestInfo.interest == true
         }.isEmpty
     }
     

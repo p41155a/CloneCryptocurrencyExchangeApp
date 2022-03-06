@@ -29,9 +29,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     func bind() {
         self.viewModel.tickerKRWList.bind { [weak self] data in
-            if self?.viewModel.currentTag != 1 {
-                self?.tableView.reloadData()
-            }
+            self?.tableView.reloadData()
         }
         self.viewModel.tickerBTCList.bind { [weak self] data in
             if self?.viewModel.currentTag == 1 || self?.viewModel.currentTag == 2 {
