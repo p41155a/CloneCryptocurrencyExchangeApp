@@ -136,6 +136,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
         
         /// 인기 리스트는 한번만 리스트가 세팅되지 않고 10초마다 한번씩 체결강도따라 리스트가 바뀜
         if currentTab == 3 {
+            sortCurrentTabList()
             startTimer(interval: 10)
         } else {
             stopTimer()
