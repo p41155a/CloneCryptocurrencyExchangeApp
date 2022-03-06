@@ -13,7 +13,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        viewModel.setKRWInitialData()
+        viewModel.setInitialData()
         bind()
         connect()
     }
@@ -62,9 +62,6 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         }
         sender.isChoice = true
         viewModel.currentTag = sender.tag
-        if sender.tag == 1, viewModel.tabBTCList.isEmpty {
-            viewModel.setBTCInitialData()
-        }
     }
     
     // MARK: - func<websocket>
