@@ -13,6 +13,7 @@ class CandleStickChartByTimesView: UIView {
     @IBOutlet weak var chartView: CandleStickChartView!
     
     var viewModel = CandleStickChartByTimesViewModel()
+    var delegate: ChartViewUpdatable?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,6 +36,7 @@ class CandleStickChartByTimesView: UIView {
     }
     
     private func setChartUI() {
+        chartView.delegate = self
         chartView.dragEnabled = true
         chartView.scaleYEnabled = false
 
@@ -72,7 +74,8 @@ class CandleStickChartByTimesView: UIView {
     }
     
     private func setChartZoom(totalCount: Int) {
-        let zoomFactor = self.viewModel.zoomFactors(totalCount: totalCount)
+        self.viewModel.setZoomFactors(totalCount: totalCount)
+        let zoomFactor = viewModel.zoomFactor
         chartView.zoom(
             scaleX: zoomFactor.scaleX,
             scaleY: zoomFactor.scaleY,
@@ -80,5 +83,21 @@ class CandleStickChartByTimesView: UIView {
             yValue: zoomFactor.yValue,
             axis: .right
         )
+    }
+    
+    func setTransform(with transfrom: CGAffineTransform) {
+        chartView.viewPortHandler.refresh(newMatrix: transfrom, chart: chartView, invalidate: true)
+    }
+}
+
+extension CandleStickChartByTimesView: ChartViewDelegate {
+    public func chartScaled(_ chartView: ChartViewBase, scaleX: CGFloat, scaleY: CGFloat) {
+        let currentMatrix = chartView.viewPortHandler.touchMatrix
+        self.delegate?.chartViewDidChangeTransform(chartView: self.chartView, with: currentMatrix)
+    }
+    
+    public func chartTranslated(_ chartView: ChartViewBase, dX: CGFloat, dY: CGFloat) {
+        let currentMatrix = chartView.viewPortHandler.touchMatrix
+        self.delegate?.chartViewDidChangeTransform(chartView: self.chartView, with: currentMatrix)
     }
 }

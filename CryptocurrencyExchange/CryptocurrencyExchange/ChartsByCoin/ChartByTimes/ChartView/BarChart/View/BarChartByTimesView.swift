@@ -12,6 +12,7 @@ class BarChartByTimesView: UIView {
     @IBOutlet weak var chartView: BarChartView!
     
     var viewModel = BarChartByTimesViewModel()
+    var delegate: ChartViewUpdatable?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,6 +35,7 @@ class BarChartByTimesView: UIView {
     }
     
     private func setChartUI() {
+        chartView.delegate = self
         chartView.dragEnabled = true
         chartView.scaleYEnabled = false
         chartView.autoScaleMinMaxEnabled = true
@@ -73,8 +75,9 @@ class BarChartByTimesView: UIView {
         chartView.data = data
     }
     
-    private func setChartZoom(totalCount: Int) {
-        let zoomFactor = self.viewModel.zoomFactors(totalCount: totalCount)
+    func setChartZoom(totalCount: Int) {
+        self.viewModel.setZoomFactors(totalCount: totalCount)
+        let zoomFactor = viewModel.zoomFactor
         chartView.zoom(
             scaleX: zoomFactor.scaleX,
             scaleY: zoomFactor.scaleY,
@@ -82,5 +85,21 @@ class BarChartByTimesView: UIView {
             yValue: zoomFactor.yValue,
             axis: .right
         )
+    }
+
+    func setTransform(with transfrom: CGAffineTransform) {
+        chartView.viewPortHandler.refresh(newMatrix: transfrom, chart: chartView, invalidate: true)
+    }
+}
+
+extension BarChartByTimesView: ChartViewDelegate {
+    public func chartScaled(_ chartView: ChartViewBase, scaleX: CGFloat, scaleY: CGFloat) {
+        let currentMatrix = chartView.viewPortHandler.touchMatrix
+        self.delegate?.chartViewDidChangeTransform(chartView: self.chartView, with: currentMatrix)
+    }
+    
+    public func chartTranslated(_ chartView: ChartViewBase, dX: CGFloat, dY: CGFloat) {
+        let currentMatrix = chartView.viewPortHandler.touchMatrix
+        self.delegate?.chartViewDidChangeTransform(chartView: self.chartView, with: currentMatrix)
     }
 }

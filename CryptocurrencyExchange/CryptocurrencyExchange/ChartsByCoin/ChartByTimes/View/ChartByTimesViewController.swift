@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Charts
 
 class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesViewModel> {
 
@@ -17,6 +18,9 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        candleStickChartView.delegate = self
+        barChartView.delegate = self
+        
         setStackViewUI()
         bindObservables()
     }
@@ -62,4 +66,18 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
         guard let intervalType = TimeIntervalInChart(rawValue: intervalButton.tag) else { return }
         self.viewModel.getCandleStickData(intervalType: intervalType)
     }
+}
+
+extension ChartByTimesViewController: ChartViewUpdatable {
+    /// 두 차트 중 하나의 차트의 transform을 변경시킬 때, 나머지 차트에도 똑같은 모양으로 변경되도록 함
+    /// - Parameter chartView: 모양의 변경이 발생한 차트
+    /// - Parameter with transform: 변경된 수치
+    func chartViewDidChangeTransform(chartView: ChartViewBase, with transform: CGAffineTransform) {
+        if let _ = chartView as? CandleStickChartView {
+            barChartView.setTransform(with: transform)
+        } else {
+            candleStickChartView.setTransform(with: transform)
+        }
+    }
+
 }

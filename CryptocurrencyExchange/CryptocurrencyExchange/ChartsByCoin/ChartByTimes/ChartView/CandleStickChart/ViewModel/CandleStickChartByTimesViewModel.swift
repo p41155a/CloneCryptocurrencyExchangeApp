@@ -32,6 +32,15 @@ class CandleStickChartByTimesViewModel {
         )
     }
     
+    func setZoomFactors(scaleX: CGFloat) {
+        self.zoomFactor = ChartZoomFactor(
+            scaleX: scaleX,
+            scaleY: 1.0,
+            xValue: self.zoomFactor.xValue,
+            yValue: self.zoomFactor.yValue
+        )
+    }
+    
     func updateEntries(from dbData: [CandleStickData]) {
         self.dataEntries.value = CandleChartDataEntries(dataFromDB: dbData)
     }
