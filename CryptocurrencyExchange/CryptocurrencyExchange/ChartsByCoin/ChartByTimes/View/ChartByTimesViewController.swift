@@ -11,7 +11,8 @@ import RealmSwift
 class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesViewModel> {
 
     @IBOutlet weak var intervalStackView: UIStackView!
-    @IBOutlet weak var chartView: CandleStickChartByTimesView!
+    @IBOutlet weak var candleStickChartView: CandleStickChartByTimesView!
+    @IBOutlet weak var barChartView: BarChartByTimesView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
     private func bindObservables() {
         self.viewModel.candleStickData.bind { [weak self] datas in
             guard let entryDatas = datas else { return }
-            self?.chartView.updateDataEntries(from: entryDatas)
+            self?.candleStickChartView.updateDataEntries(from: entryDatas)
         }
     }
     
