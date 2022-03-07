@@ -26,20 +26,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="115" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카리나코인" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPx-Bc-NxI">
-                                        <rect key="frame" x="16" y="12" width="99" height="16"/>
+                                        <rect key="frame" x="0.0" y="12" width="115" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="titleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLj-xK-Vhd">
-                                        <rect key="frame" x="0.0" y="12" width="8" height="37"/>
-                                        <color key="backgroundColor" name="baseColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="8" id="3dL-Kc-G6D"/>
-                                        </constraints>
-                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KRW" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iku-gx-5gZ">
-                                        <rect key="frame" x="16" y="35.5" width="99" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="35.5" width="115" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" name="contourColor"/>
                                         <nil key="highlightedColor"/>
@@ -47,15 +40,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="BPx-Bc-NxI" firstAttribute="leading" secondItem="bLj-xK-Vhd" secondAttribute="trailing" constant="8" id="4gi-k5-tcb"/>
-                                    <constraint firstItem="bLj-xK-Vhd" firstAttribute="top" secondItem="iPq-WR-pBp" secondAttribute="top" constant="12" id="Jdh-Tu-X7T"/>
-                                    <constraint firstItem="bLj-xK-Vhd" firstAttribute="leading" secondItem="iPq-WR-pBp" secondAttribute="leading" id="KDD-ei-XpQ"/>
                                     <constraint firstItem="BPx-Bc-NxI" firstAttribute="top" secondItem="iPq-WR-pBp" secondAttribute="top" constant="12" id="SfM-Rg-MHn"/>
                                     <constraint firstAttribute="trailing" secondItem="Iku-gx-5gZ" secondAttribute="trailing" id="UW1-WJ-cnn"/>
                                     <constraint firstAttribute="bottom" secondItem="Iku-gx-5gZ" secondAttribute="bottom" constant="12" id="dLN-PH-jWR"/>
-                                    <constraint firstAttribute="bottom" secondItem="bLj-xK-Vhd" secondAttribute="bottom" constant="12" id="mcK-wN-sE1"/>
                                     <constraint firstAttribute="trailing" secondItem="BPx-Bc-NxI" secondAttribute="trailing" id="rh8-5X-9Eh"/>
-                                    <constraint firstItem="Iku-gx-5gZ" firstAttribute="leading" secondItem="bLj-xK-Vhd" secondAttribute="trailing" constant="8" id="yqj-C4-XRd"/>
+                                    <constraint firstItem="Iku-gx-5gZ" firstAttribute="leading" secondItem="iPq-WR-pBp" secondAttribute="leading" id="s5B-61-SJx"/>
+                                    <constraint firstItem="BPx-Bc-NxI" firstAttribute="leading" secondItem="iPq-WR-pBp" secondAttribute="leading" id="uM9-md-X6M"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHw-YF-eFT">
@@ -124,14 +114,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBd-Oe-MOq">
                                 <rect key="frame" x="380" y="0.0" width="32" height="61"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnQ-qY-Rku">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnQ-qY-Rku" customClass="StarButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                         <rect key="frame" x="4" y="16.5" width="28" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="LMi-ny-VvR"/>
                                             <constraint firstAttribute="width" secondItem="hnQ-qY-Rku" secondAttribute="height" multiplier="1:1" id="M2C-LC-YYt"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="starClickedIcon"/>
+                                        <state key="normal" image="starIcon"/>
+                                        <connections>
+                                            <action selector="interestButtonTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UXf-ch-Tul"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -171,13 +164,14 @@
                 <outlet property="currencyNameLabel" destination="BPx-Bc-NxI" id="mOO-2x-9Sw"/>
                 <outlet property="currencyNameSubNameLabel" destination="Iku-gx-5gZ" id="HzL-dU-9BW"/>
                 <outlet property="currentPriceLabel" destination="CKU-go-LEt" id="lPt-Rt-Lll"/>
+                <outlet property="interestButton" destination="hnQ-qY-Rku" id="iGm-cW-IUe"/>
                 <outlet property="transactionAmountLabel" destination="bes-j9-QZb" id="eDp-NM-gaB"/>
             </connections>
             <point key="canvasLocation" x="204.34782608695653" y="136.60714285714286"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="starClickedIcon" width="34" height="34"/>
+        <image name="starIcon" width="34" height="34"/>
         <namedColor name="baseColor">
             <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

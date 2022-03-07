@@ -12,13 +12,6 @@ extension String {
         return Double(self)
     }
     
-    func displayDecimal(to place: Int) -> String {
-        guard let doubleValue = doubleValue else {
-            return self
-        }
-        return String(format: "%.\(place)f", doubleValue)
-    }
-    
     func setNumStringForm(isDecimalType: Bool = false, isMarkPlusMiuns: Bool = false) -> String {
         guard let doubleValue = doubleValue else {
             return self

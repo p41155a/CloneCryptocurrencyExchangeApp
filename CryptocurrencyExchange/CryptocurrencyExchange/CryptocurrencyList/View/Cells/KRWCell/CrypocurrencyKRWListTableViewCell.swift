@@ -8,16 +8,13 @@
 import UIKit
 
 final class CrypocurrencyKRWListTableViewCell: UITableViewCell {
-    // MARK: - func
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        interestButton.becomeFirstResponder()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     override func prepareForReuse() {
@@ -29,14 +26,20 @@ final class CrypocurrencyKRWListTableViewCell: UITableViewCell {
         self.transactionAmountLabel.text = nil
     }
     
-    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
+    func setData(data: CryptocurrencyListTableViewEntity, isInterest: Bool) {
+        let currentPrice: String = "\(data.currentPrice)".setNumStringForm(isDecimalType: true)
+        let changeRate: String = "\(data.changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
+        let changeAmount: String = "\(data.changeAmount)".setNumStringForm(isDecimalType: true, isMarkPlusMiuns: true)
+        let transactionAmount: String = "\(Int(data.transactionAmount / 1000000).decimalType ?? "")백만"
+        
         self.currencyNameLabel.text = data.symbol
         self.currencyNameSubNameLabel.text = data.payment.value
-        self.currentPriceLabel.text = data.currentPrice
-        self.changeRateLabel.text = data.changeRate
-        self.changeAmountLabel.text = data.changeAmount
-        self.transactionAmountLabel.text = data.transactionAmount
-        setColor(updown: UpDown(rawValue: data.changeAmount.first ?? "0") ?? .zero)
+        self.currentPriceLabel.text = currentPrice
+        self.changeRateLabel.text = changeRate
+        self.changeAmountLabel.text = changeAmount
+        self.transactionAmountLabel.text = transactionAmount
+        self.interestButton.isSelected = isInterest
+        setColor(updown: UpDown(rawValue: changeAmount.first ?? "0") ?? .zero)
     }
     
     private func setColor(updown: UpDown) {
@@ -45,28 +48,26 @@ final class CrypocurrencyKRWListTableViewCell: UITableViewCell {
         changeAmountLabel.textColor = updown.color
     }
     
+    @IBAction func interestButtonTap(_ sender: StarButton) {
+        sender.isSelected.toggle()
+        guard let currencyName = self.currencyNameLabel.text else {
+            return
+        }
+        delegate?.setInterestData(
+            interest: InterestCurrency(
+                currency: "\(currencyName)_KRW",
+                interest: interestButton.isSelected
+            )
+        )
+    }
+    
     // MARK: - Property
+    weak var delegate: CrypocurrencyListTableViewCellDelegate?
     @IBOutlet weak var currencyNameLabel: UILabel!
     @IBOutlet weak var currencyNameSubNameLabel: UILabel!
     @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var changeRateLabel: UILabel!
     @IBOutlet weak var changeAmountLabel: UILabel!
     @IBOutlet weak var transactionAmountLabel: UILabel!
-}
-
-enum UpDown: Character {
-    case up = "+"
-    case down = "-"
-    case zero = "0"
-    
-    var color: UIColor {
-        switch self {
-        case .up:
-            return .increasingColor ?? .red
-        case .down:
-            return .decreasingColor ?? .blue
-        case .zero:
-            return .titleColor ?? .black
-        }
-    }
+    @IBOutlet weak var interestButton: StarButton!
 }
