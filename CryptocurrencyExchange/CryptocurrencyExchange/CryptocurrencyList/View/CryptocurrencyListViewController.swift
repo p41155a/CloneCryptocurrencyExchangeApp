@@ -15,15 +15,16 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         configureUI()
         viewModel.setInitialData()
         bind()
-        connect()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        connect()
     }
     
-    deinit {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         disconnect()
     }
     
@@ -230,7 +231,7 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(_):
-            writeToSocket(paymentCurrency: .KRW, tickTypes: [.tickMID])
+            writeToSocket(paymentCurrency: .KRW, tickTypes: [.tick24H])
         case .text(let string):
             do {
                 let data = string.data(using: .utf8)!
