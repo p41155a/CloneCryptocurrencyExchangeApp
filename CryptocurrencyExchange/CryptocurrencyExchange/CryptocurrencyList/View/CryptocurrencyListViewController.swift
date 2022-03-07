@@ -209,8 +209,23 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentName = viewModel.currentList.value[indexPath.row].0
+        let paymentCurrency = viewModel.currentList.value[indexPath.row].1
+        let coinDetailViewController = CoinDetailsViewController(
+            viewModel: CoinDetailsViewModel(
+                nibName: "CoinDetailsViewController",
+                dependency: CoinDetailsDependency(
+                    orderCurrency: currentName,
+                    paymentCurrency: paymentCurrency.value
+                )
+            )
+        )
+        self.navigationController?.pushViewController(coinDetailViewController, animated: true)
+    }
 }
-// MARK: - TableView
+// MARK: - Delegate WebSocket
 extension CryptocurrencyListViewController: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
@@ -230,7 +245,7 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
     }
 }
 
-// MARK: - Delegate
+// MARK: - Delegate Cell
 extension CryptocurrencyListViewController: CrypocurrencyListTableViewCellDelegate {
     func setInterestData(interest: InterestCurrency) {
         viewModel.setInterestData(interest: interest)
