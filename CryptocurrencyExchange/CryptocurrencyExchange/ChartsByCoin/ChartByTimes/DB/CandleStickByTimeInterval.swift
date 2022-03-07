@@ -10,16 +10,15 @@ import RealmSwift
 
 class CandleStickByTimeInterval: Object {
     @Persisted var interval: TimeIntervalInChart
-    @Persisted var lastUpdated: Date
+    @Persisted var lastUpdated: Double
     @Persisted var stickDatas: List<CandleStickData>
     
     convenience init(
-        interval: TimeIntervalInChart,
-        lastUpdated: Date
+        interval: TimeIntervalInChart
     ) {
         self.init()
         self.interval = interval
-        self.lastUpdated = lastUpdated
+        self.lastUpdated = 0
         self.stickDatas = List<CandleStickData>()
     }
 }
