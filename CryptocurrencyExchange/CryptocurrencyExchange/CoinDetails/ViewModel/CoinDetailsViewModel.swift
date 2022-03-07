@@ -9,8 +9,13 @@ import Foundation
 
 class CoinDetailsViewModel: XIBInformation {
     var nibName: String?
+    var dependency: CoinDetailsDependency
     
-    init(nibName: String?) {
+    init(
+        nibName: String?,
+        dependency: CoinDetailsDependency
+    ) {
         self.nibName = nibName
+        self.dependency = dependency
     }
 }

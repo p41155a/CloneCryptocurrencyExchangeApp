@@ -48,7 +48,11 @@ class TabBarController: UITabBarController {
     var coindDetailsViewController: ViewControllerInNavigation = {
         let coinDetailViewController = CoinDetailsViewController(
             viewModel: CoinDetailsViewModel(
-                nibName: "CoinDetailsViewController"
+                nibName: "CoinDetailsViewController",
+                dependency: CoinDetailsDependency(
+                    orderCurrency: "BTC",
+                    paymentCurrency: "KRW"
+                )
             )
         )
         
