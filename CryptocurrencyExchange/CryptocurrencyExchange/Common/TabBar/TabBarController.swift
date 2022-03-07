@@ -26,16 +26,34 @@ class TabBarController: UITabBarController {
         )
     }()
     
+    var assetsStatusViewController: ViewControllerInNavigation = {
+        let assetsStatusViewController = AssetsStatusViewController(
+            viewModel: AssetsStatusViewModel(
+                nibName: "AssetsStatusViewController"
+            )
+        )
+
+        return ViewControllerInNavigation(
+            with: TabInformation(
+                viewController: assetsStatusViewController,
+                tabTitle: "입출금",
+                image: UIImage(named: "tabButton2") ?? UIImage()
+            )
+        )
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tabBar.backgroundColor = .white
+        self.tabBar.tintColor = .titleColor
         self.configureViewControllers()
     }
     
     private func configureViewControllers() {
         let viewControllersInNavigation = [
-            exchangeViewController
+            exchangeViewController,
+            assetsStatusViewController
         ].map {
             $0.navigationControllerIncludingViewController()
         }

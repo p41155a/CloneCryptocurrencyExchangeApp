@@ -1,18 +1,17 @@
 //
-//  ExchangeViewModel.swift
+//  AssetsStatusViewModel.swift
 //  CryptocurrencyExchange
 //
-//  Created by Dayeon Jung on 2022/02/25.
+//  Created by Yoojin Park on 2022/03/08.
 //
 
 import Foundation
 
-class ExchangeViewModel: XIBInformation {
+class AssetsStatusViewModel: XIBInformation {
     var nibName: String?
     
     init(nibName: String? = nil) {
         self.nibName = nibName
     }
 }
-
 
