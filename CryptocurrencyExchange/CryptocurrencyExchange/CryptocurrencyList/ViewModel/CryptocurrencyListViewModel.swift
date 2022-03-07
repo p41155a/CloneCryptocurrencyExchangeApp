@@ -137,6 +137,9 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     func sortCurrentTabList(orderBy: OrderBy, standard: MainListSortStandard) {
+        let sortInfo = SortInfo(standard: standard, orderby: orderBy)
+        saveSortInfo(sortInfo: sortInfo)
+        
         switch currentTab {
         case 0:
             currentList.value = sortList(orderBy: orderBy, standard: standard, list: tabKRWList)
@@ -150,6 +153,16 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     // MARK: - Private Func
+    private func saveSortInfo(sortInfo: SortInfo) {
+        try! realm.write {
+            realm.add(sortInfo, update: .modified)
+        }
+    }
+    
+    func getSortInfo() -> SortInfo {
+        return realm.objects(SortInfo.self).first ?? SortInfo(standard: .transaction, orderby: .desc)
+    }
+    
     private func sortList(orderBy: OrderBy, standard: MainListSortStandard, list: [(String, PaymentCurrency)]) -> [(String, PaymentCurrency)] {
         return list.sorted {
             let frontData = $0.1 == .KRW ? tickerKRWList.value[$0.0] : tickerBTCList.value[$0.0]

@@ -6,17 +6,18 @@
 //
 
 import UIKit
+import RealmSwift
 
-enum MainListSortStandard {
-    case currencyName   // 가상자산명
-    case currentPrice   // 현재가
-    case changeRate     // 변동률
-    case transaction    // 거래금액
+enum MainListSortStandard: String, PersistableEnum {
+    case currencyName = "currencyName"  // 가상자산명
+    case currentPrice = "currentPrice"  // 현재가
+    case changeRate = "changeRate"      // 변동률
+    case transaction = "transaction"    // 거래금액
 }
 
-enum OrderBy {
-    case asc
-    case desc
+enum OrderBy: String, PersistableEnum {
+    case asc = "asc"
+    case desc = "desc"
     
     func toggle() -> OrderBy {
         switch self {

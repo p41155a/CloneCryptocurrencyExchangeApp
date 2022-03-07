@@ -46,6 +46,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         CrypocurrencyKRWListTableViewCell.register(tableView: tableView)
         CrypocurrencyBTCListTableViewCell.register(tableView: tableView)
         setTabButton()
+        setSortButtonView()
     }
     
     private func setTabButton() {
@@ -56,9 +57,46 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         }
     }
     
+    private func setSortButtonView() {
+        sortButtonList = [
+            sortCurrencyNameButton,
+            sortCurrentPriceButton,
+            sortChangeRateButton,
+            sortTransactionButton
+        ]
+        let sortInfo = viewModel.getSortInfo()
+        switch sortInfo.standard {
+        case .currencyName:
+            sortCurrencyNameButton.orderBy = sortInfo.orderby
+        case .currentPrice:
+            sortCurrentPriceButton.orderBy = sortInfo.orderby
+        case .changeRate:
+            sortChangeRateButton.orderBy = sortInfo.orderby
+        case .transaction:
+            sortTransactionButton.orderBy = sortInfo.orderby
+        }
+        sortButtonList.forEach { (button: SortListButton) in
+            button.addTarget(self, action: #selector(sortButtonViewDidTap(_:)), for: .touchUpInside)
+        }
+    }
+    
     @objc private func buttonDidTap(_ sender: TabButton) {
         setChoiceOnlyCurrentTap(sender)
         viewModel.chageCurrentTab(sender.tag)
+    }
+    
+    @objc private func sortButtonViewDidTap(_ sender: SortListButton) {
+        setChoiceOnlyCurrentSortButtonView(sender)
+        switch sender.tag {
+        case 0:
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .currencyName)
+        case 1:
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .currentPrice)
+        case 2:
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .changeRate)
+        default:
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .transaction)
+        }
     }
     
     private func setChoiceOnlyCurrentTap(_ sender: TabButton) {
@@ -68,6 +106,15 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         sender.isChoice = true
         sortStackView.isHidden = sender.tag == 3 // 인기일때만 숨김
         explainPopolurRuleLabel.isHidden = !(sender.tag == 3)
+    }
+    
+    private func setChoiceOnlyCurrentSortButtonView(_ sender: SortListButton) {
+        sortButtonList.filter {
+            $0 != sender
+        }.forEach { button in
+            button.orderBy = nil
+        }
+        sender.isClicked()
     }
     
     // MARK: - func<websocket>
@@ -97,6 +144,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     // MARK: - Property
     private var socket: WebSocket?
     private var tabButtonList: [TabButton] = []
+    private var sortButtonList: [SortListButton] = []
     @IBOutlet weak var explainPopolurRuleLabel: UILabel!
     @IBOutlet weak var sortStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
@@ -104,6 +152,10 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     @IBOutlet weak var btcTabButton: TabButton!
     @IBOutlet weak var interestTabButton: TabButton!
     @IBOutlet weak var popularTabButton: TabButton!
+    @IBOutlet weak var sortCurrencyNameButton: SortListButton!
+    @IBOutlet weak var sortCurrentPriceButton: SortListButton!
+    @IBOutlet weak var sortChangeRateButton: SortListButton!
+    @IBOutlet weak var sortTransactionButton: SortListButton!
 }
 // MARK: - TableView
 extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewDataSource {
