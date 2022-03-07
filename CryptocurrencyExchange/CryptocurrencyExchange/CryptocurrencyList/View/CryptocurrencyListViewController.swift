@@ -27,6 +27,12 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         disconnect()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.view.endEditing(true)
+    }
+    
+    // MARK: - Bind viewModel
     func bind() {
         self.viewModel.tickerKRWList.bind { [weak self] data in
             self?.tableView.reloadData()
@@ -168,6 +174,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     @IBOutlet weak var sortChangeRateButton: SortListButton!
     @IBOutlet weak var sortTransactionButton: SortListButton!
     @IBOutlet weak var eventButton: UIButton!
+    @IBOutlet weak var searchTextField: UITextField!
 }
 // MARK: - TableView
 extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewDataSource {

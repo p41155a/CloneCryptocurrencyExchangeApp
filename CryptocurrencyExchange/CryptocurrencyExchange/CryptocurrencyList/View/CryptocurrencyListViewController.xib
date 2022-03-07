@@ -18,6 +18,7 @@
                 <outlet property="interestTabButton" destination="2pF-CZ-U1o" id="tZJ-F2-6E1"/>
                 <outlet property="krwTabButton" destination="TxN-dh-Kvp" id="glE-mL-tiN"/>
                 <outlet property="popularTabButton" destination="waR-2b-xDR" id="rpQ-VA-70d"/>
+                <outlet property="searchTextField" destination="7tJ-T3-ppE" id="ts6-PM-NZd"/>
                 <outlet property="sortChangeRateButton" destination="SSw-pV-yST" id="jKR-6n-DWm"/>
                 <outlet property="sortCurrencyNameButton" destination="52v-XZ-7qb" id="X96-tl-3Ij"/>
                 <outlet property="sortCurrentPriceButton" destination="6H4-rP-fmB" id="Yji-6o-ejQ"/>
@@ -38,7 +39,7 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="XV8-Uf-X11">
                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="코인명 또는 심볼 검색" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7tJ-T3-ppE">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="코인 심볼 검색" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7tJ-T3-ppE">
                             <rect key="frame" x="44" y="0.0" width="310" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <textInputTraits key="textInputTraits"/>
