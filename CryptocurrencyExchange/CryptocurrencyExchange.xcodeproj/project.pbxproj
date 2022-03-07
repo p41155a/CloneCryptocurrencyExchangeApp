@@ -1485,6 +1485,7 @@
 				DEVELOPMENT_TEAM = AZX9TD66UC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1516,6 +1517,7 @@
 				DEVELOPMENT_TEAM = AZX9TD66UC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
