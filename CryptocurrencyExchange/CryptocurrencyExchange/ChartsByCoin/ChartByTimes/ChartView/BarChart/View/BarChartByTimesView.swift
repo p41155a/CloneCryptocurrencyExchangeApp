@@ -30,6 +30,7 @@ class BarChartByTimesView: UIView {
         superView.layoutIfNeeded()
         
         self.setChartUI()
+        self.bindClosures()
     }
     
     private func setChartUI() {
@@ -51,26 +52,25 @@ class BarChartByTimesView: UIView {
         rightAxis.labelXOffset = -20
         rightAxis.axisMinimum = 0
         rightAxis.gridColor = .systemGray6
-        
-        
-        let entries = [1,2,300,4,5,60,7,8,900,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,280,29,30,31,32,330,34,35,36,37,38,39,400,41,42,43,44,45,46,47,480,70].enumerated().map { (index, value) -> BarChartDataEntry in
-            BarChartDataEntry(x: Double(index), y: value*2)
+    }
+    
+    private func bindClosures() {
+        self.viewModel.dataEntries.bind { [weak self] entries in
+            guard let `self` = self else { return }
+            guard let entryArr = entries else { return }
+            let dataSet = BithumbBarDataSet(entryArr: entryArr)
+            self.setChart(dataSet: dataSet)
+            self.setChartZoom(totalCount: entryArr.values.count)
         }
-        
-        let set1 = BarChartDataSet(entries: entries)
-        set1.colors = ChartColorTemplates.material()
-        set1.drawValuesEnabled = false
-        set1.axisDependency = .right
-
-        self.setChart(dataSet: set1)
-        self.setChartZoom(totalCount: entries.count)
-        
+    }
+    
+    func updateDataEntries(from dbData: [CandleStickData]) {
+        self.viewModel.updateEntries(from: dbData)
     }
     
     private func setChart(dataSet: BarChartDataSet) {
         let data = BarChartData(dataSet: dataSet)
         chartView.data = data
-//        data.barWidth = 49
     }
     
     private func setChartZoom(totalCount: Int) {

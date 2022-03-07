@@ -31,6 +31,7 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
         self.viewModel.candleStickData.bind { [weak self] datas in
             guard let entryDatas = datas else { return }
             self?.candleStickChartView.updateDataEntries(from: entryDatas)
+            self?.barChartView.updateDataEntries(from: entryDatas)
         }
     }
     

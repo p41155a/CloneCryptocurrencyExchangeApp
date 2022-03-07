@@ -60,6 +60,9 @@
 		B4471E6A27CFC3ED00668B64 /* CoinDetailsTopTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4471E6927CFC3ED00668B64 /* CoinDetailsTopTabs.swift */; };
 		B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */; };
 		B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */; };
+		B4B4CB8D27D5CB86009F08D7 /* ChartViewUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B4CB8C27D5CB86009F08D7 /* ChartViewUpdatable.swift */; };
+		B4B4CB8F27D5D992009F08D7 /* BarChartDataEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B4CB8E27D5D992009F08D7 /* BarChartDataEntries.swift */; };
+		B4B4CB9127D5DB73009F08D7 /* BithumbBarDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B4CB9027D5DB73009F08D7 /* BithumbBarDataSet.swift */; };
 		B4BC4E8F27CDF70900DE19EC /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */; };
 		B4BC4E9027CDF70900DE19EC /* CoinDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4BC4E8E27CDF70900DE19EC /* CoinDetailViewController.xib */; };
 		B4BC4E9427CDF7B400DE19EC /* CoindDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E9327CDF7B400DE19EC /* CoindDetailViewModel.swift */; };
@@ -198,6 +201,9 @@
 		B4471E6927CFC3ED00668B64 /* CoinDetailsTopTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsTopTabs.swift; sourceTree = "<group>"; };
 		B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInNavigation.swift; sourceTree = "<group>"; };
 		B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
+		B4B4CB8C27D5CB86009F08D7 /* ChartViewUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewUpdatable.swift; sourceTree = "<group>"; };
+		B4B4CB8E27D5D992009F08D7 /* BarChartDataEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartDataEntries.swift; sourceTree = "<group>"; };
+		B4B4CB9027D5DB73009F08D7 /* BithumbBarDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbBarDataSet.swift; sourceTree = "<group>"; };
 		B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
 		B4BC4E8E27CDF70900DE19EC /* CoinDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinDetailViewController.xib; sourceTree = "<group>"; };
 		B4BC4E9327CDF7B400DE19EC /* CoindDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoindDetailViewModel.swift; sourceTree = "<group>"; };
@@ -425,6 +431,7 @@
 		9B16F5B527D08BFB003DC9BC /* ChartByTimes */ = {
 			isa = PBXGroup;
 			children = (
+				B4B4CB8B27D5CB47009F08D7 /* Listener */,
 				B467184E27D46478001EBAEC /* Model */,
 				B467184F27D46482001EBAEC /* View */,
 				B498E2DE27D30BA400E4B787 /* ViewModel */,
@@ -609,6 +616,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B4B4CB8B27D5CB47009F08D7 /* Listener */ = {
+			isa = PBXGroup;
+			children = (
+				B4B4CB8C27D5CB86009F08D7 /* ChartViewUpdatable.swift */,
+			);
+			path = Listener;
+			sourceTree = "<group>";
+		};
 		B4BC4E8C27CDF65D00DE19EC /* ChartsByCoin */ = {
 			isa = PBXGroup;
 			children = (
@@ -698,6 +713,8 @@
 		B4F2786B27D467B600BEBFD2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B4B4CB8E27D5D992009F08D7 /* BarChartDataEntries.swift */,
+				B4B4CB9027D5DB73009F08D7 /* BithumbBarDataSet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1288,6 +1305,7 @@
 				FF19E28D27C8DB3600DBD52D /* AssetsAPIManager.swift in Sources */,
 				B4BC4E9727CE00F600DE19EC /* CandleStickChartByTimesView.swift in Sources */,
 				FF19E29327C9F74100DBD52D /* DemoSocketViewController.swift in Sources */,
+				B4B4CB8F27D5D992009F08D7 /* BarChartDataEntries.swift in Sources */,
 				B4471E6A27CFC3ED00668B64 /* CoinDetailsTopTabs.swift in Sources */,
 				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
 				FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */,
@@ -1349,11 +1367,13 @@
 				FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */,
 				FFE7196927CE0349008DF7B9 /* CryptocurrencyListViewController.swift in Sources */,
 				909BEED527D112A500E4EE87 /* TransactionDescriptionSheetViewEntity.swift in Sources */,
+				B4B4CB9127D5DB73009F08D7 /* BithumbBarDataSet.swift in Sources */,
 				90E12E7F27D251FE00373FF9 /* SellQuantityViewCell.swift in Sources */,
 				B4F2787427D47E0400BEBFD2 /* BarChartByTimesViewModel.swift in Sources */,
 				B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */,
 				B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */,
 				FFE7197927CE0E95008DF7B9 /* UIView+Extension.swift in Sources */,
+				B4B4CB8D27D5CB86009F08D7 /* ChartViewUpdatable.swift in Sources */,
 				90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */,
 				90E12E8827D26B9000373FF9 /* ConcludedQuantityViewCell.swift in Sources */,
 				B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */,
@@ -1543,7 +1563,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X6WTK8Z5MC;
+				DEVELOPMENT_TEAM = 886LX3G4KC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1574,7 +1594,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X6WTK8Z5MC;
+				DEVELOPMENT_TEAM = 886LX3G4KC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
