@@ -14,6 +14,7 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
     @IBOutlet weak var intervalStackView: UIStackView!
     @IBOutlet weak var candleStickChartView: CandleStickChartByTimesView!
     @IBOutlet weak var barChartView: BarChartByTimesView!
+    @IBOutlet weak var coinInformationView: CoinInformationInChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
             guard let entryDatas = datas else { return }
             self?.candleStickChartView.updateDataEntries(from: entryDatas)
             self?.barChartView.updateDataEntries(from: entryDatas)
+            self?.coinInformationView.setUI(with: datas?.last)
         }
     }
     
