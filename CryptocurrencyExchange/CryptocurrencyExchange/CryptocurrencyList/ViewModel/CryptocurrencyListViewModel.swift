@@ -215,8 +215,11 @@ final class CryptocurrencyListViewModel: XIBInformation {
                     currencyNameList.append((currentName, PaymentCurrency.KRW))
                     tickerKRWList[currentName] = tableData
                 }
+                let sortInfo = self.getSortInfo()
                 self.tickerKRWList.value = tickerKRWList
-                self.tabKRWList = currencyNameList
+                self.tabKRWList = self.sortList(orderBy: sortInfo.orderby,
+                                                standard: sortInfo.standard,
+                                                list: currencyNameList)
                 completion()
             case .failure(let error):
                 self.delegate?.showAlert(message: error.debugDescription)
@@ -245,8 +248,11 @@ final class CryptocurrencyListViewModel: XIBInformation {
                     currencyNameList.append((currentName, PaymentCurrency.BTC))
                     tickerBTCList[currentName] = tableData
                 }
+                let sortInfo = self.getSortInfo()
                 self.tickerBTCList.value = tickerBTCList
-                self.tabBTCList = currencyNameList
+                self.tabBTCList = self.sortList(orderBy: sortInfo.orderby,
+                                                standard: sortInfo.standard,
+                                                list: currencyNameList)
                 completion()
             case .failure(let error):
                 self.delegate?.showAlert(message: error.debugDescription)
