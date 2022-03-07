@@ -17,6 +17,15 @@ enum MainListSortStandard {
 enum OrderBy {
     case asc
     case desc
+    
+    func toggle() -> OrderBy {
+        switch self {
+        case .asc:
+            return .desc
+        case .desc:
+            return .asc
+        }
+    }
 }
 
 enum UpDown: Character {

@@ -118,7 +118,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VnI-EY-7ar">
                             <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMb-ic-yqe">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMb-ic-yqe" customClass="SortListButtonView" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="101" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가산자산명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCY-ri-uWb">
@@ -141,8 +141,12 @@
                                         <constraint firstItem="HCY-ri-uWb" firstAttribute="centerY" secondItem="eMb-ic-yqe" secondAttribute="centerY" id="KZa-RM-wGh"/>
                                         <constraint firstItem="HCY-ri-uWb" firstAttribute="leading" secondItem="eMb-ic-yqe" secondAttribute="leading" id="Wef-7H-qoc"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="sortMarkImageView" destination="P8d-Bl-Mbb" id="E6e-mh-9rd"/>
+                                        <outlet property="sortStandardLabel" destination="HCY-ri-uWb" id="eY8-xX-3er"/>
+                                    </connections>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-M4-lGt">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-M4-lGt" customClass="SortListButtonView" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                     <rect key="frame" x="101" y="0.0" width="90" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhR-NC-etL">
@@ -166,8 +170,12 @@
                                         <constraint firstItem="OhR-NC-etL" firstAttribute="centerY" secondItem="L7E-M4-lGt" secondAttribute="centerY" id="Y3N-9f-lHw"/>
                                         <constraint firstItem="V2O-yx-Trm" firstAttribute="centerY" secondItem="L7E-M4-lGt" secondAttribute="centerY" id="fI7-h1-Oh6"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="sortMarkImageView" destination="V2O-yx-Trm" id="v5f-6D-i0w"/>
+                                        <outlet property="sortStandardLabel" destination="OhR-NC-etL" id="PQd-kq-SCL"/>
+                                    </connections>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-Un-AHa">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-Un-AHa" customClass="SortListButtonView" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                     <rect key="frame" x="191" y="0.0" width="80" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="변동률" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpZ-jt-L7H">
@@ -191,8 +199,12 @@
                                         <constraint firstItem="bpZ-jt-L7H" firstAttribute="centerY" secondItem="EQd-Un-AHa" secondAttribute="centerY" id="kWN-II-8hu"/>
                                         <constraint firstItem="T6K-fF-6qX" firstAttribute="leading" secondItem="bpZ-jt-L7H" secondAttribute="trailing" id="z9T-Vk-xv6"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="sortMarkImageView" destination="T6K-fF-6qX" id="cSG-jA-b1d"/>
+                                        <outlet property="sortStandardLabel" destination="bpZ-jt-L7H" id="lQq-Iu-9Ca"/>
+                                    </connections>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvZ-xi-qxX">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvZ-xi-qxX" customClass="SortListButtonView" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                     <rect key="frame" x="271" y="0.0" width="95" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="거래금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Int-Cy-4FO">
@@ -216,6 +228,10 @@
                                         <constraint firstItem="Int-Cy-4FO" firstAttribute="centerY" secondItem="kvZ-xi-qxX" secondAttribute="centerY" id="Mbf-mL-9zE"/>
                                         <constraint firstAttribute="width" constant="95" id="zzO-LV-Qih"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="sortMarkImageView" destination="1Pd-Xg-x68" id="nJh-Ve-Vl1"/>
+                                        <outlet property="sortStandardLabel" destination="Int-Cy-4FO" id="n8K-Z5-9MH"/>
+                                    </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srq-zi-mia">
                                     <rect key="frame" x="366" y="0.0" width="32" height="44"/>
