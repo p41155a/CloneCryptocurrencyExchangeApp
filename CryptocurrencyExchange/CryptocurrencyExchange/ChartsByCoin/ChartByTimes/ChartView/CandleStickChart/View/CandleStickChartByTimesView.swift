@@ -100,4 +100,8 @@ extension CandleStickChartByTimesView: ChartViewDelegate {
         let currentMatrix = chartView.viewPortHandler.touchMatrix
         self.delegate?.chartViewDidChangeTransform(chartView: self.chartView, with: currentMatrix)
     }
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        self.delegate?.chartViewDidSelectCandleStick(at: entry.x)
+    }
 }

@@ -11,12 +11,10 @@ struct SignSymbol {
     var description: String
     
     init(value: Double) {
-        if value == 0 {
-            self.description = ""
-        } else if value > 0 {
+        if value > 0 {
             self.description = "+"
         } else {
-            self.description = "-"
+            self.description = ""
         }
     }
 }
