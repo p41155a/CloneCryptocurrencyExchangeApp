@@ -46,18 +46,23 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         CrypocurrencyKRWListTableViewCell.register(tableView: tableView)
         CrypocurrencyBTCListTableViewCell.register(tableView: tableView)
         setTabButton()
-        setSortButtonView()
+        setSortButton()
+        setEventButton()
     }
     
     private func setTabButton() {
         tabButtonList = [krwTabButton, btcTabButton, interestTabButton, popularTabButton]
         tabButtonList[0].isChoice = true
         tabButtonList.forEach { (button: TabButton) in
-            button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(tabButtonDidTap(_:)), for: .touchUpInside)
         }
     }
     
-    private func setSortButtonView() {
+    private func setEventButton() {
+        eventButton.addTarget(self, action: #selector(eventButtonDidTap(_:)), for: .touchUpInside)
+    }
+    
+    private func setSortButton() {
         sortButtonList = [
             sortCurrencyNameButton,
             sortCurrentPriceButton,
@@ -80,7 +85,13 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         }
     }
     
-    @objc private func buttonDidTap(_ sender: TabButton) {
+    @objc private func eventButtonDidTap(_ sender: UIButton) {
+        if let url = URL(string: "https://cafe.bithumb.com/view/board-contents/1642708") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    @objc private func tabButtonDidTap(_ sender: TabButton) {
         setChoiceOnlyCurrentTap(sender)
         viewModel.chageCurrentTab(sender.tag)
     }
@@ -156,6 +167,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     @IBOutlet weak var sortCurrentPriceButton: SortListButton!
     @IBOutlet weak var sortChangeRateButton: SortListButton!
     @IBOutlet weak var sortTransactionButton: SortListButton!
+    @IBOutlet weak var eventButton: UIButton!
 }
 // MARK: - TableView
 extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewDataSource {

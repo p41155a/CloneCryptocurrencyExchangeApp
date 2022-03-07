@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CryptocurrencyListViewController" customModule="CryptocurrencyExchange" customModuleProvider="target">
             <connections>
                 <outlet property="btcTabButton" destination="f9n-OE-W8x" id="L2l-QN-y2K"/>
+                <outlet property="eventButton" destination="nMv-Pu-T5G" id="a3z-uK-IDa"/>
                 <outlet property="explainPopolurRuleLabel" destination="0zZ-eS-Z17" id="n9w-F3-he9"/>
                 <outlet property="interestTabButton" destination="2pF-CZ-U1o" id="tZJ-F2-6E1"/>
                 <outlet property="krwTabButton" destination="TxN-dh-Kvp" id="glE-mL-tiN"/>
