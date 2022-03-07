@@ -20,8 +20,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
     weak var delegate: CryptocurrencyListViewModelDelegate?
     var nibName: String?
     /// Property about data
-    let tickerKRWList: Observable<[String: CrypotocurrencyKRWListTableViewEntity]> = Observable([:])
-    let tickerBTCList: Observable<[String: CrypotocurrencyBTCListTableViewEntity]> = Observable([:])
+    let tickerKRWList: Observable<[String: CryptocurrencyListTableViewEntity]> = Observable([:])
+    let tickerBTCList: Observable<[String: CryptocurrencyListTableViewEntity]> = Observable([:])
     var tabKRWList: [(String, PaymentCurrency)] = []
     var tabBTCList: [(String, PaymentCurrency)] = []
     var tabInterestList: [(String, PaymentCurrency)] = []
@@ -93,30 +93,6 @@ final class CryptocurrencyListViewModel: XIBInformation {
         }.isEmpty
     }
     
-    @objc
-    func sortCurrentTabList() {
-        switch currentTab {
-        case 0:
-            break
-        case 1:
-            break
-        case 2:
-            break
-        case 3:
-            tabPopularList = Array(tabKRWList.sorted {
-                guard let frontVolumPower = tickerKRWList.value[$0.0]?.volumePower.doubleValue,
-                      let backVolumPower = tickerKRWList.value[$1.0]?.volumePower.doubleValue else {
-                          return true
-                      }
-                return frontVolumPower > backVolumPower
-            }[0..<5])
-            currentList.value = tabPopularList
-        default:
-            break
-        }
-    }
-    
-    // MARK: - Private Func
     func chageCurrentTab(_ currentTab: Int) {
         self.currentTab = currentTab
         
@@ -136,7 +112,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
         
         /// 인기 리스트는 한번만 리스트가 세팅되지 않고 10초마다 한번씩 체결강도따라 리스트가 바뀜
         if currentTab == 3 {
-            sortCurrentTabList()
+            sortByVolumePower()
             startTimer(interval: 10)
         } else {
             stopTimer()
@@ -148,13 +124,77 @@ final class CryptocurrencyListViewModel: XIBInformation {
         return currentTab
     }
     
+    @objc
+    func sortByVolumePower() {
+        tabPopularList = Array(tabKRWList.sorted {
+            guard let frontVolumPower = tickerKRWList.value[$0.0]?.volumePower.doubleValue,
+                  let backVolumPower = tickerKRWList.value[$1.0]?.volumePower.doubleValue else {
+                      return true
+                  }
+            return frontVolumPower > backVolumPower
+        }[0..<5])
+        currentList.value = tabPopularList
+    }
+    
+    func sortCurrentTabList(orderBy: OrderBy, standard: MainListSortStandard) {
+        switch currentTab {
+        case 0:
+            currentList.value = sortList(orderBy: orderBy, standard: standard, list: tabKRWList)
+        case 1:
+            currentList.value = sortList(orderBy: orderBy, standard: standard, list: tabBTCList)
+        case 2:
+            currentList.value = sortList(orderBy: orderBy, standard: standard, list: tabInterestList)
+        default:
+            break
+        }
+    }
+    
+    // MARK: - Private Func
+    private func sortList(orderBy: OrderBy, standard: MainListSortStandard, list: [(String, PaymentCurrency)]) -> [(String, PaymentCurrency)] {
+        return list.sorted {
+            let frontData = $0.1 == .KRW ? tickerKRWList.value[$0.0] : tickerBTCList.value[$0.0]
+            let backData = $0.1 == .KRW ? tickerKRWList.value[$1.0] : tickerBTCList.value[$1.0]
+            switch standard {
+            case .currencyName:
+                return order(orderBy: orderBy, frontData: $0.0, backData: $1.0)
+            case .currentPrice:
+                guard let frontCurrentPrice = frontData?.currentPrice.doubleValue,
+                      let backCurrentPrice = backData?.currentPrice.doubleValue else {
+                          return true
+                      }
+                return order(orderBy: orderBy, frontData: frontCurrentPrice, backData: backCurrentPrice)
+            case .changeRate:
+                guard let frontChangeRate = frontData?.changeRate.doubleValue,
+                      let backChangeRate = backData?.changeRate.doubleValue else {
+                          return true
+                      }
+                return order(orderBy: orderBy, frontData: frontChangeRate, backData: backChangeRate)
+            case .transaction:
+                guard let frontTransactionAmount = frontData?.transactionAmount.doubleValue,
+                      let backTransactionAmount = backData?.transactionAmount.doubleValue else {
+                          return true
+                      }
+                return order(orderBy: orderBy, frontData: frontTransactionAmount, backData: backTransactionAmount)
+            }
+        }
+    }
+    
+    private func order<T: Comparable>(orderBy: OrderBy, frontData: T, backData: T) -> Bool {
+        switch orderBy {
+        case .asc:
+            return frontData < backData
+        case .desc:
+            return frontData > backData
+        }
+    }
+    
     private func setKRWInitialData(_ completion: @escaping () -> ()) {
         let paymentCurrency: PaymentCurrency = .KRW
         apiManager.fetchTicker(paymentCurrency: paymentCurrency) { result in
             switch result {
             case .success(let data):
                 let cryptocurrencyData = data.currentInfo.current
-                var tickerKRWList: [String: CrypotocurrencyKRWListTableViewEntity] = [:]
+                var tickerKRWList: [String: CryptocurrencyListTableViewEntity] = [:]
                 var currencyNameList: [(String, PaymentCurrency)] = []
                 cryptocurrencyData.forEach { data in
                     let currentName = data.key
@@ -184,7 +224,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
             switch result {
             case .success(let data):
                 let cryptocurrencyData = data.currentInfo.current
-                var tickerBTCList: [String: CrypotocurrencyBTCListTableViewEntity] = [:]
+                var tickerBTCList: [String: CryptocurrencyListTableViewEntity] = [:]
                 var currencyNameList: [(String, PaymentCurrency)] = []
                 cryptocurrencyData.forEach { data in
                     let currentName = data.key
@@ -212,13 +252,14 @@ final class CryptocurrencyListViewModel: XIBInformation {
                                  changeRate: String,
                                  changeAmount: String,
                                  transactionAmount: String,
-                                 volumePower: String) -> CrypotocurrencyKRWListTableViewEntity {
+                                 volumePower: String) -> CryptocurrencyListTableViewEntity {
         let currentPrice: String = currentPrice.setNumStringForm(isDecimalType: true)
         let changeRate: String = "\(changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
         let changeAmount: String = changeAmount.setNumStringForm(isDecimalType: true, isMarkPlusMiuns: true)
         let transactionAmount: String = "\(Int((transactionAmount.doubleValue ?? 0) / 1000000).decimalType ?? "")백만"
         
-        return CrypotocurrencyKRWListTableViewEntity(symbol: symbol,
+        return CryptocurrencyListTableViewEntity(symbol: symbol,
+                                                  payment: .KRW,
                                                   currentPrice: currentPrice,
                                                   changeRate: changeRate,
                                                   changeAmount: changeAmount,
@@ -230,12 +271,13 @@ final class CryptocurrencyListViewModel: XIBInformation {
                                  currentPrice: String,
                                  changeRate: String,
                                  transactionAmount: String,
-                                 volumePower: String) -> CrypotocurrencyBTCListTableViewEntity {
+                                 volumePower: String) -> CryptocurrencyListTableViewEntity {
         let currentPrice: String = currentPrice.displayDecimal(to: 8)
         let changeRate: String = changeRate == "" ? "0.00%" : "\(changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
         let transactionAmount: String = transactionAmount.displayDecimal(to: 3)
         
-        return CrypotocurrencyBTCListTableViewEntity(symbol: symbol,
+        return CryptocurrencyListTableViewEntity(symbol: symbol,
+                                                  payment: .BTC,
                                                   currentPrice: currentPrice,
                                                   changeRate: changeRate,
                                                   transactionAmount: transactionAmount,
@@ -246,7 +288,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
         if(timeTrigger) {
             timer = Timer.scheduledTimer(timeInterval: interval,
                                          target: self,
-                                         selector: #selector(sortCurrentTabList),
+                                         selector: #selector(sortByVolumePower),
                                          userInfo: nil,
                                          repeats: true)
             timeTrigger = false

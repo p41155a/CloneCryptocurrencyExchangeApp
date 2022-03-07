@@ -130,7 +130,7 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
                 return UITableViewCell()
             }
             let currency = "\(btcData.symbol)_BTC"
-            let krwData = viewModel.tickerKRWList.value[currentName] ?? CrypotocurrencyKRWListTableViewEntity()
+            let krwData = viewModel.tickerKRWList.value[currentName] ?? CryptocurrencyListTableViewEntity()
             let cell = CrypocurrencyBTCListTableViewCell.dequeueReusableCell(tableView: tableView)
             cell.delegate = self
             cell.setData(krwData: krwData, btcData: btcData,
