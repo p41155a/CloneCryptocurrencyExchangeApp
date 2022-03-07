@@ -54,6 +54,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         setTabButton()
         setSortButton()
         setEventButton()
+        setSearchTextField()
     }
     
     private func setTabButton() {
@@ -66,6 +67,10 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     private func setEventButton() {
         eventButton.addTarget(self, action: #selector(eventButtonDidTap(_:)), for: .touchUpInside)
+    }
+    
+    private func setSearchTextField() {
+        searchTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     private func setSortButton() {
@@ -89,6 +94,10 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         sortButtonList.forEach { (button: SortListButton) in
             button.addTarget(self, action: #selector(sortButtonViewDidTap(_:)), for: .touchUpInside)
         }
+    }
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        guard let word = textField.text else { return }
+        viewModel.searchCurrency(for: word)
     }
     
     @objc private func eventButtonDidTap(_ sender: UIButton) {
@@ -234,5 +243,18 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
 extension CryptocurrencyListViewController: CrypocurrencyListTableViewCellDelegate {
     func setInterestData(interest: InterestCurrency) {
         viewModel.setInterestData(interest: interest)
+    }
+}
+
+// MARK: - TextField
+extension CryptocurrencyListViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        viewModel.searchCurrency(for: "")
+        return true
     }
 }

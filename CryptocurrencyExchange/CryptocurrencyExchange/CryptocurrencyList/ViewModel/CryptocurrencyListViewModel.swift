@@ -27,7 +27,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
     var tabInterestList: [(String, PaymentCurrency)] = []
     var tabPopularList: [(String, PaymentCurrency)] = []
     var currentList: Observable<[(String, PaymentCurrency)]> = Observable([])
-    private var currentTab: Int = 0
+    private var currentTab: CurrentTab = .tabKRW
+    private var searchWord: String = ""
     
     // MARK: - init
     init(nibName: String? = nil) {
@@ -78,7 +79,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
             realm.add(interest, update: .modified)
         }
     }
-
+    
     func isInterest(interestKey: String) -> Bool {
         let interestData = realm.objects(InterestCurrency.self)
         return !interestData.filter { interestInfo in
@@ -87,17 +88,15 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     func chageCurrentTab(_ currentTab: Int) {
-        self.currentTab = currentTab
+        self.currentTab = CurrentTab.init(rawValue: currentTab) ?? .tabKRW
         
         switch currentTab {
-        case 0:
-            currentList.value = tabKRWList
-        case 1:
-            currentList.value = tabBTCList
+        case 0, 1:
+            searchCurrency(for: self.searchWord)
         case 2:
             setInterestList() { [weak self] in
                 guard let self = self else { return }
-                self.currentList.value = self.tabInterestList
+                self.searchCurrency(for: self.searchWord)
             }
         default:
             break
@@ -114,7 +113,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
     
     /// currentTab을 직접 세팅되지 않게하기 위함
     func getCurrentTab() -> Int {
-        return currentTab
+        return currentTab.rawValue
     }
     
     @objc
@@ -126,22 +125,26 @@ final class CryptocurrencyListViewModel: XIBInformation {
                   }
             return frontVolumPower > backVolumPower
         }[0..<5])
-        currentList.value = tabPopularList
+        searchCurrency(for: self.searchWord)
     }
     
     func sortCurrentTabList(orderBy: OrderBy, standard: MainListSortStandard) {
         let sortInfo = SortInfo(standard: standard, orderby: orderBy)
         saveSortInfo(sortInfo: sortInfo)
-        
+        currentList.value = sortList(orderBy: orderBy, standard: standard, list: currentList.value)
+    }
+    
+    func searchCurrency(for word: String) {
+        searchWord = word
         switch currentTab {
-        case 0:
-            currentList.value = sortList(orderBy: orderBy, standard: standard, list: tabKRWList)
-        case 1:
-            currentList.value = sortList(orderBy: orderBy, standard: standard, list: tabBTCList)
-        case 2:
-            currentList.value = sortList(orderBy: orderBy, standard: standard, list: tabInterestList)
+        case .tabKRW:
+            currentList.value = tabKRWList.filter { word == "" ? true : $0.0.lowercased().contains(word.lowercased()) }
+        case .tabBTC:
+            currentList.value = tabBTCList.filter { word == "" ? true : $0.0.lowercased().contains(word.lowercased()) }
+        case .tabInterest:
+            currentList.value = tabInterestList.filter { word == "" ? true : $0.0.lowercased().contains(word.lowercased()) }
         default:
-            break
+            currentList.value = tabPopularList.filter { word == "" ? true : $0.0.lowercased().contains(word.lowercased()) }
         }
     }
     
@@ -275,5 +278,12 @@ final class CryptocurrencyListViewModel: XIBInformation {
     private func stopTimer() {
         timeTrigger = true
         timer.invalidate()
+    }
+    
+    enum CurrentTab: Int {
+        case tabKRW = 0
+        case tabBTC = 1
+        case tabInterest = 2
+        case tabPopular = 3
     }
 }
