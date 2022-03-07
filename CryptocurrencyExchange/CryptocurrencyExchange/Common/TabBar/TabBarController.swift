@@ -21,7 +21,7 @@ class TabBarController: UITabBarController {
             with: TabInformation(
                 viewController: exchangeViewController,
                 tabTitle: "거래소",
-                image: UIImage(systemName: "plus") ?? UIImage() // 임시 이미지 입니다
+                image: UIImage(named: "tabButton1") ?? UIImage()
             )
         )
     }()
