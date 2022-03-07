@@ -36,15 +36,21 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell {
     func setData(krwData: CryptocurrencyListTableViewEntity,
                  btcData: CryptocurrencyListTableViewEntity,
                  isInterest: Bool) {
+        let krwCurrentPrice: String = "\(krwData.currentPrice)".setNumStringForm(isDecimalType: true)
+        let krwTransactionAmount: String = "\(Int(krwData.transactionAmount / 1000000).decimalType ?? "")백만"
+        let btcCurrentPrice: String = btcData.currentPrice.displayDecimal(to: 8)
+        let btcChangeRate: String = "\(btcData.changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
+        let btcTransactionAmount: String = btcData.transactionAmount.displayDecimal(to: 3)
+        
         self.currencyNameLabel.text = btcData.symbol
         self.currencyNameSubNameLabel.text = btcData.payment.value
-        self.currentPriceLabel.text = btcData.currentPrice
-        self.currentKRWPriceLabel.text = krwData.currentPrice
-        self.changeRateLabel.text = btcData.changeRate
-        self.transactionAmountLabel.text = btcData.transactionAmount
-        self.transactionKRWAmountLabel.text = krwData.transactionAmount
+        self.currentPriceLabel.text = btcCurrentPrice
+        self.currentKRWPriceLabel.text = krwCurrentPrice
+        self.changeRateLabel.text = btcChangeRate
+        self.transactionAmountLabel.text = btcTransactionAmount
+        self.transactionKRWAmountLabel.text = krwTransactionAmount
         self.interestButton.isSelected = isInterest
-        setColor(updown: UpDown(rawValue: btcData.changeRate.first ?? "0") ?? .zero)
+        setColor(updown: UpDown(rawValue: btcChangeRate.first ?? "0") ?? .zero)
     }
     
     private func setColor(updown: UpDown) {
