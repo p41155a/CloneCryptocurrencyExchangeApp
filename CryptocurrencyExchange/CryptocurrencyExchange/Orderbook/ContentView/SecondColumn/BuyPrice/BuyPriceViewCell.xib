@@ -47,7 +47,7 @@
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="BA3-Yl-tNe"/>
                             <constraint firstItem="y6l-Ot-lOu" firstAttribute="height" secondItem="9x0-y8-DWH" secondAttribute="height" id="Xu9-h8-0sX"/>
-                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="c8T-v2-xeJ"/>
+                            <constraint firstAttribute="height" constant="30" id="c8T-v2-xeJ"/>
                         </constraints>
                     </stackView>
                 </subviews>

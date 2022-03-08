@@ -42,6 +42,22 @@ class TabBarController: UITabBarController {
         )
     }()
     
+    var orderbookViewController: ViewControllerInNavigation = {
+        let orderbookViewController = OrderbookViewController(
+            viewModel: OrderbookViewModel(
+                nibName: "OrderbookViewController"
+            )
+        )
+        
+        return ViewControllerInNavigation(
+            with: TabInformation(
+                viewController: orderbookViewController,
+                tabTitle: "호가창",
+                image: UIImage.checkmark // 임시 이미지 입니다
+            )
+        )
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -11,48 +11,48 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="15" id="KGk-i7-Jjw" customClass="ConcludedQuantityViewCell" customModule="CryptocurrencyExchange" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="130" height="15"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="18" id="KGk-i7-Jjw" customClass="ConcludedQuantityTableViewCell" customModule="CryptocurrencyExchange" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="130" height="18"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="130" height="15"/>
+                <rect key="frame" x="0.0" y="0.0" width="130" height="18"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="KKN-y5-KLW">
-                        <rect key="frame" x="0.0" y="0.0" width="130" height="15"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="CzD-ny-aEY">
+                        <rect key="frame" x="0.0" y="0.0" width="130" height="18"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,580" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sD-Gu-9dH">
-                                <rect key="frame" x="0.0" y="0.0" width="63" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,580" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4re-bj-6S8">
+                                <rect key="frame" x="0.0" y="0.0" width="63" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <color key="textColor" name="increasingColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="133,221" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrO-0u-xCN">
-                                <rect key="frame" x="67" y="0.0" width="63" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="133,221" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKP-YF-NSs">
+                                <rect key="frame" x="67" y="0.0" width="63" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <color key="textColor" name="increasingColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="Kuu-DL-KGE"/>
-                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="15" id="Z9W-4P-yeg"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="6Lg-Se-pkc"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="EtU-W4-xSz"/>
                         </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="KKN-y5-KLW" secondAttribute="bottom" id="87k-N1-IV4"/>
-                    <constraint firstAttribute="trailing" secondItem="KKN-y5-KLW" secondAttribute="trailing" id="IVA-7a-Qha"/>
-                    <constraint firstItem="KKN-y5-KLW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Y1N-hh-OjP"/>
-                    <constraint firstItem="KKN-y5-KLW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mzs-fz-bxe"/>
+                    <constraint firstItem="CzD-ny-aEY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4dd-OX-742"/>
+                    <constraint firstAttribute="bottom" secondItem="CzD-ny-aEY" secondAttribute="bottom" id="LjI-OC-1Ar"/>
+                    <constraint firstItem="CzD-ny-aEY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zLd-YT-xNh"/>
+                    <constraint firstAttribute="trailing" secondItem="CzD-ny-aEY" secondAttribute="trailing" id="zYA-Aq-O0L"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="concludedPriceLabel" destination="9sD-Gu-9dH" id="yTD-aI-2lO"/>
-                <outlet property="concludedQuantityLabel" destination="WrO-0u-xCN" id="HL8-h5-DUe"/>
+                <outlet property="concludedPriceLabel" destination="4re-bj-6S8" id="ygP-f3-vqR"/>
+                <outlet property="concludedQuantityLabel" destination="jKP-YF-NSs" id="k9q-su-d4B"/>
             </connections>
-            <point key="canvasLocation" x="0.0" y="99.441964285714278"/>
+            <point key="canvasLocation" x="0.0" y="105.13392857142857"/>
         </tableViewCell>
     </objects>
     <resources>

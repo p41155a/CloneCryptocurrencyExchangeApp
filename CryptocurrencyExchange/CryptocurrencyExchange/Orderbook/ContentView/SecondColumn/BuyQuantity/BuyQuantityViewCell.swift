@@ -1,5 +1,5 @@
 //
-//  SellQuantityViewCell.swift
+//  BuyQuantityViewCell.swift
 //  CryptocurrencyExchange
 //
 //  Created by Derrick kim on 2022/03/04.
@@ -8,8 +8,8 @@
 import UIKit
 import SpreadsheetView
 
-final class SellQuantityViewCell: Cell {
-    @IBOutlet weak var sellQuantityLabel: UILabel!
+final class BuyQuantityViewCell: Cell {
+    @IBOutlet private var buyQuantityLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,5 +17,9 @@ final class SellQuantityViewCell: Cell {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
+        self.buyQuantityLabel.text = data.symbol
     }
 }
