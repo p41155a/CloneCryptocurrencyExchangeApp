@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChartByTimesViewController" customModule="CryptocurrencyExchange" customModuleProvider="target">
             <connections>
-                <outlet property="chartView" destination="Leq-To-eSc" id="1qh-p4-z1w"/>
+                <outlet property="barChartView" destination="tYB-lg-32Z" id="u10-GY-Ndw"/>
+                <outlet property="candleStickChartView" destination="Leq-To-eSc" id="1qh-p4-z1w"/>
+                <outlet property="coinInformationView" destination="stU-Wq-SFz" id="hyk-aW-PvH"/>
                 <outlet property="intervalStackView" destination="V8T-mV-zCQ" id="9j4-A1-4zv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -89,21 +91,38 @@
                         <constraint firstItem="V8T-mV-zCQ" firstAttribute="leading" secondItem="8vz-N5-OZU" secondAttribute="leading" constant="16" id="dw3-0L-8hf"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-To-eSc" customClass="ChartView" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="48" width="414" height="608"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-To-eSc" customClass="CandleStickChartByTimesView" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="48" width="414" height="469"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYB-lg-32Z" customClass="BarChartByTimesView" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="517" width="414" height="116"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="116" id="EXT-XP-PoT"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stU-Wq-SFz" customClass="CoinInformationInChartView" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                    <rect key="frame" x="12" y="60" width="390" height="128"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Leq-To-eSc" firstAttribute="top" secondItem="8vz-N5-OZU" secondAttribute="bottom" id="0e3-fi-n1J"/>
+                <constraint firstItem="tYB-lg-32Z" firstAttribute="top" secondItem="Leq-To-eSc" secondAttribute="bottom" id="2XM-kK-7ps"/>
+                <constraint firstItem="stU-Wq-SFz" firstAttribute="top" secondItem="8vz-N5-OZU" secondAttribute="bottom" constant="12" id="6wk-qp-E3e"/>
                 <constraint firstItem="8vz-N5-OZU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BwS-Wi-M7n"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8vz-N5-OZU" secondAttribute="trailing" id="E7g-zS-YAJ"/>
+                <constraint firstItem="tYB-lg-32Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="K3y-7y-ZSg"/>
                 <constraint firstItem="8vz-N5-OZU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OSN-2q-L5T"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Leq-To-eSc" secondAttribute="trailing" id="QsH-4M-wZc"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Leq-To-eSc" secondAttribute="bottom" id="Sax-nZ-qLa"/>
                 <constraint firstItem="Leq-To-eSc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZTL-tc-70p"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="stU-Wq-SFz" secondAttribute="trailing" constant="12" id="a34-gx-pP8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tYB-lg-32Z" secondAttribute="trailing" id="jes-SL-8iX"/>
+                <constraint firstItem="stU-Wq-SFz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="jlV-tj-uFg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tYB-lg-32Z" secondAttribute="bottom" constant="23" id="ygp-RG-Yk1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="142.02898550724638" y="4.0178571428571423"/>

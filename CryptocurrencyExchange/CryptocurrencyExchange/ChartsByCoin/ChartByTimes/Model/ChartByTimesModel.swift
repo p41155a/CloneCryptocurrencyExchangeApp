@@ -34,5 +34,15 @@ enum TimeIntervalInChart: Int, PersistableEnum, CaseIterable {
         case .OneDay: return "24h"
         }
     }
+    
+    var timeInterval: Double {
+        switch self {
+        case .oneMinute: return 60
+        case .tenMinutes: return 60 * 10
+        case .thirtyMinutes: return 60 * 30
+        case .anHour: return 60 * 60
+        case .OneDay: return 60 * 60 * 24
+        }
+    }
 }
 
