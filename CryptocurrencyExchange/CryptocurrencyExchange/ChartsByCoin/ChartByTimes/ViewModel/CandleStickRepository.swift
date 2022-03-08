@@ -86,7 +86,6 @@ extension ProductionCandleStickRepository {
             existingDatas.lastUpdated = candleStickDatas.last?.time ?? 0
             completion(candleStickDatas)
         }
-
     }
     
     private func addNewCandleStickDataToRealmDB(
@@ -119,7 +118,6 @@ extension ProductionCandleStickRepository {
         
         /// DB에 저장되어 있는 데이터가 없을 경우
         guard let candleStickDatas = candleSticByInterval else {
-            print("없음")
             return nil
         }
         
@@ -127,11 +125,9 @@ extension ProductionCandleStickRepository {
         let timestampToUpdate = candleStickDatas.lastUpdated + timeInterval.timeInterval
         let currentTimestamp = Date().timeIntervalSince1970
         if timestampToUpdate < currentTimestamp {
-            print("갱신 필요")
             return nil
         }
-        
-        print("있는 걸로 뿌리자")
+    
         return candleStickDatas.stickDatas.map({$0})
     }
 }
