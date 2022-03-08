@@ -13,28 +13,33 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        viewModel.setKRWInitialData()
+        viewModel.setInitialData()
         bind()
-        connect()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        connect()
     }
     
-    deinit {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         disconnect()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.view.endEditing(true)
+    }
+    
+    // MARK: - Bind viewModel
     func bind() {
         self.viewModel.tickerKRWList.bind { [weak self] data in
-            if self?.viewModel.currentTag != 1 {
-                self?.tableView.reloadData()
-            }
+            self?.tableView.reloadData()
         }
         self.viewModel.tickerBTCList.bind { [weak self] data in
-            if self?.viewModel.currentTag == 1, self?.viewModel.currentTag == 2 {
+            if self?.viewModel.getCurrentTab() == 1 || self?.viewModel.getCurrentTab() == 2 {
                 self?.tableView.reloadData()
             }
         }
@@ -48,25 +53,86 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         CrypocurrencyKRWListTableViewCell.register(tableView: tableView)
         CrypocurrencyBTCListTableViewCell.register(tableView: tableView)
         setTabButton()
+        setSortButton()
+        setEventButton()
     }
     
     private func setTabButton() {
         tabButtonList = [krwTabButton, btcTabButton, interestTabButton, popularTabButton]
         tabButtonList[0].isChoice = true
         tabButtonList.forEach { (button: TabButton) in
-            button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(tabButtonDidTap(_:)), for: .touchUpInside)
         }
     }
     
-    @objc private func buttonDidTap(_ sender: TabButton) {
+    private func setEventButton() {
+        eventButton.addTarget(self, action: #selector(eventButtonDidTap(_:)), for: .touchUpInside)
+    }
+    
+    private func setSortButton() {
+        sortButtonList = [
+            sortCurrencyNameButton,
+            sortCurrentPriceButton,
+            sortChangeRateButton,
+            sortTransactionButton
+        ]
+        let sortInfo = viewModel.getSortInfo()
+        switch sortInfo.standard {
+        case .currencyName:
+            sortCurrencyNameButton.orderBy = sortInfo.orderby
+        case .currentPrice:
+            sortCurrentPriceButton.orderBy = sortInfo.orderby
+        case .changeRate:
+            sortChangeRateButton.orderBy = sortInfo.orderby
+        case .transaction:
+            sortTransactionButton.orderBy = sortInfo.orderby
+        }
+        sortButtonList.forEach { (button: SortListButton) in
+            button.addTarget(self, action: #selector(sortButtonViewDidTap(_:)), for: .touchUpInside)
+        }
+    }
+    
+    @objc private func eventButtonDidTap(_ sender: UIButton) {
+        if let url = URL(string: "https://cafe.bithumb.com/view/board-contents/1642708") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    @objc private func tabButtonDidTap(_ sender: TabButton) {
+        setChoiceOnlyCurrentTap(sender)
+        viewModel.chageCurrentTab(sender.tag)
+    }
+    
+    @objc private func sortButtonViewDidTap(_ sender: SortListButton) {
+        setChoiceOnlyCurrentSortButtonView(sender)
+        switch sender.tag {
+        case 0:
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .currencyName)
+        case 1:
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .currentPrice)
+        case 2:
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .changeRate)
+        default:
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .transaction)
+        }
+    }
+    
+    private func setChoiceOnlyCurrentTap(_ sender: TabButton) {
         tabButtonList.forEach { button in
             button.isChoice = false
         }
         sender.isChoice = true
-        viewModel.currentTag = sender.tag
-        if sender.tag == 1, viewModel.tabBTCList.isEmpty {
-            viewModel.setBTCInitialData()
+        sortStackView.isHidden = sender.tag == 3 // 인기일때만 숨김
+        explainPopolurRuleLabel.isHidden = !(sender.tag == 3)
+    }
+    
+    private func setChoiceOnlyCurrentSortButtonView(_ sender: SortListButton) {
+        sortButtonList.filter {
+            $0 != sender
+        }.forEach { button in
+            button.orderBy = nil
         }
+        sender.isClicked()
     }
     
     // MARK: - func<websocket>
@@ -96,11 +162,20 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     // MARK: - Property
     private var socket: WebSocket?
     private var tabButtonList: [TabButton] = []
+    private var sortButtonList: [SortListButton] = []
+    @IBOutlet weak var explainPopolurRuleLabel: UILabel!
+    @IBOutlet weak var sortStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var krwTabButton: TabButton!
     @IBOutlet weak var btcTabButton: TabButton!
     @IBOutlet weak var interestTabButton: TabButton!
     @IBOutlet weak var popularTabButton: TabButton!
+    @IBOutlet weak var sortCurrencyNameButton: SortListButton!
+    @IBOutlet weak var sortCurrentPriceButton: SortListButton!
+    @IBOutlet weak var sortChangeRateButton: SortListButton!
+    @IBOutlet weak var sortTransactionButton: SortListButton!
+    @IBOutlet weak var eventButton: UIButton!
+    @IBOutlet weak var searchTextField: UITextField!
 }
 // MARK: - TableView
 extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -110,31 +185,53 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentName = viewModel.currentList.value[indexPath.row].0
-        switch viewModel.currentList.value[indexPath.row].1 {
+        let paymentCurrency = viewModel.currentList.value[indexPath.row].1
+        switch paymentCurrency {
         case .KRW:
             guard let data = viewModel.tickerKRWList.value[currentName] else {
                 return UITableViewCell()
             }
-            let cell = CrypocurrencyKRWListTableViewCell.dequeueReusableCell(tableView: tableView) as CrypocurrencyKRWListTableViewCell
-            cell.setData(data: data)
+            let currency = "\(data.symbol)_KRW"
+            let cell = CrypocurrencyKRWListTableViewCell.dequeueReusableCell(tableView: tableView)
+            cell.delegate = self
+            cell.setData(data: data,
+                         isInterest: viewModel.isInterest(interestKey: currency))
             return cell
         case .BTC:
             guard let btcData = viewModel.tickerBTCList.value[currentName] else {
                 return UITableViewCell()
             }
-            let krwData: CrypotocurrencyKRWListTableViewEntity = viewModel.tickerKRWList.value[currentName] ?? CrypotocurrencyKRWListTableViewEntity()
+            let currency = "\(btcData.symbol)_BTC"
+            let krwData = viewModel.tickerKRWList.value[currentName] ?? CryptocurrencyListTableViewEntity()
             let cell = CrypocurrencyBTCListTableViewCell.dequeueReusableCell(tableView: tableView)
-            cell.setData(krwData: krwData, btcData: btcData)
+            cell.delegate = self
+            cell.setData(krwData: krwData, btcData: btcData,
+                         isInterest: viewModel.isInterest(interestKey: currency))
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentName = viewModel.currentList.value[indexPath.row].0
+        let paymentCurrency = viewModel.currentList.value[indexPath.row].1
+        let coinDetailViewController = CoinDetailsViewController(
+            viewModel: CoinDetailsViewModel(
+                nibName: "CoinDetailsViewController",
+                dependency: CoinDetailsDependency(
+                    orderCurrency: currentName,
+                    paymentCurrency: paymentCurrency.value
+                )
+            )
+        )
+        self.navigationController?.pushViewController(coinDetailViewController, animated: true)
+    }
 }
-// MARK: - TableView
+// MARK: - Delegate WebSocket
 extension CryptocurrencyListViewController: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(_):
-            writeToSocket(paymentCurrency: .KRW, tickTypes: [.tickMID])
+            writeToSocket(paymentCurrency: .KRW, tickTypes: [.tick24H])
         case .text(let string):
             do {
                 let data = string.data(using: .utf8)!
@@ -146,5 +243,12 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
         default:
             break
         }
+    }
+}
+
+// MARK: - Delegate Cell
+extension CryptocurrencyListViewController: CrypocurrencyListTableViewCellDelegate {
+    func setInterestData(interest: InterestCurrency) {
+        viewModel.setInterestData(interest: interest)
     }
 }

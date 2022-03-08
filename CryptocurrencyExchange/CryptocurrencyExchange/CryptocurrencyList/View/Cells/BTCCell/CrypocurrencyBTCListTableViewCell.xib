@@ -26,20 +26,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="115" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카리나코인" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehy-q9-OOX">
-                                        <rect key="frame" x="16" y="12" width="99" height="16"/>
+                                        <rect key="frame" x="0.0" y="12" width="115" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="titleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkU-0x-Tv9">
-                                        <rect key="frame" x="0.0" y="12" width="8" height="37"/>
-                                        <color key="backgroundColor" name="baseColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="8" id="lJ3-BA-YTF"/>
-                                        </constraints>
-                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KRW" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x6-Qr-8lA">
-                                        <rect key="frame" x="16" y="35.5" width="99" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="35.5" width="115" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" name="contourColor"/>
                                         <nil key="highlightedColor"/>
@@ -48,14 +41,11 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="ehy-q9-OOX" firstAttribute="top" secondItem="RSj-Ws-xdr" secondAttribute="top" constant="12" id="7Rv-fo-vuM"/>
-                                    <constraint firstItem="ehy-q9-OOX" firstAttribute="leading" secondItem="pkU-0x-Tv9" secondAttribute="trailing" constant="8" id="8jc-aW-aKN"/>
-                                    <constraint firstItem="6x6-Qr-8lA" firstAttribute="leading" secondItem="pkU-0x-Tv9" secondAttribute="trailing" constant="8" id="FrE-SU-bQe"/>
                                     <constraint firstAttribute="trailing" secondItem="ehy-q9-OOX" secondAttribute="trailing" id="GTu-dD-co8"/>
+                                    <constraint firstItem="6x6-Qr-8lA" firstAttribute="leading" secondItem="RSj-Ws-xdr" secondAttribute="leading" id="IeW-Fa-Uy5"/>
+                                    <constraint firstItem="ehy-q9-OOX" firstAttribute="leading" secondItem="RSj-Ws-xdr" secondAttribute="leading" id="Ph4-wn-Kkx"/>
                                     <constraint firstAttribute="bottom" secondItem="6x6-Qr-8lA" secondAttribute="bottom" constant="12" id="QVt-n9-5fB"/>
-                                    <constraint firstItem="pkU-0x-Tv9" firstAttribute="leading" secondItem="RSj-Ws-xdr" secondAttribute="leading" id="a13-3D-zSQ"/>
                                     <constraint firstAttribute="trailing" secondItem="6x6-Qr-8lA" secondAttribute="trailing" id="lvu-gy-Zo1"/>
-                                    <constraint firstItem="pkU-0x-Tv9" firstAttribute="top" secondItem="RSj-Ws-xdr" secondAttribute="top" constant="12" id="nG7-7u-Rpq"/>
-                                    <constraint firstAttribute="bottom" secondItem="pkU-0x-Tv9" secondAttribute="bottom" constant="12" id="vdq-34-NlT"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZh-1B-jaQ">
@@ -133,14 +123,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9L9-4C-gdH">
                                 <rect key="frame" x="380" y="0.0" width="32" height="61"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNN-4z-4gq">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNN-4z-4gq" customClass="StarButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                         <rect key="frame" x="4" y="16.5" width="28" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="NNN-4z-4gq" secondAttribute="height" multiplier="1:1" id="ngW-8B-PWq"/>
                                             <constraint firstAttribute="width" constant="28" id="uuf-9V-H6v"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="starClickedIcon"/>
+                                        <state key="normal" image="starIcon"/>
+                                        <connections>
+                                            <action selector="interestButtonTap:" destination="ixg-1g-Qjs" eventType="touchUpInside" id="06Q-5h-tMn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -180,6 +173,7 @@
                 <outlet property="currencyNameSubNameLabel" destination="6x6-Qr-8lA" id="YXh-jk-TG2"/>
                 <outlet property="currentKRWPriceLabel" destination="4ht-mr-ZFF" id="cZW-jP-0yF"/>
                 <outlet property="currentPriceLabel" destination="mg0-dN-FRq" id="dn6-5q-akW"/>
+                <outlet property="interestButton" destination="NNN-4z-4gq" id="TQ3-zK-4LM"/>
                 <outlet property="transactionAmountLabel" destination="PLh-bK-BuM" id="GNQ-Sq-aUV"/>
                 <outlet property="transactionKRWAmountLabel" destination="cB6-uI-55O" id="bAK-m9-C36"/>
             </connections>
@@ -187,7 +181,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="starClickedIcon" width="34" height="34"/>
+        <image name="starIcon" width="34" height="34"/>
         <namedColor name="baseColor">
             <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

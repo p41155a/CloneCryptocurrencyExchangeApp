@@ -42,7 +42,8 @@ struct CurrentInfo: Codable {
 
         for key in container.allKeys {
             do {
-                let decodedObject = try container.decode(TickerInfo.self, forKey: DynamicCodingKeys(stringValue: key.stringValue)!)
+                let decodedObject = try container.decode(TickerInfo.self,
+                                                         forKey: DynamicCodingKeys(stringValue: key.stringValue)!)
                 tempDic[key.stringValue] = decodedObject
             } catch {
                 

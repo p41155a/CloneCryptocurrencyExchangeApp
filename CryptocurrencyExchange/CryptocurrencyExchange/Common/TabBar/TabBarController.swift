@@ -16,47 +16,44 @@ class TabBarController: UITabBarController {
                 nibName: "CryptocurrencyListViewController"
             )
         )
-//        exchangeViewController.title = "홈 타이틀"             // 타이틀이 없을경우 미호출
 
         return ViewControllerInNavigation(
             with: TabInformation(
                 viewController: exchangeViewController,
                 tabTitle: "거래소",
-                image: UIImage(systemName: "plus") ?? UIImage() // 임시 이미지 입니다
+                image: UIImage(named: "tabButton1") ?? UIImage()
             )
         )
     }()
     
-    var coindDetailViewController: ViewControllerInNavigation = {
-        let coinDetailViewController = CoinDetailViewController(
-            viewModel: CoindDetailViewModel(
-                nibName: "CoinDetailViewController"
+    var assetsStatusViewController: ViewControllerInNavigation = {
+        let assetsStatusViewController = AssetsStatusViewController(
+            viewModel: AssetsStatusViewModel(
+                nibName: "AssetsStatusViewController"
+            )
+        )
+
+        return ViewControllerInNavigation(
+            with: TabInformation(
+                viewController: assetsStatusViewController,
+                tabTitle: "입출금",
+                image: UIImage(named: "tabButton2") ?? UIImage()
+            )
+        )
+    }()
+    
+    var orderbookViewController: ViewControllerInNavigation = {
+        let orderbookViewController = OrderbookViewController(
+            viewModel: OrderbookViewModel(
+                nibName: "OrderbookViewController"
             )
         )
         
         return ViewControllerInNavigation(
             with: TabInformation(
-                viewController: coinDetailViewController,
-                tabTitle: "코인",
+                viewController: orderbookViewController,
+                tabTitle: "호가창",
                 image: UIImage.checkmark // 임시 이미지 입니다
-            )
-        )
-    }()
-    
-    // 실제 코인 상세 화면으로 쓰일 뷰컨트롤러입니다.
-    // 접근을 쉽게 하기 위해 임시로 탭으로 추가합니다
-    var coindDetailsViewController: ViewControllerInNavigation = {
-        let coinDetailViewController = CoinDetailsViewController(
-            viewModel: CoinDetailsViewModel(
-                nibName: "CoinDetailsViewController"
-            )
-        )
-        
-        return ViewControllerInNavigation(
-            with: TabInformation(
-                viewController: coinDetailViewController,
-                tabTitle: "코인상세",
-                image: UIImage.actions // 임시 이미지 입니다
             )
         )
     }()
@@ -65,14 +62,14 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         self.tabBar.backgroundColor = .white
+        self.tabBar.tintColor = .titleColor
         self.configureViewControllers()
     }
     
     private func configureViewControllers() {
         let viewControllersInNavigation = [
-            coindDetailViewController,
             exchangeViewController,
-            coindDetailsViewController
+            assetsStatusViewController
         ].map {
             $0.navigationControllerIncludingViewController()
         }

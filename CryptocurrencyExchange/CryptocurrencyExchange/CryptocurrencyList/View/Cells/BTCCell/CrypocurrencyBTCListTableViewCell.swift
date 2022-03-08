@@ -7,17 +7,18 @@
 
 import UIKit
 
+protocol CrypocurrencyListTableViewCellDelegate: AnyObject {
+    func setInterestData(interest: InterestCurrency)
+}
 class CrypocurrencyBTCListTableViewCell: UITableViewCell {
     // MARK: - func
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        interestButton.becomeFirstResponder()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     override func prepareForReuse() {
@@ -30,15 +31,24 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell {
         self.transactionKRWAmountLabel.text = nil
     }
     
-    func setData(krwData: CrypotocurrencyKRWListTableViewEntity, btcData: CrypotocurrencyBTCListTableViewEntity) {
+    func setData(krwData: CryptocurrencyListTableViewEntity,
+                 btcData: CryptocurrencyListTableViewEntity,
+                 isInterest: Bool) {
+        let krwCurrentPrice: String = "\(krwData.currentPrice)".setNumStringForm(isDecimalType: true)
+        let krwTransactionAmount: String = "\(Int(krwData.transactionAmount / 1000000).decimalType ?? "")백만"
+        let btcCurrentPrice: String = btcData.currentPrice.displayDecimal(to: 8)
+        let btcChangeRate: String = "\(btcData.changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
+        let btcTransactionAmount: String = btcData.transactionAmount.displayDecimal(to: 3)
+        
         self.currencyNameLabel.text = btcData.symbol
         self.currencyNameSubNameLabel.text = btcData.payment.value
-        self.currentPriceLabel.text = btcData.currentPrice
-        self.currentKRWPriceLabel.text = krwData.currentPrice
-        self.changeRateLabel.text = btcData.changeRate
-        self.transactionAmountLabel.text = btcData.transactionAmount
-        self.transactionKRWAmountLabel.text = krwData.transactionAmount
-        setColor(updown: UpDown(rawValue: btcData.changeRate.first ?? "0") ?? .zero)
+        self.currentPriceLabel.text = btcCurrentPrice
+        self.currentKRWPriceLabel.text = krwCurrentPrice
+        self.changeRateLabel.text = btcChangeRate
+        self.transactionAmountLabel.text = btcTransactionAmount
+        self.transactionKRWAmountLabel.text = krwTransactionAmount
+        self.interestButton.isSelected = isInterest
+        setColor(updown: UpDown(rawValue: btcChangeRate.first ?? "0") ?? .zero)
     }
     
     private func setColor(updown: UpDown) {
@@ -47,7 +57,21 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell {
         changeRateLabel.textColor = updown.color
     }
     
+    @IBAction func interestButtonTap(_ sender: StarButton) {
+        sender.isSelected.toggle()
+        guard let currencyName = self.currencyNameLabel.text else {
+            return
+        }
+        delegate?.setInterestData(
+            interest: InterestCurrency(
+                currency: "\(currencyName)_BTC",
+                interest: interestButton.isSelected
+            )
+        )
+    }
+    
     // MARK: - Property
+    weak var delegate: CrypocurrencyListTableViewCellDelegate?
     @IBOutlet weak var currencyNameLabel: UILabel!
     @IBOutlet weak var currencyNameSubNameLabel: UILabel!
     @IBOutlet weak var currentPriceLabel: UILabel!
@@ -55,4 +79,5 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell {
     @IBOutlet weak var changeRateLabel: UILabel!
     @IBOutlet weak var transactionAmountLabel: UILabel!
     @IBOutlet weak var transactionKRWAmountLabel: UILabel!
+    @IBOutlet weak var interestButton: StarButton!
 }

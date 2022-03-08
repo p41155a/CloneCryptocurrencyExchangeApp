@@ -41,6 +41,15 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         setTopTapBarTabEvent()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigation()
+    }
+    
+    private func setNavigation() {
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     /// 상단 탭에 연관되는 뷰컨트롤러를 ChildViewController로 설정
     private func setChildViewControllers() {
         viewControllerByTab[.quote] = quoteViewController
