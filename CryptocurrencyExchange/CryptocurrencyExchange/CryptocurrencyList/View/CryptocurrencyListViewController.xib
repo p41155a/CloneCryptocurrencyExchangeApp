@@ -130,7 +130,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMb-ic-yqe">
                                     <rect key="frame" x="0.0" y="0.0" width="109" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52v-XZ-7qb" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52v-XZ-7qb" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                             <rect key="frame" x="8" y="0.0" width="85" height="44"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="가산자산명"/>
@@ -147,7 +147,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-M4-lGt">
                                     <rect key="frame" x="109" y="0.0" width="90" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6H4-rP-fmB" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6H4-rP-fmB" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                             <rect key="frame" x="29.5" y="0.0" width="60.5" height="44"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="현재가"/>
@@ -165,7 +165,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-Un-AHa">
                                     <rect key="frame" x="199" y="0.0" width="80" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSw-pV-yST" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSw-pV-yST" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                             <rect key="frame" x="19.5" y="0.0" width="60.5" height="44"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="변동률"/>
@@ -183,7 +183,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvZ-xi-qxX">
                                     <rect key="frame" x="279" y="0.0" width="95" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZa-Jh-B0T" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZa-Jh-B0T" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                             <rect key="frame" x="22.5" y="0.0" width="72.5" height="44"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="거래금액"/>
