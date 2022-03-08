@@ -50,6 +50,11 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
                 cell.animateBackGroundColor()
             }
         }
+        
+        self.viewModel.error.bind { [weak self] title in
+            guard let title = title else { return }
+            self?.showAlert(title: title, completion: nil)
+        }
     }
     
     // MARK: - func<UI>

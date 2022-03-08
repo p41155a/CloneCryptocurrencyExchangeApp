@@ -8,16 +8,12 @@
 import Foundation
 import RealmSwift
 
-protocol CryptocurrencyListViewModelDelegate: AnyObject {
-    func showAlert(message: String)
-}
 final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - Property
     private var timeTrigger = true
     private var timer = Timer()
     private let realm: Realm
     private var apiManager = TickerAPIManager()
-    weak var delegate: CryptocurrencyListViewModelDelegate?
     var nibName: String?
     /// Property about data
     var tickerKRWList: [String: CryptocurrencyListTableViewEntity] = [:]
@@ -30,6 +26,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
     private var currentTab: CurrentTab = .tabKRW
     private var searchWord: String = ""
     let changeIndex: Observable<Int> = Observable(0)
+    let error: Observable<String?> = Observable(nil)
     
     // MARK: - init
     init(nibName: String? = nil) {
@@ -240,7 +237,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
                                                 list: currencyNameList)
                 completion()
             case .failure(let error):
-                self.delegate?.showAlert(message: error.debugDescription)
+                self.error.value = error.debugDescription
                 completion()
             }
         }
@@ -273,7 +270,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
                                                 list: currencyNameList)
                 completion()
             case .failure(let error):
-                self.delegate?.showAlert(message: error.debugDescription)
+                self.error.value = error.debugDescription
                 completion()
             }
         }
