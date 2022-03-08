@@ -20,8 +20,8 @@ final class TopViewCell: Cell {
         super.init(coder: aDecoder)
     }
     
-    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
-        self.tradeVolumeLabel.text = data.symbol
-        self.tradeValueLabel.text = data.symbol
-    }
+//    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
+//        self.tradeVolumeLabel.text = data.symbol
+//        self.tradeValueLabel.text = data.symbol
+//    }
 }

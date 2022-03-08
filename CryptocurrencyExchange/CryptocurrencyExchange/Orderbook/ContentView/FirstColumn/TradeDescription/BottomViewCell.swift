@@ -22,11 +22,11 @@ final class BottomViewCell: Cell {
         super.init(coder: aDecoder)
     }
     
-    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
-        self.prevClosePriceLabel.text = data.symbol
-        self.openPriceLabel.text = data.symbol
-        self.highPriceLabel.text = data.symbol
-        self.lowPriceLabel.text = data.symbol
-    }
+//    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
+//        self.prevClosePriceLabel.text = data.symbol
+//        self.openPriceLabel.text = data.symbol
+//        self.highPriceLabel.text = data.symbol
+//        self.lowPriceLabel.text = data.symbol
+//    }
 }
 

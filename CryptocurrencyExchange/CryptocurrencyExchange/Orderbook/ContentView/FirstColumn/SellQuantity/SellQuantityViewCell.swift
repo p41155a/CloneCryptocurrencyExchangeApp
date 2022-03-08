@@ -19,10 +19,10 @@ final class SellQuantityViewCell: Cell {
         super.init(coder: aDecoder)
     }
     
-    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
-        self.sellQuantityLabel.text = data.symbol
-        setColor(updown: UpDown(rawValue: data.changeAmount.first ?? "0") ?? .zero)
-    }
+//    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
+//        self.sellQuantityLabel.text = data.symbol
+//        setColor(updown: UpDown(rawValue: data.changeAmount.first ?? "0") ?? .zero)
+//    }
     
     private func setColor(updown: UpDown) {
         self.sellQuantityLabel.textColor = updown.color

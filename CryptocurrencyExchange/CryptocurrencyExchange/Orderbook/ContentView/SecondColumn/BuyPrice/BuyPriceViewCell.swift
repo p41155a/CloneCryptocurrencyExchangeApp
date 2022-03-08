@@ -20,8 +20,8 @@ final class BuyPriceViewCell: Cell {
         super.init(coder: aDecoder)
     }
     
-    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
-        self.buyPriceLabel.text = data.symbol
-        self.buyPriceRateLabel.text = data.symbol
-    }
+//    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
+//        self.buyPriceLabel.text = data.symbol
+//        self.buyPriceRateLabel.text = data.symbol
+//    }
 }
