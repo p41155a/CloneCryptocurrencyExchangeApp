@@ -214,7 +214,7 @@
                             <rect key="frame" x="0.0" y="44" width="398" height="708"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <connections>
-                                <outlet property="dataSource" destination="-1" id="KnI-5Q-VTM"/>
+                                <outlet property="dataSource" destination="-1" id="1af-vT-LKo"/>
                                 <outlet property="delegate" destination="-1" id="hIY-10-vlF"/>
                             </connections>
                         </tableView>

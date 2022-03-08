@@ -34,16 +34,14 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     // MARK: - Bind viewModel
     func bind() {
-        self.viewModel.tickerKRWList.bind { [weak self] data in
-            self?.tableView.reloadData()
-        }
-        self.viewModel.tickerBTCList.bind { [weak self] data in
-            if self?.viewModel.getCurrentTab() == 1 || self?.viewModel.getCurrentTab() == 2 {
-                self?.tableView.reloadData()
-            }
-        }
         self.viewModel.currentList.bind { [weak self] currencyNameList in
             self?.tableView.reloadData()
+        }
+        
+        self.viewModel.changeIndex.bind { [weak self] index in
+            self?.tableView.beginUpdates()
+            self?.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .fade)
+            self?.tableView.endUpdates()
         }
     }
     
