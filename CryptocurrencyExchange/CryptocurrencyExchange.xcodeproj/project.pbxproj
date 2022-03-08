@@ -39,6 +39,8 @@
 		9B16F5BD27D09E2A003DC9BC /* ChartByTimesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */; };
 		9B16F5BF27D0AFC5003DC9BC /* IntervalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */; };
 		9B16F5C227D0B939003DC9BC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B16F5C127D0B939003DC9BC /* RealmSwift */; };
+		9B5A8ACB27D725AF00C2170F /* DateMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5A8ACA27D725AF00C2170F /* DateMarkerView.xib */; };
+		9B5A8ACD27D725C400C2170F /* DateMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A8ACC27D725C400C2170F /* DateMarkerView.swift */; };
 		9B745FAE27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */; };
 		9B778C6327CF128A0009D343 /* CandleStickChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6227CF128A0009D343 /* CandleStickChartByTimesViewModel.swift */; };
 		9B778C6527CF14350009D343 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6427CF14350009D343 /* Observable.swift */; };
@@ -184,6 +186,8 @@
 		9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewModel.swift; sourceTree = "<group>"; };
 		9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesModel.swift; sourceTree = "<group>"; };
 		9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalButton.swift; sourceTree = "<group>"; };
+		9B5A8ACA27D725AF00C2170F /* DateMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateMarkerView.xib; sourceTree = "<group>"; };
+		9B5A8ACC27D725C400C2170F /* DateMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMarkerView.swift; sourceTree = "<group>"; };
 		9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickByTimeInterval.swift; sourceTree = "<group>"; };
 		9B778C6227CF128A0009D343 /* CandleStickChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickChartByTimesViewModel.swift; sourceTree = "<group>"; };
 		9B778C6427CF14350009D343 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -448,8 +452,18 @@
 				9B745FAC27D1D1240001C0D3 /* DB */,
 				B4F2786A27D4678B00BEBFD2 /* ChartView */,
 				B4B4CB9227D5F2A2009F08D7 /* CoinInformation */,
+				9B5A8AC927D7259300C2170F /* CandleStickDate */,
 			);
 			path = ChartByTimes;
+			sourceTree = "<group>";
+		};
+		9B5A8AC927D7259300C2170F /* CandleStickDate */ = {
+			isa = PBXGroup;
+			children = (
+				9B5A8ACA27D725AF00C2170F /* DateMarkerView.xib */,
+				9B5A8ACC27D725C400C2170F /* DateMarkerView.swift */,
+			);
+			path = CandleStickDate;
 			sourceTree = "<group>";
 		};
 		9B745FAC27D1D1240001C0D3 /* DB */ = {
@@ -1218,6 +1232,7 @@
 				90E12E8927D26B9000373FF9 /* ConcludedQuantityViewCell.xib in Resources */,
 				90E12E7C27D251E600373FF9 /* SellPriceViewCell.xib in Resources */,
 				90E12EB627D335AF00373FF9 /* OrderbookViewController.xib in Resources */,
+				9B5A8ACB27D725AF00C2170F /* DateMarkerView.xib in Resources */,
 				90E12E6827D2511800373FF9 /* FasteningStrengthViewCell.xib in Resources */,
 				90E12E9D27D274A100373FF9 /* TopViewCell.xib in Resources */,
 				90E12E8027D251FE00373FF9 /* SellQuantityViewCell.xib in Resources */,
@@ -1380,6 +1395,7 @@
 				FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */,
 				9B16F5BF27D0AFC5003DC9BC /* IntervalButton.swift in Sources */,
 				FF19E2A127CA00D700DBD52D /* WebSocketTransactionEntity.swift in Sources */,
+				9B5A8ACD27D725C400C2170F /* DateMarkerView.swift in Sources */,
 				FF19E29F27CA00B900DBD52D /* WebSocketOrderbookEntity.swift in Sources */,
 				B4BC4E9427CDF7B400DE19EC /* CoindDetailViewModel.swift in Sources */,
 				90E12E7327D251B900373FF9 /* BuyPriceViewCell.swift in Sources */,

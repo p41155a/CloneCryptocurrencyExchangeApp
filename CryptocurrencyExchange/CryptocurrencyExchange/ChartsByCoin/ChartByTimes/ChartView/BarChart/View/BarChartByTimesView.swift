@@ -103,6 +103,10 @@ extension BarChartByTimesView: ChartViewDelegate {
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        self.delegate?.chartViewDidSelectCandleStick(at: entry.x)
+        self.delegate?.chartViewDidSelectCandleStick(
+            at: entry.x,
+            xPosition: highlight.xPx,
+            yPosition: highlight.yPx
+        )
     }
 }

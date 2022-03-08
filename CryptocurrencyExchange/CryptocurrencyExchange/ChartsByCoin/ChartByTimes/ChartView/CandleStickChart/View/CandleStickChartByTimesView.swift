@@ -14,7 +14,7 @@ class CandleStickChartByTimesView: UIView {
     
     var viewModel = CandleStickChartByTimesViewModel()
     var delegate: ChartViewUpdatable?
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -104,6 +104,10 @@ extension CandleStickChartByTimesView: ChartViewDelegate {
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        self.delegate?.chartViewDidSelectCandleStick(at: entry.x)
+        self.delegate?.chartViewDidSelectCandleStick(
+            at: entry.x,
+            xPosition: highlight.xPx,
+            yPosition: highlight.yPx
+        )
     }
 }
