@@ -1,5 +1,5 @@
 //
-//  ChartView.swift
+//  CandleStickChartByTimesView.swift
 //  CryptocurrencyExchange
 //
 //  Created by Dayeon Jung on 2022/03/01.
@@ -8,11 +8,12 @@
 import UIKit
 import Charts
 
-class ChartView: UIView {
+class CandleStickChartByTimesView: UIView {
 
     @IBOutlet weak var chartView: CandleStickChartView!
     
-    var viewModel = ChartViewModel()
+    var viewModel = CandleStickChartByTimesViewModel()
+    var delegate: ChartViewUpdatable?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +26,7 @@ class ChartView: UIView {
     }
     
     private func commonInit() {
-        let superView = Bundle.main.loadNibNamed("ChartView", owner: self, options: nil)?.first as! UIView
+        let superView = Bundle.main.loadNibNamed("CandleStickChartByTimesView", owner: self, options: nil)?.first as! UIView
         self.addSubview(superView)
         superView.frame = self.bounds
         superView.layoutIfNeeded()
@@ -35,6 +36,7 @@ class ChartView: UIView {
     }
     
     private func setChartUI() {
+        chartView.delegate = self
         chartView.dragEnabled = true
         chartView.scaleYEnabled = false
 
@@ -72,7 +74,8 @@ class ChartView: UIView {
     }
     
     private func setChartZoom(totalCount: Int) {
-        let zoomFactor = self.viewModel.zoomFactors(totalCount: totalCount)
+        self.viewModel.setZoomFactors(totalCount: totalCount)
+        let zoomFactor = viewModel.zoomFactor
         chartView.zoom(
             scaleX: zoomFactor.scaleX,
             scaleY: zoomFactor.scaleY,
@@ -80,5 +83,21 @@ class ChartView: UIView {
             yValue: zoomFactor.yValue,
             axis: .right
         )
+    }
+    
+    func setTransform(with transfrom: CGAffineTransform) {
+        chartView.viewPortHandler.refresh(newMatrix: transfrom, chart: chartView, invalidate: true)
+    }
+}
+
+extension CandleStickChartByTimesView: ChartViewDelegate {
+    public func chartScaled(_ chartView: ChartViewBase, scaleX: CGFloat, scaleY: CGFloat) {
+        let currentMatrix = chartView.viewPortHandler.touchMatrix
+        self.delegate?.chartViewDidChangeTransform(chartView: self.chartView, with: currentMatrix)
+    }
+    
+    public func chartTranslated(_ chartView: ChartViewBase, dX: CGFloat, dY: CGFloat) {
+        let currentMatrix = chartView.viewPortHandler.touchMatrix
+        self.delegate?.chartViewDidChangeTransform(chartView: self.chartView, with: currentMatrix)
     }
 }

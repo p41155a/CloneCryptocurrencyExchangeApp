@@ -14,21 +14,6 @@
 		909BEED827D1148000E4EE87 /* OrderBookSheetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909BEED727D1148000E4EE87 /* OrderBookSheetEntity.swift */; };
 		909BEEDF27D1183E00E4EE87 /* OrderbookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909BEEDE27D1183E00E4EE87 /* OrderbookViewModel.swift */; };
 		90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD15D427CDE68700C5CBAC /* UIColor.swift */; };
-		9B16F5B827D08C26003DC9BC /* ChartByTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */; };
-		9B16F5B927D08C26003DC9BC /* ChartByTimesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */; };
-		9B16F5BB27D08CB9003DC9BC /* ChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */; };
-		9B16F5BD27D09E2A003DC9BC /* ChartByTimesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */; };
-		9B16F5BF27D0AFC5003DC9BC /* IntervalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */; };
-		9B16F5C227D0B939003DC9BC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B16F5C127D0B939003DC9BC /* RealmSwift */; };
-		9B745FAE27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */; };
-		9B778C6327CF128A0009D343 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6227CF128A0009D343 /* ChartViewModel.swift */; };
-		9B778C6527CF14350009D343 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6427CF14350009D343 /* Observable.swift */; };
-		9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */; };
-		9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6B27CF33170009D343 /* ChartZoomFactor.swift */; };
-		9B778C6F27CF3D1D0009D343 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6E27CF3D1D0009D343 /* ChartViewModel.swift */; };
-		9B778C7227CF4D9C0009D343 /* CandleStickRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */; };
-		9B778C7627CF4EB40009D343 /* MockCandleStickRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C7527CF4EB40009D343 /* MockCandleStickRepository.swift */; };
-		9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C7727CF53900009D343 /* CandleChartDataEntries.swift */; };
 		90E12E6727D2511800373FF9 /* FasteningStrengthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E6527D2511800373FF9 /* FasteningStrengthViewCell.swift */; };
 		90E12E6827D2511800373FF9 /* FasteningStrengthViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E6627D2511800373FF9 /* FasteningStrengthViewCell.xib */; };
 		90E12E7327D251B900373FF9 /* BuyPriceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E7127D251B900373FF9 /* BuyPriceViewCell.swift */; };
@@ -48,6 +33,21 @@
 		90E12EAA27D32BA600373FF9 /* SpreadsheetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12EA927D32BA600373FF9 /* SpreadsheetViewCell.swift */; };
 		90E12EB527D335AF00373FF9 /* OrderbookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12EB327D335AF00373FF9 /* OrderbookViewController.swift */; };
 		90E12EB627D335AF00373FF9 /* OrderbookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12EB427D335AF00373FF9 /* OrderbookViewController.xib */; };
+		9B16F5B827D08C26003DC9BC /* ChartByTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */; };
+		9B16F5B927D08C26003DC9BC /* ChartByTimesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */; };
+		9B16F5BB27D08CB9003DC9BC /* ChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */; };
+		9B16F5BD27D09E2A003DC9BC /* ChartByTimesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */; };
+		9B16F5BF27D0AFC5003DC9BC /* IntervalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */; };
+		9B16F5C227D0B939003DC9BC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B16F5C127D0B939003DC9BC /* RealmSwift */; };
+		9B745FAE27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */; };
+		9B778C6327CF128A0009D343 /* CandleStickChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6227CF128A0009D343 /* CandleStickChartByTimesViewModel.swift */; };
+		9B778C6527CF14350009D343 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6427CF14350009D343 /* Observable.swift */; };
+		9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */; };
+		9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6B27CF33170009D343 /* ChartZoomFactor.swift */; };
+		9B778C6F27CF3D1D0009D343 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C6E27CF3D1D0009D343 /* ChartViewModel.swift */; };
+		9B778C7227CF4D9C0009D343 /* CandleStickRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */; };
+		9B778C7627CF4EB40009D343 /* MockCandleStickRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C7527CF4EB40009D343 /* MockCandleStickRepository.swift */; };
+		9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B778C7727CF53900009D343 /* CandleChartDataEntries.swift */; };
 		B4471E5727CFB47100668B64 /* CoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4471E5527CFB47100668B64 /* CoinDetailsViewController.swift */; };
 		B4471E5827CFB47100668B64 /* CoinDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4471E5627CFB47100668B64 /* CoinDetailsViewController.xib */; };
 		B4471E5A27CFB9AD00668B64 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */; };
@@ -60,11 +60,14 @@
 		B4471E6A27CFC3ED00668B64 /* CoinDetailsTopTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4471E6927CFC3ED00668B64 /* CoinDetailsTopTabs.swift */; };
 		B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */; };
 		B498EF4927C8DC6600C8F5FC /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */; };
+		B4B4CB8D27D5CB86009F08D7 /* ChartViewUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B4CB8C27D5CB86009F08D7 /* ChartViewUpdatable.swift */; };
+		B4B4CB8F27D5D992009F08D7 /* BarChartDataEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B4CB8E27D5D992009F08D7 /* BarChartDataEntries.swift */; };
+		B4B4CB9127D5DB73009F08D7 /* BithumbBarDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B4CB9027D5DB73009F08D7 /* BithumbBarDataSet.swift */; };
 		B4BC4E8F27CDF70900DE19EC /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */; };
 		B4BC4E9027CDF70900DE19EC /* CoinDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4BC4E8E27CDF70900DE19EC /* CoinDetailViewController.xib */; };
 		B4BC4E9427CDF7B400DE19EC /* CoindDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E9327CDF7B400DE19EC /* CoindDetailViewModel.swift */; };
-		B4BC4E9727CE00F600DE19EC /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E9627CE00F600DE19EC /* ChartView.swift */; };
-		B4BC4E9927CE012400DE19EC /* ChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4BC4E9827CE012400DE19EC /* ChartView.xib */; };
+		B4BC4E9727CE00F600DE19EC /* CandleStickChartByTimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E9627CE00F600DE19EC /* CandleStickChartByTimesView.swift */; };
+		B4BC4E9927CE012400DE19EC /* CandleStickChartByTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4BC4E9827CE012400DE19EC /* CandleStickChartByTimesView.xib */; };
 		B4BC4E9E27CE66EE00DE19EC /* CandleStickAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E9D27CE66EE00DE19EC /* CandleStickAPIManager.swift */; };
 		B4BC4EA027CE66FF00DE19EC /* CandleStickAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E9F27CE66FF00DE19EC /* CandleStickAPIService.swift */; };
 		B4BC4EA227CE680C00DE19EC /* CandleStickIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA127CE680C00DE19EC /* CandleStickIntervals.swift */; };
@@ -72,6 +75,9 @@
 		B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
 		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
+		B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */; };
+		B4F2787127D4687600BEBFD2 /* BarChartByTimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */; };
+		B4F2787427D47E0400BEBFD2 /* BarChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */; };
 		B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */; };
 		B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F5AF7E27C8D3EB00EB60A1 /* ExchangeViewController.xib */; };
 		B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */; };
@@ -148,30 +154,6 @@
 		909BEED727D1148000E4EE87 /* OrderBookSheetEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookSheetEntity.swift; sourceTree = "<group>"; };
 		909BEEDE27D1183E00E4EE87 /* OrderbookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookViewModel.swift; sourceTree = "<group>"; };
 		90BD15D427CDE68700C5CBAC /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewController.swift; sourceTree = "<group>"; };
-		9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartByTimesViewController.xib; sourceTree = "<group>"; };
-		9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewModel.swift; sourceTree = "<group>"; };
-		9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesModel.swift; sourceTree = "<group>"; };
-		9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalButton.swift; sourceTree = "<group>"; };
-		9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickByTimeInterval.swift; sourceTree = "<group>"; };
-		9B778C6227CF128A0009D343 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
-		9B778C6427CF14350009D343 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbCandleStickDataSet.swift; sourceTree = "<group>"; };
-		9B778C6B27CF33170009D343 /* ChartZoomFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartZoomFactor.swift; sourceTree = "<group>"; };
-		9B778C6E27CF3D1D0009D343 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
-		9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickRepository.swift; sourceTree = "<group>"; };
-		9B778C7527CF4EB40009D343 /* MockCandleStickRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCandleStickRepository.swift; sourceTree = "<group>"; };
-		9B778C7727CF53900009D343 /* CandleChartDataEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleChartDataEntries.swift; sourceTree = "<group>"; };
-		B4471E5527CFB47100668B64 /* CoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewController.swift; sourceTree = "<group>"; };
-		B4471E5627CFB47100668B64 /* CoinDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinDetailsViewController.xib; sourceTree = "<group>"; };
-		B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
-		B4471E5C27CFBDB700668B64 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
-		B4471E5D27CFBDB700668B64 /* QuoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteViewController.xib; sourceTree = "<group>"; };
-		B4471E6027CFBDD600668B64 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
-		B4471E6327CFBE5100668B64 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
-		B4471E6427CFBE5100668B64 /* ChartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartViewController.xib; sourceTree = "<group>"; };
-		B4471E6727CFBE5F00668B64 /* ChartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewModel.swift; sourceTree = "<group>"; };
-		B4471E6927CFC3ED00668B64 /* CoinDetailsTopTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsTopTabs.swift; sourceTree = "<group>"; };
 		90E12E6527D2511800373FF9 /* FasteningStrengthViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FasteningStrengthViewCell.swift; sourceTree = "<group>"; };
 		90E12E6627D2511800373FF9 /* FasteningStrengthViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FasteningStrengthViewCell.xib; sourceTree = "<group>"; };
 		90E12E7127D251B900373FF9 /* BuyPriceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyPriceViewCell.swift; sourceTree = "<group>"; };
@@ -192,14 +174,41 @@
 		90E12EB327D335AF00373FF9 /* OrderbookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookViewController.swift; sourceTree = "<group>"; };
 		90E12EB427D335AF00373FF9 /* OrderbookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderbookViewController.xib; sourceTree = "<group>"; };
 		92774D2EEF35C757FAE75845 /* Pods_CryptocurrencyExchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptocurrencyExchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewController.swift; sourceTree = "<group>"; };
+		9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartByTimesViewController.xib; sourceTree = "<group>"; };
+		9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewModel.swift; sourceTree = "<group>"; };
+		9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesModel.swift; sourceTree = "<group>"; };
+		9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalButton.swift; sourceTree = "<group>"; };
+		9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickByTimeInterval.swift; sourceTree = "<group>"; };
+		9B778C6227CF128A0009D343 /* CandleStickChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickChartByTimesViewModel.swift; sourceTree = "<group>"; };
+		9B778C6427CF14350009D343 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		9B778C6927CF31C20009D343 /* BithumbCandleStickDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbCandleStickDataSet.swift; sourceTree = "<group>"; };
+		9B778C6B27CF33170009D343 /* ChartZoomFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartZoomFactor.swift; sourceTree = "<group>"; };
+		9B778C6E27CF3D1D0009D343 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickRepository.swift; sourceTree = "<group>"; };
+		9B778C7527CF4EB40009D343 /* MockCandleStickRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCandleStickRepository.swift; sourceTree = "<group>"; };
+		9B778C7727CF53900009D343 /* CandleChartDataEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleChartDataEntries.swift; sourceTree = "<group>"; };
 		B1F4A9C36FC00016C5418E89 /* Pods-CryptocurrencyExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange.release.xcconfig"; sourceTree = "<group>"; };
+		B4471E5527CFB47100668B64 /* CoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewController.swift; sourceTree = "<group>"; };
+		B4471E5627CFB47100668B64 /* CoinDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinDetailsViewController.xib; sourceTree = "<group>"; };
+		B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
+		B4471E5C27CFBDB700668B64 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
+		B4471E5D27CFBDB700668B64 /* QuoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteViewController.xib; sourceTree = "<group>"; };
+		B4471E6027CFBDD600668B64 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
+		B4471E6327CFBE5100668B64 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		B4471E6427CFBE5100668B64 /* ChartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartViewController.xib; sourceTree = "<group>"; };
+		B4471E6727CFBE5F00668B64 /* ChartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewModel.swift; sourceTree = "<group>"; };
+		B4471E6927CFC3ED00668B64 /* CoinDetailsTopTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsTopTabs.swift; sourceTree = "<group>"; };
 		B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInNavigation.swift; sourceTree = "<group>"; };
 		B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
+		B4B4CB8C27D5CB86009F08D7 /* ChartViewUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewUpdatable.swift; sourceTree = "<group>"; };
+		B4B4CB8E27D5D992009F08D7 /* BarChartDataEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartDataEntries.swift; sourceTree = "<group>"; };
+		B4B4CB9027D5DB73009F08D7 /* BithumbBarDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbBarDataSet.swift; sourceTree = "<group>"; };
 		B4BC4E8D27CDF70900DE19EC /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
 		B4BC4E8E27CDF70900DE19EC /* CoinDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinDetailViewController.xib; sourceTree = "<group>"; };
 		B4BC4E9327CDF7B400DE19EC /* CoindDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoindDetailViewModel.swift; sourceTree = "<group>"; };
-		B4BC4E9627CE00F600DE19EC /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
-		B4BC4E9827CE012400DE19EC /* ChartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartView.xib; sourceTree = "<group>"; };
+		B4BC4E9627CE00F600DE19EC /* CandleStickChartByTimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickChartByTimesView.swift; sourceTree = "<group>"; };
+		B4BC4E9827CE012400DE19EC /* CandleStickChartByTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CandleStickChartByTimesView.xib; sourceTree = "<group>"; };
 		B4BC4E9D27CE66EE00DE19EC /* CandleStickAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickAPIManager.swift; sourceTree = "<group>"; };
 		B4BC4E9F27CE66FF00DE19EC /* CandleStickAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickAPIService.swift; sourceTree = "<group>"; };
 		B4BC4EA127CE680C00DE19EC /* CandleStickIntervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickIntervals.swift; sourceTree = "<group>"; };
@@ -207,6 +216,9 @@
 		B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickEntity.swift; sourceTree = "<group>"; };
 		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartByTimesView.xib; sourceTree = "<group>"; };
+		B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartByTimesView.swift; sourceTree = "<group>"; };
+		B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartByTimesViewModel.swift; sourceTree = "<group>"; };
 		B4F5AF7D27C8D3EB00EB60A1 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		B4F5AF7E27C8D3EB00EB60A1 /* ExchangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExchangeViewController.xib; sourceTree = "<group>"; };
 		B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInjectingViewModel.swift; sourceTree = "<group>"; };
@@ -289,28 +301,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9B16F5B527D08BFB003DC9BC /* ChartByTimes */ = {
-			isa = PBXGroup;
-			children = (
-				9B745FAC27D1D1240001C0D3 /* DB */,
-				B4BC4E9527CDFE2C00DE19EC /* Chart */,
-				9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */,
-				9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */,
-				9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */,
-				9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */,
-				B498E2DE27D30BA400E4B787 /* ViewModel */,
-			);
-			path = ChartByTimes;
-			sourceTree = "<group>";
-		};
-		9B745FAC27D1D1240001C0D3 /* DB */ = {
-			isa = PBXGroup;
-			children = (
-				9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */,
-			);
-			path = DB;
-			sourceTree = "<group>";
-		};
 		7910D8DEA98D65E63D77153C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,15 +428,27 @@
 			path = ConcludedQuantity;
 			sourceTree = "<group>";
 		};
-		B498EF4727C8DC5500C8F5FC /* ViewModel */ = {
+		9B16F5B527D08BFB003DC9BC /* ChartByTimes */ = {
 			isa = PBXGroup;
 			children = (
-				B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */,
+				B4B4CB8B27D5CB47009F08D7 /* Listener */,
+				B467184E27D46478001EBAEC /* Model */,
+				B467184F27D46482001EBAEC /* View */,
+				B498E2DE27D30BA400E4B787 /* ViewModel */,
+				9B745FAC27D1D1240001C0D3 /* DB */,
+				B4F2786A27D4678B00BEBFD2 /* ChartView */,
 			);
-			path = ViewModel;
+			path = ChartByTimes;
 			sourceTree = "<group>";
 		};
-
+		9B745FAC27D1D1240001C0D3 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		9B778C5E27CF0E1D0009D343 /* ChartsByCoin */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,8 +468,8 @@
 		9B778C6027CF124B0009D343 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B4BC4E9627CE00F600DE19EC /* ChartView.swift */,
-				B4BC4E9827CE012400DE19EC /* ChartView.xib */,
+				B4BC4E9627CE00F600DE19EC /* CandleStickChartByTimesView.swift */,
+				B4BC4E9827CE012400DE19EC /* CandleStickChartByTimesView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -475,7 +477,7 @@
 		9B778C6127CF125B0009D343 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9B778C6227CF128A0009D343 /* ChartViewModel.swift */,
+				9B778C6227CF128A0009D343 /* CandleStickChartByTimesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -579,6 +581,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B467184E27D46478001EBAEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */,
+				9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B467184F27D46482001EBAEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */,
+				9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B498E2DE27D30BA400E4B787 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,6 +614,14 @@
 				B498EF4827C8DC6600C8F5FC /* ExchangeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B4B4CB8B27D5CB47009F08D7 /* Listener */ = {
+			isa = PBXGroup;
+			children = (
+				B4B4CB8C27D5CB86009F08D7 /* ChartViewUpdatable.swift */,
+			);
+			path = Listener;
 			sourceTree = "<group>";
 		};
 		B4BC4E8C27CDF65D00DE19EC /* ChartsByCoin */ = {
@@ -624,14 +652,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		B4BC4E9527CDFE2C00DE19EC /* Chart */ = {
+		B4BC4E9527CDFE2C00DE19EC /* CandleStickChart */ = {
 			isa = PBXGroup;
 			children = (
 				9B778C6827CF31B00009D343 /* Model */,
-				9B778C6127CF125B0009D343 /* ViewModel */,
 				9B778C6027CF124B0009D343 /* View */,
+				9B778C6127CF125B0009D343 /* ViewModel */,
 			);
-			path = Chart;
+			path = CandleStickChart;
 			sourceTree = "<group>";
 		};
 		B4BC4E9C27CE647D00DE19EC /* CandleStickAPI */ = {
@@ -661,6 +689,51 @@
 				B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		B4F2786727D465ED00BEBFD2 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				B4F2786B27D467B600BEBFD2 /* Model */,
+				B4F2786D27D467C800BEBFD2 /* View */,
+				B4F2786C27D467BC00BEBFD2 /* ViewModel */,
+			);
+			path = BarChart;
+			sourceTree = "<group>";
+		};
+		B4F2786A27D4678B00BEBFD2 /* ChartView */ = {
+			isa = PBXGroup;
+			children = (
+				B4BC4E9527CDFE2C00DE19EC /* CandleStickChart */,
+				B4F2786727D465ED00BEBFD2 /* BarChart */,
+			);
+			path = ChartView;
+			sourceTree = "<group>";
+		};
+		B4F2786B27D467B600BEBFD2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B4B4CB8E27D5D992009F08D7 /* BarChartDataEntries.swift */,
+				B4B4CB9027D5DB73009F08D7 /* BithumbBarDataSet.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B4F2786C27D467BC00BEBFD2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B4F2786D27D467C800BEBFD2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */,
+				B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B4F5AF7C27C8D3D700EB60A1 /* Exchange */ = {
@@ -1080,6 +1153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4471E5F27CFBDB700668B64 /* QuoteViewController.xib in Resources */,
+				B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */,
 				B4471E6627CFBE5100668B64 /* ChartViewController.xib in Resources */,
 				B4471E5827CFB47100668B64 /* CoinDetailsViewController.xib in Resources */,
 				B4BC4E9027CDF70900DE19EC /* CoinDetailViewController.xib in Resources */,
@@ -1087,7 +1161,7 @@
 				FF19E1F827C628E100DBD52D /* LaunchScreen.storyboard in Resources */,
 				FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */,
 				9B16F5B927D08C26003DC9BC /* ChartByTimesViewController.xib in Resources */,
-				B4BC4E9927CE012400DE19EC /* ChartView.xib in Resources */,
+				B4BC4E9927CE012400DE19EC /* CandleStickChartByTimesView.xib in Resources */,
 				B4F5AF8027C8D3EB00EB60A1 /* ExchangeViewController.xib in Resources */,
 				FFB2EFDA27D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.xib in Resources */,
 				FFE7197727CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.xib in Resources */,
@@ -1229,8 +1303,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF19E28D27C8DB3600DBD52D /* AssetsAPIManager.swift in Sources */,
-				B4BC4E9727CE00F600DE19EC /* ChartView.swift in Sources */,
+				B4BC4E9727CE00F600DE19EC /* CandleStickChartByTimesView.swift in Sources */,
 				FF19E29327C9F74100DBD52D /* DemoSocketViewController.swift in Sources */,
+				B4B4CB8F27D5D992009F08D7 /* BarChartDataEntries.swift in Sources */,
 				B4471E6A27CFC3ED00668B64 /* CoinDetailsTopTabs.swift in Sources */,
 				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
 				FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */,
@@ -1248,7 +1323,7 @@
 				B4BC4EA027CE66FF00DE19EC /* CandleStickAPIService.swift in Sources */,
 				B4BC4EA227CE680C00DE19EC /* CandleStickIntervals.swift in Sources */,
 				FF19E28327C72AF200DBD52D /* APIProvider.swift in Sources */,
-				9B778C6327CF128A0009D343 /* ChartViewModel.swift in Sources */,
+				9B778C6327CF128A0009D343 /* CandleStickChartByTimesViewModel.swift in Sources */,
 				FFB2EFC427D1415F00944E97 /* String+Extension.swift in Sources */,
 				FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */,
 				FFE7196C27CE035D008DF7B9 /* CryptocurrencyListViewModel.swift in Sources */,
@@ -1267,6 +1342,7 @@
 				FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */,
 				9B16F5BB27D08CB9003DC9BC /* ChartByTimesViewModel.swift in Sources */,
 				9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */,
+				B4F2787127D4687600BEBFD2 /* BarChartByTimesView.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
 				9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */,
 				9B778C6527CF14350009D343 /* Observable.swift in Sources */,
@@ -1291,10 +1367,13 @@
 				FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */,
 				FFE7196927CE0349008DF7B9 /* CryptocurrencyListViewController.swift in Sources */,
 				909BEED527D112A500E4EE87 /* TransactionDescriptionSheetViewEntity.swift in Sources */,
+				B4B4CB9127D5DB73009F08D7 /* BithumbBarDataSet.swift in Sources */,
 				90E12E7F27D251FE00373FF9 /* SellQuantityViewCell.swift in Sources */,
+				B4F2787427D47E0400BEBFD2 /* BarChartByTimesViewModel.swift in Sources */,
 				B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */,
 				B4F5AF7F27C8D3EB00EB60A1 /* ExchangeViewController.swift in Sources */,
 				FFE7197927CE0E95008DF7B9 /* UIView+Extension.swift in Sources */,
+				B4B4CB8D27D5CB86009F08D7 /* ChartViewUpdatable.swift in Sources */,
 				90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */,
 				90E12E8827D26B9000373FF9 /* ConcludedQuantityViewCell.swift in Sources */,
 				B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */,
@@ -1484,7 +1563,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X6WTK8Z5MC;
+				DEVELOPMENT_TEAM = 886LX3G4KC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1515,7 +1594,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X6WTK8Z5MC;
+				DEVELOPMENT_TEAM = 886LX3G4KC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
