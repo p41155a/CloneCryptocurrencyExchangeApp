@@ -15,7 +15,8 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
     @IBOutlet weak var candleStickChartView: CandleStickChartByTimesView!
     @IBOutlet weak var barChartView: BarChartByTimesView!
     @IBOutlet weak var coinInformationView: CoinInformationInChartView!
-    
+    let dateMarkerView = DateMarkerView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +25,9 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
         
         setStackViewUI()
         bindObservables()
+        
+        self.view.addSubview(dateMarkerView)
+        dateMarkerView.isHidden = true
     }
     
     override func didMove(toParent parent: UIViewController?) {
@@ -84,7 +88,15 @@ extension ChartByTimesViewController: ChartViewUpdatable {
 
     /// 캔들스틱을 선택할 때마다 왼쪽 상단에 시/고/저/종/변화량 정보 노출
     /// - Parameter x: 선택된 캔들스틱의 x 인덱스 전달
-    func chartViewDidSelectCandleStick(at x: Double) {
+    func chartViewDidSelectCandleStick(at x: Double, xPosition: CGFloat, yPosition: CGFloat) {
         self.coinInformationView.setUI(with: viewModel.candleStickData(at: Int(x)))
+        self.dateMarkerView.isHidden = false
+        self.dateMarkerView.frame = CGRect(
+            origin: CGPoint(
+                x: xPosition - self.dateMarkerView.frame.width/2,
+                y: self.barChartView.frame.maxY
+            ),
+            size: self.dateMarkerView.frame.size
+        )
     }
 }

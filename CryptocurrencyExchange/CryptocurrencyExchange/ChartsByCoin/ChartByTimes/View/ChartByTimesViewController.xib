@@ -92,14 +92,14 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-To-eSc" customClass="CandleStickChartByTimesView" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="48" width="414" height="480"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="469"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYB-lg-32Z" customClass="BarChartByTimesView" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="528" width="414" height="128"/>
+                    <rect key="frame" x="0.0" y="517" width="414" height="116"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="128" id="EXT-XP-PoT"/>
+                        <constraint firstAttribute="height" constant="116" id="EXT-XP-PoT"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stU-Wq-SFz" customClass="CoinInformationInChartView" customModule="CryptocurrencyExchange" customModuleProvider="target">
@@ -122,7 +122,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="stU-Wq-SFz" secondAttribute="trailing" constant="12" id="a34-gx-pP8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tYB-lg-32Z" secondAttribute="trailing" id="jes-SL-8iX"/>
                 <constraint firstItem="stU-Wq-SFz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="jlV-tj-uFg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tYB-lg-32Z" secondAttribute="bottom" id="vyX-Uh-jCG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tYB-lg-32Z" secondAttribute="bottom" constant="23" id="ygp-RG-Yk1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="142.02898550724638" y="4.0178571428571423"/>

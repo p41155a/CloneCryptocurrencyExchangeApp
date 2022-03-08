@@ -13,5 +13,5 @@ protocol ChartViewUpdatable {
     func chartViewDidChangeTransform(chartView: ChartViewBase, with transfrom: CGAffineTransform)
     
     /// 차트뷰 내의 캔들스틱을 선택할 때마다 호출
-    func chartViewDidSelectCandleStick(at x: Double)
+    func chartViewDidSelectCandleStick(at x: Double, xPosition: CGFloat, yPosition: CGFloat)
 }

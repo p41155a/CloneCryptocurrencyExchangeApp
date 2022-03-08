@@ -50,10 +50,9 @@ class BarChartByTimesView: UIView {
         let rightAxis = chartView.rightAxis
         rightAxis.enabled = true
         rightAxis.labelCount = 2
-        rightAxis.xOffset = 25
-        rightAxis.labelXOffset = -20
         rightAxis.axisMinimum = 0
         rightAxis.gridColor = .systemGray6
+        rightAxis.minWidth = 72
     }
     
     private func bindClosures() {
@@ -104,6 +103,10 @@ extension BarChartByTimesView: ChartViewDelegate {
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        self.delegate?.chartViewDidSelectCandleStick(at: entry.x)
+        self.delegate?.chartViewDidSelectCandleStick(
+            at: entry.x,
+            xPosition: highlight.xPx,
+            yPosition: highlight.yPx
+        )
     }
 }
