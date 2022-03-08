@@ -51,6 +51,15 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell {
         setColor(updown: UpDown(rawValue: btcChangeRate.first ?? "0") ?? .zero)
     }
     
+    func animateBackGroundColor() {
+        UIView.animate(withDuration: 0.2, animations: { [weak self] in
+            let color: UIColor? = self?.changeRateLabel.text?.first == "-" ? .decreasingColor : .increasingColor
+            self?.backgroundColor = color?.withAlphaComponent(0.1)
+        }) { [weak self] _ in
+            self?.backgroundColor = .backgroundColor
+        }
+    }
+    
     private func setColor(updown: UpDown) {
         currentPriceLabel.textColor = updown.color
         currentKRWPriceLabel.textColor = updown.color

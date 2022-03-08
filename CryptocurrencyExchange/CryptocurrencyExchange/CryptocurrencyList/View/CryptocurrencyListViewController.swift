@@ -40,8 +40,15 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         
         self.viewModel.changeIndex.bind { [weak self] index in
             self?.tableView.beginUpdates()
-            self?.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .fade)
+            let index = IndexPath(item: index, section: 0)
+            self?.tableView.reloadRows(at: [index], with: .fade)
             self?.tableView.endUpdates()
+            
+            if let cell = self?.tableView.cellForRow(at: index) as? CrypocurrencyKRWListTableViewCell {
+                cell.animateBackGroundColor()
+            } else if let cell = self?.tableView.cellForRow(at: index) as? CrypocurrencyBTCListTableViewCell {
+                cell.animateBackGroundColor()
+            }
         }
     }
     
@@ -194,7 +201,7 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
         let paymentCurrency = viewModel.currentList.value[indexPath.row].1
         switch paymentCurrency {
         case .KRW:
-            guard let data = viewModel.tickerKRWList.value[currentName] else {
+            guard let data = viewModel.tickerKRWList[currentName] else {
                 return UITableViewCell()
             }
             let currency = "\(data.symbol)_KRW"
@@ -204,11 +211,11 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
                          isInterest: viewModel.isInterest(interestKey: currency))
             return cell
         case .BTC:
-            guard let btcData = viewModel.tickerBTCList.value[currentName] else {
+            guard let btcData = viewModel.tickerBTCList[currentName] else {
                 return UITableViewCell()
             }
             let currency = "\(btcData.symbol)_BTC"
-            let krwData = viewModel.tickerKRWList.value[currentName] ?? CryptocurrencyListTableViewEntity()
+            let krwData = viewModel.tickerKRWList[currentName] ?? CryptocurrencyListTableViewEntity()
             let cell = CrypocurrencyBTCListTableViewCell.dequeueReusableCell(tableView: tableView)
             cell.delegate = self
             cell.setData(krwData: krwData, btcData: btcData,
