@@ -14,6 +14,7 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
     @IBOutlet weak var intervalStackView: UIStackView!
     @IBOutlet weak var candleStickChartView: CandleStickChartByTimesView!
     @IBOutlet weak var barChartView: BarChartByTimesView!
+    @IBOutlet weak var coinInformationView: CoinInformationInChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
             guard let entryDatas = datas else { return }
             self?.candleStickChartView.updateDataEntries(from: entryDatas)
             self?.barChartView.updateDataEntries(from: entryDatas)
+            self?.coinInformationView.setUI(with: datas?.last)
         }
     }
     
@@ -71,7 +73,7 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
 extension ChartByTimesViewController: ChartViewUpdatable {
     /// 두 차트 중 하나의 차트의 transform을 변경시킬 때, 나머지 차트에도 똑같은 모양으로 변경되도록 함
     /// - Parameter chartView: 모양의 변경이 발생한 차트
-    /// - Parameter with transform: 변경된 수치
+    /// - Parameter transform: 변경된 수치
     func chartViewDidChangeTransform(chartView: ChartViewBase, with transform: CGAffineTransform) {
         if let _ = chartView as? CandleStickChartView {
             barChartView.setTransform(with: transform)
@@ -80,4 +82,9 @@ extension ChartByTimesViewController: ChartViewUpdatable {
         }
     }
 
+    /// 캔들스틱을 선택할 때마다 왼쪽 상단에 시/고/저/종/변화량 정보 노출
+    /// - Parameter x: 선택된 캔들스틱의 x 인덱스 전달
+    func chartViewDidSelectCandleStick(at x: Double) {
+        self.coinInformationView.setUI(with: viewModel.candleStickData(at: Int(x)))
+    }
 }
