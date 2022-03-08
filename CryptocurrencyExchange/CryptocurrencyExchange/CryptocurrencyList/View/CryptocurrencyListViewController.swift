@@ -39,14 +39,18 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         }
         
         self.viewModel.changeIndex.bind { [weak self] index in
+            let indexPath = IndexPath(item: index, section: 0)
+            
             self?.tableView.beginUpdates()
-            let index = IndexPath(item: index, section: 0)
-            self?.tableView.reloadRows(at: [index], with: .fade)
+            /// iOS13에서 타이밍 이슈로 if 문이 필요함
+            if self?.viewModel.currentList.value.count ?? 1 > index {
+                self?.tableView.reloadRows(at: [indexPath], with: .fade)
+            }
             self?.tableView.endUpdates()
             
-            if let cell = self?.tableView.cellForRow(at: index) as? CrypocurrencyKRWListTableViewCell {
+            if let cell = self?.tableView.cellForRow(at: indexPath) as? CrypocurrencyKRWListTableViewCell {
                 cell.animateBackGroundColor()
-            } else if let cell = self?.tableView.cellForRow(at: index) as? CrypocurrencyBTCListTableViewCell {
+            } else if let cell = self?.tableView.cellForRow(at: indexPath) as? CrypocurrencyBTCListTableViewCell {
                 cell.animateBackGroundColor()
             }
         }
