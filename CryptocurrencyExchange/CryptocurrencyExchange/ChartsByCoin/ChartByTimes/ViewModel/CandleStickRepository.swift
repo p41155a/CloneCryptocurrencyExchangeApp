@@ -103,7 +103,7 @@ extension ProductionCandleStickRepository {
                 sticksByTimeInterval.stickDatas.append(data)
                 return data
             }
-            sticksByTimeInterval.lastUpdated = (candleStickDatas.last?.time ?? 0) / 1000
+            sticksByTimeInterval.lastUpdated = candleStickDatas.last?.time ?? 0
             realm.add(sticksByTimeInterval)
             completion(candleStickDatas)
         }
