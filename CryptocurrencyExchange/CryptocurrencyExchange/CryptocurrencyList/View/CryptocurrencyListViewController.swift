@@ -15,15 +15,16 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         configureUI()
         viewModel.setInitialData()
         bind()
-        connect()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        connect()
     }
     
-    deinit {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         disconnect()
     }
     
@@ -209,13 +210,28 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentName = viewModel.currentList.value[indexPath.row].0
+        let paymentCurrency = viewModel.currentList.value[indexPath.row].1
+        let coinDetailViewController = CoinDetailsViewController(
+            viewModel: CoinDetailsViewModel(
+                nibName: "CoinDetailsViewController",
+                dependency: CoinDetailsDependency(
+                    orderCurrency: currentName,
+                    paymentCurrency: paymentCurrency.value
+                )
+            )
+        )
+        self.navigationController?.pushViewController(coinDetailViewController, animated: true)
+    }
 }
-// MARK: - TableView
+// MARK: - Delegate WebSocket
 extension CryptocurrencyListViewController: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(_):
-            writeToSocket(paymentCurrency: .KRW, tickTypes: [.tickMID])
+            writeToSocket(paymentCurrency: .KRW, tickTypes: [.tick24H])
         case .text(let string):
             do {
                 let data = string.data(using: .utf8)!
@@ -230,7 +246,7 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
     }
 }
 
-// MARK: - Delegate
+// MARK: - Delegate Cell
 extension CryptocurrencyListViewController: CrypocurrencyListTableViewCellDelegate {
     func setInterestData(interest: InterestCurrency) {
         viewModel.setInterestData(interest: interest)
