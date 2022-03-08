@@ -51,7 +51,9 @@ class CandleStickChartByTimesView: UIView {
         let yAxisRight = chartView.rightAxis
         yAxisRight.gridColor = .systemGray6
         yAxisRight.enabled = true
+        yAxisRight.minWidth = 72
         
+        chartView.dragDecelerationEnabled = false
     }
      
     func updateDataEntries(from dbData: [CandleStickData]) {
