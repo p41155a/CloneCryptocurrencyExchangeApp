@@ -18,4 +18,12 @@ class CoinDetailsViewModel: XIBInformation {
         self.nibName = nibName
         self.dependency = dependency
     }
+    
+    func orderCurrency() -> String {
+        return dependency.orderCurrency
+    }
+    
+    func paymentCurrency() -> String {
+        return dependency.paymentCurrency
+    }
 }
