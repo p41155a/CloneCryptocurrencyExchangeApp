@@ -12,6 +12,9 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var interestButton: UIButton!
     @IBOutlet weak var topTabBar: UIStackView!
+    @IBOutlet weak var currentPriceLabel: UILabel!
+    @IBOutlet weak var changeRateLabel: UILabel!
+    @IBOutlet weak var changeAmountLabel: UILabel!
     
     var quoteViewController: ViewControllerInjectingViewModel<QuoteViewModel> = {
         let viewController = QuoteViewController(
@@ -49,6 +52,17 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     
     private func configureUI() {
         titleLabel.text = viewModel.dependency.order
+        reflectData(by: viewModel.dependency)
+    }
+    
+    func reflectData(by data: CryptocurrencyListTableViewEntity) {
+        let currentPrice: String = "\(data.currentPrice)".setNumStringForm(isDecimalType: true)
+        let changeRate: String = "\(data.changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
+        let changeAmount: String = "\(data.changeAmount)".setNumStringForm(isDecimalType: true, isMarkPlusMiuns: true)
+        
+        currentPriceLabel.text = currentPrice
+        changeRateLabel.text = changeRate
+        changeAmountLabel.text = changeAmount
     }
     
     /// 상단 탭에 연관되는 뷰컨트롤러를 ChildViewController로 설정
