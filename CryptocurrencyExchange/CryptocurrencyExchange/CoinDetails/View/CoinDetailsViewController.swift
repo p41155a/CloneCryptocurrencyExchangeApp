@@ -63,6 +63,13 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         currentPriceLabel.text = currentPrice
         changeRateLabel.text = changeRate
         changeAmountLabel.text = changeAmount
+        setColor(updown: UpDown(rawValue: changeAmount.first ?? "0") ?? .zero)
+    }
+    
+    func setColor(updown: UpDown) {
+        currentPriceLabel.textColor = updown.color
+        changeRateLabel.textColor = updown.color
+        changeAmountLabel.textColor = updown.color
     }
     
     /// 상단 탭에 연관되는 뷰컨트롤러를 ChildViewController로 설정
