@@ -21,4 +21,21 @@ class CandleStickIndentifier: Object {
         self.chartInterval = parameters.chartInterval.urlParameter
         self.paymentCurrency = parameters.paymentCurrency.value
     }
+
+    public static func ==(lhs: CandleStickIndentifier, rhs: CandleStickIndentifier) -> Bool {
+        return (
+            lhs.orderCurrency == rhs.orderCurrency &&
+            lhs.chartInterval == rhs.chartInterval &&
+            lhs.paymentCurrency == rhs.paymentCurrency
+        )
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let identifier = object as? CandleStickIndentifier else { return false }
+        return (identifier.orderCurrency == self.orderCurrency &&
+                identifier.chartInterval == self.chartInterval &&
+                identifier.paymentCurrency == self.paymentCurrency
+        )
+    }
+    
 }

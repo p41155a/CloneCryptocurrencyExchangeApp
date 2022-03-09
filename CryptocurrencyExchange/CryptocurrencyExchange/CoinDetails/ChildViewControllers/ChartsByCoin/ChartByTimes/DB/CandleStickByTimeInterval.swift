@@ -9,15 +9,15 @@ import Foundation
 import RealmSwift
 
 class CandleStickByTimeInterval: Object {
-    @Persisted var interval: TimeIntervalInChart
+    @Persisted var identifier: CandleStickIndentifier!
     @Persisted var lastUpdated: Double
     @Persisted var stickDatas: List<CandleStickData>
     
     convenience init(
-        interval: TimeIntervalInChart
+        parameters: CandleStickParameters
     ) {
         self.init()
-        self.interval = interval
+        self.identifier = CandleStickIndentifier(parameters: parameters)
         self.lastUpdated = 0
         self.stickDatas = List<CandleStickData>()
     }
