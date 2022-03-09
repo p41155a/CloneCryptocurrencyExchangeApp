@@ -60,4 +60,11 @@ class ChartByTimesViewModel: XIBInformation {
             }
         }
     }
+    
+    func candleStickData(at index: Int) -> CandleStickData? {
+        guard let datas = self.candleStickData.value else {
+            return nil
+        }
+        return datas[index]
+    }
 }
