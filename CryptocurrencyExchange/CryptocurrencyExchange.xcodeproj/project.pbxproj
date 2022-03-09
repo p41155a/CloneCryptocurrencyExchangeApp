@@ -16,11 +16,7 @@
 		9071202127D460FD0033B4A5 /* ConclusionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071201F27D460FD0033B4A5 /* ConclusionTableView.swift */; };
 		9071202227D460FD0033B4A5 /* ConclusionTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9071202027D460FD0033B4A5 /* ConclusionTableView.xib */; };
 		907F307F27D850970077FE2F /* CandleChartDataEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F307C27D850970077FE2F /* CandleChartDataEntries.swift */; };
-		907F308027D850970077FE2F /* ChartZoomFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F307D27D850970077FE2F /* ChartZoomFactor.swift */; };
 		907F308127D850970077FE2F /* BithumbCandleStickDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F307E27D850970077FE2F /* BithumbCandleStickDataSet.swift */; };
-		907F308327D8509D0077FE2F /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F308227D8509D0077FE2F /* ChartViewModel.swift */; };
-		907F308627D850A40077FE2F /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F308427D850A40077FE2F /* ChartView.swift */; };
-		907F308727D850A40077FE2F /* ChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 907F308527D850A40077FE2F /* ChartView.xib */; };
 		907F308927D850B70077FE2F /* CandleStickRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F308827D850B70077FE2F /* CandleStickRepository.swift */; };
 		909BEED527D112A500E4EE87 /* TradeDescriptionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909BEED427D112A500E4EE87 /* TradeDescriptionEntity.swift */; };
 		909BEED827D1148000E4EE87 /* OrderbookSheetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909BEED727D1148000E4EE87 /* OrderbookSheetEntity.swift */; };
@@ -351,6 +347,9 @@
 		904D1BED27D703FB009BB723 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				907F308427D850A40077FE2F /* ChartView.swift */,
+				907F308227D8509D0077FE2F /* ChartViewModel.swift */,
+				907F308527D850A40077FE2F /* ChartView.xib */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1298,7 +1297,6 @@
 				FFE7197727CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.xib in Resources */,
 				90E12E7827D251CC00373FF9 /* BuyQuantityViewCell.xib in Resources */,
 				90E12E7427D251B900373FF9 /* BuyPriceViewCell.xib in Resources */,
-				907F308727D850A40077FE2F /* ChartView.xib in Resources */,
 				90E12E7C27D251E600373FF9 /* SellPriceViewCell.xib in Resources */,
 				90E12EB627D335AF00373FF9 /* OrderbookViewController.xib in Resources */,
 				9B5A8ACB27D725AF00C2170F /* DateMarkerView.xib in Resources */,
@@ -1476,7 +1474,6 @@
 				FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */,
 				FF9D0CC427D59FC50074E861 /* CryptocurrencyListEnum.swift in Sources */,
 				9B16F5BB27D08CB9003DC9BC /* ChartByTimesViewModel.swift in Sources */,
-				9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */,
 				B4F2787127D4687600BEBFD2 /* BarChartByTimesView.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
 				90BC4A1927D47DD000F9D391 /* ConcludedQuantityTableViewCell.swift in Sources */,
@@ -1500,7 +1497,6 @@
 				FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */,
 				900B5C5927D4F7DA001DA6A1 /* OrderbookViewController+Extension.swift in Sources */,
 				FFE7196927CE0349008DF7B9 /* CryptocurrencyListViewController.swift in Sources */,
-				907F308627D850A40077FE2F /* ChartView.swift in Sources */,
 				909BEED527D112A500E4EE87 /* TradeDescriptionEntity.swift in Sources */,
 				B4B4CB9127D5DB73009F08D7 /* BithumbBarDataSet.swift in Sources */,
 				90E12E7F27D251FE00373FF9 /* SellQuantityViewCell.swift in Sources */,
@@ -1512,7 +1508,6 @@
 				FFE7197927CE0E95008DF7B9 /* UIView+Extension.swift in Sources */,
 				B4B4CB8D27D5CB86009F08D7 /* ChartViewUpdatable.swift in Sources */,
 				90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */,
-				907F308327D8509D0077FE2F /* ChartViewModel.swift in Sources */,
 				B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */,
 				FF9D0CCF27D667480074E861 /* AssetsStatusViewModel.swift in Sources */,
 				909BEED827D1148000E4EE87 /* OrderbookSheetEntity.swift in Sources */,
@@ -1704,7 +1699,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 886LX3G4KC;
+				DEVELOPMENT_TEAM = X6WTK8Z5MC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";
@@ -1736,7 +1731,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 886LX3G4KC;
+				DEVELOPMENT_TEAM = X6WTK8Z5MC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";
