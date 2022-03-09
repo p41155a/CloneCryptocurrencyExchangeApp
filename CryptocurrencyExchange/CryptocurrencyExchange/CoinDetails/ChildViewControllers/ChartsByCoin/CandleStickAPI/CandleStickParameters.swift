@@ -15,4 +15,8 @@ struct CandleStickParameters {
     func path() -> String {
         return "\(orderCurrency.value)_\(paymentCurrency.value)/\(chartInterval.urlParameter)"
     }
+    
+    func timeInterval() -> Double {
+        return chartInterval.timeInterval
+    }
 }

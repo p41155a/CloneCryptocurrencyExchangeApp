@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 protocol CandleStickChartRepository {
     func getCandleStickData(
@@ -19,7 +18,6 @@ protocol CandleStickChartRepository {
 ///  CandleStickAPIManager의 candleStick 메서드 호출
 ///  메서드 내에서 실제 API 호출
 class ProductionCandleStickRepository: CandleStickChartRepository {
-    let realm: Realm = try! Realm()
     let dbManager = CandleStickDBManager()
     
     /// 시간 간격별 캔들스틱 데이터 반환
@@ -62,7 +60,7 @@ extension ProductionCandleStickRepository {
         /// 해당 parameter에 해당하는 데이터가 저장되어 있지 않은 경우, realm에 추가
         guard let existingDatas = dbManager.existingData(with: parameter) else {
             dbManager.add(
-                data: data,
+                responseData: data,
                 parameters: parameter,
                 completion: completion
             )
@@ -78,22 +76,30 @@ extension ProductionCandleStickRepository {
     }
     
     /// DB에 저장되어 있는 캔들스틱 Data 반환
+    /// - Returns:
     func candleStickDatas(by parameter: CandleStickParameters) -> [CandleStickData]? {
         /// DB에 저장되어 있는 데이터가 없을 경우
         guard let candleStickDatas = dbManager.existingData(with: parameter) else {
-            print("없음")
             return nil
         }
         
         /// DB에 있는 데이터가 갱신이 필요할 경우
-        let timestampToUpdate = candleStickDatas.lastUpdated + parameter.chartInterval.timeInterval
-        let currentTimestamp = Date().timeIntervalSince1970
-        if timestampToUpdate < currentTimestamp {
-            print("DB에 있지만 갱신 필요")
+        if shouldUpdateNewCandleStick(
+            last: candleStickDatas.lastUpdated,
+            interavl: parameter.timeInterval()
+        ) {
             return nil
         }
     
-        print("DB 그대로")
         return candleStickDatas.stickDatas.map({$0})
+    }
+    
+    private func shouldUpdateNewCandleStick(
+        last lastUpdatedTimeInterval: Double,
+        interavl currentTimeInterval: Double
+    ) -> Bool {
+        let timeIntervalToUpdate = lastUpdatedTimeInterval + currentTimeInterval
+        let currentTimeInterval = Date().timeIntervalSince1970
+        return timeIntervalToUpdate < currentTimeInterval
     }
 }

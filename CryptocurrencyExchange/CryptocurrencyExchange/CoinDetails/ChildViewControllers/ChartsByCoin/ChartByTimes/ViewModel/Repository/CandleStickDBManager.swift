@@ -5,7 +5,6 @@
 //  Created by Dayeon Jung on 2022/03/09.
 //
 
-import Foundation
 import RealmSwift
 
 class CandleStickDBManager: DBAccessable {
@@ -24,14 +23,14 @@ class CandleStickDBManager: DBAccessable {
     }
     
     func add(
-        data: [[StickValue]],
+        responseData: [[StickValue]],
         parameters: CandleStickParameters,
         completion: @escaping ([CandleStickData]?) -> Void
     ) {
         let sticksByTimeInterval = CandleStickByTimeInterval(
             parameters: parameters
         )
-        let candleStickDatas = data.map { stickValues -> CandleStickData in
+        let candleStickDatas = responseData.map { stickValues -> CandleStickData in
             let data = CandleStickData(values: stickValues)
             sticksByTimeInterval.stickDatas.append(data)
             return data
@@ -39,7 +38,6 @@ class CandleStickDBManager: DBAccessable {
         sticksByTimeInterval.lastUpdated = candleStickDatas.last?.time ?? 0
         
         add(data: sticksByTimeInterval) { savedDatas in
-            print("DB에 새로운 데이터 추가")
             completion(candleStickDatas)
         }
     }
@@ -62,7 +60,6 @@ class CandleStickDBManager: DBAccessable {
             })
             existingDatas.lastUpdated = candleStickDatas.last?.time ?? 0
         }) {
-            print("NEW DB에 업데이트")
             completion(candleStickDatas)
         }
     }
