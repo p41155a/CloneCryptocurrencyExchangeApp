@@ -70,22 +70,13 @@ extension ProductionCandleStickRepository {
         }
         
         /// 해당 intervalType에 해당하는 데이터가 저장되어 있는 경우, 기존 데이터에  업데이트
-        try! realm.write {
-            var candleStickDataList = existingDatas.stickDatas
-            candleStickDataList = List<CandleStickData>()
-            
-            let candleStickDatas = data.map({ stickValues -> CandleStickData in
-                let data = CandleStickData(values: stickValues)
-                candleStickDataList.append(data)
-                return data
-            })
-            existingDatas.lastUpdated = candleStickDatas.last?.time ?? 0
-            print("DB에 업데이트")
-            completion(candleStickDatas)
-        }
+        dbManager.update(
+            stickValuesArr: data,
+            existingDatas: existingDatas,
+            completion: completion
+        )
     }
     
-            print("DB에 새로운 데이터 추가")
     /// DB에 저장되어 있는 캔들스틱 Data 반환
     func candleStickDatas(by parameter: CandleStickParameters) -> [CandleStickData]? {
         /// DB에 저장되어 있는 데이터가 없을 경우

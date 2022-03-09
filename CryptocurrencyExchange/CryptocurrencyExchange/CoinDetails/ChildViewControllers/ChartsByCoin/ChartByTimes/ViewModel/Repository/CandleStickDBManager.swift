@@ -39,6 +39,30 @@ class CandleStickDBManager: DBAccessable {
         sticksByTimeInterval.lastUpdated = candleStickDatas.last?.time ?? 0
         
         add(data: sticksByTimeInterval) { savedDatas in
+            print("DB에 새로운 데이터 추가")
+            completion(candleStickDatas)
+        }
+    }
+    
+    func update(
+        stickValuesArr: [[StickValue]],
+        existingDatas: T,
+        completion: @escaping ([CandleStickData]) -> Void
+    ) {
+        var candleStickDatas = [CandleStickData]()
+        
+        update(block: {
+            var candleStickDataList = existingDatas.stickDatas
+            candleStickDataList = List<CandleStickData>()
+            
+           candleStickDatas = stickValuesArr.map({ stickValues -> CandleStickData in
+                let data = CandleStickData(values: stickValues)
+                candleStickDataList.append(data)
+                return data
+            })
+            existingDatas.lastUpdated = candleStickDatas.last?.time ?? 0
+        }) {
+            print("NEW DB에 업데이트")
             completion(candleStickDatas)
         }
     }
