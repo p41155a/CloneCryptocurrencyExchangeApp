@@ -234,8 +234,8 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentName = viewModel.currentList.value[indexPath.row].0
-        let paymentCurrency = viewModel.currentList.value[indexPath.row].1
+        let currentName = viewModel.currentList.value[indexPath.row].currencyName
+        let paymentCurrency = viewModel.currentList.value[indexPath.row].payment
         let coinDetailViewController = CoinDetailsViewController(
             viewModel: CoinDetailsViewModel(
                 nibName: "CoinDetailsViewController",
