@@ -20,6 +20,7 @@ protocol CandleStickChartRepository {
 ///  메서드 내에서 실제 API 호출
 class ProductionCandleStickRepository: CandleStickChartRepository {
     let realm: Realm = try! Realm()
+    let dbManager = CandleStickDBManager()
     
     /// 시간 간격별 캔들스틱 데이터 반환
     /// DB에 저장되어 있는 해당 시간 간격의 데이터가 있을 경우: DB 데이터 반환
@@ -58,18 +59,8 @@ extension ProductionCandleStickRepository {
         parameter: CandleStickParameters,
         completion: @escaping ([CandleStickData]?) -> Void
     ) {
-        let candleSticByInterval = realm.objects(CandleStickByTimeInterval.self).where { candleStick in
-            let id = candleStick.identifier
-            let idFromParam = CandleStickIndentifier(parameters: parameter)
-            return (id.orderCurrency == idFromParam.orderCurrency &&
-                    id.chartInterval == idFromParam.chartInterval &&
-                    id.paymentCurrency == idFromParam.paymentCurrency
-            )
-
-        }.first
-        
-        /// 해당 intervalType에 해당하는 데이터가 저장되어 있지 않은 경우, realm에 추가
-        guard let existingDatas = candleSticByInterval else {
+        /// 해당 parameter에 해당하는 데이터가 저장되어 있지 않은 경우, realm에 추가
+        guard let existingDatas = dbManager.existingData(with: parameter) else {
             addNewCandleStickDataToRealmDB(
                 with: data,
                 parameters: parameter,
@@ -89,6 +80,7 @@ extension ProductionCandleStickRepository {
                 return data
             })
             existingDatas.lastUpdated = candleStickDatas.last?.time ?? 0
+            print("DB에 업데이트")
             completion(candleStickDatas)
         }
     }
@@ -109,25 +101,16 @@ extension ProductionCandleStickRepository {
             }
             sticksByTimeInterval.lastUpdated = candleStickDatas.last?.time ?? 0
             realm.add(sticksByTimeInterval)
+            print("DB에 새로운 데이터 추가")
             completion(candleStickDatas)
         }
     }
     
     /// DB에 저장되어 있는 캔들스틱 Data 반환
     func candleStickDatas(by parameter: CandleStickParameters) -> [CandleStickData]? {
-        let candleSticks = realm.objects(CandleStickByTimeInterval.self)
-        
-        let candleSticByInterval = candleSticks.where { candleStick in
-            let id = candleStick.identifier
-            let idFromParam = CandleStickIndentifier(parameters: parameter)
-            return (id.orderCurrency == idFromParam.orderCurrency &&
-                    id.chartInterval == idFromParam.chartInterval &&
-                    id.paymentCurrency == idFromParam.paymentCurrency
-            )
-        }.first
-        
         /// DB에 저장되어 있는 데이터가 없을 경우
-        guard let candleStickDatas = candleSticByInterval else {
+        guard let candleStickDatas = dbManager.existingData(with: parameter) else {
+            print("없음")
             return nil
         }
         
@@ -135,9 +118,11 @@ extension ProductionCandleStickRepository {
         let timestampToUpdate = candleStickDatas.lastUpdated + parameter.chartInterval.timeInterval
         let currentTimestamp = Date().timeIntervalSince1970
         if timestampToUpdate < currentTimestamp {
+            print("DB에 있지만 갱신 필요")
             return nil
         }
     
+        print("DB 그대로")
         return candleStickDatas.stickDatas.map({$0})
     }
 }
