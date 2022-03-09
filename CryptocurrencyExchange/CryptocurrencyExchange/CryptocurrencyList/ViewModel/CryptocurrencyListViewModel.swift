@@ -44,6 +44,19 @@ final class CryptocurrencyListViewModel: XIBInformation {
         }
     }
     
+    func getSymbols(for payment: PaymentCurrency) -> [String] {
+        switch payment {
+        case .KRW:
+            return tabKRWList.map {
+                "\($0.currencyName)_KRW"
+            }
+        case .BTC:
+            return tabBTCList.map {
+                "\($0.currencyName)_BTC"
+            }
+        }
+    }
+    
     // MARK: WebSocket 데이터 설정
     func setWebSocketData(with entity: WebSocketTickerEntity) {
         let tickerInfo = entity.content
@@ -51,6 +64,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
         let currencyName = splitedSymbol[0]
         let payment = splitedSymbol[1]
         
+        /// 변경된 값이 현재 탭에 있는 값일때
         for (index, paymentInfo) in currentList.value.enumerated() {
             if paymentInfo.currencyName == currencyName {
                 changeIndex.value = index
