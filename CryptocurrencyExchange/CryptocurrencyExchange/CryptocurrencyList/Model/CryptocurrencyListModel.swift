@@ -30,14 +30,16 @@ class CryptocurrencyListModel {
         }
     }
     
-    func setWebSocketData(order: String, payment: PaymentCurrency, tickerInfo: WebSocketTickerContent) {
+    func setWebSocketData(order: String,
+                          payment: PaymentCurrency,
+                          tickerInfo: WebSocketTickerContent) {
         tickerKRWList[order] = CryptocurrencyListTableViewEntity(order: order,
-                                                                             payment: payment,
-                                                                             currentPrice: tickerInfo.closePrice.doubleValue ?? 0,
-                                                                             changeRate: tickerInfo.chgRate.doubleValue ?? 0,
-                                                                             changeAmount: tickerInfo.chgAmt,
-                                                                             transactionAmount: tickerInfo.value.doubleValue ?? 0,
-                                                                             volumePower: tickerInfo.volumePower)
+                                                                 payment: payment,
+                                                                 currentPrice: tickerInfo.closePrice.doubleValue ?? 0,
+                                                                 changeRate: tickerInfo.chgRate.doubleValue ?? 0,
+                                                                 changeAmount: tickerInfo.chgAmt,
+                                                                 transactionAmount: tickerInfo.value.doubleValue ?? 0,
+                                                                 volumePower: tickerInfo.volumePower)
     }
     
     // MARK: about Interest
@@ -49,7 +51,7 @@ class CryptocurrencyListModel {
             let order = splitedSymbol[0]
             let payment = splitedSymbol[1]
             return CryptocurrencySymbolInfo(order: order,
-                                             payment: .init(rawValue: payment) ?? .KRW)
+                                            payment: .init(rawValue: payment) ?? .KRW)
         }
     }
     
@@ -64,7 +66,8 @@ class CryptocurrencyListModel {
         }[0..<5])
     }
     
-    func getSearchedList(for tap: MainListCurrentTab, word: String) -> [CryptocurrencySymbolInfo] {
+    func getSearchedList(for tap: MainListCurrentTab,
+                         word: String) -> [CryptocurrencySymbolInfo] {
         switch tap {
         case .tabKRW:
             return tabKRWList.filter { word == "" ? true : $0.order.lowercased().contains(word.lowercased()) }
@@ -77,31 +80,41 @@ class CryptocurrencyListModel {
         }
     }
     
-    func sortList(orderBy: OrderBy, standard: MainListSortStandard, list: [CryptocurrencySymbolInfo]) -> [CryptocurrencySymbolInfo] {
+    func sortList(orderBy: OrderBy,
+                  standard: MainListSortStandard,
+                  list: [CryptocurrencySymbolInfo]) -> [CryptocurrencySymbolInfo] {
         return list.sorted {
             let frontData = $0.payment == .KRW ? tickerKRWList[$0.order] : tickerBTCList[$0.order]
             let backData = $0.payment == .KRW ? tickerKRWList[$1.order] : tickerBTCList[$1.order]
             switch standard {
             case .currencyName:
-                return order(orderBy: orderBy, frontData: $0.order, backData: $1.order)
+                return order(orderBy: orderBy,
+                             frontData: $0.order,
+                             backData: $1.order)
             case .currentPrice:
                 guard let frontCurrentPrice = frontData?.currentPrice,
                       let backCurrentPrice = backData?.currentPrice else {
                           return true
                       }
-                return order(orderBy: orderBy, frontData: frontCurrentPrice, backData: backCurrentPrice)
+                return order(orderBy: orderBy,
+                             frontData: frontCurrentPrice,
+                             backData: backCurrentPrice)
             case .changeRate:
                 guard let frontChangeRate = frontData?.changeRate,
                       let backChangeRate = backData?.changeRate else {
                           return true
                       }
-                return order(orderBy: orderBy, frontData: frontChangeRate, backData: backChangeRate)
+                return order(orderBy: orderBy,
+                             frontData: frontChangeRate,
+                             backData: backChangeRate)
             case .transaction:
                 guard let frontTransactionAmount = frontData?.transactionAmount,
                       let backTransactionAmount = backData?.transactionAmount else {
                           return true
                       }
-                return order(orderBy: orderBy, frontData: frontTransactionAmount, backData: backTransactionAmount)
+                return order(orderBy: orderBy,
+                             frontData: frontTransactionAmount,
+                             backData: backTransactionAmount)
             }
         }
     }
@@ -115,7 +128,10 @@ class CryptocurrencyListModel {
         }
     }
     
-    func setAPIData(of data: TickerEntity, payment: PaymentCurrency, sortInfo: SortInfo, _ completion: @escaping () -> ()) {
+    func setAPIData(of data: TickerEntity,
+                    payment: PaymentCurrency,
+                    sortInfo: SortInfo,
+                    _ completion: @escaping () -> ()) {
         let cryptocurrencyData = data.ordersInfo.orderInfo
         var tickerList: [String: CryptocurrencyListTableViewEntity] = [:]
         var symbolsList: [CryptocurrencySymbolInfo] = []
@@ -123,7 +139,7 @@ class CryptocurrencyListModel {
             let order = data.key
             let tickerInfo = data.value
             let paymentInfo = CryptocurrencySymbolInfo(order: order,
-                                                        payment: payment)
+                                                       payment: payment)
             let tableData = CryptocurrencyListTableViewEntity(order: tickerInfo.currentName ?? "",
                                                               payment: payment,
                                                               currentPrice: tickerInfo.closingPrice?.doubleValue ?? 0,
