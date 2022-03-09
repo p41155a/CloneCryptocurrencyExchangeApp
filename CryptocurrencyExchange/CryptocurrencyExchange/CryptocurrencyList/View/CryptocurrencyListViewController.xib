@@ -39,10 +39,13 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="XV8-Uf-X11">
                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="코인 심볼 검색" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7tJ-T3-ppE">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="코인 심볼 검색" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="7tJ-T3-ppE">
                             <rect key="frame" x="44" y="0.0" width="310" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="RZx-66-Adp"/>
+                            </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMv-Pu-T5G">
                             <rect key="frame" x="354" y="0.0" width="44" height="44"/>
@@ -71,31 +74,29 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T5F-eX-gJb">
                     <rect key="frame" x="8" y="104" width="264" height="40"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxN-dh-Kvp" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxN-dh-Kvp" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="uio-Th-PsR"/>
                             </constraints>
                             <color key="tintColor" name="darkgrayColor"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="원화">
-                                <color key="titleColor" name="darkgrayColor"/>
-                            </state>
+                            <state key="normal" title="원화"/>
                             <buttonConfiguration key="configuration" style="plain" title="원화"/>
                         </button>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9n-OE-W8x" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9n-OE-W8x" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                             <rect key="frame" x="68" y="0.0" width="60" height="40"/>
                             <color key="tintColor" name="darkgrayColor"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="BTC"/>
                         </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pF-CZ-U1o" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pF-CZ-U1o" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                             <rect key="frame" x="136" y="0.0" width="60" height="40"/>
                             <color key="tintColor" name="darkgrayColor"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="관심"/>
                         </button>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waR-2b-xDR" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waR-2b-xDR" customClass="TabButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                             <rect key="frame" x="204" y="0.0" width="60" height="40"/>
                             <color key="tintColor" name="darkgrayColor"/>
                             <state key="normal" title="Button"/>
@@ -110,10 +111,10 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zy4-Oi-AuI">
-                    <rect key="frame" x="8" y="144" width="398" height="752"/>
+                    <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                     <subviews>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기순은 차례대로 5위까지의 순서입니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zZ-eS-Z17">
-                            <rect key="frame" x="0.0" y="-44" width="398" height="44"/>
+                            <rect key="frame" x="0.0" y="-44" width="414" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="9Fy-iU-V4N"/>
                             </constraints>
@@ -122,13 +123,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VnI-EY-7ar">
-                            <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMb-ic-yqe">
-                                    <rect key="frame" x="0.0" y="0.0" width="101" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="109" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52v-XZ-7qb" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="85" height="44"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52v-XZ-7qb" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="0.0" width="85" height="44"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="가산자산명"/>
                                         </button>
@@ -138,13 +139,13 @@
                                         <constraint firstAttribute="bottom" secondItem="52v-XZ-7qb" secondAttribute="bottom" id="mBk-oB-YND"/>
                                         <constraint firstItem="52v-XZ-7qb" firstAttribute="top" secondItem="eMb-ic-yqe" secondAttribute="top" id="oWN-YY-CWT"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="52v-XZ-7qb" secondAttribute="trailing" id="xvW-IB-CU8"/>
-                                        <constraint firstItem="52v-XZ-7qb" firstAttribute="leading" secondItem="eMb-ic-yqe" secondAttribute="leading" id="zkN-UC-nz9"/>
+                                        <constraint firstItem="52v-XZ-7qb" firstAttribute="leading" secondItem="eMb-ic-yqe" secondAttribute="leading" constant="8" id="zkN-UC-nz9"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-M4-lGt">
-                                    <rect key="frame" x="101" y="0.0" width="90" height="44"/>
+                                    <rect key="frame" x="109" y="0.0" width="90" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6H4-rP-fmB" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6H4-rP-fmB" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                             <rect key="frame" x="29.5" y="0.0" width="60.5" height="44"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="현재가"/>
@@ -160,9 +161,9 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-Un-AHa">
-                                    <rect key="frame" x="191" y="0.0" width="80" height="44"/>
+                                    <rect key="frame" x="199" y="0.0" width="80" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSw-pV-yST" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSw-pV-yST" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                             <rect key="frame" x="19.5" y="0.0" width="60.5" height="44"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="변동률"/>
@@ -178,9 +179,9 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvZ-xi-qxX">
-                                    <rect key="frame" x="271" y="0.0" width="95" height="44"/>
+                                    <rect key="frame" x="279" y="0.0" width="95" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZa-Jh-B0T" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZa-Jh-B0T" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                             <rect key="frame" x="22.5" y="0.0" width="72.5" height="44"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="거래금액"/>
@@ -196,10 +197,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srq-zi-mia">
-                                    <rect key="frame" x="366" y="0.0" width="32" height="44"/>
+                                    <rect key="frame" x="374" y="0.0" width="40" height="44"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="32" id="ZaS-9K-gp9"/>
+                                        <constraint firstAttribute="width" constant="40" id="ZaS-9K-gp9"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -208,10 +209,10 @@
                             </constraints>
                         </stackView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a9u-Rf-bAU">
-                            <rect key="frame" x="0.0" y="44" width="398" height="708"/>
+                            <rect key="frame" x="0.0" y="44" width="414" height="708"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <connections>
-                                <outlet property="dataSource" destination="-1" id="KnI-5Q-VTM"/>
+                                <outlet property="dataSource" destination="-1" id="1af-vT-LKo"/>
                                 <outlet property="delegate" destination="-1" id="hIY-10-vlF"/>
                             </connections>
                         </tableView>
@@ -222,10 +223,10 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="T5F-eX-gJb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="3Ea-r1-Wft"/>
-                <constraint firstItem="Zy4-Oi-AuI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Nua-IF-vfr"/>
+                <constraint firstItem="Zy4-Oi-AuI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Nua-IF-vfr"/>
                 <constraint firstItem="T5F-eX-gJb" firstAttribute="top" secondItem="rC5-2m-7Op" secondAttribute="bottom" constant="16" id="U4H-rx-vom"/>
                 <constraint firstItem="rC5-2m-7Op" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZcZ-6V-kyu"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zy4-Oi-AuI" secondAttribute="trailing" constant="8" id="o6T-Iz-Cft"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zy4-Oi-AuI" secondAttribute="trailing" id="o6T-Iz-Cft"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rC5-2m-7Op" secondAttribute="trailing" constant="8" id="orT-cG-ZHp"/>
                 <constraint firstItem="Zy4-Oi-AuI" firstAttribute="top" secondItem="T5F-eX-gJb" secondAttribute="bottom" id="r2f-gx-URr"/>
                 <constraint firstAttribute="bottom" secondItem="Zy4-Oi-AuI" secondAttribute="bottom" id="ueY-3G-Xyc"/>

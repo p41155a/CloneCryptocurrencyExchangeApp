@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,16 +22,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="412" height="61"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSj-Ws-xdr">
-                                <rect key="frame" x="0.0" y="0.0" width="115" height="61"/>
+                                <rect key="frame" x="0.0" y="0.0" width="107" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카리나코인" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehy-q9-OOX">
-                                        <rect key="frame" x="0.0" y="12" width="115" height="16"/>
+                                        <rect key="frame" x="8" y="12" width="99" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="titleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KRW" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x6-Qr-8lA">
-                                        <rect key="frame" x="0.0" y="35.5" width="115" height="13.5"/>
+                                        <rect key="frame" x="8" y="35.5" width="99" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" name="contourColor"/>
                                         <nil key="highlightedColor"/>
@@ -42,14 +41,14 @@
                                 <constraints>
                                     <constraint firstItem="ehy-q9-OOX" firstAttribute="top" secondItem="RSj-Ws-xdr" secondAttribute="top" constant="12" id="7Rv-fo-vuM"/>
                                     <constraint firstAttribute="trailing" secondItem="ehy-q9-OOX" secondAttribute="trailing" id="GTu-dD-co8"/>
-                                    <constraint firstItem="6x6-Qr-8lA" firstAttribute="leading" secondItem="RSj-Ws-xdr" secondAttribute="leading" id="IeW-Fa-Uy5"/>
-                                    <constraint firstItem="ehy-q9-OOX" firstAttribute="leading" secondItem="RSj-Ws-xdr" secondAttribute="leading" id="Ph4-wn-Kkx"/>
+                                    <constraint firstItem="6x6-Qr-8lA" firstAttribute="leading" secondItem="RSj-Ws-xdr" secondAttribute="leading" constant="8" id="IeW-Fa-Uy5"/>
+                                    <constraint firstItem="ehy-q9-OOX" firstAttribute="leading" secondItem="RSj-Ws-xdr" secondAttribute="leading" constant="8" id="Ph4-wn-Kkx"/>
                                     <constraint firstAttribute="bottom" secondItem="6x6-Qr-8lA" secondAttribute="bottom" constant="12" id="QVt-n9-5fB"/>
                                     <constraint firstAttribute="trailing" secondItem="6x6-Qr-8lA" secondAttribute="trailing" id="lvu-gy-Zo1"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZh-1B-jaQ">
-                                <rect key="frame" x="115" y="0.0" width="90" height="61"/>
+                                <rect key="frame" x="107" y="0.0" width="90" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="51,738,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mg0-dN-FRq">
                                         <rect key="frame" x="0.0" y="12" width="90" height="16"/>
@@ -76,7 +75,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEj-1Y-By1">
-                                <rect key="frame" x="205" y="0.0" width="80" height="61"/>
+                                <rect key="frame" x="197" y="0.0" width="80" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+122.00%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H54-Nd-PtX">
                                         <rect key="frame" x="0.0" y="12" width="80" height="16"/>
@@ -94,7 +93,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bl2-zU-Rbf">
-                                <rect key="frame" x="285" y="0.0" width="95" height="61"/>
+                                <rect key="frame" x="277" y="0.0" width="95" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cB6-uI-55O">
                                         <rect key="frame" x="0.0" y="49" width="95" height="0.0"/>
@@ -121,7 +120,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9L9-4C-gdH">
-                                <rect key="frame" x="380" y="0.0" width="32" height="61"/>
+                                <rect key="frame" x="372" y="0.0" width="40" height="61"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNN-4z-4gq" customClass="StarButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                         <rect key="frame" x="4" y="16.5" width="28" height="28"/>
@@ -136,11 +135,11 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="NNN-4z-4gq" firstAttribute="leading" secondItem="9L9-4C-gdH" secondAttribute="leading" constant="4" id="B3S-fm-qUT"/>
                                     <constraint firstItem="NNN-4z-4gq" firstAttribute="centerY" secondItem="9L9-4C-gdH" secondAttribute="centerY" id="Qfk-4c-aSM"/>
-                                    <constraint firstAttribute="trailing" secondItem="NNN-4z-4gq" secondAttribute="trailing" id="fg4-JL-jEv"/>
+                                    <constraint firstAttribute="trailing" secondItem="NNN-4z-4gq" secondAttribute="trailing" constant="8" id="fg4-JL-jEv"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -194,8 +193,5 @@
         <namedColor name="titleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
