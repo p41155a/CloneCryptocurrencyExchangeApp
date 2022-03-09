@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343BD189A438152A91A2A7EE /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3783BE8AD122EEBCA11AAE /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework */; };
 		900B5C5427D4A10C001DA6A1 /* BuyQuantityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900B5C5327D4A10C001DA6A1 /* BuyQuantityViewCell.swift */; };
 		900B5C5627D4A16B001DA6A1 /* BuyPriceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900B5C5527D4A16B001DA6A1 /* BuyPriceViewCell.swift */; };
 		900B5C5927D4F7DA001DA6A1 /* OrderbookViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900B5C5827D4F7D9001DA6A1 /* OrderbookViewController+Extension.swift */; };
@@ -37,7 +38,7 @@
 		90E12EA127D274AD00373FF9 /* BottomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E9F27D274AD00373FF9 /* BottomViewCell.xib */; };
 		90E12EB527D335AF00373FF9 /* OrderbookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12EB327D335AF00373FF9 /* OrderbookViewController.swift */; };
 		90E12EB627D335AF00373FF9 /* OrderbookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E12EB427D335AF00373FF9 /* OrderbookViewController.xib */; };
-		9A9CF3AD00AD99E79CBCED09 /* Pods_CryptocurrencyExchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB8F3066FC7DD384CCBC6D0 /* Pods_CryptocurrencyExchange.framework */; };
+		90E8B15027D87AC300185420 /* SpreadsheetView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E8B14F27D87AC300185420 /* SpreadsheetView.framework */; };
 		9B16F5B827D08C26003DC9BC /* ChartByTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */; };
 		9B16F5B927D08C26003DC9BC /* ChartByTimesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */; };
 		9B16F5BB27D08CB9003DC9BC /* ChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */; };
@@ -84,7 +85,8 @@
 		B4F2787127D4687600BEBFD2 /* BarChartByTimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */; };
 		B4F2787427D47E0400BEBFD2 /* BarChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */; };
 		B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */; };
-		EDCFD65469C27236139337F8 /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06048D9DCE94D9D66ABFD58E /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework */; };
+		C3ED1C4F6755A92E42767A92 /* Pods_CryptocurrencyExchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53689E854B18B0BCF3104FE4 /* Pods_CryptocurrencyExchange.framework */; };
+		D4DCDB18E48F5D8A101A86A2 /* Pods_CryptocurrencyExchangeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06FBB06517257E2134F2C96D /* Pods_CryptocurrencyExchangeTests.framework */; };
 		FF10FD7727D860A00080C5B5 /* CryptocurrencyTabList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10FD7627D860A00080C5B5 /* CryptocurrencyTabList.swift */; };
 		FF10FD7B27D8702F0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10FD7A27D8702E0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift */; };
 		FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */; };
@@ -155,14 +157,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06FBB06517257E2134F2C96D /* Pods_CryptocurrencyExchangeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptocurrencyExchangeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C0AB0705D5C521A2B889730 /* Pods-CryptocurrencyExchangeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchangeTests.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchangeTests/Pods-CryptocurrencyExchangeTests.release.xcconfig"; sourceTree = "<group>"; };
 		4C3783BE8AD122EEBCA11AAE /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53689E854B18B0BCF3104FE4 /* Pods_CryptocurrencyExchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptocurrencyExchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		799965B034B768A26282A711 /* Pods-CryptocurrencyExchangeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchangeTests.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchangeTests/Pods-CryptocurrencyExchangeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E4C31929F86CB6C621CECFB /* Pods-CryptocurrencyExchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange.debug.xcconfig"; sourceTree = "<group>"; };
 		900B5C5327D4A10C001DA6A1 /* BuyQuantityViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyQuantityViewCell.swift; sourceTree = "<group>"; };
 		900B5C5527D4A16B001DA6A1 /* BuyPriceViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyPriceViewCell.swift; sourceTree = "<group>"; };
 		900B5C5827D4F7D9001DA6A1 /* OrderbookViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderbookViewController+Extension.swift"; sourceTree = "<group>"; };
-		9049359C27D85CC500DD95CA /* CryptocurrencyExchange copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CryptocurrencyExchange copy-Info.plist"; path = "/Users/derrickkim/Documents/GitHub.nosync/CloneCryptocurrencyExchangeApp/CryptocurrencyExchange/CryptocurrencyExchange copy-Info.plist"; sourceTree = "<absolute>"; };
 		904D1BE827D63D6E009BB723 /* Decoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoded.swift; sourceTree = "<group>"; };
 		9071201B27D44C160033B4A5 /* ConclusionTableViewEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionTableViewEntity.swift; sourceTree = "<group>"; };
 		9071201F27D460FD0033B4A5 /* ConclusionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionTableView.swift; sourceTree = "<group>"; };
@@ -170,9 +173,6 @@
 		907F307C27D850970077FE2F /* CandleChartDataEntries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandleChartDataEntries.swift; sourceTree = "<group>"; };
 		907F307D27D850970077FE2F /* ChartZoomFactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartZoomFactor.swift; sourceTree = "<group>"; };
 		907F307E27D850970077FE2F /* BithumbCandleStickDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BithumbCandleStickDataSet.swift; sourceTree = "<group>"; };
-		907F308227D8509D0077FE2F /* ChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
-		907F308427D850A40077FE2F /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
-		907F308527D850A40077FE2F /* ChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartView.xib; sourceTree = "<group>"; };
 		907F308827D850B70077FE2F /* CandleStickRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandleStickRepository.swift; sourceTree = "<group>"; };
 		909BEED427D112A500E4EE87 /* TradeDescriptionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeDescriptionEntity.swift; sourceTree = "<group>"; };
 		909BEED727D1148000E4EE87 /* OrderbookSheetEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookSheetEntity.swift; sourceTree = "<group>"; };
@@ -194,6 +194,7 @@
 		90E12E9F27D274AD00373FF9 /* BottomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomViewCell.xib; sourceTree = "<group>"; };
 		90E12EB327D335AF00373FF9 /* OrderbookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookViewController.swift; sourceTree = "<group>"; };
 		90E12EB427D335AF00373FF9 /* OrderbookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderbookViewController.xib; sourceTree = "<group>"; };
+		90E8B14F27D87AC300185420 /* SpreadsheetView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SpreadsheetView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D36414EB42BFEC256DD792 /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B16F5B627D08C26003DC9BC /* ChartByTimesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartByTimesViewController.swift; sourceTree = "<group>"; };
 		9B16F5B727D08C26003DC9BC /* ChartByTimesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartByTimesViewController.xib; sourceTree = "<group>"; };
@@ -207,6 +208,7 @@
 		9B778C6427CF14350009D343 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		9B778C6E27CF3D1D0009D343 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		9B778C7527CF4EB40009D343 /* MockCandleStickRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCandleStickRepository.swift; sourceTree = "<group>"; };
+		A0F0305E293B57C3230D288F /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests/Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B4471E5527CFB47100668B64 /* CoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewController.swift; sourceTree = "<group>"; };
 		B4471E5627CFB47100668B64 /* CoinDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinDetailsViewController.xib; sourceTree = "<group>"; };
 		B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -240,8 +242,7 @@
 		B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartByTimesView.swift; sourceTree = "<group>"; };
 		B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartByTimesViewModel.swift; sourceTree = "<group>"; };
 		B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInjectingViewModel.swift; sourceTree = "<group>"; };
-		EE86B47D3BAF18DE190AF792 /* Pods-CryptocurrencyExchangeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchangeTests.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchangeTests/Pods-CryptocurrencyExchangeTests.release.xcconfig"; sourceTree = "<group>"; };
-		F19B2A7442316AB646DD3F53 /* Pods-CryptocurrencyExchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange.debug.xcconfig"; sourceTree = "<group>"; };
+		F449EE93030F95A589BCA5C7 /* Pods-CryptocurrencyExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange.release.xcconfig"; sourceTree = "<group>"; };
 		FF10FD7627D860A00080C5B5 /* CryptocurrencyTabList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyTabList.swift; sourceTree = "<group>"; };
 		FF10FD7A27D8702E0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrypocurrencyListTableViewCellProtocol.swift; sourceTree = "<group>"; };
 		FF19E1E827C628DD00DBD52D /* CryptocurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptocurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -299,12 +300,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90E8B15027D87AC300185420 /* SpreadsheetView.framework in Frameworks */,
 				FF19E22027C62B8700DBD52D /* Kingfisher in Frameworks */,
 				FF19E21D27C62A9A00DBD52D /* Alamofire in Frameworks */,
 				FF19E22327C62BA000DBD52D /* Starscream in Frameworks */,
 				9B16F5C227D0B939003DC9BC /* RealmSwift in Frameworks */,
 				FF19E22627C62BC900DBD52D /* Charts in Frameworks */,
-				9A9CF3AD00AD99E79CBCED09 /* Pods_CryptocurrencyExchange.framework in Frameworks */,
+				C3ED1C4F6755A92E42767A92 /* Pods_CryptocurrencyExchange.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +314,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B675DF7D72481F034A661A4 /* Pods_CryptocurrencyExchangeTests.framework in Frameworks */,
+				D4DCDB18E48F5D8A101A86A2 /* Pods_CryptocurrencyExchangeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +322,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE240AA2A319C9E588A5807C /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework in Frameworks */,
+				343BD189A438152A91A2A7EE /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,9 +332,10 @@
 		30EEA8B71C4D7CD6F8773BC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ECB8F3066FC7DD384CCBC6D0 /* Pods_CryptocurrencyExchange.framework */,
+				90E8B14F27D87AC300185420 /* SpreadsheetView.framework */,
 				4C3783BE8AD122EEBCA11AAE /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework */,
-				B6A7409CBB166998A19C8BE8 /* Pods_CryptocurrencyExchangeTests.framework */,
+				53689E854B18B0BCF3104FE4 /* Pods_CryptocurrencyExchange.framework */,
+				06FBB06517257E2134F2C96D /* Pods_CryptocurrencyExchangeTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -348,9 +351,6 @@
 		904D1BED27D703FB009BB723 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				907F308427D850A40077FE2F /* ChartView.swift */,
-				907F308227D8509D0077FE2F /* ChartViewModel.swift */,
-				907F308527D850A40077FE2F /* ChartView.xib */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -909,11 +909,11 @@
 			isa = PBXGroup;
 			children = (
 				8E4C31929F86CB6C621CECFB /* Pods-CryptocurrencyExchange.debug.xcconfig */,
-				E84B8AE19C4C81F5116FA867 /* Pods-CryptocurrencyExchange.release.xcconfig */,
 				99D36414EB42BFEC256DD792 /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.debug.xcconfig */,
-				E667671995AE2E515543FFBD /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.release.xcconfig */,
 				799965B034B768A26282A711 /* Pods-CryptocurrencyExchangeTests.debug.xcconfig */,
 				4C0AB0705D5C521A2B889730 /* Pods-CryptocurrencyExchangeTests.release.xcconfig */,
+				F449EE93030F95A589BCA5C7 /* Pods-CryptocurrencyExchange.release.xcconfig */,
+				A0F0305E293B57C3230D288F /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -928,7 +928,6 @@
 				EC5B631D48BD412919773915 /* Pods */,
 				904D1BED27D703FB009BB723 /* Recovered References */,
 				30EEA8B71C4D7CD6F8773BC4 /* Frameworks */,
-				9049359C27D85CC500DD95CA /* CryptocurrencyExchange copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1295,7 +1294,6 @@
 				FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */,
 				9B16F5B927D08C26003DC9BC /* ChartByTimesViewController.xib in Resources */,
 				B4BC4E9927CE012400DE19EC /* CandleStickChartByTimesView.xib in Resources */,
-				B4BC4E9927CE012400DE19EC /* CandleStickChartByTimesView.xib in Resources */,
 				FFB2EFDA27D342EC00944E97 /* CrypocurrencyBTCListTableViewCell.xib in Resources */,
 				FFE7197727CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.xib in Resources */,
 				90E12E7827D251CC00373FF9 /* BuyQuantityViewCell.xib in Resources */,
@@ -1439,7 +1437,6 @@
 				FF19E28D27C8DB3600DBD52D /* AssetsAPIManager.swift in Sources */,
 				B4BC4E9727CE00F600DE19EC /* CandleStickChartByTimesView.swift in Sources */,
 				B4B4CB8F27D5D992009F08D7 /* BarChartDataEntries.swift in Sources */,
-				B4BC4E9727CE00F600DE19EC /* CandleStickChartByTimesView.swift in Sources */,
 				FF9D0CBC27D45E350074E861 /* StarButton.swift in Sources */,
 				B4471E6A27CFC3ED00668B64 /* CoinDetailsTopTabs.swift in Sources */,
 				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
@@ -1485,7 +1482,6 @@
 				9071202127D460FD0033B4A5 /* ConclusionTableView.swift in Sources */,
 				B4471E5A27CFB9AD00668B64 /* CoinDetailsViewModel.swift in Sources */,
 				FF10FD7B27D8702F0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift in Sources */,
-				9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */,
 				FFB2EFB427D05F0D00944E97 /* CryptocurrencyListTableViewEntity.swift in Sources */,
 				FF9D0CC827D5E8500074E861 /* Double+Extension.swift in Sources */,
 				B4498D6827D63A4A00F9B2CE /* CoinDetailsDependency.swift in Sources */,
@@ -1493,7 +1489,6 @@
 				B4471E6527CFBE5100668B64 /* ChartViewController.swift in Sources */,
 				FF9D0CC627D5A4FA0074E861 /* SortListButtonView.swift in Sources */,
 				FF10FD7727D860A00080C5B5 /* CryptocurrencyTabList.swift in Sources */,
-				9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */,
 				B4471E5727CFB47100668B64 /* CoinDetailsViewController.swift in Sources */,
 				B4BC4EA427CE6AEE00DE19EC /* CandleStickParameters.swift in Sources */,
 				907F307F27D850970077FE2F /* CandleChartDataEntries.swift in Sources */,
@@ -1704,7 +1699,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZX9TD66UC;
+				DEVELOPMENT_TEAM = X6WTK8Z5MC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";
@@ -1730,12 +1725,13 @@
 		};
 		FF19E21427C628E100DBD52D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F449EE93030F95A589BCA5C7 /* Pods-CryptocurrencyExchange.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZX9TD66UC;
+				DEVELOPMENT_TEAM = X6WTK8Z5MC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";
@@ -1761,6 +1757,7 @@
 		};
 		FF19E21627C628E100DBD52D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 799965B034B768A26282A711 /* Pods-CryptocurrencyExchangeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1781,6 +1778,7 @@
 		};
 		FF19E21727C628E100DBD52D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C0AB0705D5C521A2B889730 /* Pods-CryptocurrencyExchangeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1801,6 +1799,7 @@
 		};
 		FF19E21927C628E100DBD52D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99D36414EB42BFEC256DD792 /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1819,6 +1818,7 @@
 		};
 		FF19E21A27C628E100DBD52D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0F0305E293B57C3230D288F /* Pods-CryptocurrencyExchange-CryptocurrencyExchangeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
