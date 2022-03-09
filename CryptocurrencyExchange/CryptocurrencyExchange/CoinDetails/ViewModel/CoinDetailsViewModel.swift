@@ -9,11 +9,11 @@ import Foundation
 
 class CoinDetailsViewModel: XIBInformation {
     var nibName: String?
-    var dependency: CoinDetailsDependency
+    var dependency: CryptocurrencyListTableViewEntity
     
     init(
         nibName: String?,
-        dependency: CoinDetailsDependency
+        dependency: CryptocurrencyListTableViewEntity
     ) {
         self.nibName = nibName
         self.dependency = dependency
