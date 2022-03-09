@@ -10,7 +10,7 @@ import UIKit
 protocol CrypocurrencyListTableViewCellDelegate: AnyObject {
     func setInterestData(interest: InterestCurrency)
 }
-class CrypocurrencyBTCListTableViewCell: UITableViewCell {
+class CrypocurrencyBTCListTableViewCell: UITableViewCell, CrypocurrencyListTableViewCell {
     // MARK: - func
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,7 +51,7 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell {
         setColor(updown: UpDown(rawValue: btcChangeRate.first ?? "0") ?? .zero)
     }
     
-    func animateBackGroundColor() {
+    func animateBackgroundColor() {
         UIView.animate(withDuration: 0.2, animations: { [weak self] in
             let color: UIColor? = self?.changeRateLabel.text?.first == "-" ? .decreasingColor : .increasingColor
             self?.backgroundColor = color?.withAlphaComponent(0.1)
@@ -60,7 +60,7 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell {
         }
     }
     
-    private func setColor(updown: UpDown) {
+    func setColor(updown: UpDown) {
         currentPriceLabel.textColor = updown.color
         currentKRWPriceLabel.textColor = updown.color
         changeRateLabel.textColor = updown.color

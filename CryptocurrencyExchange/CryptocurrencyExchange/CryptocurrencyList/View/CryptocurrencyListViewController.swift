@@ -48,10 +48,8 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
             }
             self?.tableView.endUpdates()
             
-            if let cell = self?.tableView.cellForRow(at: indexPath) as? CrypocurrencyKRWListTableViewCell {
-                cell.animateBackGroundColor()
-            } else if let cell = self?.tableView.cellForRow(at: indexPath) as? CrypocurrencyBTCListTableViewCell {
-                cell.animateBackGroundColor()
+            if let cell = self?.tableView.cellForRow(at: indexPath) as? CrypocurrencyListTableViewCell {
+                cell.animateBackgroundColor()
             }
         }
         
