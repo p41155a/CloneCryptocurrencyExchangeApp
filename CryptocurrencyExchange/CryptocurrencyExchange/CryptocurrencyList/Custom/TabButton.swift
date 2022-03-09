@@ -30,7 +30,7 @@ final class TabButton: UIButton {
     
     private func configureUI() {
         bottomBar.setCornerRadius(radius: 1)
-        bottomBar.backgroundColor = .black
+        bottomBar.backgroundColor = .titleColor
         
         addSubview(bottomBar)
         
@@ -47,6 +47,6 @@ final class TabButton: UIButton {
     
     private func configureForSelect(isSelected: Bool) {
         bottomBar.isHidden = !isSelected
-        titleLabel?.tintColor = isSelected ? .black : .darkgrayColor
+        titleLabel?.tintColor = isSelected ? .titleColor : .darkgrayColor
     }
 }

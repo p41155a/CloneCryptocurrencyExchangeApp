@@ -53,7 +53,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="51,738,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKU-go-LEt">
                                         <rect key="frame" x="0.0" y="12" width="90" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" name="increasingColor"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -71,13 +71,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+122.00%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1a-o5-rTq">
                                         <rect key="frame" x="0.0" y="12" width="80" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" name="increasingColor"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+4,176,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqd-D5-RYj">
                                         <rect key="frame" x="0.0" y="37" width="80" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" name="increasingColor"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -146,6 +146,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="backgroundColor"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="twY-tc-duK" secondAttribute="trailing" id="B4J-T7-8rm"/>
                     <constraint firstItem="DQG-pi-29B" firstAttribute="top" secondItem="twY-tc-duK" secondAttribute="bottom" id="Fxb-tZ-E0b"/>
@@ -171,14 +172,14 @@
     </objects>
     <resources>
         <image name="starIcon" width="34" height="34"/>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="baseColor">
             <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="contourColor">
             <color red="0.79199999570846558" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="increasingColor">
-            <color red="0.94900000095367432" green="0.2669999897480011" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="titleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

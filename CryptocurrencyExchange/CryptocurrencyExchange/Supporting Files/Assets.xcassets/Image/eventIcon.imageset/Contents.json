@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "eventIcon.pdf",
+      "filename" : "eventIcon (2).pdf",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "eventIcon (1).pdf",
       "idiom" : "universal"
     }
   ],

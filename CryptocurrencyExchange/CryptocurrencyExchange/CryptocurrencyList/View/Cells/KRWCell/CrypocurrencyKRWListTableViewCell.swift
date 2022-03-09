@@ -47,7 +47,7 @@ final class CrypocurrencyKRWListTableViewCell: UITableViewCell, CrypocurrencyLis
             let color: UIColor? = self?.changeRateLabel.text?.first == "-" ? .decreasingColor : .increasingColor
             self?.backgroundColor = color?.withAlphaComponent(0.1)
         }) { [weak self] _ in
-            self?.backgroundColor = .backgroundColor
+            self?.backgroundColor = .clear
         }
     }
     

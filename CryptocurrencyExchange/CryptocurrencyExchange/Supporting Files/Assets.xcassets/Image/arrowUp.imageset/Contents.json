@@ -3,6 +3,16 @@
     {
       "filename" : "arrowUp.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "arrowDown.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

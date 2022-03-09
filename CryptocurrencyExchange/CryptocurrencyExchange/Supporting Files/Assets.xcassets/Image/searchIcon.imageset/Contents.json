@@ -3,6 +3,16 @@
     {
       "filename" : "searchIcon.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "searchIcon (1).pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
