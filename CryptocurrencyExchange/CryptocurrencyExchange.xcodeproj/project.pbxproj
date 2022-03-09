@@ -76,6 +76,8 @@
 		B4BC4EA427CE6AEE00DE19EC /* CandleStickParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA327CE6AEE00DE19EC /* CandleStickParameters.swift */; };
 		B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */; };
 		B4C373BC27D872C500DD424A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BB27D872C500DD424A /* Date+Extension.swift */; };
+		B4C373BE27D8841A00DD424A /* CandleStickData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BD27D8841A00DD424A /* CandleStickData.swift */; };
+		B4C373C027D8846100DD424A /* CandleStickIndentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
 		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
 		B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */; };
@@ -224,6 +226,8 @@
 		B4BC4EA327CE6AEE00DE19EC /* CandleStickParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickParameters.swift; sourceTree = "<group>"; };
 		B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickEntity.swift; sourceTree = "<group>"; };
 		B4C373BB27D872C500DD424A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		B4C373BD27D8841A00DD424A /* CandleStickData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickData.swift; sourceTree = "<group>"; };
+		B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickIndentifier.swift; sourceTree = "<group>"; };
 		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartByTimesView.xib; sourceTree = "<group>"; };
@@ -529,6 +533,8 @@
 			isa = PBXGroup;
 			children = (
 				9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */,
+				B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */,
+				B4C373BD27D8841A00DD424A /* CandleStickData.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -1388,6 +1394,7 @@
 				B4471E6A27CFC3ED00668B64 /* CoinDetailsTopTabs.swift in Sources */,
 				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
 				FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */,
+				B4C373BE27D8841A00DD424A /* CandleStickData.swift in Sources */,
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
 				9071201C27D44C160033B4A5 /* ConclusionTableViewEntity.swift in Sources */,
 				900B5C5427D4A10C001DA6A1 /* BuyQuantityViewCell.swift in Sources */,
@@ -1470,6 +1477,7 @@
 				909BEEDF27D1183E00E4EE87 /* OrderbookViewModel.swift in Sources */,
 				90E12EB527D335AF00373FF9 /* OrderbookViewController.swift in Sources */,
 				90E12E7B27D251E600373FF9 /* SellPriceViewCell.swift in Sources */,
+				B4C373C027D8846100DD424A /* CandleStickIndentifier.swift in Sources */,
 				B4B4CB9727D5F2DE009F08D7 /* CoinInformationInChartView.swift in Sources */,
 				90E12E9C27D274A100373FF9 /* TopViewCell.swift in Sources */,
 				B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */,
