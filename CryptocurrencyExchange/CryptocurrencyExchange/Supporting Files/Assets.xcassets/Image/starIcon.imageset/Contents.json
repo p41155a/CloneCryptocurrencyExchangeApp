@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "starIcon.pdf",
+      "filename" : "starIcon (1).pdf",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "starIcon-1.pdf",
       "idiom" : "universal"
     }
   ],
