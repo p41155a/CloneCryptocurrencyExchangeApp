@@ -61,8 +61,8 @@ extension ProductionCandleStickRepository {
     ) {
         /// 해당 parameter에 해당하는 데이터가 저장되어 있지 않은 경우, realm에 추가
         guard let existingDatas = dbManager.existingData(with: parameter) else {
-            addNewCandleStickDataToRealmDB(
-                with: data,
+            dbManager.add(
+                data: data,
                 parameters: parameter,
                 completion: completion
             )
@@ -85,27 +85,7 @@ extension ProductionCandleStickRepository {
         }
     }
     
-    private func addNewCandleStickDataToRealmDB(
-        with data: [[StickValue]],
-        parameters: CandleStickParameters,
-        completion: @escaping ([CandleStickData]?) -> Void
-    ) {
-        try! realm.write {
-            let sticksByTimeInterval = CandleStickByTimeInterval(
-                parameters: parameters
-            )
-            let candleStickDatas =  data.map { stickValues -> CandleStickData in
-                let data = CandleStickData(values: stickValues)
-                sticksByTimeInterval.stickDatas.append(data)
-                return data
-            }
-            sticksByTimeInterval.lastUpdated = candleStickDatas.last?.time ?? 0
-            realm.add(sticksByTimeInterval)
             print("DB에 새로운 데이터 추가")
-            completion(candleStickDatas)
-        }
-    }
-    
     /// DB에 저장되어 있는 캔들스틱 Data 반환
     func candleStickDatas(by parameter: CandleStickParameters) -> [CandleStickData]? {
         /// DB에 저장되어 있는 데이터가 없을 경우

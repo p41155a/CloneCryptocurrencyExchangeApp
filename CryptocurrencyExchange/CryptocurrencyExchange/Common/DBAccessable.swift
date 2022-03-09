@@ -9,9 +9,10 @@ import Foundation
 import RealmSwift
 
 protocol DBAccessable {
-    associatedtype T: RealmFetchable
+    associatedtype T: Object
     var realm: Realm { get }
     func suitableData(condition: ((Query<T>) -> Query<Bool>)?) -> Results<T>
+    func add(data: T, completion: @escaping (T?) -> Void)
 }
 
 extension DBAccessable {
@@ -26,6 +27,13 @@ extension DBAccessable {
         }
         return savedData.where { datas in
             condi(datas)
+        }
+    }
+    
+    func add(data: T, completion: @escaping (T?) -> Void) {
+        try! realm.write {
+            realm.add(data)
+            completion(data)
         }
     }
 }

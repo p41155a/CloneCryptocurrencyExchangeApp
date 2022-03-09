@@ -22,4 +22,24 @@ class CandleStickDBManager: DBAccessable {
         })
         return data.first
     }
+    
+    func add(
+        data: [[StickValue]],
+        parameters: CandleStickParameters,
+        completion: @escaping ([CandleStickData]?) -> Void
+    ) {
+        let sticksByTimeInterval = CandleStickByTimeInterval(
+            parameters: parameters
+        )
+        let candleStickDatas = data.map { stickValues -> CandleStickData in
+            let data = CandleStickData(values: stickValues)
+            sticksByTimeInterval.stickDatas.append(data)
+            return data
+        }
+        sticksByTimeInterval.lastUpdated = candleStickDatas.last?.time ?? 0
+        
+        add(data: sticksByTimeInterval) { savedDatas in
+            completion(candleStickDatas)
+        }
+    }
 }
