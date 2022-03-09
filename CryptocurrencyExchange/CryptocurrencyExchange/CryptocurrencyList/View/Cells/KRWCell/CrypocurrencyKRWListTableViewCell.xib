@@ -146,6 +146,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="backgroundColor"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="twY-tc-duK" secondAttribute="trailing" id="B4J-T7-8rm"/>
                     <constraint firstItem="DQG-pi-29B" firstAttribute="top" secondItem="twY-tc-duK" secondAttribute="bottom" id="Fxb-tZ-E0b"/>
@@ -171,6 +172,9 @@
     </objects>
     <resources>
         <image name="starIcon" width="34" height="34"/>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="baseColor">
             <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
