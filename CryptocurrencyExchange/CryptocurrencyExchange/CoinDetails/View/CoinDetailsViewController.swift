@@ -9,6 +9,8 @@ import UIKit
 
 class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsViewModel> {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var interestButton: UIButton!
     @IBOutlet weak var topTabBar: UIStackView!
     
     var quoteViewController: ViewControllerInjectingViewModel<QuoteViewModel> = {
@@ -36,18 +38,17 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureUI()
         setChildViewControllers()
         setTopTapBarTabEvent()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigation()
     }
     
-    private func setNavigation() {
-        setNavigationHidden(false)
+    private func configureUI() {
+        titleLabel.text = viewModel.dependency.order
     }
     
     /// 상단 탭에 연관되는 뷰컨트롤러를 ChildViewController로 설정
@@ -97,5 +98,8 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         viewController.willMove(toParent: nil)
         viewController.removeFromParent()
         viewController.view.removeFromSuperview()
+    }
+    @IBAction func clickBackButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 }

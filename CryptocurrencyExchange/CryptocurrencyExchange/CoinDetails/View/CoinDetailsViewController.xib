@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoinDetailsViewController" customModule="CryptocurrencyExchange" customModuleProvider="target">
             <connections>
+                <outlet property="interestButton" destination="pr8-xg-Gbq" id="EIQ-Ah-W4v"/>
+                <outlet property="titleLabel" destination="P27-IM-cBZ" id="R8M-kX-4nR"/>
                 <outlet property="topTabBar" destination="3oH-3u-vr5" id="Gpo-tI-m9h"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -65,18 +67,57 @@
                         <constraint firstAttribute="height" constant="52" id="cKa-JI-zy7"/>
                     </constraints>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-GV-vaL">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwS-4D-dqP">
+                            <rect key="frame" x="8" y="8" width="28" height="28"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="backButton"/>
+                            <connections>
+                                <action selector="clickBackButton:" destination="-1" eventType="touchUpInside" id="q4h-q3-SXf"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr8-xg-Gbq">
+                            <rect key="frame" x="372" y="5" width="34" height="34"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="starClickedIcon"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P27-IM-cBZ">
+                            <rect key="frame" x="186.5" y="12" width="41.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="pr8-xg-Gbq" secondAttribute="trailing" constant="8" id="A1G-Lv-e7k"/>
+                        <constraint firstItem="P27-IM-cBZ" firstAttribute="centerY" secondItem="FGd-GV-vaL" secondAttribute="centerY" id="EM7-Y4-HAJ"/>
+                        <constraint firstItem="JwS-4D-dqP" firstAttribute="leading" secondItem="FGd-GV-vaL" secondAttribute="leading" constant="8" id="Ezi-WC-Wbs"/>
+                        <constraint firstItem="JwS-4D-dqP" firstAttribute="centerY" secondItem="FGd-GV-vaL" secondAttribute="centerY" id="QRu-WQ-veI"/>
+                        <constraint firstItem="P27-IM-cBZ" firstAttribute="centerX" secondItem="FGd-GV-vaL" secondAttribute="centerX" id="Tfw-aZ-K1F"/>
+                        <constraint firstAttribute="height" constant="44" id="b9i-6C-xYa"/>
+                        <constraint firstItem="pr8-xg-Gbq" firstAttribute="centerY" secondItem="FGd-GV-vaL" secondAttribute="centerY" id="mJ1-bm-ce8"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="3oH-3u-vr5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="8jZ-d1-dmy"/>
                 <constraint firstItem="3oH-3u-vr5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Jo3-T0-MG5"/>
+                <constraint firstItem="FGd-GV-vaL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OA9-PF-PXK"/>
+                <constraint firstItem="FGd-GV-vaL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="avD-HJ-IdJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FGd-GV-vaL" secondAttribute="trailing" id="dM9-uD-bXQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3oH-3u-vr5" secondAttribute="trailing" id="xSF-rQ-p7L"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="148.66071428571428"/>
         </view>
     </objects>
     <resources>
+        <image name="backButton" width="28" height="28"/>
+        <image name="starClickedIcon" width="34" height="34"/>
         <namedColor name="backgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
