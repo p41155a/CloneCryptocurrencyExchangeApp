@@ -78,6 +78,7 @@
 		B4BC4EA227CE680C00DE19EC /* CandleStickIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA127CE680C00DE19EC /* CandleStickIntervals.swift */; };
 		B4BC4EA427CE6AEE00DE19EC /* CandleStickParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA327CE6AEE00DE19EC /* CandleStickParameters.swift */; };
 		B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */; };
+		B4C373BC27D872C500DD424A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BB27D872C500DD424A /* Date+Extension.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
 		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
 		B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */; };
@@ -228,6 +229,7 @@
 		B4BC4EA127CE680C00DE19EC /* CandleStickIntervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickIntervals.swift; sourceTree = "<group>"; };
 		B4BC4EA327CE6AEE00DE19EC /* CandleStickParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickParameters.swift; sourceTree = "<group>"; };
 		B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickEntity.swift; sourceTree = "<group>"; };
+		B4C373BB27D872C500DD424A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartByTimesView.xib; sourceTree = "<group>"; };
@@ -515,18 +517,18 @@
 				9B745FAC27D1D1240001C0D3 /* DB */,
 				B4F2786A27D4678B00BEBFD2 /* ChartView */,
 				B4B4CB9227D5F2A2009F08D7 /* CoinInformation */,
-				9B5A8AC927D7259300C2170F /* CandleStickDate */,
+				9B5A8AC927D7259300C2170F /* DateMarkerView */,
 			);
 			path = ChartByTimes;
 			sourceTree = "<group>";
 		};
-		9B5A8AC927D7259300C2170F /* CandleStickDate */ = {
+		9B5A8AC927D7259300C2170F /* DateMarkerView */ = {
 			isa = PBXGroup;
 			children = (
 				9B5A8ACA27D725AF00C2170F /* DateMarkerView.xib */,
 				9B5A8ACC27D725C400C2170F /* DateMarkerView.swift */,
 			);
-			path = CandleStickDate;
+			path = DateMarkerView;
 			sourceTree = "<group>";
 		};
 		9B745FAC27D1D1240001C0D3 /* DB */ = {
@@ -854,6 +856,7 @@
 				FF9D0CC727D5E8500074E861 /* Double+Extension.swift */,
 				FFB2EFC327D1415F00944E97 /* String+Extension.swift */,
 				FFB2EFC727D147E800944E97 /* Int+Extension.swift */,
+				B4C373BB27D872C500DD424A /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1456,6 +1459,7 @@
 				9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */,
 				B4471E5A27CFB9AD00668B64 /* CoinDetailsViewModel.swift in Sources */,
 				9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */,
+				B4C373BC27D872C500DD424A /* Date+Extension.swift in Sources */,
 				FFB2EFB427D05F0D00944E97 /* CryptocurrencyListTableViewEntity.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
 				FF9D0CC827D5E8500074E861 /* Double+Extension.swift in Sources */,
