@@ -10,8 +10,6 @@ import Starscream
 import SpreadsheetView
 
 final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookViewModel> {
-    private var coinName: String = ""
-    private var currrencyType: String = ""
     private var socket: WebSocket?
     private var socketType: [String] = [
         WebSocketType.ticker.rawValue,
@@ -73,7 +71,9 @@ extension OrderbookViewController: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(let _):
-            self.writeToSocket(for: "BTC", of: .KRW)
+            self.writeToSocket(
+                for: viewModel.orderCurrency,
+                of: viewModel.paymentCurrency)
             
         case .disconnected(let reason, let code):
             break

@@ -4,7 +4,6 @@
 //
 //  Created by Dayeon Jung on 2022/03/02.
 //
-
 import Foundation
 
 class CoinDetailsViewModel: XIBInformation {
@@ -17,5 +16,13 @@ class CoinDetailsViewModel: XIBInformation {
     ) {
         self.nibName = nibName
         self.dependency = dependency
+    }
+    
+    func orderCurrency() -> String {
+        return dependency.orderCurrency
+    }
+    
+    func paymentCurrency() -> String {
+        return dependency.paymentCurrency
     }
 }

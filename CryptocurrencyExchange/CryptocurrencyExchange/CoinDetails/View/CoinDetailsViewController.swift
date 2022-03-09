@@ -4,41 +4,22 @@
 //
 //  Created by Dayeon Jung on 2022/03/02.
 //
-
 import UIKit
 
 class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsViewModel> {
 
     @IBOutlet weak var topTabBar: UIStackView!
-    
-    var quoteViewController: ViewControllerInjectingViewModel<QuoteViewModel> = {
-        let viewController = QuoteViewController(
-            viewModel: QuoteViewModel(
-                nibName: "QuoteViewController"
-            )
-        )
-        return viewController
-    }()
-    
-    var chartViewController: ViewControllerInjectingViewModel<ChartsViewModel> = {
-        let viewController = ChartViewController(
-            viewModel: ChartsViewModel(
-                nibName: "ChartViewController"
-            )
-        )
-        return viewController
-    }()
-    
-    
+
     /// 상단 탭별 연결되는 ViewController를 정의
     var viewControllerByTab: [CoinDetailsTopTabs: UIViewController] = [:]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setChildViewControllers()
         setTopTapBarTabEvent()
+        
+        self.bringSubviewToFront(with: CoinDetailsTopTabs(rawValue: 0) ?? .quote)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +33,27 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     
     /// 상단 탭에 연관되는 뷰컨트롤러를 ChildViewController로 설정
     private func setChildViewControllers() {
-        viewControllerByTab[.quote] = quoteViewController
+        let orderCurrency = viewModel.orderCurrency()
+        let paymentCurrency = viewModel.paymentCurrency()
+        
+        let orderbookViewController = OrderbookViewController(
+            viewModel: OrderbookViewModel(
+                nibName: "OrderbookViewController",
+                orderCurrency: .appoint(name: orderCurrency),
+                paymentCurrency: PaymentCurrency(rawValue: paymentCurrency) ?? .KRW
+            )
+        )
+        
+        let chartViewController = ChartByTimesViewController(
+            viewModel: ChartByTimesViewModel(
+                nibName: "ChartByTimesViewController",
+                repository: ProductionCandleStickRepository(),
+                orderCurrency: .appoint(name: orderCurrency),
+                paymentCurrency: PaymentCurrency(rawValue: paymentCurrency) ?? .KRW
+            )
+        )
+        
+        viewControllerByTab[.quote] = orderbookViewController
         viewControllerByTab[.chart] = chartViewController
         
         viewControllerByTab.values.forEach {
@@ -76,7 +77,11 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     /// touch 이벤트가 발생할 때마다 누른 탭에 연관되는 view를 최상단 subView로 가져온다
     @objc func didTapTab(button: UIButton) {
         guard let tabType = CoinDetailsTopTabs(rawValue: button.tag) else { return }
-        guard let tappedView = viewControllerByTab[tabType]?.view else { return }
+        self.bringSubviewToFront(with: tabType)
+    }
+    
+    private func bringSubviewToFront(with type: CoinDetailsTopTabs) {
+        guard let tappedView = viewControllerByTab[type]?.view else { return }
         self.view.bringSubviewToFront(tappedView)
     }
     

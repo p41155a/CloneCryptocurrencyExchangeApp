@@ -24,7 +24,7 @@ class ConcludedQuantityTableViewCell: UITableViewCell {
         self.concludedQuantityLabel.text = nil
     }
     
-    func setData(data: ConclusionTableViewEntity) {
+    func setData(data: ConcludedQuantityEntity) {
         self.concludedPriceLabel.text = data.contPrice
         self.concludedQuantityLabel.text = data.contQty
     }

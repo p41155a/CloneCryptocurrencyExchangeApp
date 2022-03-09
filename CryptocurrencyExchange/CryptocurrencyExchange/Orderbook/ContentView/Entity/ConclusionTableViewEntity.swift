@@ -7,15 +7,17 @@
 
 import Foundation
 
-struct ConclusionTableViewEntity {
-    let fasteningStrength: String        // 체결강도
+struct FasteningStrengthEntity {
+    let fasteningStrength: String       // 체결강도
+    init(fasteningStrength: String = "") {
+        self.fasteningStrength = fasteningStrength
+    }
+}
+
+struct ConcludedQuantityEntity {
     let contPrice: String                // 체결 가격
     let contQty: String                  // 체결 수량
-    
-    init(fasteningStrength: String = "",
-         contPrice: String = "",
-         contQty: String = "") {
-        self.fasteningStrength = fasteningStrength
+    init(contPrice: String = "", contQty: String = "") {
         self.contPrice = contPrice
         self.contQty = contQty
     }

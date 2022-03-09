@@ -14,7 +14,6 @@ struct WebSocketOrderbookEntity: Codable {
 
 struct WebSocketOrderbookContent: Codable {
     let list: [WebSocketEachOrderbook]
-    let dateTime: Int
 }
 
 struct WebSocketEachOrderbook: Codable {
@@ -24,7 +23,7 @@ struct WebSocketEachOrderbook: Codable {
     let quantity: String        // 잔량
     let total: String           // 건수
 }
-    
+
 extension WebSocketEachOrderbook {
     enum orderType: String, Codable {
         case ask = "ask"

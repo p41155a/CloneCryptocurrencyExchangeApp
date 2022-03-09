@@ -22,7 +22,7 @@ class FasteningStrengthTableViewCell: UITableViewCell {
         self.fasteningStrengthLabel.text = nil
     }
     
-    func setData(data: ConclusionTableViewEntity) {
+    func setData(data: FasteningStrengthEntity) {
         self.fasteningStrengthLabel.text = data.fasteningStrength
     }
 }
