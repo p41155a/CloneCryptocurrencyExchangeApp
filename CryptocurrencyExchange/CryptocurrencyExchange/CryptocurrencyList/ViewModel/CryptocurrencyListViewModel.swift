@@ -65,8 +65,12 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     func setInterestData(interest: InterestCurrency) {
-        try! realm.write {
-            realm.add(interest, update: .modified)
+        do {
+            try realm.write {
+                realm.add(interest, update: .modified)
+            }
+        } catch {
+            self.error.value = "관심 데이터를 작성하지 못했습니다. 관리자에게 문의해주세요"
         }
     }
     
@@ -127,8 +131,12 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - Private Func
     // MARK: about sort <private>
     private func saveSortInfo(sortInfo: SortInfo) {
-        try! realm.write {
-            realm.add(sortInfo, update: .modified)
+        do {
+            try realm.write {
+                realm.add(sortInfo, update: .modified)
+            }
+        } catch {
+            self.error.value = "정렬 데이터를 작성하지 못했습니다. 관리자에게 문의해주세요"
         }
     }
     

@@ -176,8 +176,12 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
                                      "symbols": self.viewModel.getSymbols(for: paymentCurrency),
                                      "tickTypes": tickTypes.map { $0.rawValue } ]
-        let json = try! JSONSerialization.data(withJSONObject: params, options: [])
-        socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
+        do {
+            let json = try JSONSerialization.data(withJSONObject: params, options: [])
+            socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
+        } catch {
+            showAlert(title: "소켓 요청에 실패하였습니다. 관리자에게 문의해주세요", completion: nil)
+        }
     }
     
     // MARK: - Property
