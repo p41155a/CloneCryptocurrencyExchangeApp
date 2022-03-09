@@ -19,6 +19,18 @@ extension UIViewController {
         )
     }
     
+    func showAlert(title: String,
+                   message: String? = nil,
+                   okAction: ((UIAlertAction) -> Void)? = nil,
+                   completion : (() -> Void)?) {
+        let alertViewController = UIAlertController(title: title,
+                                                    message: message,
+                                                    preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: okAction)
+        alertViewController.addAction(okAction)
+        self.present(alertViewController, animated: true, completion: completion)
+    }
+    
     func popViewController(animated: Bool = true) {
         self.navigationController?.popViewController(animated: animated)
     }

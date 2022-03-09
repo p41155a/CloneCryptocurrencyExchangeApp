@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,16 +22,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="412" height="61"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPq-WR-pBp">
-                                <rect key="frame" x="0.0" y="0.0" width="115" height="61"/>
+                                <rect key="frame" x="0.0" y="0.0" width="107" height="61"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카리나코인" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPx-Bc-NxI">
-                                        <rect key="frame" x="0.0" y="12" width="115" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPx-Bc-NxI">
+                                        <rect key="frame" x="8" y="12" width="99" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="titleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KRW" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iku-gx-5gZ">
-                                        <rect key="frame" x="0.0" y="35.5" width="115" height="13.5"/>
+                                        <rect key="frame" x="8" y="35.5" width="99" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" name="contourColor"/>
                                         <nil key="highlightedColor"/>
@@ -44,12 +43,12 @@
                                     <constraint firstAttribute="trailing" secondItem="Iku-gx-5gZ" secondAttribute="trailing" id="UW1-WJ-cnn"/>
                                     <constraint firstAttribute="bottom" secondItem="Iku-gx-5gZ" secondAttribute="bottom" constant="12" id="dLN-PH-jWR"/>
                                     <constraint firstAttribute="trailing" secondItem="BPx-Bc-NxI" secondAttribute="trailing" id="rh8-5X-9Eh"/>
-                                    <constraint firstItem="Iku-gx-5gZ" firstAttribute="leading" secondItem="iPq-WR-pBp" secondAttribute="leading" id="s5B-61-SJx"/>
-                                    <constraint firstItem="BPx-Bc-NxI" firstAttribute="leading" secondItem="iPq-WR-pBp" secondAttribute="leading" id="uM9-md-X6M"/>
+                                    <constraint firstItem="Iku-gx-5gZ" firstAttribute="leading" secondItem="iPq-WR-pBp" secondAttribute="leading" constant="8" id="s5B-61-SJx"/>
+                                    <constraint firstItem="BPx-Bc-NxI" firstAttribute="leading" secondItem="iPq-WR-pBp" secondAttribute="leading" constant="8" id="uM9-md-X6M"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHw-YF-eFT">
-                                <rect key="frame" x="115" y="0.0" width="90" height="61"/>
+                                <rect key="frame" x="107" y="0.0" width="90" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="51,738,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKU-go-LEt">
                                         <rect key="frame" x="0.0" y="12" width="90" height="16"/>
@@ -67,7 +66,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEr-N7-Isq">
-                                <rect key="frame" x="205" y="0.0" width="80" height="61"/>
+                                <rect key="frame" x="197" y="0.0" width="80" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+122.00%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1a-o5-rTq">
                                         <rect key="frame" x="0.0" y="12" width="80" height="16"/>
@@ -94,7 +93,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EqT-A5-Ebu">
-                                <rect key="frame" x="285" y="0.0" width="95" height="61"/>
+                                <rect key="frame" x="277" y="0.0" width="95" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="256,242백만" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bes-j9-QZb">
                                         <rect key="frame" x="0.0" y="12" width="95" height="16"/>
@@ -112,7 +111,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBd-Oe-MOq">
-                                <rect key="frame" x="380" y="0.0" width="32" height="61"/>
+                                <rect key="frame" x="372" y="0.0" width="40" height="61"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnQ-qY-Rku" customClass="StarButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                         <rect key="frame" x="4" y="16.5" width="28" height="28"/>
@@ -127,11 +126,11 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="hnQ-qY-Rku" firstAttribute="centerY" secondItem="VBd-Oe-MOq" secondAttribute="centerY" id="2ce-4V-dkx"/>
                                     <constraint firstItem="hnQ-qY-Rku" firstAttribute="leading" secondItem="VBd-Oe-MOq" secondAttribute="leading" constant="4" id="ZCw-Xj-yki"/>
-                                    <constraint firstAttribute="trailing" secondItem="hnQ-qY-Rku" secondAttribute="trailing" id="xqt-ld-b9s"/>
+                                    <constraint firstAttribute="trailing" secondItem="hnQ-qY-Rku" secondAttribute="trailing" constant="8" id="xqt-ld-b9s"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -184,8 +183,5 @@
         <namedColor name="titleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
