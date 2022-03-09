@@ -175,7 +175,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     private func writeToSocket(paymentCurrency: PaymentCurrency, tickTypes: [WebSocketTickType]) {
         let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
-                                     "symbols": self.viewModel.currentList.value.map { "\($0.0)_\(paymentCurrency.value)" },
+                                     "symbols": self.viewModel.currentList.value.map { "\($0.currencyName)_\(paymentCurrency.value)" },
                                      "tickTypes": tickTypes.map { $0.rawValue } ]
         let json = try! JSONSerialization.data(withJSONObject: params, options: [])
         socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
@@ -206,8 +206,9 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentName = viewModel.currentList.value[indexPath.row].0
-        let paymentCurrency = viewModel.currentList.value[indexPath.row].1
+        let currentCellInfo = viewModel.currentList.value[indexPath.row]
+        let currentName = currentCellInfo.currencyName
+        let paymentCurrency = currentCellInfo.payment
         switch paymentCurrency {
         case .KRW:
             guard let data = viewModel.tickerKRWList[currentName] else {

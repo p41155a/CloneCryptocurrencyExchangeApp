@@ -18,11 +18,11 @@ final class CryptocurrencyListViewModel: XIBInformation {
     /// Property about data
     var tickerKRWList: [String: CryptocurrencyListTableViewEntity] = [:]
     var tickerBTCList: [String: CryptocurrencyListTableViewEntity] = [:]
-    var tabKRWList: [(String, PaymentCurrency)] = []
-    var tabBTCList: [(String, PaymentCurrency)] = []
-    var tabInterestList: [(String, PaymentCurrency)] = []
-    var tabPopularList: [(String, PaymentCurrency)] = []
-    let currentList: Observable<[(String, PaymentCurrency)]> = Observable([])
+    var tabKRWList: [CryptocurrencyPaymentInfo] = []
+    var tabBTCList: [CryptocurrencyPaymentInfo] = []
+    var tabInterestList: [CryptocurrencyPaymentInfo] = []
+    var tabPopularList: [CryptocurrencyPaymentInfo] = []
+    let currentList: Observable<[CryptocurrencyPaymentInfo]> = Observable([])
     private var currentTab: CurrentTab = .tabKRW
     private var searchWord: String = ""
     let changeIndex: Observable<Int> = Observable(0)
@@ -51,8 +51,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
         let currencyName = splitedSymbol[0]
         let payment = splitedSymbol[1]
         
-        for (index, (name, _)) in currentList.value.enumerated() {
-            if name == currencyName {
+        for (index, paymentInfo) in currentList.value.enumerated() {
+            if paymentInfo.currencyName == currencyName {
                 changeIndex.value = index
             }
         }
@@ -76,7 +76,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
             let splitedSymbol: [String] = interestInfo.currency.split(separator: "_").map { "\($0)" }
             let currentName = splitedSymbol[0]
             let payment = splitedSymbol[1]
-            return (currentName, PaymentCurrency.init(rawValue: payment) ?? .KRW)
+            return CryptocurrencyPaymentInfo(currencyName: currentName,
+                                             payment: .init(rawValue: payment) ?? .KRW)
         }
         completion()
     }
@@ -128,8 +129,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
     @objc
     func sortByVolumePower() {
         tabPopularList = Array(tabKRWList.sorted {
-            guard let frontVolumPower = tickerKRWList[$0.0]?.volumePower.doubleValue,
-                  let backVolumPower = tickerKRWList[$1.0]?.volumePower.doubleValue else {
+            guard let frontVolumPower = tickerKRWList[$0.currencyName]?.volumePower.doubleValue,
+                  let backVolumPower = tickerKRWList[$1.currencyName]?.volumePower.doubleValue else {
                       return true
                   }
             return frontVolumPower > backVolumPower
@@ -148,13 +149,13 @@ final class CryptocurrencyListViewModel: XIBInformation {
         searchWord = word
         switch currentTab {
         case .tabKRW:
-            currentList.value = tabKRWList.filter { word == "" ? true : $0.0.lowercased().contains(word.lowercased()) }
+            currentList.value = tabKRWList.filter { word == "" ? true : $0.currencyName.lowercased().contains(word.lowercased()) }
         case .tabBTC:
-            currentList.value = tabBTCList.filter { word == "" ? true : $0.0.lowercased().contains(word.lowercased()) }
+            currentList.value = tabBTCList.filter { word == "" ? true : $0.currencyName.lowercased().contains(word.lowercased()) }
         case .tabInterest:
-            currentList.value = tabInterestList.filter { word == "" ? true : $0.0.lowercased().contains(word.lowercased()) }
+            currentList.value = tabInterestList.filter { word == "" ? true : $0.currencyName.lowercased().contains(word.lowercased()) }
         default:
-            currentList.value = tabPopularList.filter { word == "" ? true : $0.0.lowercased().contains(word.lowercased()) }
+            currentList.value = tabPopularList.filter { word == "" ? true : $0.currencyName.lowercased().contains(word.lowercased()) }
         }
     }
     
@@ -170,13 +171,13 @@ final class CryptocurrencyListViewModel: XIBInformation {
         return realm.objects(SortInfo.self).first ?? SortInfo(standard: .transaction, orderby: .desc)
     }
     
-    private func sortList(orderBy: OrderBy, standard: MainListSortStandard, list: [(String, PaymentCurrency)]) -> [(String, PaymentCurrency)] {
+    private func sortList(orderBy: OrderBy, standard: MainListSortStandard, list: [CryptocurrencyPaymentInfo]) -> [CryptocurrencyPaymentInfo] {
         return list.sorted {
-            let frontData = $0.1 == .KRW ? tickerKRWList[$0.0] : tickerBTCList[$0.0]
-            let backData = $0.1 == .KRW ? tickerKRWList[$1.0] : tickerBTCList[$1.0]
+            let frontData = $0.payment == .KRW ? tickerKRWList[$0.currencyName] : tickerBTCList[$0.currencyName]
+            let backData = $0.payment == .KRW ? tickerKRWList[$1.currencyName] : tickerBTCList[$1.currencyName]
             switch standard {
             case .currencyName:
-                return order(orderBy: orderBy, frontData: $0.0, backData: $1.0)
+                return order(orderBy: orderBy, frontData: $0.currencyName, backData: $1.currencyName)
             case .currentPrice:
                 guard let frontCurrentPrice = frontData?.currentPrice,
                       let backCurrentPrice = backData?.currentPrice else {
@@ -216,18 +217,20 @@ final class CryptocurrencyListViewModel: XIBInformation {
             case .success(let data):
                 let cryptocurrencyData = data.currentInfo.current
                 var tickerKRWList: [String: CryptocurrencyListTableViewEntity] = [:]
-                var currencyNameList: [(String, PaymentCurrency)] = []
+                var currencyNameList: [CryptocurrencyPaymentInfo] = []
                 cryptocurrencyData.forEach { data in
                     let currentName = data.key
                     let tickerInfo = data.value
+                    let paymentInfo = CryptocurrencyPaymentInfo(currencyName: currentName,
+                                                                payment: paymentCurrency)
                     let tableData = CryptocurrencyListTableViewEntity(symbol: tickerInfo.currentName ?? "",
-                                                                      payment: .KRW,
+                                                                      payment: paymentCurrency,
                                                                       currentPrice: tickerInfo.closingPrice?.doubleValue ?? 0,
                                                                       changeRate: tickerInfo.fluctateRate24H?.doubleValue ?? 0,
                                                                       changeAmount: tickerInfo.fluctate24H ?? "",
                                                                       transactionAmount: tickerInfo.accTradeValue?.doubleValue ?? 0,
                                                                       volumePower: "")
-                    currencyNameList.append((currentName, PaymentCurrency.KRW))
+                    currencyNameList.append(paymentInfo)
                     tickerKRWList[currentName] = tableData
                 }
                 let sortInfo = self.getSortInfo()
@@ -250,17 +253,19 @@ final class CryptocurrencyListViewModel: XIBInformation {
             case .success(let data):
                 let cryptocurrencyData = data.currentInfo.current
                 var tickerBTCList: [String: CryptocurrencyListTableViewEntity] = [:]
-                var currencyNameList: [(String, PaymentCurrency)] = []
+                var currencyNameList: [CryptocurrencyPaymentInfo] = []
                 cryptocurrencyData.forEach { data in
                     let currentName = data.key
                     let tickerInfo = data.value
+                    let paymentInfo = CryptocurrencyPaymentInfo(currencyName: currentName,
+                                                                payment: paymentCurrency)
                     let tableData = CryptocurrencyListTableViewEntity(symbol: tickerInfo.currentName ?? "",
-                                                                      payment: .BTC,
+                                                                      payment: paymentCurrency,
                                                                       currentPrice: tickerInfo.closingPrice?.doubleValue ?? 0,
                                                                       changeRate: tickerInfo.fluctateRate24H?.doubleValue ?? 0,
                                                                       transactionAmount: tickerInfo.accTradeValue?.doubleValue ?? 0,
                                                                       volumePower: "")
-                    currencyNameList.append((currentName, PaymentCurrency.BTC))
+                    currencyNameList.append(paymentInfo)
                     tickerBTCList[currentName] = tableData
                 }
                 let sortInfo = self.getSortInfo()
