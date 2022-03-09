@@ -64,6 +64,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     private func configureUI() {
         CrypocurrencyKRWListTableViewCell.register(tableView: tableView)
         CrypocurrencyBTCListTableViewCell.register(tableView: tableView)
+        setNavigationBackButton()
         setTabButton()
         setSortButton()
         setEventButton()

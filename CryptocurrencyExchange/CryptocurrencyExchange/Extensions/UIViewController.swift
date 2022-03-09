@@ -31,6 +31,15 @@ extension UIViewController {
         self.present(alertViewController, animated: true, completion: completion)
     }
     
+    func setNavigationBackButton() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem?.tintColor = .titleColor
+    }
+    
+    func setNavigationHidden(_ isHidden: Bool) {
+        self.navigationController?.navigationBar.isHidden = isHidden
+    }
+    
     func popViewController(animated: Bool = true) {
         self.navigationController?.popViewController(animated: animated)
     }

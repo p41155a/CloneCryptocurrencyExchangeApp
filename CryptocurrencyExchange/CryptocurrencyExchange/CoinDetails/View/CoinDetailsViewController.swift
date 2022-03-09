@@ -47,7 +47,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     }
     
     private func setNavigation() {
-        navigationController?.navigationBar.isHidden = false
+        setNavigationHidden(false)
     }
     
     /// 상단 탭에 연관되는 뷰컨트롤러를 ChildViewController로 설정
