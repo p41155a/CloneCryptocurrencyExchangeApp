@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CryptocurrencyPaymentInfo {
-    var currencyName: String
+struct CryptocurrencySymbolInfo {
+    var order: String
     var payment: PaymentCurrency
 }

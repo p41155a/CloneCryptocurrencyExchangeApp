@@ -18,7 +18,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
     private var apiManager = TickerAPIManager()
     private var currentTab: MainListCurrentTab = .tabKRW
     private var searchWord: String = ""
-    let currentList: Observable<[CryptocurrencyPaymentInfo]> = Observable([])
+    let currentList: Observable<[CryptocurrencySymbolInfo]> = Observable([])
     let changeIndex: Observable<Int> = Observable(0)
     let error: Observable<String?> = Observable(nil)
     
@@ -45,17 +45,17 @@ final class CryptocurrencyListViewModel: XIBInformation {
     func setWebSocketData(with entity: WebSocketTickerEntity) {
         let tickerInfo = entity.content
         let splitedSymbol: [String] = tickerInfo.symbol.split(separator: "_").map { "\($0)" }
-        let currencyName = splitedSymbol[0]
+        let order = splitedSymbol[0]
         let payment = splitedSymbol[1]
         
         /// 변경된 값이 현재 탭에 있는 값일때
         for (index, paymentInfo) in currentList.value.enumerated() {
-            if paymentInfo.currencyName == currencyName {
+            if paymentInfo.order == order {
                 changeIndex.value = index
             }
         }
         
-        model.setWebSocketData(symbol: currencyName, payment: PaymentCurrency(rawValue: payment) ?? .KRW, tickerInfo: tickerInfo)
+        model.setWebSocketData(order: order, payment: PaymentCurrency(rawValue: payment) ?? .KRW, tickerInfo: tickerInfo)
     }
     
     // MARK: about Interest
@@ -136,13 +136,13 @@ final class CryptocurrencyListViewModel: XIBInformation {
         return realm.objects(SortInfo.self).first ?? SortInfo(standard: .transaction, orderby: .desc)
     }
     
-    func getTableViewEntity(for info: CryptocurrencyPaymentInfo) -> CryptocurrencyListTableViewEntity {
+    func getTableViewEntity(for info: CryptocurrencySymbolInfo) -> CryptocurrencyListTableViewEntity {
         var result: CryptocurrencyListTableViewEntity?
         switch info.payment {
         case .KRW:
-            result = self.model.tickerKRWList[info.currencyName]
+            result = self.model.tickerKRWList[info.order]
         case .BTC:
-            result = self.model.tickerBTCList[info.currencyName]
+            result = self.model.tickerBTCList[info.order]
         }
         return result ?? CryptocurrencyListTableViewEntity()
     }

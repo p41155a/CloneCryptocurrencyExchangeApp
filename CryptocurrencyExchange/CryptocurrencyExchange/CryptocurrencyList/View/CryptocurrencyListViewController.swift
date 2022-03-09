@@ -35,7 +35,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     // MARK: - Bind viewModel
     func bind() {
-        self.viewModel.currentList.bind { [weak self] currencyNameList in
+        self.viewModel.currentList.bind { [weak self] _ in
             self?.tableView.reloadData()
         }
         
@@ -206,9 +206,9 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentCellInfo = viewModel.currentList.value[indexPath.row]
-        let currentName = currentCellInfo.currencyName
+        let order = currentCellInfo.order
         let paymentCurrency = currentCellInfo.payment
-        let data = viewModel.getTableViewEntity(for: CryptocurrencyPaymentInfo(currencyName: currentName, payment: paymentCurrency))
+        let data = viewModel.getTableViewEntity(for: CryptocurrencySymbolInfo(order: order, payment: paymentCurrency))
         switch paymentCurrency {
         case .KRW:
             let currency = "\(data.order)_KRW"
@@ -219,7 +219,7 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
             return cell
         case .BTC:
             let currency = "\(data.order)_BTC"
-            let krwData = viewModel.getTableViewEntity(for: CryptocurrencyPaymentInfo(currencyName: currentName, payment: .KRW))
+            let krwData = viewModel.getTableViewEntity(for: CryptocurrencySymbolInfo(order: order, payment: .KRW))
             let cell = CrypocurrencyBTCListTableViewCell.dequeueReusableCell(tableView: tableView)
             cell.delegate = self
             cell.setData(krwData: krwData, btcData: data,
@@ -229,7 +229,7 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentName = viewModel.currentList.value[indexPath.row].currencyName
+        let currentName = viewModel.currentList.value[indexPath.row].order
         let paymentCurrency = viewModel.currentList.value[indexPath.row].payment
         let coinDetailViewController = CoinDetailsViewController(
             viewModel: CoinDetailsViewModel(
