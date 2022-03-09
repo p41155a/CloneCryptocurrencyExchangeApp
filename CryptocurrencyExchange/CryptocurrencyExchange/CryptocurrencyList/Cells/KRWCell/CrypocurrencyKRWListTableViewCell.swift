@@ -32,7 +32,7 @@ final class CrypocurrencyKRWListTableViewCell: UITableViewCell, CrypocurrencyLis
         let changeAmount: String = "\(data.changeAmount)".setNumStringForm(isDecimalType: true, isMarkPlusMiuns: true)
         let transactionAmount: String = "\(Int(data.transactionAmount / 1000000).decimalType ?? "")백만"
         
-        self.currencyNameLabel.text = data.symbol
+        self.currencyNameLabel.text = data.order
         self.currencyNameSubNameLabel.text = data.payment.value
         self.currentPriceLabel.text = currentPrice
         self.changeRateLabel.text = changeRate
