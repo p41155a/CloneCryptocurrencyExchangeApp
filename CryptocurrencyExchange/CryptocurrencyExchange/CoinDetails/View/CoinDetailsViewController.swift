@@ -54,7 +54,9 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         
         let transactionListViewController = TransactionListViewController(
             viewModel: TransactionListViewModel(
-                nibName: "TransactionListViewController"
+                nibName: "TransactionListViewController",
+                paymentCurrency: paymentCurrency,
+                orderCurrency: orderCurrency
             )
         )
         

@@ -9,7 +9,7 @@ import Foundation
 
 struct WebSocketTransactionEntity: Codable {
     let type: WebSocketType
-    let content: WebSocketOrderbookContent
+    let content: WebSocketTransactionContent
 }
 
 struct WebSocketTransactionContent: Codable {
