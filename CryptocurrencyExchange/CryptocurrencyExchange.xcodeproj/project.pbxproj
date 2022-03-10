@@ -627,6 +627,7 @@
 		B4471E5427CFB3FE00668B64 /* CoinDetails */ = {
 			isa = PBXGroup;
 			children = (
+				FF10FD8427D9C50D0080C5B5 /* StickInfo.swift */,
 				FF10FD7F27D916BE0080C5B5 /* Custom */,
 				B4471E6C27CFCF8A00668B64 /* Model */,
 				B4471E6D27CFCF9300668B64 /* View */,
@@ -816,7 +817,6 @@
 			isa = PBXGroup;
 			children = (
 				B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */,
-				FF10FD8427D9C50D0080C5B5 /* StickInfo.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
