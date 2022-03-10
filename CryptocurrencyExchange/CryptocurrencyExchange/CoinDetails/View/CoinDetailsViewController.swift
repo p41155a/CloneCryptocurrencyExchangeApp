@@ -15,6 +15,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var changeRateLabel: UILabel!
     @IBOutlet weak var changeAmountLabel: UILabel!
+    @IBOutlet weak var lineGraphView: LineChart!
     
     var quoteViewController: ViewControllerInjectingViewModel<QuoteViewModel> = {
         let viewController = QuoteViewController(
@@ -42,6 +43,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        drawLineChart()
         setChildViewControllers()
         setTopTapBarTabEvent()
     }
@@ -53,6 +55,14 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     private func configureUI() {
         titleLabel.text = viewModel.dependency.order
         reflectData(by: viewModel.dependency)
+    }
+    
+    func drawLineChart() {
+        viewModel.setInitialDataForChart() { [weak self] data in
+            let openPrice = data.data
+                .map { stickInfo(data: $0)?.openPrice ?? 0 }
+            self?.lineGraphView.drawChart(data: openPrice)
+        }
     }
     
     func reflectData(by data: CryptocurrencyListTableViewEntity) {
