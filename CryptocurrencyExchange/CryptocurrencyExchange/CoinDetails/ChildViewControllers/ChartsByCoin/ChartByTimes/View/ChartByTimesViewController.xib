@@ -25,55 +25,55 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vz-N5-OZU">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="V8T-mV-zCQ">
-                            <rect key="frame" x="16" y="8" width="386" height="32"/>
+                            <rect key="frame" x="16" y="8" width="358.5" height="24"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXy-bq-XcB" customClass="IntervalButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="74" height="32"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="68.5" height="24"/>
                                     <color key="tintColor" name="titleColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button">
-                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
                                     </buttonConfiguration>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avI-wn-887" customClass="IntervalButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                                    <rect key="frame" x="78" y="0.0" width="74" height="32"/>
+                                    <rect key="frame" x="72.5" y="0.0" width="68.5" height="24"/>
                                     <color key="tintColor" name="titleColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button">
-                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
                                     </buttonConfiguration>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUi-UN-bHD" customClass="IntervalButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                                    <rect key="frame" x="156" y="0.0" width="74" height="32"/>
+                                    <rect key="frame" x="145" y="0.0" width="68.5" height="24"/>
                                     <color key="tintColor" name="titleColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button">
-                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
                                     </buttonConfiguration>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwT-O8-Rbs" customClass="IntervalButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                                    <rect key="frame" x="234" y="0.0" width="74" height="32"/>
+                                    <rect key="frame" x="217.5" y="0.0" width="68.5" height="24"/>
                                     <color key="tintColor" name="titleColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button">
-                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
                                     </buttonConfiguration>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itw-zk-KIW" customClass="IntervalButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                                    <rect key="frame" x="312" y="0.0" width="74" height="32"/>
+                                    <rect key="frame" x="290" y="0.0" width="68.5" height="24"/>
                                     <color key="tintColor" name="titleColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button">
-                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
                                     </buttonConfiguration>
                                 </button>
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFB-Pj-YzM">
-                            <rect key="frame" x="0.0" y="47" width="414" height="1"/>
+                            <rect key="frame" x="0.0" y="39" width="414" height="1"/>
                             <color key="backgroundColor" name="baseColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="jcs-vs-HGs"/>
@@ -85,14 +85,14 @@
                         <constraint firstAttribute="trailing" secondItem="rFB-Pj-YzM" secondAttribute="trailing" id="GdP-HI-7Pu"/>
                         <constraint firstAttribute="bottom" secondItem="rFB-Pj-YzM" secondAttribute="bottom" id="Gz3-ri-6dy"/>
                         <constraint firstItem="V8T-mV-zCQ" firstAttribute="top" secondItem="8vz-N5-OZU" secondAttribute="top" constant="8" id="JxA-5A-Pdh"/>
-                        <constraint firstAttribute="height" constant="48" id="NfO-a2-rtg"/>
+                        <constraint firstAttribute="height" constant="40" id="NfO-a2-rtg"/>
                         <constraint firstItem="rFB-Pj-YzM" firstAttribute="leading" secondItem="8vz-N5-OZU" secondAttribute="leading" id="QAi-lZ-UZ7"/>
                         <constraint firstAttribute="bottom" secondItem="V8T-mV-zCQ" secondAttribute="bottom" constant="8" id="R3C-Te-LDu"/>
                         <constraint firstItem="V8T-mV-zCQ" firstAttribute="leading" secondItem="8vz-N5-OZU" secondAttribute="leading" constant="16" id="dw3-0L-8hf"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-To-eSc" customClass="CandleStickChartByTimesView" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="48" width="414" height="469"/>
+                    <rect key="frame" x="0.0" y="40" width="414" height="477"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYB-lg-32Z" customClass="BarChartByTimesView" customModule="CryptocurrencyExchange" customModuleProvider="target">

@@ -22,6 +22,14 @@ class CoinDetailsViewModel: XIBInformation {
         self.dependency = dependency
     }
     
+    func orderCurrency() -> String {
+        return dependency.orderCurrency
+    }
+    
+    func paymentCurrency() -> String {
+        return dependency.paymentCurrency
+	}
+
     func setInitialDataForChart(_ completion: @escaping (CandleStickEntity) -> ()) {
         apiManager.candleStick(
             parameters: CandleStickParameters(
