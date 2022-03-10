@@ -16,7 +16,7 @@
                 <outlet property="changeRateLabel" destination="W71-iv-Jm5" id="Zmv-ah-YcR"/>
                 <outlet property="currentPriceLabel" destination="Jul-5t-ZOw" id="4C0-Ie-Cf9"/>
                 <outlet property="interestButton" destination="pr8-xg-Gbq" id="EIQ-Ah-W4v"/>
-                <outlet property="lineGraphView" destination="Wbt-ZQ-ykJ" id="oZc-ke-AdH"/>
+                <outlet property="lineChartView" destination="Wbt-ZQ-ykJ" id="xgz-UV-AuA"/>
                 <outlet property="titleLabel" destination="P27-IM-cBZ" id="R8M-kX-4nR"/>
                 <outlet property="topTabBar" destination="3oH-3u-vr5" id="Gpo-tI-m9h"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

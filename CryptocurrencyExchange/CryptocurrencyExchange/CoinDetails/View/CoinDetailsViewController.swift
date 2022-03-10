@@ -15,7 +15,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var changeRateLabel: UILabel!
     @IBOutlet weak var changeAmountLabel: UILabel!
-    @IBOutlet weak var lineGraphView: LineChart!
+    @IBOutlet weak var lineChartView: LineChart!
     
     var quoteViewController: ViewControllerInjectingViewModel<QuoteViewModel> = {
         let viewController = QuoteViewController(
@@ -61,7 +61,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         viewModel.setInitialDataForChart() { [weak self] data in
             let openPrice = data.data
                 .map { stickInfo(data: $0)?.openPrice ?? 0 }
-            self?.lineGraphView.drawChart(data: openPrice)
+            self?.lineChartView.drawChart(data: openPrice)
         }
     }
     
