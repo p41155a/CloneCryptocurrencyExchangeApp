@@ -8,7 +8,7 @@
 import Foundation
 
 struct stickInfo {
-    let date: Date
+    let time: Double
     let openPrice: Double
     let closePrice: Double
     let minPrice: Double
@@ -25,9 +25,7 @@ struct stickInfo {
                   return nil
               }
         
-        let date = Date(timeIntervalSince1970: time)
-        
-        self.date = date
+        self.time = time
         self.openPrice = openPrice
         self.closePrice = closePrice
         self.minPrice = minPrice

@@ -12,14 +12,12 @@ class LineChart: UIView {
         let lineLayer = CAShapeLayer()
         let linePath = UIBezierPath()
         let points = setPoints(data: data)
-        var prepoint = points.first ?? CGPoint(x: 0, y: 0)
-        linePath.move(to: prepoint)
+        linePath.move(to: points.first ?? CGPoint.zero)
         points.forEach { point in
             linePath.addLine(to: point)
-            lineLayer.strokeColor = strokeColor(prePoint: prepoint, currentPoint: point)
-            prepoint = point
         }
         
+        lineLayer.strokeColor = UIColor.titleColor?.cgColor ?? UIColor.placeholderText.cgColor
         lineLayer.fillColor = UIColor.clear.cgColor
         lineLayer.path = linePath.cgPath
         layer.addSublayer(lineLayer)
@@ -32,17 +30,11 @@ class LineChart: UIView {
 
     }
     
-    private func strokeColor(prePoint: CGPoint, currentPoint: CGPoint) -> CGColor {
-        let isDecreasing = prePoint.y > currentPoint.y
-        let color: UIColor = isDecreasing ? (.decreasingColor ?? .blue) : (.increasingColor ?? .red)
-        return color.cgColor
-    }
-    
     private func setPoints(data: [Double]) -> [CGPoint] {
         var result: [CGPoint] = []
         guard let max = data.max(),
               let min = data.min() else {
-                  return [CGPoint(x: 0, y: 0)]
+                  return [CGPoint.zero]
               }
         let xUnit = layer.frame.width / CGFloat(data.count)
         let yUnit = layer.frame.height / (max - min)
@@ -50,7 +42,7 @@ class LineChart: UIView {
         for (index, data) in data.enumerated() {
             result.append(
                 CGPoint(x: CGFloat(index) * xUnit,
-                        y: layer.frame.height - (data * yUnit))
+                        y: (max - data) * yUnit)
             )
         }
         return result

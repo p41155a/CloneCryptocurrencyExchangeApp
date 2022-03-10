@@ -60,7 +60,9 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     func drawLineChart() {
         viewModel.setInitialDataForChart() { [weak self] data in
             let openPrice = data.data
-                .map { stickInfo(data: $0)?.openPrice ?? 0 }
+                .compactMap { stickInfo(data: $0) }
+                .map { $0.openPrice }
+            
             self?.lineChartView.drawChart(data: openPrice)
         }
     }
