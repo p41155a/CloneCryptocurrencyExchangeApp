@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct stickInfo {
+struct StickInfo {
     let time: Double
     let openPrice: Double
     let closePrice: Double
