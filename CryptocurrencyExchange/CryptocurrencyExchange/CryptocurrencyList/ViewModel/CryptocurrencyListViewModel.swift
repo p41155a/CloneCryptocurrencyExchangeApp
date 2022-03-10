@@ -10,21 +10,15 @@ import RealmSwift
 
 final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - Property
+    var model = CryptocurrencyListModel()
+    var nibName: String?
     private var timeTrigger = true
     private var timer = Timer()
     private let realm: Realm
     private var apiManager = TickerAPIManager()
-    var nibName: String?
-    /// Property about data
-    var tickerKRWList: [String: CryptocurrencyListTableViewEntity] = [:]
-    var tickerBTCList: [String: CryptocurrencyListTableViewEntity] = [:]
-    var tabKRWList: [CryptocurrencyPaymentInfo] = []
-    var tabBTCList: [CryptocurrencyPaymentInfo] = []
-    var tabInterestList: [CryptocurrencyPaymentInfo] = []
-    var tabPopularList: [CryptocurrencyPaymentInfo] = []
-    let currentList: Observable<[CryptocurrencyPaymentInfo]> = Observable([])
-    private var currentTab: CurrentTab = .tabKRW
+    private var currentTab: MainListCurrentTab = .tabKRW
     private var searchWord: String = ""
+    let currentList: Observable<[CryptocurrencySymbolInfo]> = Observable([])
     let changeIndex: Observable<Int> = Observable(0)
     let error: Observable<String?> = Observable(nil)
     
@@ -37,58 +31,59 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - Func
     // MARK: 초기 데이터 설정
     func setInitialData() {
-        setBTCInitialData() {}
-        setKRWInitialData() { [weak self] in
+        setInitialDataForPayment(payment: PaymentCurrency.KRW) { [weak self] in
             guard let self = self else { return }
-            self.currentList.value = self.tabKRWList
-        }
+            self.currentList.value = self.model.tabKRWList}
+        setInitialDataForPayment(payment: PaymentCurrency.BTC) {}
     }
     
-    // MARK: WebSocket 데이터 설정
+    // MARK: For tableView
+    func getTableViewEntity(for info: CryptocurrencySymbolInfo) -> CryptocurrencyListTableViewEntity {
+        var result: CryptocurrencyListTableViewEntity?
+        switch info.payment {
+        case .KRW:
+            result = self.model.tickerKRWList[info.order]
+        case .BTC:
+            result = self.model.tickerBTCList[info.order]
+        }
+        return result ?? CryptocurrencyListTableViewEntity()
+    }
+    
+    // MARK: about websocket
+    func getSymbols(for payment: PaymentCurrency) -> [String] {
+        return model.getSymbols(for: payment)
+    }
+    
     func setWebSocketData(with entity: WebSocketTickerEntity) {
         let tickerInfo = entity.content
         let splitedSymbol: [String] = tickerInfo.symbol.split(separator: "_").map { "\($0)" }
-        let currencyName = splitedSymbol[0]
+        let order = splitedSymbol[0]
         let payment = splitedSymbol[1]
         
+        /// 변경된 값이 현재 탭에 있는 값일때
         for (index, paymentInfo) in currentList.value.enumerated() {
-            if paymentInfo.currencyName == currencyName {
+            if paymentInfo.order == order {
                 changeIndex.value = index
             }
         }
         
-        tickerKRWList[currencyName] = CryptocurrencyListTableViewEntity(symbol: currencyName,
-                                                                             payment: PaymentCurrency(rawValue: payment) ?? .KRW,
-                                                                             currentPrice: tickerInfo.closePrice.doubleValue ?? 0,
-                                                                             changeRate: tickerInfo.chgRate.doubleValue ?? 0,
-                                                                             changeAmount: tickerInfo.chgAmt,
-                                                                             transactionAmount: tickerInfo.value.doubleValue ?? 0,
-                                                                             volumePower: tickerInfo.volumePower)
+        model.setWebSocketData(order: order,
+                               payment: PaymentCurrency(rawValue: payment) ?? .KRW,
+                               tickerInfo: tickerInfo)
     }
     
     // MARK: about Interest
-    func setInterestList(_ completion: @escaping () -> ()) {
-        let interestData = realm.objects(InterestCurrency.self)
-        
-        tabInterestList = interestData.filter { interestInfo in
-            interestInfo.interest == true
-        }.map { interestInfo in
-            let splitedSymbol: [String] = interestInfo.currency.split(separator: "_").map { "\($0)" }
-            let currentName = splitedSymbol[0]
-            let payment = splitedSymbol[1]
-            return CryptocurrencyPaymentInfo(currencyName: currentName,
-                                             payment: .init(rawValue: payment) ?? .KRW)
-        }
-        completion()
-    }
-    
     func setInterestData(interest: InterestCurrency) {
-        try! realm.write {
-            realm.add(interest, update: .modified)
+        do {
+            try realm.write {
+                realm.add(interest, update: .modified)
+            }
+        } catch {
+            self.error.value = "관심 데이터를 작성하지 못했습니다. 관리자에게 문의해주세요"
         }
     }
     
-    func isInterest(interestKey: String) -> Bool {
+    func getIsInterest(interestKey: String) -> Bool {
         let interestData = realm.objects(InterestCurrency.self)
         return !interestData.filter { interestInfo in
             return interestInfo.currency == interestKey && interestInfo.interest == true
@@ -97,26 +92,21 @@ final class CryptocurrencyListViewModel: XIBInformation {
     
     // MARK: select tab
     func chageCurrentTab(_ currentTab: Int) {
-        self.currentTab = CurrentTab.init(rawValue: currentTab) ?? .tabKRW
-        
-        switch currentTab {
-        case 0, 1:
+        self.currentTab = MainListCurrentTab.init(rawValue: currentTab) ?? .tabKRW
+        switch self.currentTab {
+        case .tabKRW:
+            stopTimer()
             searchCurrency(for: self.searchWord)
-        case 2:
-            setInterestList() { [weak self] in
-                guard let self = self else { return }
-                self.searchCurrency(for: self.searchWord)
-            }
-        default:
-            break
-        }
-        
-        /// 인기 리스트는 한번만 리스트가 세팅되지 않고 10초마다 한번씩 체결강도따라 리스트가 바뀜
-        if currentTab == 3 {
+        case .tabBTC:
+            stopTimer()
+            searchCurrency(for: self.searchWord)
+        case .tabInterest:
+            stopTimer()
+            searchCurrency(for: self.searchWord)
+            setInterestList()
+        case .tabPopular:
             sortByVolumePower()
             startTimer(interval: 10)
-        } else {
-            stopTimer()
         }
     }
     
@@ -128,42 +118,34 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: about sort
     @objc
     func sortByVolumePower() {
-        tabPopularList = Array(tabKRWList.sorted {
-            guard let frontVolumPower = tickerKRWList[$0.currencyName]?.volumePower.doubleValue,
-                  let backVolumPower = tickerKRWList[$1.currencyName]?.volumePower.doubleValue else {
-                      return true
-                  }
-            return frontVolumPower > backVolumPower
-        }[0..<5])
+        model.setTabPopularList()
         searchCurrency(for: self.searchWord)
     }
     
     func sortCurrentTabList(orderBy: OrderBy, standard: MainListSortStandard) {
-        let sortInfo = SortInfo(standard: standard, orderby: orderBy)
+        let sortInfo = SortInfo(standard: standard,
+                                orderby: orderBy)
         saveSortInfo(sortInfo: sortInfo)
-        currentList.value = sortList(orderBy: orderBy, standard: standard, list: currentList.value)
+        currentList.value = model.sortList(orderBy: orderBy,
+                                           standard: standard,
+                                           list: currentList.value)
     }
     
     // MARK: Search
     func searchCurrency(for word: String) {
         searchWord = word
-        switch currentTab {
-        case .tabKRW:
-            currentList.value = tabKRWList.filter { word == "" ? true : $0.currencyName.lowercased().contains(word.lowercased()) }
-        case .tabBTC:
-            currentList.value = tabBTCList.filter { word == "" ? true : $0.currencyName.lowercased().contains(word.lowercased()) }
-        case .tabInterest:
-            currentList.value = tabInterestList.filter { word == "" ? true : $0.currencyName.lowercased().contains(word.lowercased()) }
-        default:
-            currentList.value = tabPopularList.filter { word == "" ? true : $0.currencyName.lowercased().contains(word.lowercased()) }
-        }
+        currentList.value = model.getSearchedList(for: currentTab, word: word)
     }
     
     // MARK: - Private Func
     // MARK: about sort <private>
     private func saveSortInfo(sortInfo: SortInfo) {
-        try! realm.write {
-            realm.add(sortInfo, update: .modified)
+        do {
+            try realm.write {
+                realm.add(sortInfo, update: .modified)
+            }
+        } catch {
+            self.error.value = "정렬 데이터를 작성하지 못했습니다. 관리자에게 문의해주세요"
         }
     }
     
@@ -171,109 +153,22 @@ final class CryptocurrencyListViewModel: XIBInformation {
         return realm.objects(SortInfo.self).first ?? SortInfo(standard: .transaction, orderby: .desc)
     }
     
-    private func sortList(orderBy: OrderBy, standard: MainListSortStandard, list: [CryptocurrencyPaymentInfo]) -> [CryptocurrencyPaymentInfo] {
-        return list.sorted {
-            let frontData = $0.payment == .KRW ? tickerKRWList[$0.currencyName] : tickerBTCList[$0.currencyName]
-            let backData = $0.payment == .KRW ? tickerKRWList[$1.currencyName] : tickerBTCList[$1.currencyName]
-            switch standard {
-            case .currencyName:
-                return order(orderBy: orderBy, frontData: $0.currencyName, backData: $1.currencyName)
-            case .currentPrice:
-                guard let frontCurrentPrice = frontData?.currentPrice,
-                      let backCurrentPrice = backData?.currentPrice else {
-                          return true
-                      }
-                return order(orderBy: orderBy, frontData: frontCurrentPrice, backData: backCurrentPrice)
-            case .changeRate:
-                guard let frontChangeRate = frontData?.changeRate,
-                      let backChangeRate = backData?.changeRate else {
-                          return true
-                      }
-                return order(orderBy: orderBy, frontData: frontChangeRate, backData: backChangeRate)
-            case .transaction:
-                guard let frontTransactionAmount = frontData?.transactionAmount,
-                      let backTransactionAmount = backData?.transactionAmount else {
-                          return true
-                      }
-                return order(orderBy: orderBy, frontData: frontTransactionAmount, backData: backTransactionAmount)
-            }
-        }
-    }
-    
-    private func order<T: Comparable>(orderBy: OrderBy, frontData: T, backData: T) -> Bool {
-        switch orderBy {
-        case .asc:
-            return frontData < backData
-        case .desc:
-            return frontData > backData
-        }
+    // MARK: about Interest <private>
+    private func setInterestList() {
+        let interestData = realm.objects(InterestCurrency.self)
+        model.setInterestList(from: interestData)
     }
     
     // MARK: 초기 데이터 설정 <private>
-    private func setKRWInitialData(_ completion: @escaping () -> ()) {
-        let paymentCurrency: PaymentCurrency = .KRW
-        apiManager.fetchTicker(paymentCurrency: paymentCurrency) { result in
+    private func setInitialDataForPayment(payment: PaymentCurrency ,_ completion: @escaping () -> ()) {
+        apiManager.fetchTicker(paymentCurrency: payment) { result in
             switch result {
             case .success(let data):
-                let cryptocurrencyData = data.currentInfo.current
-                var tickerKRWList: [String: CryptocurrencyListTableViewEntity] = [:]
-                var currencyNameList: [CryptocurrencyPaymentInfo] = []
-                cryptocurrencyData.forEach { data in
-                    let currentName = data.key
-                    let tickerInfo = data.value
-                    let paymentInfo = CryptocurrencyPaymentInfo(currencyName: currentName,
-                                                                payment: paymentCurrency)
-                    let tableData = CryptocurrencyListTableViewEntity(symbol: tickerInfo.currentName ?? "",
-                                                                      payment: paymentCurrency,
-                                                                      currentPrice: tickerInfo.closingPrice?.doubleValue ?? 0,
-                                                                      changeRate: tickerInfo.fluctateRate24H?.doubleValue ?? 0,
-                                                                      changeAmount: tickerInfo.fluctate24H ?? "",
-                                                                      transactionAmount: tickerInfo.accTradeValue?.doubleValue ?? 0,
-                                                                      volumePower: "")
-                    currencyNameList.append(paymentInfo)
-                    tickerKRWList[currentName] = tableData
+                self.model.setAPIData(of: data,
+                                      payment: payment,
+                                      sortInfo: self.getSortInfo()) {
+                    completion()
                 }
-                let sortInfo = self.getSortInfo()
-                self.tickerKRWList = tickerKRWList
-                self.tabKRWList = self.sortList(orderBy: sortInfo.orderby,
-                                                standard: sortInfo.standard,
-                                                list: currencyNameList)
-                completion()
-            case .failure(let error):
-                self.error.value = error.debugDescription
-                completion()
-            }
-        }
-    }
-    
-    private func setBTCInitialData(_ completion: @escaping () -> ()) {
-        let paymentCurrency: PaymentCurrency = .BTC
-        apiManager.fetchTicker(paymentCurrency: paymentCurrency) { result in
-            switch result {
-            case .success(let data):
-                let cryptocurrencyData = data.currentInfo.current
-                var tickerBTCList: [String: CryptocurrencyListTableViewEntity] = [:]
-                var currencyNameList: [CryptocurrencyPaymentInfo] = []
-                cryptocurrencyData.forEach { data in
-                    let currentName = data.key
-                    let tickerInfo = data.value
-                    let paymentInfo = CryptocurrencyPaymentInfo(currencyName: currentName,
-                                                                payment: paymentCurrency)
-                    let tableData = CryptocurrencyListTableViewEntity(symbol: tickerInfo.currentName ?? "",
-                                                                      payment: paymentCurrency,
-                                                                      currentPrice: tickerInfo.closingPrice?.doubleValue ?? 0,
-                                                                      changeRate: tickerInfo.fluctateRate24H?.doubleValue ?? 0,
-                                                                      transactionAmount: tickerInfo.accTradeValue?.doubleValue ?? 0,
-                                                                      volumePower: "")
-                    currencyNameList.append(paymentInfo)
-                    tickerBTCList[currentName] = tableData
-                }
-                let sortInfo = self.getSortInfo()
-                self.tickerBTCList = tickerBTCList
-                self.tabBTCList = self.sortList(orderBy: sortInfo.orderby,
-                                                standard: sortInfo.standard,
-                                                list: currencyNameList)
-                completion()
             case .failure(let error):
                 self.error.value = error.debugDescription
                 completion()
@@ -296,12 +191,5 @@ final class CryptocurrencyListViewModel: XIBInformation {
     private func stopTimer() {
         timeTrigger = true
         timer.invalidate()
-    }
-    
-    enum CurrentTab: Int {
-        case tabKRW = 0
-        case tabBTC = 1
-        case tabInterest = 2
-        case tabPopular = 3
     }
 }

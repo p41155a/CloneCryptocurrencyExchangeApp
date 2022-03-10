@@ -40,7 +40,7 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell, CrypocurrencyListTable
         let btcChangeRate: String = "\(btcData.changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
         let btcTransactionAmount: String = btcData.transactionAmount.displayDecimal(to: 3)
         
-        self.currencyNameLabel.text = btcData.symbol
+        self.currencyNameLabel.text = btcData.order
         self.currencyNameSubNameLabel.text = btcData.payment.value
         self.currentPriceLabel.text = btcCurrentPrice
         self.currentKRWPriceLabel.text = krwCurrentPrice

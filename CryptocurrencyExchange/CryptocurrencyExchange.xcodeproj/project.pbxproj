@@ -89,6 +89,7 @@
 		EDCFD65469C27236139337F8 /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06048D9DCE94D9D66ABFD58E /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework */; };
 		FF10FD7727D860A00080C5B5 /* CryptocurrencyTabList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10FD7627D860A00080C5B5 /* CryptocurrencyTabList.swift */; };
 		FF10FD7B27D8702F0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10FD7A27D8702E0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift */; };
+		FF10FD7E27D8C01D0080C5B5 /* CryptocurrencyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10FD7D27D8C01D0080C5B5 /* CryptocurrencyListModel.swift */; };
 		FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */; };
 		FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */; };
 		FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1F427C628E100DBD52D /* Assets.xcassets */; };
@@ -244,6 +245,7 @@
 		F19B2A7442316AB646DD3F53 /* Pods-CryptocurrencyExchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange.debug.xcconfig"; sourceTree = "<group>"; };
 		FF10FD7627D860A00080C5B5 /* CryptocurrencyTabList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyTabList.swift; sourceTree = "<group>"; };
 		FF10FD7A27D8702E0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrypocurrencyListTableViewCellProtocol.swift; sourceTree = "<group>"; };
+		FF10FD7D27D8C01D0080C5B5 /* CryptocurrencyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyListModel.swift; sourceTree = "<group>"; };
 		FF19E1E827C628DD00DBD52D /* CryptocurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptocurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -891,6 +893,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FF10FD7C27D8BF990080C5B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF10FD7D27D8C01D0080C5B5 /* CryptocurrencyListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FF19E1DF27C628DD00DBD52D = {
 			isa = PBXGroup;
 			children = (
@@ -1068,8 +1078,10 @@
 			children = (
 				FFE7197F27CE6461008DF7B9 /* Custom */,
 				FFE7198727CE8881008DF7B9 /* Entity */,
+				FF10FD7C27D8BF990080C5B5 /* Model */,
 				FFE7196627CE032C008DF7B9 /* ViewModel */,
 				FFE7196527CE0328008DF7B9 /* View */,
+				FFE7197327CE082D008DF7B9 /* Cells */,
 			);
 			path = CryptocurrencyList;
 			sourceTree = "<group>";
@@ -1079,7 +1091,6 @@
 			children = (
 				FFE7196727CE0349008DF7B9 /* CryptocurrencyListViewController.swift */,
 				FFE7196827CE0349008DF7B9 /* CryptocurrencyListViewController.xib */,
-				FFE7197327CE082D008DF7B9 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1425,6 +1436,7 @@
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
 				B4471E5E27CFBDB700668B64 /* QuoteViewController.swift in Sources */,
 				FF19E28A27C75F2000DBD52D /* ParamOptionDataType.swift in Sources */,
+				FF10FD7E27D8C01D0080C5B5 /* CryptocurrencyListModel.swift in Sources */,
 				B4BC4EA027CE66FF00DE19EC /* CandleStickAPIService.swift in Sources */,
 				B4BC4EA227CE680C00DE19EC /* CandleStickIntervals.swift in Sources */,
 				FF19E28327C72AF200DBD52D /* APIProvider.swift in Sources */,

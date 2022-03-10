@@ -35,7 +35,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     // MARK: - Bind viewModel
     func bind() {
-        self.viewModel.currentList.bind { [weak self] currencyNameList in
+        self.viewModel.currentList.bind { [weak self] _ in
             self?.tableView.reloadData()
         }
         
@@ -74,16 +74,22 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         tabButtonList = [krwTabButton, btcTabButton, interestTabButton, popularTabButton]
         tabButtonList[0].isChoice = true
         tabButtonList.forEach { (button: TabButton) in
-            button.addTarget(self, action: #selector(tabButtonDidTap(_:)), for: .touchUpInside)
+            button.addTarget(self,
+                             action: #selector(tabButtonDidTap(_:)),
+                             for: .touchUpInside)
         }
     }
     
     private func setEventButton() {
-        eventButton.addTarget(self, action: #selector(eventButtonDidTap(_:)), for: .touchUpInside)
+        eventButton.addTarget(self,
+                              action: #selector(eventButtonDidTap(_:)),
+                              for: .touchUpInside)
     }
     
     private func setSearchTextField() {
-        searchTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        searchTextField.addTarget(self,
+                                  action: #selector(textFieldDidChange),
+                                  for: .editingChanged)
     }
     
     private func setSortButton() {
@@ -108,6 +114,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
             button.addTarget(self, action: #selector(sortButtonViewDidTap(_:)), for: .touchUpInside)
         }
     }
+    
     @objc private func textFieldDidChange(_ textField: UITextField) {
         guard let word = textField.text else { return }
         viewModel.searchCurrency(for: word)
@@ -128,13 +135,17 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         setChoiceOnlyCurrentSortButtonView(sender)
         switch sender.tag {
         case 0:
-            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .currencyName)
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc,
+                                         standard: .currencyName)
         case 1:
-            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .currentPrice)
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc,
+                                         standard: .currentPrice)
         case 2:
-            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .changeRate)
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc,
+                                         standard: .changeRate)
         default:
-            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc, standard: .transaction)
+            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc,
+                                         standard: .transaction)
         }
     }
     
@@ -174,10 +185,14 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     private func writeToSocket(paymentCurrency: PaymentCurrency, tickTypes: [WebSocketTickType]) {
         let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
-                                     "symbols": self.viewModel.currentList.value.map { "\($0.currencyName)_\(paymentCurrency.value)" },
+                                     "symbols": self.viewModel.getSymbols(for: paymentCurrency),
                                      "tickTypes": tickTypes.map { $0.rawValue } ]
-        let json = try! JSONSerialization.data(withJSONObject: params, options: [])
-        socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
+        do {
+            let json = try JSONSerialization.data(withJSONObject: params, options: [])
+            socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
+        } catch {
+            showAlert(title: "소켓 요청에 실패하였습니다. 관리자에게 문의해주세요", completion: nil)
+        }
     }
     
     // MARK: - Property
@@ -206,35 +221,33 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentCellInfo = viewModel.currentList.value[indexPath.row]
-        let currentName = currentCellInfo.currencyName
+        let order = currentCellInfo.order
         let paymentCurrency = currentCellInfo.payment
+        let data = viewModel.getTableViewEntity(for: CryptocurrencySymbolInfo(order: order,
+                                                                              payment: paymentCurrency))
         switch paymentCurrency {
         case .KRW:
-            guard let data = viewModel.tickerKRWList[currentName] else {
-                return UITableViewCell()
-            }
-            let currency = "\(data.symbol)_KRW"
+            let currency = "\(data.order)_KRW"
             let cell = CrypocurrencyKRWListTableViewCell.dequeueReusableCell(tableView: tableView)
             cell.delegate = self
             cell.setData(data: data,
-                         isInterest: viewModel.isInterest(interestKey: currency))
+                         isInterest: viewModel.getIsInterest(interestKey: currency))
             return cell
         case .BTC:
-            guard let btcData = viewModel.tickerBTCList[currentName] else {
-                return UITableViewCell()
-            }
-            let currency = "\(btcData.symbol)_BTC"
-            let krwData = viewModel.tickerKRWList[currentName] ?? CryptocurrencyListTableViewEntity()
+            let currency = "\(data.order)_BTC"
+            let krwData = viewModel.getTableViewEntity(for: CryptocurrencySymbolInfo(order: order,
+                                                                                     payment: .KRW))
             let cell = CrypocurrencyBTCListTableViewCell.dequeueReusableCell(tableView: tableView)
             cell.delegate = self
-            cell.setData(krwData: krwData, btcData: btcData,
-                         isInterest: viewModel.isInterest(interestKey: currency))
+            cell.setData(krwData: krwData,
+                         btcData: data,
+                         isInterest: viewModel.getIsInterest(interestKey: currency))
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentName = viewModel.currentList.value[indexPath.row].currencyName
+        let currentName = viewModel.currentList.value[indexPath.row].order
         let paymentCurrency = viewModel.currentList.value[indexPath.row].payment
         let coinDetailViewController = CoinDetailsViewController(
             viewModel: CoinDetailsViewModel(

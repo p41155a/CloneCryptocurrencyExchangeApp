@@ -15,6 +15,13 @@ enum MainListSortStandard: String, PersistableEnum {
     case transaction = "transaction"    // 거래금액
 }
 
+enum MainListCurrentTab: Int {
+    case tabKRW = 0
+    case tabBTC = 1
+    case tabInterest = 2
+    case tabPopular = 3
+}
+
 enum OrderBy: String, PersistableEnum {
     case asc = "asc"
     case desc = "desc"
