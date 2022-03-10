@@ -8,26 +8,48 @@
 import UIKit
 
 class LineChart: UIView {
-    func drawChart(data: [Double]) {
-        let lineLayer = CAShapeLayer()
-        let linePath = UIBezierPath()
+    func drawChart(data: [Double], duration: Double = 2.0) {
+        let currentDispatchTime = DispatchTime.now()
         let points = setPoints(data: data)
-        linePath.move(to: points.first ?? CGPoint.zero)
-        points.forEach { point in
-            linePath.addLine(to: point)
+        let animationDuration = duration / Double(data.count)
+        var previousPoint = points.first ?? CGPoint.zero
+        for (index, point) in points.enumerated() {
+            let linePath = drawLine(previousPoint: previousPoint, nextPoint: point)
+            let strokeColor = strokeColor(prePoint: previousPoint, currentPoint: point)
+            let lineLayer = makeLayer(from: linePath, strokeColor: strokeColor)
+            let time = currentDispatchTime + Double(index) * animationDuration
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                self.layer.addSublayer(lineLayer)
+            }
+            
+            let animation = CABasicAnimation(keyPath: "strokeEnd")
+            animation.fromValue = 0
+            animation.toValue = 1
+            animation.duration = animationDuration
+            lineLayer.add(animation, forKey: "drawChart\(index)")
+            previousPoint = point
         }
-        
-        lineLayer.strokeColor = UIColor.titleColor?.cgColor ?? UIColor.placeholderText.cgColor
-        lineLayer.fillColor = UIColor.clear.cgColor
-        lineLayer.path = linePath.cgPath
-        layer.addSublayer(lineLayer)
-        
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = 0
-        animation.toValue = 1
-        animation.duration = 2
-        lineLayer.add(animation, forKey: "chartAnimation")
-
+    }
+    
+    private func drawLine(previousPoint: CGPoint, nextPoint: CGPoint) -> UIBezierPath {
+        let path = UIBezierPath()
+        path.move(to: previousPoint)
+        path.addLine(to: nextPoint)
+        return path
+    }
+    
+    private func makeLayer(from path: UIBezierPath, strokeColor: CGColor) -> CAShapeLayer {
+        let layer = CAShapeLayer()
+        layer.strokeColor = strokeColor
+        layer.fillColor = UIColor.clear.cgColor
+        layer.path = path.cgPath
+        return layer
+    }
+    
+    private func strokeColor(prePoint: CGPoint, currentPoint: CGPoint) -> CGColor {
+        let isDecreasing = prePoint.y < currentPoint.y
+        let color: UIColor = isDecreasing ? (.decreasingColor ?? .blue) : (.increasingColor ?? .red)
+        return color.cgColor
     }
     
     private func setPoints(data: [Double]) -> [CGPoint] {
