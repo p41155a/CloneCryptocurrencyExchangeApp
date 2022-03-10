@@ -17,25 +17,6 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     @IBOutlet weak var changeAmountLabel: UILabel!
     @IBOutlet weak var lineChartView: LineChart!
     
-    var quoteViewController: ViewControllerInjectingViewModel<QuoteViewModel> = {
-        let viewController = QuoteViewController(
-            viewModel: QuoteViewModel(
-                nibName: "QuoteViewController"
-            )
-        )
-        return viewController
-    }()
-    
-    var chartViewController: ViewControllerInjectingViewModel<ChartsViewModel> = {
-        let viewController = ChartViewController(
-            viewModel: ChartsViewModel(
-                nibName: "ChartViewController"
-            )
-        )
-        return viewController
-    }()
-    
-    
     /// 상단 탭별 연결되는 ViewController를 정의
     var viewControllerByTab: [CoinDetailsTopTabs: UIViewController] = [:]
     

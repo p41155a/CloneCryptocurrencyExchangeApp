@@ -23,11 +23,11 @@ class CoinDetailsViewModel: XIBInformation {
     }
     
     func orderCurrency() -> String {
-        return dependency.orderCurrency
+        return dependency.order
     }
     
     func paymentCurrency() -> String {
-        return dependency.paymentCurrency
+        return dependency.payment.value
 	}
 
     func setInitialDataForChart(_ completion: @escaping (CandleStickEntity) -> ()) {
