@@ -223,8 +223,7 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
         let currentCellInfo = viewModel.currentList.value[indexPath.row]
         let order = currentCellInfo.order
         let paymentCurrency = currentCellInfo.payment
-        let data = viewModel.getTableViewEntity(for: CryptocurrencySymbolInfo(order: order,
-                                                                              payment: paymentCurrency))
+        let data = viewModel.getTableViewEntity(for: currentCellInfo)
         switch paymentCurrency {
         case .KRW:
             let currency = "\(data.order)_KRW"
@@ -247,15 +246,11 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentName = viewModel.currentList.value[indexPath.row].order
-        let paymentCurrency = viewModel.currentList.value[indexPath.row].payment
+        let currentCellInfo = viewModel.currentList.value[indexPath.row]
         let coinDetailViewController = CoinDetailsViewController(
             viewModel: CoinDetailsViewModel(
                 nibName: "CoinDetailsViewController",
-                dependency: CoinDetailsDependency(
-                    orderCurrency: currentName,
-                    paymentCurrency: paymentCurrency.value
-                )
+                dependency: viewModel.getTableViewEntity(for: currentCellInfo)
             )
         )
         self.navigationController?.pushViewController(coinDetailViewController, animated: true)
