@@ -14,6 +14,22 @@ class TransactionListViewController: ViewControllerInjectingViewModel<Transactio
         super.viewDidLoad()
 
         configureTransactionList()
+        
+        self.viewModel.indiceToReload.bind { [weak self] indice in
+            guard let indexArr = indice else { return }
+            self?.transactionList.reloadItems(at: indexArr)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("TransactionListViewController connected")
+//        connect()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        disconnect()
     }
 
     private func configureTransactionList() {
@@ -26,19 +42,22 @@ class TransactionListViewController: ViewControllerInjectingViewModel<Transactio
 
 extension TransactionListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50 * 3
+        return viewModel.countOfInformations()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let information = viewModel.information(with: indexPath.item / 3)
         if indexPath.item % 3 == 0 {
             let cell = TimeInTransactionListCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.backgroundColor = .cyan
+            cell.timeLabel.text = information.date
             return cell
         }
         
         let cell = TransactionInformationCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
         cell.backgroundColor = .orange
+        cell.infoLabel.text = information.amount
         return cell
     }
 }

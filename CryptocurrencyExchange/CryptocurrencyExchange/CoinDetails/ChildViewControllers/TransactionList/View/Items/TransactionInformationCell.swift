@@ -9,6 +9,7 @@ import UIKit
 
 class TransactionInformationCell: UICollectionViewCell {
 
+    @IBOutlet weak var infoLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
