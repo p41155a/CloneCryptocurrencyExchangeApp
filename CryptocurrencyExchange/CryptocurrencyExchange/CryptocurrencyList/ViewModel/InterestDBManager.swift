@@ -23,7 +23,9 @@ class InterestDBManager: DBAccessable {
         return !interestData.isEmpty
     }
     
-    func add(interest: T) {
-        addWithUpdate(data: interest) { _ in }
+    func add(interest: T, completion: @escaping (Result<T?, Error>) -> ()) {
+        addWithUpdate(data: interest) { result in
+            completion(result)
+        }
     }
 }

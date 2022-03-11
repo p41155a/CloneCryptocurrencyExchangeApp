@@ -74,7 +74,14 @@ final class CryptocurrencyListViewModel: XIBInformation {
     
     // MARK: about Interest
     func setInterestData(interest: InterestCurrency) {
-        return interestDB.add(interest: interest)
+        return interestDB.add(interest: interest) { [weak self] result in
+            switch result {
+            case .success(_):
+                break
+            case .failure(_):
+                self?.error.value = "DB를 불러오지 못하였습니다.\n앱을 제거 후 다시 설치해주세요"
+            }
+        }
     }
     
     func isInterest(of interestKey: String) -> Bool {
@@ -93,8 +100,9 @@ final class CryptocurrencyListViewModel: XIBInformation {
             searchCurrency(for: self.searchWord)
         case .tabInterest:
             stopTimer()
-            setInterestList()
-            searchCurrency(for: self.searchWord)
+            setInterestList() { [weak self] in
+                self?.searchCurrency(for: self?.searchWord ?? "")
+            }
         case .tabPopular:
             sortByVolumePower()
             startTimer(interval: 10)
@@ -131,7 +139,14 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - Private Func
     // MARK: about sort <private>
     private func saveSortInfo(sortInfo: SortInfo) {
-        sortDB.add(sortInfo: sortInfo)
+        sortDB.add(sortInfo: sortInfo) { [weak self] result in
+            switch result {
+            case .success(_):
+                break
+            case .failure(_):
+                self?.error.value = "DB를 불러오지 못하였습니다.\n앱을 제거 후 다시 설치해주세요"
+            }
+        }
     }
     
     func getSortInfo() -> SortInfo {
@@ -139,9 +154,10 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     // MARK: about Interest <private>
-    private func setInterestList() {
+    private func setInterestList(_ completion: @escaping () -> ()) {
         interestDB.existingData() { interestData in
             self.model.setInterestList(from: interestData)
+            completion()
         }
     }
     

@@ -12,14 +12,19 @@ protocol DBAccessable {
     associatedtype T: Object
     var realm: Realm { get }
     func suitableData(condition: ((Query<T>) -> Query<Bool>)?) -> Results<T>
-    func add(data: T, completion: @escaping (T?) -> Void)
-    func addWithUpdate(data: T, completion: @escaping (T?) -> Void)
-    func update(block: (() -> Void), completion: @escaping () -> Void)
+    func add(data: T, completion: @escaping (Result<T?, Error>) -> ())
+    func addWithUpdate(data: T, completion: @escaping (Result<T?, Error>) -> ())
+    func update(block: (() -> Void), completion: @escaping (Result<(), Error>) -> ())
 }
 
 extension DBAccessable {
     var realm: Realm {
-        return try! Realm()
+        do {
+            return try Realm()
+        } catch {
+            NSLog("DB로드에 실패하였습니다.")
+        }
+        return self.realm
     }
     
     func suitableData(condition: ((Query<T>) -> Query<Bool>)?) -> Results<T> {
@@ -32,25 +37,37 @@ extension DBAccessable {
         }
     }
     
-    func add(data: T, completion: @escaping (T?) -> Void) {
-        try! realm.write {
-            realm.add(data)
-            completion(data)
+    func add(data: T, completion: @escaping (Result<T?, Error>) -> ()) {
+        do  {
+            try realm.write {
+                realm.add(data)
+                completion(.success(data))
+            }
+        } catch {
+            completion(.failure(error))
         }
     }
     
-    func addWithUpdate(data: T, completion: @escaping (T?) -> Void) {
-        try! realm.write {
-            realm.add(data, update: .modified)
-            completion(data)
+    func addWithUpdate(data: T, completion: @escaping (Result<T?, Error>) -> ()) {
+        do {
+            try realm.write {
+                realm.add(data, update: .modified)
+                completion(.success(data))
+            }
+        } catch {
+            completion(.failure(error))
         }
     }
     
-    func update(block: (() -> Void), completion: @escaping () -> Void) {
-        try! realm.write({
-            block()
-            completion()
-        })
+    func update(block: (() -> Void), completion: @escaping (Result<(), Error>) -> ()) {
+        do {
+            try realm.write({
+                block()
+                completion(.success(()))
+            })
+        } catch {
+            completion(.failure(error))
+        }
     }
 }
 

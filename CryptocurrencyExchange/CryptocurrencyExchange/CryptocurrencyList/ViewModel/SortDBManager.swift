@@ -15,7 +15,9 @@ class SortDBManager: DBAccessable {
         return sortData.first
     }
     
-    func add(sortInfo: T) {
-        addWithUpdate(data: sortInfo) { _ in }
+    func add(sortInfo: T, completion: @escaping (Result<T?, Error>) -> ()) {
+        addWithUpdate(data: sortInfo) { result in
+            completion(result)
+        }
     }
 }

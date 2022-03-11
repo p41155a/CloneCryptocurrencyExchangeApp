@@ -59,8 +59,13 @@ class CandleStickDBManager: DBAccessable {
                 return data
             })
             existingDatas.lastUpdated = candleStickDatas.last?.time ?? 0
-        }) {
-            completion(candleStickDatas)
+        }) { result in
+            switch result {
+            case .success():
+                completion(candleStickDatas)
+            case .failure(_):
+                break
+            }
         }
     }
 }
