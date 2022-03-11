@@ -68,8 +68,9 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     // MARK: about Interest
-    func setInterestData(interest: InterestCurrency) {
-        return interestDB.add(interest: interest) { [weak self] result in
+    func setInterestData(of symbolInfo: CryptocurrencySymbolInfo, isInterest: Bool) {
+        return interestDB.add(symbolInfo: symbolInfo,
+                              isInterest: isInterest) { [weak self] result in
             switch result {
             case .success(_):
                 break
@@ -79,8 +80,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
         }
     }
     
-    func isInterest(of interestKey: String) -> Bool {
-        return interestDB.isInterest(of: interestKey)
+    func isInterest(of symbolInfo: CryptocurrencySymbolInfo) -> Bool {
+        return interestDB.isInterest(of: symbolInfo)
     }
     
     // MARK: select tab

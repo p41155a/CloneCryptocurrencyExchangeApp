@@ -10,7 +10,7 @@ import UIKit
 class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsViewModel> {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var interestButton: UIButton!
+    @IBOutlet weak var interestButton: StarButton!
     @IBOutlet weak var topTabBar: UIStackView!
     @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var changeRateLabel: UILabel!
@@ -37,6 +37,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     private func configureUI() {
         titleLabel.text = viewModel.dependency.order
         reflectData(by: viewModel.dependency)
+        interestButton.isSelected = viewModel.isInterest()
     }
     
     func drawLineChart() {
@@ -141,5 +142,10 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     }
     @IBAction func clickBackButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func interestButtonTap(_ sender: StarButton) {
+        sender.isSelected.toggle()
+        viewModel.setInterest(for: sender.isSelected)
     }
 }

@@ -29,9 +29,10 @@ class InterestCurrency: Object {
     @Persisted var currency: String // BTC_KRW
     @Persisted var interest: Bool
     
-    convenience init(currency: String, interest: Bool) {
+    convenience init(currency: CryptocurrencySymbolInfo,
+                     interest: Bool) {
         self.init()
-        self.currency = currency
+        self.currency = "\(currency.order)_\(currency.payment.value)"
         self.interest = interest
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CrypocurrencyListTableViewCellDelegate: AnyObject {
-    func setInterestData(interest: InterestCurrency)
+    func setInterestData(of symbolInfo: CryptocurrencySymbolInfo, isInterest: Bool)
 }
 class CrypocurrencyBTCListTableViewCell: UITableViewCell, CrypocurrencyListTableViewCell {
     // MARK: - func
@@ -72,11 +72,10 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell, CrypocurrencyListTable
             return
         }
         delegate?.setInterestData(
-            interest: InterestCurrency(
-                currency: "\(currencyName)_BTC",
-                interest: interestButton.isSelected
-            )
-        )
+            of: CryptocurrencySymbolInfo(
+                order: currencyName,
+                payment: .BTC),
+            isInterest: sender.isSelected)
     }
     
     // MARK: - Property

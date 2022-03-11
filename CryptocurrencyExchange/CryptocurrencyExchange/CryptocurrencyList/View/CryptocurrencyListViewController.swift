@@ -20,6 +20,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        tableView.reloadData()
         connect()
     }
     
@@ -229,21 +230,19 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
         let data = viewModel.getTableViewEntity(for: currentCellInfo)
         switch paymentCurrency {
         case .KRW:
-            let currency = "\(data.order)_KRW"
             let cell = CrypocurrencyKRWListTableViewCell.dequeueReusableCell(tableView: tableView)
             cell.delegate = self
             cell.setData(data: data,
-                         isInterest: viewModel.isInterest(of: currency))
+                         isInterest: viewModel.isInterest(of: currentCellInfo))
             return cell
         case .BTC:
-            let currency = "\(data.order)_BTC"
             let krwData = viewModel.getTableViewEntity(for: CryptocurrencySymbolInfo(order: order,
                                                                                      payment: .KRW))
             let cell = CrypocurrencyBTCListTableViewCell.dequeueReusableCell(tableView: tableView)
             cell.delegate = self
             cell.setData(krwData: krwData,
                          btcData: data,
-                         isInterest: viewModel.isInterest(of: currency))
+                         isInterest: viewModel.isInterest(of: currentCellInfo))
             return cell
         }
     }
@@ -281,8 +280,8 @@ extension CryptocurrencyListViewController: WebSocketDelegate {
 
 // MARK: - Delegate Cell
 extension CryptocurrencyListViewController: CrypocurrencyListTableViewCellDelegate {
-    func setInterestData(interest: InterestCurrency) {
-        viewModel.setInterestData(interest: interest)
+    func setInterestData(of symbolInfo: CryptocurrencySymbolInfo, isInterest: Bool) {
+        viewModel.setInterestData(of: symbolInfo, isInterest: isInterest)
     }
 }
 

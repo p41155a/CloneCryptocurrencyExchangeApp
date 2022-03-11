@@ -17,7 +17,8 @@ class InterestDBManager: DBAccessable {
         completion(interestData.toArray())
     }
     
-    func isInterest(of interestKey: String) -> Bool {
+    func isInterest(of symbolInfo: CryptocurrencySymbolInfo) -> Bool {
+        let interestKey = "\(symbolInfo.order)_\(symbolInfo.payment.value)"
         let interestData = suitableData() { interestInfo in
             return (interestInfo.currency == interestKey &&
                     interestInfo.interest == true)
@@ -25,8 +26,12 @@ class InterestDBManager: DBAccessable {
         return !interestData.isEmpty
     }
     
-    func add(interest: T, completion: @escaping (Result<T?, Error>) -> ()) {
-        addWithUpdate(data: interest) { result in
+    func add(symbolInfo: CryptocurrencySymbolInfo,
+             isInterest: Bool,
+             completion: @escaping (Result<T?, Error>) -> ()) {
+        let data = InterestCurrency(currency: symbolInfo,
+                                    interest: isInterest)
+        addWithUpdate(data: data) { result in
             completion(result)
         }
     }

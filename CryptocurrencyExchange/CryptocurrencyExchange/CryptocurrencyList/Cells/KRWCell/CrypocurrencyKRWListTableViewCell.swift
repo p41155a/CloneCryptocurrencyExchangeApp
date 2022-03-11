@@ -63,11 +63,10 @@ final class CrypocurrencyKRWListTableViewCell: UITableViewCell, CrypocurrencyLis
             return
         }
         delegate?.setInterestData(
-            interest: InterestCurrency(
-                currency: "\(currencyName)_KRW",
-                interest: interestButton.isSelected
-            )
-        )
+            of: CryptocurrencySymbolInfo(
+                order: currencyName,
+                payment: .KRW),
+            isInterest: sender.isSelected)
     }
     
     // MARK: - Property
