@@ -50,8 +50,9 @@ extension TransactionListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let information = viewModel.information(with: indexPath.item / 3)
-        if indexPath.item % 3 == 0 {
+        let information = viewModel.information(with: indexPath.item / viewModel.numberOfColumns)
+        let isFirstColumn = indexPath.item % viewModel.numberOfColumns == 0
+        if isFirstColumn {
             let cell = TimeInTransactionListCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.backgroundColor = .cyan
             cell.timeLabel.text = information.date
@@ -69,7 +70,7 @@ extension TransactionListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height: CGFloat = 40
         let fullWidth = UIScreen.main.bounds.width
-        if indexPath.item % 3 == 0 {
+        if indexPath.item % viewModel.numberOfColumns == 0 {
             return CGSize(width: 100, height: height)
         } else {
             return CGSize(width: (fullWidth - 100)/2, height: height)

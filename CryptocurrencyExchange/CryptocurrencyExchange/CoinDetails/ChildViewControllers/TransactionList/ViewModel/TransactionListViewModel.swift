@@ -8,6 +8,8 @@
 import Foundation
 
 class TransactionListViewModel: XIBInformation {
+    let numberOfColumns: Int = 3
+    
     var nibName: String?
     let paymentCurrency: String
     let orderCurrency: String
@@ -35,21 +37,19 @@ class TransactionListViewModel: XIBInformation {
     
     private func bindClosures() {
         repository.transactionInformations.bind { [weak self] informations in
+            guard let `self` = self else { return }
             guard let infos = informations else { return }
-            infos.map({print($0.date)})
+    
             let newInformations: [TransactionInforamtion] = infos.reversed()
-            self?.transactionInformations.insert(contentsOf: newInformations, at: 0)
-            self?.indiceToReload.value = newInformations.enumerated().map({ (index, _) -> [IndexPath] in
-                [IndexPath(item: index*3, section: 0), IndexPath(item: index*3 + 1, section: 0), IndexPath(item: index*3 + 2, section: 0)
-                 
-                ]}).flatMap({$0})
-            
-            
+            self.transactionInformations.insert(contentsOf: newInformations, at: 0)
+            self.indiceToReload.value = newInformations.enumerated().map({ (index, _) -> [IndexPath] in
+                (0..<self.numberOfColumns).map { IndexPath(item: $0 + index * self.numberOfColumns, section: 0) }
+            }).flatMap({$0})
         }
     }
     
     func countOfInformations() -> Int {
-        return transactionInformations.count * 3
+        return transactionInformations.count * numberOfColumns
     }
     
     func information(with index: Int) -> TransactionInforamtion {
