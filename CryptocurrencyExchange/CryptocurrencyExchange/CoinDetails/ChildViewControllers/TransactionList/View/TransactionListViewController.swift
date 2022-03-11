@@ -12,26 +12,29 @@ class TransactionListViewController: ViewControllerInjectingViewModel<Transactio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureTransactionList()
         
         self.viewModel.indiceToReload.bind { [weak self] indice in
             guard let indexArr = indice else { return }
-            self?.transactionList.reloadItems(at: indexArr)
+            self?.transactionList.insertItems(at: indexArr)
         }
+    }
+    
+    override func didMove(toParent parent: UIViewController?) {
+        super.didMove(toParent: parent)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("TransactionListViewController connected")
-//        connect()
+        viewModel.socketConnect(on: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        disconnect()
+        viewModel.socketConnect(on: false)
     }
-
+    
     private func configureTransactionList() {
         TimeInTransactionListCell.register(collectionView: transactionList)
         TransactionInformationCell.register(collectionView: transactionList)

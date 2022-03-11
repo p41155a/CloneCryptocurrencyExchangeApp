@@ -29,4 +29,12 @@ class TransactionListRepository {
             })
         }
     }
+    
+    func socketConnect(on: Bool = true) {
+        if on {
+            webSocketManager.connect()
+        } else {
+            webSocketManager.disconnect()
+        }
+    }
 }

@@ -21,10 +21,9 @@ class TransactionWebSocketManager {
         self.paymentCurrency = paymentCurrency
         self.orderCurrency = orderCurrency
         self.transactionData = Observable(nil)
-        self.connect()
     }
     
-    private func connect() {
+    func connect() {
         let url = "wss://pubwss.bithumb.com/pub/ws"
         
         var request = URLRequest(url: URL(string: url)!)
@@ -34,7 +33,7 @@ class TransactionWebSocketManager {
         socket?.connect()
     }
     
-    private func disconnect() {
+    func disconnect() {
         socket?.disconnect()
         socket?.delegate = nil
     }

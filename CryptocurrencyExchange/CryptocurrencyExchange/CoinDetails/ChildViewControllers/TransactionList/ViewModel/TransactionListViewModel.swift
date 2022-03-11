@@ -55,4 +55,8 @@ class TransactionListViewModel: XIBInformation {
     func information(with index: Int) -> TransactionInforamtion {
         return transactionInformations[index]
     }
+    
+    func socketConnect(on: Bool = true) {
+        repository.socketConnect(on: on)
+    }
 }
