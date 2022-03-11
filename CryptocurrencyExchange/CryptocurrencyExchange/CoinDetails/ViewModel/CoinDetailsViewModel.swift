@@ -49,6 +49,10 @@ class CoinDetailsViewModel: XIBInformation {
             }
         }
     }
+    
+    func getWebSocketSymbol() -> String {
+        return "\(dependency.order)_\(dependency.payment.value)"
+    }
 
     func setInitialDataForChart(_ completion: @escaping (CandleStickEntity) -> ()) {
         apiManager.candleStick(

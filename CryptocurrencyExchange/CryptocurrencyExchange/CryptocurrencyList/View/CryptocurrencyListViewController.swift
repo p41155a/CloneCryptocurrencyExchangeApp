@@ -188,9 +188,11 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     }
     
     private func writeToSocket(paymentCurrency: PaymentCurrency, tickTypes: [WebSocketTickType]) {
-        let params: [String: Any] = ["type": WebSocketType.ticker.rawValue,
-                                     "symbols": self.viewModel.getSymbols(for: paymentCurrency),
-                                     "tickTypes": tickTypes.map { $0.rawValue } ]
+        let params: [String: Any] = [
+            "type": WebSocketType.ticker.rawValue,
+            "symbols": self.viewModel.getSymbols(for: paymentCurrency),
+            "tickTypes": tickTypes.map { $0.rawValue }
+        ]
         do {
             let json = try JSONSerialization.data(withJSONObject: params, options: [])
             socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)

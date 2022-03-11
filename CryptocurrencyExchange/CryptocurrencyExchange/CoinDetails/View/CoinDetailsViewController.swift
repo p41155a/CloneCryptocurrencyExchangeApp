@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Starscream
 
 class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsViewModel> {
-
+    
+    private var socket: WebSocket?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var interestButton: StarButton!
     @IBOutlet weak var topTabBar: UIStackView!
@@ -20,12 +22,14 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     /// 상단 탭별 연결되는 ViewController를 정의
     var viewControllerByTab: [CoinDetailsTopTabs: UIViewController] = [:]
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         drawLineChart()
         setChildViewControllers()
         setTopTapBarTabEvent()
+        connect()
         
         self.bringSubviewToFront(with: CoinDetailsTopTabs(rawValue: 0) ?? .quote)
     }
@@ -40,6 +44,11 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         interestButton.isSelected = viewModel.isInterest()
     }
     
+    deinit {
+        disconnect()
+    }
+    
+    // MARK: - func<UI>
     func drawLineChart() {
         viewModel.setInitialDataForChart() { [weak self] data in
             let oneDayToSec: Double = 86400
@@ -70,6 +79,38 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         changeAmountLabel.textColor = updown.color
     }
     
+    // MARK: - func<websocket>
+    private func connect() {
+        let url = "wss://pubwss.bithumb.com/pub/ws"
+        
+        var request = URLRequest(url: URL(string: url)!)
+        request.timeoutInterval = 5
+        socket = WebSocket(request: request)
+        socket?.delegate = self
+        socket?.connect()
+    }
+    
+    private func disconnect() {
+        socket?.disconnect()
+        socket?.delegate = nil
+    }
+    
+    private func writeToSocket() {
+        let params: [String: Any] = [
+            "type": WebSocketType.ticker.rawValue,
+            "symbols": viewModel.getWebSocketSymbol(),
+            "tickTypes": WebSocketTickType.tick24H.rawValue
+        ]
+        do {
+            let json = try JSONSerialization.data(withJSONObject: params, options: [])
+            socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
+        } catch {
+            showAlert(title: "소켓 요청에 실패하였습니다. 관리자에게 문의해주세요", completion: nil)
+        }
+    }
+
+    
+    // MARK: - Private Func
     /// 상단 탭에 연관되는 뷰컨트롤러를 ChildViewController로 설정
     private func setChildViewControllers() {
         let orderCurrency = viewModel.orderCurrency()
@@ -147,5 +188,28 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     @IBAction func interestButtonTap(_ sender: StarButton) {
         sender.isSelected.toggle()
         viewModel.setInterest(for: sender.isSelected)
+    }
+}
+
+// MARK: - Delegate WebSocket
+extension CoinDetailsViewController: WebSocketDelegate {
+    func didReceive(event: WebSocketEvent, client: WebSocket) {
+        switch event {
+        case .connected(_):
+            writeToSocket()
+        case .text(let string):
+            do {
+                let data = string.data(using: .utf8)!
+                let json = try JSONDecoder().decode(WebSocketTickerEntity.self, from: data)
+                let tickerInfo = json.content
+                reflectData(by: CryptocurrencyListTableViewEntity(currentPrice: tickerInfo.closePrice.doubleValue ?? 0,
+                                                                  changeRate: tickerInfo.chgRate.doubleValue ?? 0,
+                                                                  changeAmount: tickerInfo.chgAmt))
+            } catch  {
+                print("Received text: \(string)")
+            }
+        default:
+            break
+        }
     }
 }
