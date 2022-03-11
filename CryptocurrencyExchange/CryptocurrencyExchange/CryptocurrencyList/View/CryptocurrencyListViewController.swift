@@ -21,12 +21,12 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         tableView.reloadData()
-        connect()
+        viewModel.connectSocket()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        disconnect()
+        viewModel.disconnectSocket()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -35,7 +35,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     }
     
     deinit {
-        disconnect()
+        viewModel.disconnectSocket()
     }
     
     // MARK: - Bind viewModel
@@ -171,38 +171,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         sender.isClicked()
     }
     
-    // MARK: - func<websocket>
-    private func connect() {
-        let url = "wss://pubwss.bithumb.com/pub/ws"
-        
-        var request = URLRequest(url: URL(string: url)!)
-        request.timeoutInterval = 5
-        socket = WebSocket(request: request)
-        socket?.delegate = self
-        socket?.connect()
-    }
-    
-    private func disconnect() {
-        socket?.disconnect()
-        socket?.delegate = nil
-    }
-    
-    private func writeToSocket(paymentCurrency: PaymentCurrency, tickTypes: [WebSocketTickType]) {
-        let params: [String: Any] = [
-            "type": WebSocketType.ticker.rawValue,
-            "symbols": self.viewModel.getSymbols(for: paymentCurrency),
-            "tickTypes": tickTypes.map { $0.rawValue }
-        ]
-        do {
-            let json = try JSONSerialization.data(withJSONObject: params, options: [])
-            socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
-        } catch {
-            showAlert(title: "소켓 요청에 실패하였습니다. 관리자에게 문의해주세요", completion: nil)
-        }
-    }
-    
     // MARK: - Property
-    private var socket: WebSocket?
     private var tabButtonList: [TabButton] = []
     private var sortButtonList: [SortListButton] = []
     @IBOutlet weak var explainPopolurRuleLabel: UILabel!
@@ -258,25 +227,6 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
             )
         )
         self.navigationController?.pushViewController(coinDetailViewController, animated: true)
-    }
-}
-// MARK: - Delegate WebSocket
-extension CryptocurrencyListViewController: WebSocketDelegate {
-    func didReceive(event: WebSocketEvent, client: WebSocket) {
-        switch event {
-        case .connected(_):
-            writeToSocket(paymentCurrency: .KRW, tickTypes: [.tick24H])
-        case .text(let string):
-            do {
-                let data = string.data(using: .utf8)!
-                let json = try JSONDecoder().decode(WebSocketTickerEntity.self, from: data)
-                viewModel.setWebSocketData(with: json)
-            } catch  {
-                print("Received text: \(string)")
-            }
-        default:
-            break
-        }
     }
 }
 

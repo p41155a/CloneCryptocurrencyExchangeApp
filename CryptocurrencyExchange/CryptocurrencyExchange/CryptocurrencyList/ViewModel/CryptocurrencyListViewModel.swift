@@ -16,6 +16,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
     private var timer = Timer()
     private var apiManager = TickerAPIManager()
     private var interestDB = InterestDBManager()
+    private var socketManager = AllTickerWebSocketManager()
     private var sortDB = SortDBManager()
     private var currentTab: MainListCurrentTab = .tabKRW
     let currentList: Observable<[CryptocurrencySymbolInfo]> = Observable([])
@@ -25,6 +26,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - init
     init(nibName: String? = nil) {
         self.nibName = nibName
+        socketManager.delegate = self
     }
     
     // MARK: - Func
@@ -34,37 +36,17 @@ final class CryptocurrencyListViewModel: XIBInformation {
         setInitialDataForPayment(payment: PaymentCurrency.KRW) { [weak self] in
             guard let self = self else { return }
             self.currentList.value = self.model.getCurrentList(for: self.currentTab)
+            self.socketManager.symbolsKRW = self.getSymbols(for: .KRW)
         }
-        setInitialDataForPayment(payment: PaymentCurrency.BTC) {}
+        setInitialDataForPayment(payment: PaymentCurrency.BTC) { [weak self] in
+            self?.socketManager.symbolsBTC = self?.getSymbols(for: .BTC) ?? []
+        }
     }
     
     // MARK: For tableView
     func getTableViewEntity(for info: CryptocurrencySymbolInfo) -> CryptocurrencyListTableViewEntity {
         let list = self.model.getEachPaymentList(for: info.payment)
         return list[info.order] ?? CryptocurrencyListTableViewEntity()
-    }
-    
-    // MARK: about websocket
-    func getSymbols(for payment: PaymentCurrency) -> [String] {
-        return model.getSymbols(for: payment)
-    }
-    
-    func setWebSocketData(with entity: WebSocketTickerEntity) {
-        let tickerInfo = entity.content
-        let splitedSymbol: [String] = tickerInfo.symbol.split(separator: "_").map { "\($0)" }
-        let order = splitedSymbol[0]
-        let payment = splitedSymbol[1]
-        
-        /// 변경된 값이 현재 탭에 있는 값일때
-        for (index, paymentInfo) in currentList.value.enumerated() {
-            if paymentInfo.order == order {
-                changeIndex.value = index
-            }
-        }
-        
-        model.setWebSocketData(order: order,
-                               payment: PaymentCurrency(rawValue: payment) ?? .KRW,
-                               tickerInfo: tickerInfo)
     }
     
     // MARK: about Interest
@@ -211,5 +193,39 @@ final class CryptocurrencyListViewModel: XIBInformation {
     private func stopTimer() {
         timeTrigger = true
         timer.invalidate()
+    }
+}
+extension CryptocurrencyListViewModel: AllTickerWebSocketManagerDelegate {
+    func handingError(for error: String) {
+        self.error.value = error
+    }
+    
+    func setWebSocketData(with entity: WebSocketTickerEntity) {
+        let tickerInfo = entity.content
+        let splitedSymbol: [String] = tickerInfo.symbol.split(separator: "_").map { "\($0)" }
+        let order = splitedSymbol[0]
+        let payment = splitedSymbol[1]
+        
+        for (index, paymentInfo) in currentList.value.enumerated() {
+            if paymentInfo.order == order {
+                changeIndex.value = index
+            }
+        }
+        
+        model.setWebSocketData(order: order,
+                               payment: PaymentCurrency(rawValue: payment) ?? .KRW,
+                               tickerInfo: tickerInfo)
+    }
+    
+    func connectSocket() {
+        socketManager.connect()
+    }
+    
+    func disconnectSocket() {
+        socketManager.disconnect()
+    }
+    
+    func getSymbols(for payment: PaymentCurrency) -> [String] {
+        return model.getSymbols(for: payment)
     }
 }
