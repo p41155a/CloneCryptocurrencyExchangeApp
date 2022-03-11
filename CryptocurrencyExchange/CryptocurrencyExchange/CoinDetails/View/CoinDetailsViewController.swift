@@ -9,14 +9,21 @@ import UIKit
 
 class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsViewModel> {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var interestButton: UIButton!
     @IBOutlet weak var topTabBar: UIStackView!
-
+    @IBOutlet weak var currentPriceLabel: UILabel!
+    @IBOutlet weak var changeRateLabel: UILabel!
+    @IBOutlet weak var changeAmountLabel: UILabel!
+    @IBOutlet weak var lineChartView: LineChart!
+    
     /// 상단 탭별 연결되는 ViewController를 정의
     var viewControllerByTab: [CoinDetailsTopTabs: UIViewController] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureUI()
+        drawLineChart()
         setChildViewControllers()
         setTopTapBarTabEvent()
         
@@ -25,11 +32,41 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigation()
     }
     
-    private func setNavigation() {
-        navigationController?.navigationBar.isHidden = false
+    private func configureUI() {
+        titleLabel.text = viewModel.dependency.order
+        reflectData(by: viewModel.dependency)
+    }
+    
+    func drawLineChart() {
+        viewModel.setInitialDataForChart() { [weak self] data in
+            let oneDayToSec: Double = 86400
+            let startSec = Date().timeIntervalSince1970 - (oneDayToSec * 30 * 6)
+            let openPrice = data.data
+                .compactMap { StickInfo(data: $0) }
+                .filter { $0.time > startSec * 1000 }
+                .map { $0.openPrice }
+            
+            self?.lineChartView.drawChart(data: openPrice)
+        }
+    }
+    
+    func reflectData(by data: CryptocurrencyListTableViewEntity) {
+        let currentPrice: String = "\(data.currentPrice)".setNumStringForm(isDecimalType: true)
+        let changeRate: String = "\(data.changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
+        let changeAmount: String = "\(data.changeAmount)".setNumStringForm(isDecimalType: true, isMarkPlusMiuns: true)
+        
+        currentPriceLabel.text = currentPrice
+        changeRateLabel.text = changeRate
+        changeAmountLabel.text = changeAmount
+        setColor(updown: UpDown(rawValue: changeAmount.first ?? "0") ?? .zero)
+    }
+    
+    func setColor(updown: UpDown) {
+        currentPriceLabel.textColor = updown.color
+        changeRateLabel.textColor = updown.color
+        changeAmountLabel.textColor = updown.color
     }
     
     /// 상단 탭에 연관되는 뷰컨트롤러를 ChildViewController로 설정
@@ -110,5 +147,8 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         viewController.willMove(toParent: nil)
         viewController.removeFromParent()
         viewController.view.removeFromSuperview()
+    }
+    @IBAction func clickBackButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 }

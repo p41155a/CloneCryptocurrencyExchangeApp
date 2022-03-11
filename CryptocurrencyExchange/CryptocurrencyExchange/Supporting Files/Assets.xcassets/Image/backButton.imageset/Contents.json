@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "searchIcon.pdf",
+      "filename" : "backButton.pdf",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "searchIcon (1).pdf",
+      "filename" : "backButton-1.pdf",
       "idiom" : "universal"
     }
   ],
