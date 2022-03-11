@@ -19,10 +19,11 @@ class TransactionListRepository {
     
     func bindClosures() {
         webSocketManager.transactionData.bind { [weak self] data in
-            self?.transactionInformations.value = data?.content.list.map({ content in
-                TransactionInforamtion(
+            self?.transactionInformations.value = data?.content.list.map({ content -> TransactionInforamtion in
+                let dateFormatted = self?.formattedDate(from: content.contDtm) ?? ""
+                return TransactionInforamtion(
                     saleType: content.buySellGb,
-                    date: content.contDtm,
+                    date: dateFormatted,
                     price: content.contPrice,
                     amount: content.contAmt
                 )
@@ -36,5 +37,14 @@ class TransactionListRepository {
         } else {
             webSocketManager.disconnect()
         }
+    }
+    
+    private func formattedDate(from dateString: String) -> String {
+        var dateFormatted = dateString
+        if let date = dateFormatted.toDate(format: "yyyy-MM-dd HH:mm:ss.SSSSSS") {
+            dateFormatted = date.toString(format: "HH:mm:ss")
+        }
+        
+        return dateFormatted
     }
 }
