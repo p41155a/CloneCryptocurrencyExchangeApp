@@ -13,20 +13,30 @@ protocol AllTickerWebSocketManagerDelegate: AnyObject {
     func setWebSocketData(with entity: WebSocketTickerEntity)
 }
 final class AllTickerWebSocketManager {
+    private var timer = Timer()
+    private var timeTrigger = true
     private var socket: WebSocket?
     var symbolsKRW: [String] = []
     var symbolsBTC: [String] = []
     weak var delegate: AllTickerWebSocketManagerDelegate?
     
-    // MARK: - func<websocket>
+    init() {
+        startTimer(interval: 60)
+    }
+    
+    deinit {
+        stopTimer()
+        disconnect()
+    }
+    
     func connect() {
         let url = "wss://pubwss.bithumb.com/pub/ws"
         
         var request = URLRequest(url: URL(string: url)!)
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
-        socket?.delegate = self
         socket?.connect()
+        socket?.delegate = self
     }
     
     func disconnect() {
@@ -46,6 +56,30 @@ final class AllTickerWebSocketManager {
             socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
         } catch {
             delegate?.handingError(for: "소켓 요청에 실패하였습니다. 관리자에게 문의해주세요")
+        }
+    }
+    
+    private func startTimer(interval: Double) {
+        if(timeTrigger) {
+            timer = Timer.scheduledTimer(timeInterval: interval,
+                                         target: self,
+                                         selector: #selector(checkConnect),
+                                         userInfo: nil,
+                                         repeats: true)
+            timeTrigger = false
+        }
+    }
+    
+    private func stopTimer() {
+        timeTrigger = true
+        timer.invalidate()
+    }
+    
+    @objc
+    private func checkConnect() {
+        guard socket?.respondToPingWithPong ?? false else {
+            connect()
+            return
         }
     }
 }
