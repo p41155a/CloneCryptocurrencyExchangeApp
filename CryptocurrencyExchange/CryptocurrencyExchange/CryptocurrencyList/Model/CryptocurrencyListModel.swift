@@ -46,7 +46,7 @@ class CryptocurrencyListModel {
     
     func getCurrentList(for tab: MainListCurrentTab) -> [CryptocurrencySymbolInfo] {
         let searchedList = getSearchedList(for: tab, word: searchWord)
-        return sortList(sortInfo: sortInfo, list: searchedList)
+        return sortList(list: searchedList)
     }
     
     // MARK: about Interest
@@ -73,7 +73,7 @@ class CryptocurrencyListModel {
     
     func setAPIData(of data: TickerEntity,
                     payment: PaymentCurrency,
-                    _ completion: @escaping ([CryptocurrencySymbolInfo]) -> ()) {
+                    _ completion: @escaping () -> ()) {
         let cryptocurrencyData = data.ordersInfo.orderInfo
         var tickerList: [String: CryptocurrencyListTableViewEntity] = [:]
         var symbolsList: [CryptocurrencySymbolInfo] = []
@@ -92,18 +92,15 @@ class CryptocurrencyListModel {
             symbolsList.append(paymentInfo)
             tickerList[order] = tableData
         }
-        
         switch payment {
         case .KRW:
             self.tickerKRWList = tickerList
-            self.tabKRWList = self.sortList(sortInfo: sortInfo,
-                                            list: symbolsList)
+            self.tabKRWList = symbolsList
         case .BTC:
             self.tickerBTCList = tickerList
-            self.tabBTCList = self.sortList(sortInfo: sortInfo,
-                                            list: symbolsList)
+            self.tabBTCList = symbolsList
         }
-        completion(symbolsList)
+        completion()
     }
     
     func getEachPaymentList(for payment: PaymentCurrency) -> [String: CryptocurrencyListTableViewEntity] {
@@ -137,13 +134,10 @@ class CryptocurrencyListModel {
         }
     }
     
-    private func sortList(sortInfo: SortInfo,
-                  list: [CryptocurrencySymbolInfo]) -> [CryptocurrencySymbolInfo] {
-        print(sortInfo)
-        print(list.map { $0.payment == .KRW ? tickerKRWList[$0.order]?.changeAmount : tickerBTCList[$0.order]?.changeAmount })
+    private func sortList(list: [CryptocurrencySymbolInfo]) -> [CryptocurrencySymbolInfo] {
         return list.sorted {
-            let frontData = $0.payment == .KRW ? tickerKRWList[$0.order] : tickerBTCList[$0.order]
-            let backData = $0.payment == .KRW ? tickerKRWList[$1.order] : tickerBTCList[$1.order]
+            let frontData = getEachPaymentList(for: $0.payment)[$0.order]
+            let backData = getEachPaymentList(for: $1.payment)[$1.order]
             switch sortInfo.standard {
             case .currencyName:
                 return order(orderBy: sortInfo.orderby,

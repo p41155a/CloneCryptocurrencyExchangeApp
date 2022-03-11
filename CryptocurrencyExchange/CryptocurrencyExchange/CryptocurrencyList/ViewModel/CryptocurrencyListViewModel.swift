@@ -31,11 +31,11 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: 초기 데이터 설정
     func setInitialData() {
         model.sortInfo = getSortInfo()
-        setInitialDataForPayment(payment: PaymentCurrency.KRW) { [weak self] list in
+        setInitialDataForPayment(payment: PaymentCurrency.KRW) { [weak self] in
             guard let self = self else { return }
-            self.currentList.value = list
+            self.currentList.value = self.model.getCurrentList(for: self.currentTab)
         }
-        setInitialDataForPayment(payment: PaymentCurrency.BTC) { _ in }
+        setInitialDataForPayment(payment: PaymentCurrency.BTC) {}
     }
     
     // MARK: For tableView
@@ -114,6 +114,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: about sort
     func sortCurrentTabList(by sortInfo: SortInfo) {
         saveSortInfo(sortInfo: sortInfo) { [weak self] in
+            self?.model.sortInfo = sortInfo
             self?.currentList.value = self?.model.getCurrentList(
                 for: self?.currentTab ?? .tabKRW
             ) ?? []
@@ -158,17 +159,17 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     // MARK: 초기 데이터 설정 <private>
-    private func setInitialDataForPayment(payment: PaymentCurrency ,_ completion: @escaping ([CryptocurrencySymbolInfo]) -> ()) {
+    private func setInitialDataForPayment(payment: PaymentCurrency, _ completion: @escaping () -> ()) {
         apiManager.fetchTicker(paymentCurrency: payment) { result in
             switch result {
             case .success(let data):
                 self.model.setAPIData(of: data,
-                                      payment: payment) { list in
-                    completion(list)
+                                      payment: payment) {
+                    completion()
                 }
             case .failure(let error):
                 self.error.value = error.debugDescription
-                completion([])
+                completion()
             }
         }
     }
