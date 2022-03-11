@@ -178,7 +178,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
                         currentPrice: tickerInfo.closingPrice?.doubleValue ?? 0,
                         changeRate: tickerInfo.fluctateRate24H?.doubleValue ?? 0,
                         changeAmount: tickerInfo.fluctate24H ?? "",
-                        transactionAmount: tickerInfo.accTradeValue?.doubleValue ?? 0,
+                        transactionAmount: tickerInfo.accTradeValue24H?.doubleValue ?? 0,
                         volumePower: ""
                     )
                     symbolsList.append(paymentInfo)
