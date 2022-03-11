@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum ColumnOfTransactionList: Int {
+    case time = 0
+    case price = 1
+    case amount = 2
+}
+
 class TransactionListViewModel: XIBInformation {
     let numberOfColumns: Int = 3
     

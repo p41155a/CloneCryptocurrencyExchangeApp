@@ -51,18 +51,23 @@ extension TransactionListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let information = viewModel.information(with: indexPath.item / viewModel.numberOfColumns)
-        let isFirstColumn = indexPath.item % viewModel.numberOfColumns == 0
-        if isFirstColumn {
+        let columnIndex = indexPath.item % viewModel.numberOfColumns
+        guard let column = ColumnOfTransactionList(rawValue: columnIndex) else { return UICollectionViewCell() }
+        
+        switch column {
+        case .time:
             let cell = TimeInTransactionListCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.backgroundColor = .cyan
             cell.timeLabel.text = information.date
             return cell
+        case .price:
+            let cell = TransactionInformationCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+            cell.infoLabel.text = information.price
+            return cell
+        case .amount:
+            let cell = TransactionInformationCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+            cell.infoLabel.text = information.amount
+            return cell
         }
-        
-        let cell = TransactionInformationCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-        cell.backgroundColor = .orange
-        cell.infoLabel.text = information.amount
-        return cell
     }
 }
 
