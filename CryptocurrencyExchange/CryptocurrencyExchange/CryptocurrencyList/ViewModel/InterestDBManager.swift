@@ -10,9 +10,11 @@ import RealmSwift
 class InterestDBManager: DBAccessable {
     typealias T = InterestCurrency
     
-    func existingData(completion: @escaping (Results<T>) -> ()) {
-        let interestData = suitableData(condition: nil)
-        completion(interestData)
+    func existingData(completion: @escaping ([T]) -> ()) {
+        let interestData = suitableData() { interestInfo in
+            return interestInfo.interest == true
+        }
+        completion(interestData.toArray())
     }
     
     func isInterest(of interestKey: String) -> Bool {
@@ -29,3 +31,10 @@ class InterestDBManager: DBAccessable {
         }
     }
 }
+extension Results {
+    func toArray() -> [Element] {
+      return compactMap {
+        $0
+      }
+    }
+ }

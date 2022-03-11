@@ -18,7 +18,6 @@ final class CryptocurrencyListViewModel: XIBInformation {
     private var interestDB = InterestDBManager()
     private var sortDB = SortDBManager()
     private var currentTab: MainListCurrentTab = .tabKRW
-    private var searchWord: String = ""
     let currentList: Observable<[CryptocurrencySymbolInfo]> = Observable([])
     let changeIndex: Observable<Int> = Observable(0)
     let error: Observable<String?> = Observable(nil)
@@ -31,22 +30,18 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - Func
     // MARK: 초기 데이터 설정
     func setInitialData() {
-        setInitialDataForPayment(payment: PaymentCurrency.KRW) { [weak self] in
+        model.sortInfo = getSortInfo()
+        setInitialDataForPayment(payment: PaymentCurrency.KRW) { [weak self] list in
             guard let self = self else { return }
-            self.currentList.value = self.model.tabKRWList}
-        setInitialDataForPayment(payment: PaymentCurrency.BTC) {}
+            self.currentList.value = list
+        }
+        setInitialDataForPayment(payment: PaymentCurrency.BTC) { _ in }
     }
     
     // MARK: For tableView
     func getTableViewEntity(for info: CryptocurrencySymbolInfo) -> CryptocurrencyListTableViewEntity {
-        var result: CryptocurrencyListTableViewEntity?
-        switch info.payment {
-        case .KRW:
-            result = self.model.tickerKRWList[info.order]
-        case .BTC:
-            result = self.model.tickerBTCList[info.order]
-        }
-        return result ?? CryptocurrencyListTableViewEntity()
+        let list = self.model.getEachPaymentList(for: info.payment)
+        return list[info.order] ?? CryptocurrencyListTableViewEntity()
     }
     
     // MARK: about websocket
@@ -94,14 +89,16 @@ final class CryptocurrencyListViewModel: XIBInformation {
         switch self.currentTab {
         case .tabKRW:
             stopTimer()
-            searchCurrency(for: self.searchWord)
+            currentList.value = model.getCurrentList(for: self.currentTab)
         case .tabBTC:
             stopTimer()
-            searchCurrency(for: self.searchWord)
+            currentList.value = model.getCurrentList(for: self.currentTab)
         case .tabInterest:
             stopTimer()
             setInterestList() { [weak self] in
-                self?.searchCurrency(for: self?.searchWord ?? "")
+                self?.currentList.value = self?.model.getCurrentList(
+                    for: self?.currentTab ?? .tabKRW
+                ) ?? []
             }
         case .tabPopular:
             sortByVolumePower()
@@ -115,42 +112,41 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     // MARK: about sort
-    @objc
-    func sortByVolumePower() {
-        model.setTabPopularList()
-        searchCurrency(for: self.searchWord)
-    }
-    
-    func sortCurrentTabList(orderBy: OrderBy, standard: MainListSortStandard) {
-        let sortInfo = SortInfo(standard: standard,
-                                orderby: orderBy)
-        saveSortInfo(sortInfo: sortInfo)
-        currentList.value = model.sortList(orderBy: orderBy,
-                                           standard: standard,
-                                           list: currentList.value)
-    }
-    
-    // MARK: Search
-    func searchCurrency(for word: String) {
-        searchWord = word
-        currentList.value = model.getSearchedList(for: currentTab, word: word)
-    }
-    
-    // MARK: - Private Func
-    // MARK: about sort <private>
-    private func saveSortInfo(sortInfo: SortInfo) {
-        sortDB.add(sortInfo: sortInfo) { [weak self] result in
-            switch result {
-            case .success(_):
-                break
-            case .failure(_):
-                self?.error.value = "DB를 불러오지 못하였습니다.\n앱을 제거 후 다시 설치해주세요"
-            }
+    func sortCurrentTabList(by sortInfo: SortInfo) {
+        saveSortInfo(sortInfo: sortInfo) { [weak self] in
+            self?.currentList.value = self?.model.getCurrentList(
+                for: self?.currentTab ?? .tabKRW
+            ) ?? []
         }
+    }
+    
+    func searchCurrency(by word: String) {
+        model.searchWord = word
+        currentList.value = model.getCurrentList(for: .tabInterest)
     }
     
     func getSortInfo() -> SortInfo {
         return sortDB.existingData() ?? SortInfo(standard: .transaction, orderby: .desc)
+    }
+    
+    // MARK: - Private Func
+    // MARK: about sort <private>
+    private func saveSortInfo(sortInfo: SortInfo, completion: @escaping () -> ()) {
+        sortDB.add(sortInfo: sortInfo) { [weak self] result in
+            switch result {
+            case .success(_):
+                completion()
+            case .failure(_):
+                self?.error.value = "DB를 불러오지 못하였습니다.\n앱을 제거 후 다시 설치해주세요"
+                completion()
+            }
+        }
+    }
+    
+    @objc
+    private func sortByVolumePower() {
+        model.setTabPopularList()
+        currentList.value = model.getCurrentList(for: .tabInterest)
     }
     
     // MARK: about Interest <private>
@@ -162,18 +158,17 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     // MARK: 초기 데이터 설정 <private>
-    private func setInitialDataForPayment(payment: PaymentCurrency ,_ completion: @escaping () -> ()) {
+    private func setInitialDataForPayment(payment: PaymentCurrency ,_ completion: @escaping ([CryptocurrencySymbolInfo]) -> ()) {
         apiManager.fetchTicker(paymentCurrency: payment) { result in
             switch result {
             case .success(let data):
                 self.model.setAPIData(of: data,
-                                      payment: payment,
-                                      sortInfo: self.getSortInfo()) {
-                    completion()
+                                      payment: payment) { list in
+                    completion(list)
                 }
             case .failure(let error):
                 self.error.value = error.debugDescription
-                completion()
+                completion([])
             }
         }
     }

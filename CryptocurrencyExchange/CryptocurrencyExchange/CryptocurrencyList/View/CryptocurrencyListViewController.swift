@@ -121,7 +121,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
         guard let word = textField.text else { return }
-        viewModel.searchCurrency(for: word)
+        viewModel.searchCurrency(by: word)
     }
     
     @objc private func eventButtonDidTap(_ sender: UIButton) {
@@ -137,20 +137,19 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     @objc private func sortButtonViewDidTap(_ sender: SortListButton) {
         setChoiceOnlyCurrentSortButtonView(sender)
+        let standard: MainListSortStandard
+        let orderBy = sender.orderBy ?? .desc
         switch sender.tag {
         case 0:
-            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc,
-                                         standard: .currencyName)
+            standard = .currencyName
         case 1:
-            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc,
-                                         standard: .currentPrice)
+            standard = .currentPrice
         case 2:
-            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc,
-                                         standard: .changeRate)
+            standard = .changeRate
         default:
-            viewModel.sortCurrentTabList(orderBy: sender.orderBy ?? .desc,
-                                         standard: .transaction)
+            standard = .transaction
         }
+        viewModel.sortCurrentTabList(by: SortInfo(standard: standard, orderby: orderBy))
     }
     
     private func setChoiceOnlyCurrentTap(_ sender: TabButton) {
@@ -295,7 +294,7 @@ extension CryptocurrencyListViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        viewModel.searchCurrency(for: "")
+        viewModel.searchCurrency(by: "")
         return true
     }
 }
