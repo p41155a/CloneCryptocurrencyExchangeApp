@@ -33,6 +33,10 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         self.view.endEditing(true)
     }
     
+    deinit {
+        disconnect()
+    }
+    
     // MARK: - Bind viewModel
     func bind() {
         self.viewModel.currentList.bind { [weak self] _ in
@@ -230,7 +234,7 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
             let cell = CrypocurrencyKRWListTableViewCell.dequeueReusableCell(tableView: tableView)
             cell.delegate = self
             cell.setData(data: data,
-                         isInterest: viewModel.getIsInterest(interestKey: currency))
+                         isInterest: viewModel.isInterest(of: currency))
             return cell
         case .BTC:
             let currency = "\(data.order)_BTC"
@@ -240,7 +244,7 @@ extension CryptocurrencyListViewController: UITableViewDelegate, UITableViewData
             cell.delegate = self
             cell.setData(krwData: krwData,
                          btcData: data,
-                         isInterest: viewModel.getIsInterest(interestKey: currency))
+                         isInterest: viewModel.isInterest(of: currency))
             return cell
         }
     }

@@ -13,6 +13,7 @@ protocol DBAccessable {
     var realm: Realm { get }
     func suitableData(condition: ((Query<T>) -> Query<Bool>)?) -> Results<T>
     func add(data: T, completion: @escaping (T?) -> Void)
+    func addWithUpdate(data: T, completion: @escaping (T?) -> Void)
     func update(block: (() -> Void), completion: @escaping () -> Void)
 }
 
@@ -34,6 +35,13 @@ extension DBAccessable {
     func add(data: T, completion: @escaping (T?) -> Void) {
         try! realm.write {
             realm.add(data)
+            completion(data)
+        }
+    }
+    
+    func addWithUpdate(data: T, completion: @escaping (T?) -> Void) {
+        try! realm.write {
+            realm.add(data, update: .modified)
             completion(data)
         }
     }

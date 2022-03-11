@@ -14,8 +14,9 @@ final class CryptocurrencyListViewModel: XIBInformation {
     var nibName: String?
     private var timeTrigger = true
     private var timer = Timer()
-    private let realm: Realm
     private var apiManager = TickerAPIManager()
+    private var interestDB = InterestDBManager()
+    private var sortDB = SortDBManager()
     private var currentTab: MainListCurrentTab = .tabKRW
     private var searchWord: String = ""
     let currentList: Observable<[CryptocurrencySymbolInfo]> = Observable([])
@@ -25,7 +26,6 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - init
     init(nibName: String? = nil) {
         self.nibName = nibName
-        realm = try! Realm()
     }
     
     // MARK: - Func
@@ -74,20 +74,11 @@ final class CryptocurrencyListViewModel: XIBInformation {
     
     // MARK: about Interest
     func setInterestData(interest: InterestCurrency) {
-        do {
-            try realm.write {
-                realm.add(interest, update: .modified)
-            }
-        } catch {
-            self.error.value = "관심 데이터를 작성하지 못했습니다. 관리자에게 문의해주세요"
-        }
+        return interestDB.add(interest: interest)
     }
     
-    func getIsInterest(interestKey: String) -> Bool {
-        let interestData = realm.objects(InterestCurrency.self)
-        return !interestData.filter { interestInfo in
-            return interestInfo.currency == interestKey && interestInfo.interest == true
-        }.isEmpty
+    func isInterest(of interestKey: String) -> Bool {
+        return interestDB.isInterest(of: interestKey)
     }
     
     // MARK: select tab
@@ -102,8 +93,8 @@ final class CryptocurrencyListViewModel: XIBInformation {
             searchCurrency(for: self.searchWord)
         case .tabInterest:
             stopTimer()
-            searchCurrency(for: self.searchWord)
             setInterestList()
+            searchCurrency(for: self.searchWord)
         case .tabPopular:
             sortByVolumePower()
             startTimer(interval: 10)
@@ -140,23 +131,18 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - Private Func
     // MARK: about sort <private>
     private func saveSortInfo(sortInfo: SortInfo) {
-        do {
-            try realm.write {
-                realm.add(sortInfo, update: .modified)
-            }
-        } catch {
-            self.error.value = "정렬 데이터를 작성하지 못했습니다. 관리자에게 문의해주세요"
-        }
+        sortDB.add(sortInfo: sortInfo)
     }
     
     func getSortInfo() -> SortInfo {
-        return realm.objects(SortInfo.self).first ?? SortInfo(standard: .transaction, orderby: .desc)
+        return sortDB.existingData() ?? SortInfo(standard: .transaction, orderby: .desc)
     }
     
     // MARK: about Interest <private>
     private func setInterestList() {
-        let interestData = realm.objects(InterestCurrency.self)
-        model.setInterestList(from: interestData)
+        interestDB.existingData() { interestData in
+            self.model.setInterestList(from: interestData)
+        }
     }
     
     // MARK: 초기 데이터 설정 <private>
