@@ -115,7 +115,6 @@ class CryptocurrencyListModel {
     // MARK: - Private Func
     private func getSearchedList(for tab: MainListCurrentTab,
                          word: String) -> [CryptocurrencySymbolInfo] {
-        self.searchWord = word
         return getCurrentTabList(for: tab).filter {
             word == "" ? true : $0.order.lowercased().contains(word.lowercased())
         }

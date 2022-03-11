@@ -123,7 +123,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
     
     func searchCurrency(by word: String) {
         model.searchWord = word
-        currentList.value = model.getCurrentList(for: .tabInterest)
+        currentList.value = model.getCurrentList(for: currentTab)
     }
     
     func getSortInfo() -> SortInfo {
