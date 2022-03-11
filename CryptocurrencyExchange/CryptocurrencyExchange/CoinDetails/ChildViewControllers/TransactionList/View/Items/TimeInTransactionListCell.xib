@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +18,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="141" height="48"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Cj-hT-seD">
+                        <rect key="frame" x="0.0" y="0.0" width="141" height="48"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukb-Y5-NJN">
+                                <rect key="frame" x="0.0" y="0.0" width="140" height="47"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="baseColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ukb-Y5-NJN" secondAttribute="trailing" constant="1" id="07V-VU-ZTi"/>
+                            <constraint firstItem="ukb-Y5-NJN" firstAttribute="top" secondItem="3Cj-hT-seD" secondAttribute="top" id="kZC-tU-Z2G"/>
+                            <constraint firstItem="ukb-Y5-NJN" firstAttribute="leading" secondItem="3Cj-hT-seD" secondAttribute="leading" id="lCR-a8-zfP"/>
+                            <constraint firstAttribute="bottom" secondItem="ukb-Y5-NJN" secondAttribute="bottom" constant="1" id="yPp-VI-2aD"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:14:43" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JdB-VJ-uTV">
                         <rect key="frame" x="8" y="8" width="125" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -28,9 +45,13 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="JdB-VJ-uTV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="9Gd-Gs-lso"/>
+                <constraint firstItem="3Cj-hT-seD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DHV-Xe-h9B"/>
+                <constraint firstAttribute="bottom" secondItem="3Cj-hT-seD" secondAttribute="bottom" id="KxO-aB-lP0"/>
+                <constraint firstAttribute="trailing" secondItem="3Cj-hT-seD" secondAttribute="trailing" id="P6a-ZI-mu3"/>
                 <constraint firstItem="JdB-VJ-uTV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="V7s-re-Io0"/>
                 <constraint firstAttribute="trailing" secondItem="JdB-VJ-uTV" secondAttribute="trailing" constant="8" id="VgA-R6-8rX"/>
                 <constraint firstAttribute="bottom" secondItem="JdB-VJ-uTV" secondAttribute="bottom" constant="8" id="eWE-uo-Kld"/>
+                <constraint firstItem="3Cj-hT-seD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vJc-Z3-YTY"/>
             </constraints>
             <size key="customSize" width="141" height="48"/>
             <connections>
@@ -39,4 +60,12 @@
             <point key="canvasLocation" x="203.62318840579712" y="152.00892857142856"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="baseColor">
+            <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

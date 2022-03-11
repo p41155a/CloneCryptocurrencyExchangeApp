@@ -8,11 +8,15 @@
 import UIKit
 
 class TransactionInformationCell: UICollectionViewCell {
-
     @IBOutlet weak var infoLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    func setUI(with information: TransactionInforamtion, column: ColumnOfTransactionList) {
+        self.infoLabel.textColor = information.saleType == .salesAsk ? .decreasingColor : .increasingColor
+        self.infoLabel.text = column == .price ? information.price : information.amount
+    }
 }

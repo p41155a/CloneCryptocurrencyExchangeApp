@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +18,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="172" height="34"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMZ-G4-dTS">
+                        <rect key="frame" x="0.0" y="0.0" width="172" height="34"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ank-OU-mFK">
+                                <rect key="frame" x="0.0" y="0.0" width="171" height="33"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="baseColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ank-OU-mFK" secondAttribute="trailing" constant="1" id="G7u-8t-OJo"/>
+                            <constraint firstAttribute="bottom" secondItem="Ank-OU-mFK" secondAttribute="bottom" constant="1" id="Ps9-Mg-cku"/>
+                            <constraint firstItem="Ank-OU-mFK" firstAttribute="top" secondItem="KMZ-G4-dTS" secondAttribute="top" id="tPn-l3-pIK"/>
+                            <constraint firstItem="Ank-OU-mFK" firstAttribute="leading" secondItem="KMZ-G4-dTS" secondAttribute="leading" id="xnD-51-BU8"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgm-1D-Cyp">
                         <rect key="frame" x="8" y="8" width="156" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -27,6 +44,10 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="KMZ-G4-dTS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="19w-Nd-d7R"/>
+                <constraint firstItem="KMZ-G4-dTS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="52w-lz-al9"/>
+                <constraint firstAttribute="trailing" secondItem="KMZ-G4-dTS" secondAttribute="trailing" id="9dw-sC-GUi"/>
+                <constraint firstAttribute="bottom" secondItem="KMZ-G4-dTS" secondAttribute="bottom" id="BWO-63-OEm"/>
                 <constraint firstAttribute="bottom" secondItem="xgm-1D-Cyp" secondAttribute="bottom" constant="8" id="LUX-1j-9Be"/>
                 <constraint firstAttribute="trailing" secondItem="xgm-1D-Cyp" secondAttribute="trailing" constant="8" id="WL4-1K-bH7"/>
                 <constraint firstItem="xgm-1D-Cyp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Xes-Oe-V5q"/>
@@ -39,4 +60,12 @@
             <point key="canvasLocation" x="226.08695652173915" y="147.32142857142856"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="baseColor">
+            <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

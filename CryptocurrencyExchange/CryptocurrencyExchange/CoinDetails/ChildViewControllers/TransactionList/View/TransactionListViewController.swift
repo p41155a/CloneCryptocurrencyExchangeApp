@@ -9,6 +9,8 @@ import UIKit
 
 class TransactionListViewController: ViewControllerInjectingViewModel<TransactionListViewModel> {
     @IBOutlet weak var transactionList: UICollectionView!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +21,6 @@ class TransactionListViewController: ViewControllerInjectingViewModel<Transactio
             guard let indexArr = indice else { return }
             self?.transactionList.insertItems(at: indexArr)
         }
-    }
-    
-    override func didMove(toParent parent: UIViewController?) {
-        super.didMove(toParent: parent)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +38,10 @@ class TransactionListViewController: ViewControllerInjectingViewModel<Transactio
         TransactionInformationCell.register(collectionView: transactionList)
         transactionList.dataSource = self
         transactionList.delegate = self
+        
+        self.priceLabel.text = "가격(\(viewModel.paymentCurrency))"
+        self.amountLabel.text = "체결량(\(viewModel.orderCurrency))"
+
     }
 }
 
@@ -48,7 +50,10 @@ extension TransactionListViewController: UICollectionViewDataSource {
         return viewModel.countOfInformations()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         
         let information = viewModel.information(with: indexPath.item / viewModel.numberOfColumns)
         let columnIndex = indexPath.item % viewModel.numberOfColumns
@@ -56,24 +61,33 @@ extension TransactionListViewController: UICollectionViewDataSource {
         
         switch column {
         case .time:
-            let cell = TimeInTransactionListCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+            let cell = TimeInTransactionListCell.dequeueReusableCell(
+                collectionView: collectionView,
+                indexPath: indexPath
+            )
             cell.timeLabel.text = information.date
             return cell
-        case .price:
-            let cell = TransactionInformationCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.infoLabel.text = information.price
-            return cell
-        case .amount:
-            let cell = TransactionInformationCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.infoLabel.text = information.amount
+        case .price, .amount:
+            let cell = TransactionInformationCell.dequeueReusableCell(
+                collectionView: collectionView,
+                indexPath: indexPath
+            )
+            cell.setUI(
+                with: information,
+                column: column
+            )
             return cell
         }
     }
 }
 
 extension TransactionListViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height: CGFloat = 40
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let height: CGFloat = 36
         let fullWidth = UIScreen.main.bounds.width
         if indexPath.item % viewModel.numberOfColumns == 0 {
             return CGSize(width: 100, height: height)

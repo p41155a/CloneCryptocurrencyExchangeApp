@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionListViewController" customModule="CryptocurrencyExchange" customModuleProvider="target">
             <connections>
+                <outlet property="amountLabel" destination="WB6-ZH-mIZ" id="fTw-WS-GSK"/>
+                <outlet property="priceLabel" destination="Cmd-sN-PQA" id="CEx-SZ-g8s"/>
                 <outlet property="transactionList" destination="t4W-2a-XwO" id="x4O-tq-mKZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,77 +24,77 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQs-0f-xrj" userLabel="Header View">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNb-ED-XFj">
-                            <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                            <rect key="frame" x="1" y="0.0" width="98" height="35"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXf-JT-MnE">
-                                    <rect key="frame" x="38" y="11.5" width="24.5" height="17"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <rect key="frame" x="38.5" y="10.5" width="21" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            <color key="backgroundColor" name="backgroundColor"/>
                             <constraints>
                                 <constraint firstItem="eXf-JT-MnE" firstAttribute="centerX" secondItem="JNb-ED-XFj" secondAttribute="centerX" id="TN6-4j-nI5"/>
-                                <constraint firstAttribute="width" constant="100" id="esw-XG-aFp"/>
+                                <constraint firstAttribute="width" constant="98" id="esw-XG-aFp"/>
                                 <constraint firstItem="eXf-JT-MnE" firstAttribute="centerY" secondItem="JNb-ED-XFj" secondAttribute="centerY" id="xxR-uk-ODU"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRh-zg-Krh">
-                            <rect key="frame" x="100" y="0.0" width="157" height="40"/>
+                            <rect key="frame" x="100" y="0.0" width="156" height="35"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가격(KRW)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmd-sN-PQA">
-                                    <rect key="frame" x="45.5" y="11.5" width="66" height="17"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <rect key="frame" x="48" y="10.5" width="60" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            <color key="backgroundColor" name="backgroundColor"/>
                             <constraints>
                                 <constraint firstItem="Cmd-sN-PQA" firstAttribute="centerX" secondItem="IRh-zg-Krh" secondAttribute="centerX" id="0rx-QL-qWi"/>
                                 <constraint firstItem="Cmd-sN-PQA" firstAttribute="centerY" secondItem="IRh-zg-Krh" secondAttribute="centerY" id="yTu-Qf-n0R"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ExH-vE-dJ5">
-                            <rect key="frame" x="257" y="0.0" width="157" height="40"/>
+                            <rect key="frame" x="257" y="0.0" width="156" height="35"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="체결량(BTC)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WB6-ZH-mIZ">
-                                    <rect key="frame" x="41.5" y="11.5" width="74" height="17"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <rect key="frame" x="45" y="10.5" width="66.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            <color key="backgroundColor" name="backgroundColor"/>
                             <constraints>
                                 <constraint firstItem="WB6-ZH-mIZ" firstAttribute="centerX" secondItem="ExH-vE-dJ5" secondAttribute="centerX" id="0d7-D8-2Cj"/>
                                 <constraint firstItem="WB6-ZH-mIZ" firstAttribute="centerY" secondItem="ExH-vE-dJ5" secondAttribute="centerY" id="Dvr-1l-Mjb"/>
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="baseColor"/>
                     <constraints>
-                        <constraint firstItem="ExH-vE-dJ5" firstAttribute="leading" secondItem="IRh-zg-Krh" secondAttribute="trailing" id="6Er-Kh-c2j"/>
-                        <constraint firstAttribute="bottom" secondItem="JNb-ED-XFj" secondAttribute="bottom" id="AEu-tL-oML"/>
-                        <constraint firstAttribute="bottom" secondItem="IRh-zg-Krh" secondAttribute="bottom" id="BwT-xR-18B"/>
+                        <constraint firstItem="ExH-vE-dJ5" firstAttribute="leading" secondItem="IRh-zg-Krh" secondAttribute="trailing" constant="1" id="6Er-Kh-c2j"/>
+                        <constraint firstAttribute="bottom" secondItem="JNb-ED-XFj" secondAttribute="bottom" constant="1" id="AEu-tL-oML"/>
+                        <constraint firstAttribute="bottom" secondItem="IRh-zg-Krh" secondAttribute="bottom" constant="1" id="BwT-xR-18B"/>
                         <constraint firstItem="ExH-vE-dJ5" firstAttribute="width" secondItem="IRh-zg-Krh" secondAttribute="width" id="FcR-Wl-wn0"/>
-                        <constraint firstAttribute="bottom" secondItem="ExH-vE-dJ5" secondAttribute="bottom" id="NKX-QS-CPA"/>
+                        <constraint firstAttribute="bottom" secondItem="ExH-vE-dJ5" secondAttribute="bottom" constant="1" id="NKX-QS-CPA"/>
                         <constraint firstItem="ExH-vE-dJ5" firstAttribute="top" secondItem="CQs-0f-xrj" secondAttribute="top" id="QOU-qg-n9b"/>
-                        <constraint firstAttribute="trailing" secondItem="ExH-vE-dJ5" secondAttribute="trailing" id="QrA-Wn-oWM"/>
+                        <constraint firstAttribute="trailing" secondItem="ExH-vE-dJ5" secondAttribute="trailing" constant="1" id="QrA-Wn-oWM"/>
                         <constraint firstItem="JNb-ED-XFj" firstAttribute="top" secondItem="CQs-0f-xrj" secondAttribute="top" id="fwN-ZV-oIp"/>
-                        <constraint firstItem="IRh-zg-Krh" firstAttribute="leading" secondItem="JNb-ED-XFj" secondAttribute="trailing" id="h4g-B3-UfD"/>
-                        <constraint firstItem="JNb-ED-XFj" firstAttribute="leading" secondItem="CQs-0f-xrj" secondAttribute="leading" id="lo2-0N-g7a"/>
-                        <constraint firstAttribute="height" constant="40" id="t1W-Kd-ohy"/>
+                        <constraint firstItem="IRh-zg-Krh" firstAttribute="leading" secondItem="JNb-ED-XFj" secondAttribute="trailing" constant="1" id="h4g-B3-UfD"/>
+                        <constraint firstItem="JNb-ED-XFj" firstAttribute="leading" secondItem="CQs-0f-xrj" secondAttribute="leading" constant="1" id="lo2-0N-g7a"/>
+                        <constraint firstAttribute="height" constant="36" id="t1W-Kd-ohy"/>
                         <constraint firstItem="IRh-zg-Krh" firstAttribute="top" secondItem="CQs-0f-xrj" secondAttribute="top" id="yfD-EI-57L"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="t4W-2a-XwO">
-                    <rect key="frame" x="0.0" y="40" width="414" height="635"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <rect key="frame" x="0.0" y="36" width="414" height="639"/>
+                    <color key="backgroundColor" name="backgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Z6i-Ri-Jda">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -116,9 +119,12 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="baseColor">
+            <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
