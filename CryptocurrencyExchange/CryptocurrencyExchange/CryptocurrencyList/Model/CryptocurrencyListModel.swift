@@ -71,27 +71,10 @@ class CryptocurrencyListModel {
         }[0..<5])
     }
     
-    func setAPIData(of data: TickerEntity,
+    func setAPIData(tickerList: [String: CryptocurrencyListTableViewEntity],
+                    symbolsList: [CryptocurrencySymbolInfo],
                     payment: PaymentCurrency,
                     _ completion: @escaping () -> ()) {
-        let cryptocurrencyData = data.ordersInfo.orderInfo
-        var tickerList: [String: CryptocurrencyListTableViewEntity] = [:]
-        var symbolsList: [CryptocurrencySymbolInfo] = []
-        cryptocurrencyData.forEach { data in
-            let order = data.key
-            let tickerInfo = data.value
-            let paymentInfo = CryptocurrencySymbolInfo(order: order,
-                                                       payment: payment)
-            let tableData = CryptocurrencyListTableViewEntity(order: tickerInfo.currentName ?? "",
-                                                              payment: payment,
-                                                              currentPrice: tickerInfo.closingPrice?.doubleValue ?? 0,
-                                                              changeRate: tickerInfo.fluctateRate24H?.doubleValue ?? 0,
-                                                              changeAmount: tickerInfo.fluctate24H ?? "",
-                                                              transactionAmount: tickerInfo.accTradeValue?.doubleValue ?? 0,
-                                                              volumePower: "")
-            symbolsList.append(paymentInfo)
-            tickerList[order] = tableData
-        }
         switch payment {
         case .KRW:
             self.tickerKRWList = tickerList

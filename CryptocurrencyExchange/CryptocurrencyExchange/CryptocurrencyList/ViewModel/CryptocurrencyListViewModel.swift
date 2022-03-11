@@ -164,7 +164,28 @@ final class CryptocurrencyListViewModel: XIBInformation {
         apiManager.fetchTicker(paymentCurrency: payment) { result in
             switch result {
             case .success(let data):
-                self.model.setAPIData(of: data,
+                let cryptocurrencyData = data.ordersInfo.orderInfo
+                var tickerList: [String: CryptocurrencyListTableViewEntity] = [:]
+                var symbolsList: [CryptocurrencySymbolInfo] = []
+                cryptocurrencyData.forEach { data in
+                    let order = data.key
+                    let tickerInfo = data.value
+                    let paymentInfo = CryptocurrencySymbolInfo(order: order,
+                                                               payment: payment)
+                    let tableData = CryptocurrencyListTableViewEntity(
+                        order: tickerInfo.currentName ?? "",
+                        payment: payment,
+                        currentPrice: tickerInfo.closingPrice?.doubleValue ?? 0,
+                        changeRate: tickerInfo.fluctateRate24H?.doubleValue ?? 0,
+                        changeAmount: tickerInfo.fluctate24H ?? "",
+                        transactionAmount: tickerInfo.accTradeValue?.doubleValue ?? 0,
+                        volumePower: ""
+                    )
+                    symbolsList.append(paymentInfo)
+                    tickerList[order] = tableData
+                }
+                self.model.setAPIData(tickerList: tickerList,
+                                      symbolsList: symbolsList,
                                       payment: payment) {
                     completion()
                 }
