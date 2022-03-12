@@ -99,10 +99,11 @@
 		B4C373C027D8846100DD424A /* CandleStickIndentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
 		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
+		B4F04D2F27DC86830076663F /* TickerWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */; };
 		B4F04D3427DCB3060076663F /* CommonSocketAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3327DCB3060076663F /* CommonSocketAdaptable.swift */; };
 		B4F04D3627DCB3550076663F /* SoloTypeSocketControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3527DCB3550076663F /* SoloTypeSocketControllable.swift */; };
 		B4F04D3827DCB3E70076663F /* SeveralTypeSocketControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3727DCB3E70076663F /* SeveralTypeSocketControllable.swift */; };
-		B4F04D2F27DC86830076663F /* TickerWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */; };
+		B4F04D3A27DCEE880076663F /* CandleStickDBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3927DCEE880076663F /* CandleStickDBError.swift */; };
 		B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */; };
 		B4F2787127D4687600BEBFD2 /* BarChartByTimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */; };
 		B4F2787427D47E0400BEBFD2 /* BarChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */; };
@@ -281,10 +282,11 @@
 		B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickIndentifier.swift; sourceTree = "<group>"; };
 		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerWebSocketManager.swift; sourceTree = "<group>"; };
 		B4F04D3327DCB3060076663F /* CommonSocketAdaptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSocketAdaptable.swift; sourceTree = "<group>"; };
 		B4F04D3527DCB3550076663F /* SoloTypeSocketControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloTypeSocketControllable.swift; sourceTree = "<group>"; };
 		B4F04D3727DCB3E70076663F /* SeveralTypeSocketControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeveralTypeSocketControllable.swift; sourceTree = "<group>"; };
-		B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerWebSocketManager.swift; sourceTree = "<group>"; };
+		B4F04D3927DCEE880076663F /* CandleStickDBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickDBError.swift; sourceTree = "<group>"; };
 		B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartByTimesView.xib; sourceTree = "<group>"; };
 		B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartByTimesView.swift; sourceTree = "<group>"; };
 		B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartByTimesViewModel.swift; sourceTree = "<group>"; };
@@ -825,6 +827,7 @@
 		B44C749727D8C82800A9765D /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				B4F04D3927DCEE880076663F /* CandleStickDBError.swift */,
 				9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */,
 				B44C749527D8AF7F00A9765D /* CandleStickDBManager.swift */,
 			);
@@ -1607,6 +1610,7 @@
 			files = (
 				FF19E28D27C8DB3600DBD52D /* AssetsAPIManager.swift in Sources */,
 				B4BC4E9727CE00F600DE19EC /* CandleStickChartByTimesView.swift in Sources */,
+				B4F04D3A27DCEE880076663F /* CandleStickDBError.swift in Sources */,
 				9065B93527DB1F6C00D112ED /* OrderbookAPIService.swift in Sources */,
 				B4B4CB8F27D5D992009F08D7 /* BarChartDataEntries.swift in Sources */,
 				B4BC4E9727CE00F600DE19EC /* CandleStickChartByTimesView.swift in Sources */,
