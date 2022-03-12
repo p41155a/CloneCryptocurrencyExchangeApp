@@ -19,6 +19,10 @@ final class BidQuantityViewCell: Cell {
         super.init(coder: aDecoder)
     }
     
+    override func prepareForReuse() {
+        self.bidQuantityLabel.text = nil
+    }
+    
     func setData(data: OrderbookEntity) {
         self.bidQuantityLabel.text = data.quantity
     }

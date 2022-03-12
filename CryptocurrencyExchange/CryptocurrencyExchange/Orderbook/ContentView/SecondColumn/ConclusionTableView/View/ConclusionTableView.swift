@@ -9,7 +9,7 @@ import UIKit
 import SpreadsheetView
 import Starscream
 
-class ConclusionTableView: Cell {
+final class ConclusionTableView: Cell {
     @IBOutlet weak var conclusionTableView: UITableView!
     
     var fasteningStrengthData: String = ""
@@ -23,7 +23,8 @@ class ConclusionTableView: Cell {
         self.conclusionTableView.delegate = self
         self.conclusionTableView.dataSource = self
         self.conclusionTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        
+        self.conclusionTableView.backgroundColor = .tabBarColor
+
         FasteningStrengthTableViewCell.register(tableView: conclusionTableView)
         ConcludedQuantityTableViewCell.register(tableView: conclusionTableView)
     }
@@ -40,6 +41,7 @@ extension ConclusionTableView: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 30
@@ -48,7 +50,7 @@ extension ConclusionTableView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return 31
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

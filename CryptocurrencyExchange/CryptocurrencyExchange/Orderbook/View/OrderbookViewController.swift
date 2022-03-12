@@ -4,6 +4,7 @@ import Starscream
 import SpreadsheetView
 
 final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookViewModel> {
+    private let urlStr: String = "wss://pubwss.bithumb.com/pub/ws"
     private var socket: WebSocket?
     private var socketType: [String] = [
         WebSocketType.ticker.rawValue,
@@ -13,27 +14,27 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
     
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
     
-    var tradeDescriptionColumn: Bool = true
-    var isTransactionColumn: Bool = true
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.configureSpreadsheetView()
-        self.bind()
-        self.dataInit()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        connect()
+        self.connect()
+        self.bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.dataInit()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        disconnect()
+        self.disconnect()
     }
-
+    
     // MARK: - Bind viewModel
     func bind() {
         self.viewModel.transactionList.bind { [weak self] _ in
@@ -51,6 +52,9 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
         self.viewModel.closedPrice.bind { [weak self] _ in
             self?.spreadsheetView.reloadData()
         }
+        self.viewModel.tradeDescriptionList.bind { [weak self] _ in
+            self?.spreadsheetView.reloadData()
+        }
     }
     
     private func dataInit() {
@@ -62,6 +66,8 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
     private func configureSpreadsheetView() {
         self.spreadsheetView.delegate = self
         self.spreadsheetView.dataSource = self
+        self.spreadsheetView.backgroundColor = .black
+        
         registerCell()
         focusToCenter(of: self.spreadsheetView)
     }
@@ -71,6 +77,7 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
         AskQuantityViewCell.register(spreadsheet: spreadsheetView.self)
         AskPriceViewCell.register(spreadsheet: spreadsheetView.self)
         
+        EmptyViewCell.register(spreadsheet: spreadsheetView.self)
         TopViewCell.register(spreadsheet: spreadsheetView.self)
         BottomViewCell.register(spreadsheet: spreadsheetView.self)
         
@@ -110,10 +117,12 @@ extension OrderbookViewController: WebSocketDelegate {
     
     // MARK: - func<websocket>
     private func connect() {
-        let url = "wss://pubwss.bithumb.com/pub/ws"
+        guard let url = URL(string: urlStr),
+              var request = URLRequest(url: url) as? URLRequest else {
+                  return
+              }
         
-        var request = URLRequest(url: URL(string: url)!)
-        request.timeoutInterval = 5
+        request.timeoutInterval = 1
         socket = WebSocket(request: request)
         socket?.delegate = self
         socket?.connect()
@@ -125,13 +134,13 @@ extension OrderbookViewController: WebSocketDelegate {
     }
     
     private func writeToSocket(for coinName: String, of paymentCurrency: PaymentCurrency) {
-        self.socketType.map {
+        self.socketType.map { [weak self] in
             let params: [String: Any] = ["type": $0,
                                          "symbols": ["\(coinName)_\(paymentCurrency.value)"],
                                          "tickTypes": [WebSocketTickType.tickMID.rawValue]
             ]
             let json = try! JSONSerialization.data(withJSONObject: params, options: [])
-            socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
+            self?.socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
         }
     }
 }

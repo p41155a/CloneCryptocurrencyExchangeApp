@@ -58,7 +58,9 @@ extension OrderbookViewController: SpreadsheetViewDataSource {
                 
                 return askQuantityCell
             } else if indexPath.row == 30 {
-                let conclusionTableViewCell = ConclusionTableView.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath)
+                guard let conclusionTableViewCell = ConclusionTableView.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath) as? ConclusionTableView else {
+                    return nil
+                }
                 
                 conclusionTableViewCell.fasteningStrengthData = viewModel.fasteningStrengthList.value
                 
@@ -70,10 +72,11 @@ extension OrderbookViewController: SpreadsheetViewDataSource {
                 
                 return conclusionTableViewCell
             }
-            
         case 1:
             if indexPath.row < 30 {
-                let askPriceViewCell = AskPriceViewCell.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath)
+                guard let askPriceViewCell = AskPriceViewCell.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath) as? AskPriceViewCell else {
+                    return nil
+                }
                 
                 if viewModel.askOrderbooksList.value.count > indexPath.row {
                     askPriceViewCell.setData(
@@ -84,7 +87,9 @@ extension OrderbookViewController: SpreadsheetViewDataSource {
                 
                 return askPriceViewCell
             } else {
-                let bidPriceViewCell = BidPriceViewCell.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath)
+                guard let bidPriceViewCell = BidPriceViewCell.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath) as? BidPriceViewCell else {
+                    return nil
+                }
                 
                 if viewModel.bidOrderbooksList.value.count == 30 {
                     bidPriceViewCell.setData(
@@ -97,28 +102,41 @@ extension OrderbookViewController: SpreadsheetViewDataSource {
             }
         case 2:
             if indexPath.row >= 30 {
-                let bidQuantityViewCell = BidQuantityViewCell.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath)
+                guard let bidQuantityViewCell = BidQuantityViewCell.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath) as? BidQuantityViewCell else {
+                    return nil
+                }
+                
                 if viewModel.bidOrderbooksList.value.count == 30 {
                     bidQuantityViewCell.setData(data: viewModel.bidOrderbooksList.value[indexPath.row - 30])
                 }
                 
                 return bidQuantityViewCell
             } else if indexPath.row == 26 {
-                let descriptionTopCell = TopViewCell.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath)
-
+                guard let descriptionTopCell = TopViewCell.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath) as? TopViewCell else {
+                    return nil
+                }
+                
                 if viewModel.tradeDescriptionList.value.count > 0 {
                     descriptionTopCell.setData(data: viewModel.tradeDescriptionList.value[indexPath.row - 26])
                 }
                 
                 return descriptionTopCell
             } else if indexPath.row == 27 {
-                let descriptionBottomCell = BottomViewCell.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath)
+                guard let descriptionBottomCell = BottomViewCell.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath) as? BottomViewCell else {
+                    return nil
+                }
                 
                 if viewModel.tradeDescriptionList.value.count > 0 {
                     descriptionBottomCell.setData(data: viewModel.tradeDescriptionList.value[indexPath.row - 27])
                 }
                 
                 return descriptionBottomCell
+            } else {
+                guard let emptyViewCell = EmptyViewCell.dequeueReusableCell(spreadsheet: spreadsheetView, indexPath: indexPath) as? EmptyViewCell else {
+                    return nil
+                }
+                emptyViewCell.backgroundColor = .tabBarColor
+                return emptyViewCell
             }
         default:
             break

@@ -98,7 +98,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         let currentPrice: String = "\(data.currentPrice)".setNumStringForm(isDecimalType: true)
         let changeRate: String = "\(data.changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
         let changeAmount: String = "\(data.changeAmount)".setNumStringForm(isDecimalType: true, isMarkPlusMiuns: true)
-        
+        print("Amount: \(changeAmount)")
         currentPriceLabel.text = currentPrice
         changeRateLabel.text = changeRate
         changeAmountLabel.text = changeAmount
@@ -163,7 +163,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
             )
         }
     }
-
+    
     /// touch 이벤트가 발생할 때마다 누른 탭에 연관되는 view를 최상단 subView로 가져온다
     @objc func didTapTab(button: UIButton) {
         guard let tabType = CoinDetailsTopTabs(rawValue: button.tag) else { return }

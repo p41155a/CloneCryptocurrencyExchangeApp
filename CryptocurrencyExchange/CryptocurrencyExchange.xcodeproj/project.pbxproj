@@ -18,6 +18,12 @@
 		9071202227D460FD0033B4A5 /* ConclusionTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9071202027D460FD0033B4A5 /* ConclusionTableView.xib */; };
 		9088050227DBB2B500ABCAE5 /* TransactionAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088050127DBB2B500ABCAE5 /* TransactionAPIService.swift */; };
 		9088050427DBB31A00ABCAE5 /* TransactionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088050327DBB31A00ABCAE5 /* TransactionAPIManager.swift */; };
+		9088050627DC524A00ABCAE5 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088050527DC524A00ABCAE5 /* ContentViewModel.swift */; };
+		9088050927DC60FC00ABCAE5 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088050827DC60FC00ABCAE5 /* Ticker.swift */; };
+		9088050B27DC813200ABCAE5 /* OrderbookViewModelAPI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088050A27DC813200ABCAE5 /* OrderbookViewModelAPI+Extension.swift */; };
+		9088050D27DC814000ABCAE5 /* OrderbookViewModelWebsocket+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088050C27DC814000ABCAE5 /* OrderbookViewModelWebsocket+Extension.swift */; };
+		9088051627DCF2F800ABCAE5 /* EmptyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088051427DCF2F800ABCAE5 /* EmptyViewCell.swift */; };
+		9088051727DCF2F800ABCAE5 /* EmptyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9088051527DCF2F800ABCAE5 /* EmptyViewCell.xib */; };
 		909BEED527D112A500E4EE87 /* TradeDescriptionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909BEED427D112A500E4EE87 /* TradeDescriptionEntity.swift */; };
 		909BEED827D1148000E4EE87 /* OrderbookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909BEED727D1148000E4EE87 /* OrderbookEntity.swift */; };
 		909BEEDF27D1183E00E4EE87 /* OrderbookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909BEEDE27D1183E00E4EE87 /* OrderbookViewModel.swift */; };
@@ -196,6 +202,12 @@
 		9071202027D460FD0033B4A5 /* ConclusionTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConclusionTableView.xib; sourceTree = "<group>"; };
 		9088050127DBB2B500ABCAE5 /* TransactionAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAPIService.swift; sourceTree = "<group>"; };
 		9088050327DBB31A00ABCAE5 /* TransactionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAPIManager.swift; sourceTree = "<group>"; };
+		9088050527DC524A00ABCAE5 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		9088050827DC60FC00ABCAE5 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
+		9088050A27DC813200ABCAE5 /* OrderbookViewModelAPI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderbookViewModelAPI+Extension.swift"; sourceTree = "<group>"; };
+		9088050C27DC814000ABCAE5 /* OrderbookViewModelWebsocket+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderbookViewModelWebsocket+Extension.swift"; sourceTree = "<group>"; };
+		9088051427DCF2F800ABCAE5 /* EmptyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewCell.swift; sourceTree = "<group>"; };
+		9088051527DCF2F800ABCAE5 /* EmptyViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyViewCell.xib; sourceTree = "<group>"; };
 		909BEED427D112A500E4EE87 /* TradeDescriptionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeDescriptionEntity.swift; sourceTree = "<group>"; };
 		909BEED727D1148000E4EE87 /* OrderbookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookEntity.swift; sourceTree = "<group>"; };
 		909BEEDE27D1183E00E4EE87 /* OrderbookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookViewModel.swift; sourceTree = "<group>"; };
@@ -416,6 +428,7 @@
 		9071201827D44B800033B4A5 /* FirstColumn */ = {
 			isa = PBXGroup;
 			children = (
+				9088051827DCF2FD00ABCAE5 /* Empty */,
 				90E12E6F27D2518A00373FF9 /* AskQuantity */,
 				90E12E6E27D2515B00373FF9 /* AskPrice */,
 				90E12E6427D2509500373FF9 /* TradeDescription */,
@@ -431,13 +444,6 @@
 				90E12E6D27D2515300373FF9 /* BidPrice */,
 			);
 			path = SecondColumn;
-			sourceTree = "<group>";
-		};
-		9071201A27D44C050033B4A5 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		9071201D27D44D670033B4A5 /* View */ = {
@@ -475,6 +481,32 @@
 			path = Transaction;
 			sourceTree = "<group>";
 		};
+		9088050727DC525300ABCAE5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9088050527DC524A00ABCAE5 /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9088050E27DC818D00ABCAE5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9088050A27DC813200ABCAE5 /* OrderbookViewModelAPI+Extension.swift */,
+				9088050C27DC814000ABCAE5 /* OrderbookViewModelWebsocket+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9088051827DCF2FD00ABCAE5 /* Empty */ = {
+			isa = PBXGroup;
+			children = (
+				9088051427DCF2F800ABCAE5 /* EmptyViewCell.swift */,
+				9088051527DCF2F800ABCAE5 /* EmptyViewCell.xib */,
+			);
+			path = Empty;
+			sourceTree = "<group>";
+		};
 		909BEED027D1126700E4EE87 /* Orderbook */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +542,7 @@
 		909BEEDD27D1182700E4EE87 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9088050E27DC818D00ABCAE5 /* Extension */,
 				909BEEDE27D1183E00E4EE87 /* OrderbookViewModel.swift */,
 				90DFA4EA27D88B3D00491721 /* Decoded.swift */,
 			);
@@ -545,7 +578,7 @@
 		90E12E6227D2506400373FF9 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
-				9071201A27D44C050033B4A5 /* Entity */,
+				9088050727DC525300ABCAE5 /* ViewModel */,
 				9071201827D44B800033B4A5 /* FirstColumn */,
 				9071201927D44B940033B4A5 /* SecondColumn */,
 			);
@@ -1135,6 +1168,7 @@
 				90DBCF6C27DAD59A00EE8737 /* TransactionValue.swift */,
 				FF19E28727C753CC00DBD52D /* AssetsStatusEntity.swift */,
 				FF19E29027C9DECB00DBD52D /* ErrorEntity.swift */,
+				9088050827DC60FC00ABCAE5 /* Ticker.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1440,6 +1474,7 @@
 				B4B4CB9527D5F2D0009F08D7 /* CoinInformationInChartView.xib in Resources */,
 				B4471E5827CFB47100668B64 /* CoinDetailsViewController.xib in Resources */,
 				FFE7196A27CE0349008DF7B9 /* CryptocurrencyListViewController.xib in Resources */,
+				9088051727DCF2F800ABCAE5 /* EmptyViewCell.xib in Resources */,
 				FF19E1F827C628E100DBD52D /* LaunchScreen.storyboard in Resources */,
 				FF9D0CCD27D667390074E861 /* AssetsStatusViewController.xib in Resources */,
 				FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */,
@@ -1605,12 +1640,14 @@
 				9B16F5BD27D09E2A003DC9BC /* ChartByTimesModel.swift in Sources */,
 				FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */,
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
+				9088050627DC524A00ABCAE5 /* ContentViewModel.swift in Sources */,
 				FF19E28A27C75F2000DBD52D /* ParamOptionDataType.swift in Sources */,
 				FF10FD7E27D8C01D0080C5B5 /* CryptocurrencyListModel.swift in Sources */,
 				B4BC4EA027CE66FF00DE19EC /* CandleStickAPIService.swift in Sources */,
 				9065B93327DB1F5A00D112ED /* OrderbookAPIManager.swift in Sources */,
 				B4BC4EA227CE680C00DE19EC /* CandleStickIntervals.swift in Sources */,
 				FF19E28327C72AF200DBD52D /* APIProvider.swift in Sources */,
+				9088051627DCF2F800ABCAE5 /* EmptyViewCell.swift in Sources */,
 				90DFA4EB27D88B3D00491721 /* Decoded.swift in Sources */,
 				9B778C6327CF128A0009D343 /* CandleStickChartByTimesViewModel.swift in Sources */,
 				FFB2EFC427D1415F00944E97 /* String+Extension.swift in Sources */,
@@ -1669,6 +1706,7 @@
 				FF9D0CC627D5A4FA0074E861 /* SortListButtonView.swift in Sources */,
 				FF10FD7727D860A00080C5B5 /* CryptocurrencyTabList.swift in Sources */,
 				9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */,
+				9088050D27DC814000ABCAE5 /* OrderbookViewModelWebsocket+Extension.swift in Sources */,
 				B4471E5727CFB47100668B64 /* CoinDetailsViewController.swift in Sources */,
 				B4BC4EA427CE6AEE00DE19EC /* CandleStickParameters.swift in Sources */,
 				FFE7197627CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.swift in Sources */,
@@ -1709,7 +1747,9 @@
 				B4C373C027D8846100DD424A /* CandleStickIndentifier.swift in Sources */,
 				B4B4CB9727D5F2DE009F08D7 /* CoinInformationInChartView.swift in Sources */,
 				90E12E9C27D274A100373FF9 /* TopViewCell.swift in Sources */,
+				9088050927DC60FC00ABCAE5 /* Ticker.swift in Sources */,
 				B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */,
+				9088050B27DC813200ABCAE5 /* OrderbookViewModelAPI+Extension.swift in Sources */,
 				90E12EA027D274AD00373FF9 /* BottomViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1885,7 +1925,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 886LX3G4KC;
+				DEVELOPMENT_TEAM = X6WTK8Z5MC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";
@@ -1917,7 +1957,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 886LX3G4KC;
+				DEVELOPMENT_TEAM = X6WTK8Z5MC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";

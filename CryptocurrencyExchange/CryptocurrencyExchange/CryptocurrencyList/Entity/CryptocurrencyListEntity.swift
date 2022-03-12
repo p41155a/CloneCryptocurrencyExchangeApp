@@ -105,17 +105,3 @@ extension OrderInfo {
         currentName = container.codingPath[1].stringValue
     }
 }
-
-extension OrderInfo {
-    func generate() -> TradeDescriptionEntity {
-        return TradeDescriptionEntity(
-            volume: accTradeValue24H ?? "",
-            value: unitsTraded24H ?? "",
-            prevClosingPrice: prevClosingPrice ?? "",
-            openingPrice: openingPrice ?? "",
-            maxPrice: maxPrice ?? "",
-            minPrice: minPrice ?? "",
-            symbol: currentName ?? ""
-        )
-    }
-}

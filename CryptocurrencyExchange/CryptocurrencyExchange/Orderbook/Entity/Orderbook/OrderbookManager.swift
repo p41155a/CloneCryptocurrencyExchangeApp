@@ -15,7 +15,7 @@ protocol OrderbookManagerDelegate: AnyObject {
 
 final class OrderbookManager: APIProvider {
     weak var delegate: OrderbookManagerDelegate?
-
+    
     func calculateTotalOrderQuantity(
         orderbooks: [OrderbookEntity],
         type: WebSocketEachOrderbook.OrderType
@@ -38,15 +38,17 @@ final class OrderbookManager: APIProvider {
         var newData: [String: Double] = [:]
         var oldData: [String: Double] = [:]
         
-        orderbooks.forEach { orderbook in
-            newData[orderbook.price] = Double(orderbook.quantity)
+        orderbooks.forEach {
+            newData[$0.price] = $0.quantity.doubleValue
         }
         
-        currentOrderbooks.forEach { orderbook in
-            oldData[orderbook.price] = Double(orderbook.quantity)
+        currentOrderbooks.forEach {
+            oldData[$0.price] = $0.quantity.doubleValue
         }
         
-        newData.merge(oldData) { (new, _) in new }
+        newData.merge(oldData) { (new, _) in
+            new
+        }
         
         let resultOrderbooks: [OrderbookEntity] = newData
             .filter { $0.value > 0 }

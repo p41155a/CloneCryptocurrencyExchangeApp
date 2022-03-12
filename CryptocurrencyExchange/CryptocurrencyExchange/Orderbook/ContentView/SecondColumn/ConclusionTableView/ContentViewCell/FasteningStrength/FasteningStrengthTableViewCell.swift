@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FasteningStrengthTableViewCell: UITableViewCell {
+final class FasteningStrengthTableViewCell: UITableViewCell {
     @IBOutlet private var fasteningStrengthLabel: UILabel!
     
     override func awakeFromNib() {
@@ -24,8 +24,7 @@ class FasteningStrengthTableViewCell: UITableViewCell {
     
     func setData(data: Double) {
         self.fasteningStrengthLabel.text = "\(data)%"
-        var
-    color:UpDown = data > 100.0 ? .up : .down
+        var color:UpDown = data > 100.0 ? .up : .down
         if data == 100 {
             color = .zero
         }

@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum TransactionType: String, Codable {
+        case ask = "ask"
+        case bid = "bid"
+}
+
 struct TransactionValue: Codable {
     let status: String
     let data: [TransactionData]
@@ -14,7 +19,7 @@ struct TransactionValue: Codable {
 
 struct TransactionData: Codable {
     let transaction_date: String
-    let type: WebSocketEachTransaction.BuySellGb
+    let type: TransactionType
     let units_traded: String
     let price: String
     let total: String
@@ -32,7 +37,7 @@ extension TransactionData {
         )
     }
     
-    private func convert(type: WebSocketEachTransaction.BuySellGb) -> WebSocketEachTransaction.BuySellGb {
-        return type == .salesBid ? .salesBid : .salesAsk
+    private func convert(type: TransactionType) -> WebSocketEachTransaction.BuySellGb {
+        return type ==  .bid ? .salesBid : .salesAsk
     }
 }
