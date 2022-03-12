@@ -49,15 +49,19 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
         self.viewModel.changeIndex.bind { [weak self] index in
             let indexPath = IndexPath(item: index, section: 0)
             
-            self?.tableView.beginUpdates()
-            /// iOS13에서 타이밍 이슈로 if 문이 필요함
-            if self?.viewModel.currentList.value.count ?? 1 > index {
-                self?.tableView.reloadRows(at: [indexPath], with: .fade)
-            }
-            self?.tableView.endUpdates()
-            
-            if let cell = self?.tableView.cellForRow(at: indexPath) as? CrypocurrencyListTableViewCell {
-                cell.animateBackgroundColor()
+            // UITableView was told to layout its visible cells and other contents without being in the view hierarchy
+            // 위 에러를 처리하기 하려면 DispatchQueue.main.async로 감싸야 함
+            DispatchQueue.main.async {
+                self?.tableView.beginUpdates()
+                /// iOS13에서 타이밍 이슈로 if 문이 필요함
+                if self?.viewModel.currentList.value.count ?? 1 > index {
+                    self?.tableView.reloadRows(at: [indexPath], with: .fade)
+                }
+                self?.tableView.endUpdates()
+                
+                if let cell = self?.tableView.cellForRow(at: indexPath) as? CrypocurrencyListTableViewCell {
+                    cell.animateBackgroundColor()
+                }
             }
         }
         
