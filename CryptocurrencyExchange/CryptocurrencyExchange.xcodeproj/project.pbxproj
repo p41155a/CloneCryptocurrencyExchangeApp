@@ -120,6 +120,9 @@
 		FF91279B27DAEF3D0053164E /* InterestDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91279A27DAEF3D0053164E /* InterestDBManager.swift */; };
 		FF91279D27DAF7DA0053164E /* SortDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91279C27DAF7DA0053164E /* SortDBManager.swift */; };
 		FF9127CA27DBBAE10053164E /* AllTickerWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */; };
+		FF9127D127DC81080053164E /* AssetsStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9127CF27DC81080053164E /* AssetsStatusTableViewCell.swift */; };
+		FF9127D227DC81080053164E /* AssetsStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF9127D027DC81080053164E /* AssetsStatusTableViewCell.xib */; };
+		FF9127D527DC845F0053164E /* AssetsStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9127D427DC845F0053164E /* AssetsStatusModel.swift */; };
 		FF9D0CBC27D45E350074E861 /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D0CBB27D45E350074E861 /* StarButton.swift */; };
 		FF9D0CC427D59FC50074E861 /* CryptocurrencyListEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D0CC327D59FC50074E861 /* CryptocurrencyListEnum.swift */; };
 		FF9D0CC627D5A4FA0074E861 /* SortListButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D0CC527D5A4FA0074E861 /* SortListButtonView.swift */; };
@@ -281,6 +284,9 @@
 		FF91279A27DAEF3D0053164E /* InterestDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestDBManager.swift; sourceTree = "<group>"; };
 		FF91279C27DAF7DA0053164E /* SortDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortDBManager.swift; sourceTree = "<group>"; };
 		FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTickerWebSocketManager.swift; sourceTree = "<group>"; };
+		FF9127CF27DC81080053164E /* AssetsStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusTableViewCell.swift; sourceTree = "<group>"; };
+		FF9127D027DC81080053164E /* AssetsStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetsStatusTableViewCell.xib; sourceTree = "<group>"; };
+		FF9127D427DC845F0053164E /* AssetsStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusModel.swift; sourceTree = "<group>"; };
 		FF9D0CBB27D45E350074E861 /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		FF9D0CC327D59FC50074E861 /* CryptocurrencyListEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyListEnum.swift; sourceTree = "<group>"; };
 		FF9D0CC527D5A4FA0074E861 /* SortListButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortListButtonView.swift; sourceTree = "<group>"; };
@@ -1059,11 +1065,30 @@
 			name = DBManager;
 			sourceTree = "<group>";
 		};
+		FF9127CE27DC80DE0053164E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FF9127CF27DC81080053164E /* AssetsStatusTableViewCell.swift */,
+				FF9127D027DC81080053164E /* AssetsStatusTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FF9127D327DC84510053164E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF9127D427DC845F0053164E /* AssetsStatusModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FF9D0CC927D666E90074E861 /* AssetsStatus */ = {
 			isa = PBXGroup;
 			children = (
+				FF9127D327DC84510053164E /* Model */,
 				FF9D0CD027D6674D0074E861 /* ViewModel */,
 				FF9D0CD127D6675B0074E861 /* View */,
+				FF9127CE27DC80DE0053164E /* Cell */,
 			);
 			path = AssetsStatus;
 			sourceTree = "<group>";
@@ -1298,6 +1323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4471E5F27CFBDB700668B64 /* QuoteViewController.xib in Resources */,
+				FF9127D227DC81080053164E /* AssetsStatusTableViewCell.xib in Resources */,
 				B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */,
 				B4B4CB9527D5F2D0009F08D7 /* CoinInformationInChartView.xib in Resources */,
 				B4471E5827CFB47100668B64 /* CoinDetailsViewController.xib in Resources */,
@@ -1497,6 +1523,7 @@
 				90BC4A1927D47DD000F9D391 /* ConcludedQuantityTableViewCell.swift in Sources */,
 				9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */,
 				9B778C6527CF14350009D343 /* Observable.swift in Sources */,
+				FF9127D127DC81080053164E /* AssetsStatusTableViewCell.swift in Sources */,
 				FF91279B27DAEF3D0053164E /* InterestDBManager.swift in Sources */,
 				B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */,
 				9071202127D460FD0033B4A5 /* ConclusionTableView.swift in Sources */,
@@ -1513,6 +1540,7 @@
 				B44C749627D8AF7F00A9765D /* CandleStickDBManager.swift in Sources */,
 				9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */,
 				FF10FD8727D9C8970080C5B5 /* Array+Extension.swift in Sources */,
+				FF9127D527DC845F0053164E /* AssetsStatusModel.swift in Sources */,
 				9B778C6527CF14350009D343 /* Observable.swift in Sources */,
 				B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */,
 				FF9D0CC627D5A4FA0074E861 /* SortListButtonView.swift in Sources */,

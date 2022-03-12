@@ -10,7 +10,7 @@ import RealmSwift
 
 final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - Property
-    var model = CryptocurrencyListModel()
+    private let model = CryptocurrencyListModel()
     var nibName: String?
     private var timeTrigger = true
     private var timer = Timer()
