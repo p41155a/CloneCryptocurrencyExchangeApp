@@ -122,7 +122,6 @@
 		FF19E20D27C628E100DBD52D /* CryptocurrencyExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E20C27C628E100DBD52D /* CryptocurrencyExchangeUITests.swift */; };
 		FF19E20F27C628E100DBD52D /* CryptocurrencyExchangeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E20E27C628E100DBD52D /* CryptocurrencyExchangeUITestsLaunchTests.swift */; };
 		FF19E21D27C62A9A00DBD52D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF19E21C27C62A9A00DBD52D /* Alamofire */; };
-		FF19E22027C62B8700DBD52D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF19E21F27C62B8700DBD52D /* Kingfisher */; };
 		FF19E22327C62BA000DBD52D /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = FF19E22227C62BA000DBD52D /* Starscream */; };
 		FF19E22627C62BC900DBD52D /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = FF19E22527C62BC900DBD52D /* Charts */; };
 		FF19E28127C7280600DBD52D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28027C7280600DBD52D /* APIService.swift */; };
@@ -361,7 +360,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF19E22027C62B8700DBD52D /* Kingfisher in Frameworks */,
 				FF19E21D27C62A9A00DBD52D /* Alamofire in Frameworks */,
 				FF19E22327C62BA000DBD52D /* Starscream in Frameworks */,
 				9B16F5C227D0B939003DC9BC /* RealmSwift in Frameworks */,
@@ -1366,7 +1364,6 @@
 			name = CryptocurrencyExchange;
 			packageProductDependencies = (
 				FF19E21C27C62A9A00DBD52D /* Alamofire */,
-				FF19E21F27C62B8700DBD52D /* Kingfisher */,
 				FF19E22227C62BA000DBD52D /* Starscream */,
 				FF19E22527C62BC900DBD52D /* Charts */,
 				9B16F5C127D0B939003DC9BC /* RealmSwift */,
@@ -1448,7 +1445,6 @@
 			mainGroup = FF19E1DF27C628DD00DBD52D;
 			packageReferences = (
 				FF19E21B27C62A9A00DBD52D /* XCRemoteSwiftPackageReference "Alamofire" */,
-				FF19E21E27C62B8600DBD52D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FF19E22127C62BA000DBD52D /* XCRemoteSwiftPackageReference "Starscream" */,
 				FF19E22427C62BC900DBD52D /* XCRemoteSwiftPackageReference "Charts" */,
 				9B16F5C027D0B939003DC9BC /* XCRemoteSwiftPackageReference "realm-swift" */,
@@ -2120,14 +2116,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		FF19E21E27C62B8600DBD52D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
 		FF19E22127C62BA000DBD52D /* XCRemoteSwiftPackageReference "Starscream" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/daltoniam/Starscream";
@@ -2156,11 +2144,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF19E21B27C62A9A00DBD52D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		FF19E21F27C62B8700DBD52D /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FF19E21E27C62B8600DBD52D /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 		FF19E22227C62BA000DBD52D /* Starscream */ = {
 			isa = XCSwiftPackageProductDependency;
