@@ -12,10 +12,10 @@ protocol AllTickerWebSocketManagerDelegate: AnyObject {
     func handingError(for error: String)
     func setWebSocketData(with entity: WebSocketTickerEntity)
 }
-final class AllTickerWebSocketManager {
+final class AllTickerWebSocketManager: CommonSocketAdaptable {
     private var timer = Timer()
     private var timeTrigger = true
-    private var socket: WebSocket?
+    var socket: WebSocket?
     var symbolsKRW: [String] = []
     var symbolsBTC: [String] = []
     weak var delegate: AllTickerWebSocketManagerDelegate?
