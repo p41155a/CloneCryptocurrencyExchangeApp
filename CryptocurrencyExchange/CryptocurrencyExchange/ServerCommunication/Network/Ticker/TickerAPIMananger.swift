@@ -18,4 +18,13 @@ class TickerAPIManager: APIProvider {
         }
         fetchResponse(requestURL: requestURL, completion: completion)
     }
+    
+    /// 각 자산 검색
+    func fetchTicker(orderCurrency: OrderCurrency, paymentCurrency: PaymentCurrency ,completion: @escaping (Result<TickerEntity, APIError>) -> ()) {
+        guard let requestURL = TickerAPIService.ticker(orderCurrency: orderCurrency, paymentCurrency: paymentCurrency).setRequest() else {
+            completion(.failure(APIError.invalidURL))
+            return
+        }
+        fetchResponse(requestURL: requestURL, completion: completion)
+    }
 }

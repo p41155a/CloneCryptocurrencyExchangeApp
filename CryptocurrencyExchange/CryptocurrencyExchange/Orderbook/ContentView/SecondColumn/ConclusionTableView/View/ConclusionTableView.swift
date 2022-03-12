@@ -12,9 +12,9 @@ import Starscream
 class ConclusionTableView: Cell {
     @IBOutlet weak var conclusionTableView: UITableView!
     
-    var coinName: String = ""
-    var currrencyType: String = ""
-    
+    var fasteningStrengthData: String = ""
+    var concludedQuantityList: [TransactionEntity] = []
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -26,10 +26,6 @@ class ConclusionTableView: Cell {
         
         FasteningStrengthTableViewCell.register(tableView: conclusionTableView)
         ConcludedQuantityTableViewCell.register(tableView: conclusionTableView)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,13 +55,15 @@ extension ConclusionTableView: UITableViewDataSource {
         if indexPath.row == 0 {
             let fasteningStrengthTableCell = FasteningStrengthTableViewCell.dequeueReusableCell(tableView: tableView)
             
-//            fasteningStrengthTableCell.setData(data: <#T##ConclusionTableViewEntity#>)
+            fasteningStrengthTableCell.setData(data: fasteningStrengthData.doubleValue ?? 0.0)
             
             return fasteningStrengthTableCell
         } else {
             let concludedQuantityTableCell = ConcludedQuantityTableViewCell.dequeueReusableCell(tableView: tableView)
-            
-//            concludedQuantityTableCell.setData(data: <#T##ConclusionTableViewEntity#>)
+
+            if concludedQuantityList.count > indexPath.row {
+                concludedQuantityTableCell.setData(data: concludedQuantityList[indexPath.row - 1])
+            }
             
             return concludedQuantityTableCell
         }

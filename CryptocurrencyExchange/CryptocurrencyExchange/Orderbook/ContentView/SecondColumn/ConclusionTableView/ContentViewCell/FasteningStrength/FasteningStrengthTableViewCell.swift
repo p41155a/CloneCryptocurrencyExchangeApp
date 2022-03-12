@@ -22,7 +22,17 @@ class FasteningStrengthTableViewCell: UITableViewCell {
         self.fasteningStrengthLabel.text = nil
     }
     
-    func setData(data: ConclusionTableViewEntity) {
-        self.fasteningStrengthLabel.text = data.fasteningStrength
+    func setData(data: Double) {
+        self.fasteningStrengthLabel.text = "\(data)%"
+        var
+    color:UpDown = data > 100.0 ? .up : .down
+        if data == 100 {
+            color = .zero
+        }
+        setColor(updown: UpDown(rawValue: color.rawValue) ?? .zero)
+    }
+    
+    private func setColor(updown: UpDown) {
+        self.fasteningStrengthLabel.textColor = updown.color
     }
 }

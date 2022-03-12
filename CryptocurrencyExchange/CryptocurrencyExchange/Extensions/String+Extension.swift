@@ -60,4 +60,16 @@ extension String {
         
         return labelAttributedStr
     }
+    
+    func roundedQuantity() -> String {
+        guard var doubleValue = doubleValue else {
+            return self
+        }
+
+        doubleValue = pow(10,5)
+        let multipliedDouble = doubleValue * 2
+        let roundedQuantity = multipliedDouble.rounded() / doubleValue
+          
+        return String(format: "%.4f", roundedQuantity)
+    }
 }

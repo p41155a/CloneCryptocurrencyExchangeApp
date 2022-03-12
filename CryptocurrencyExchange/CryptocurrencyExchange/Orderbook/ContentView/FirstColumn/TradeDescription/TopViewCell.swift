@@ -20,8 +20,21 @@ final class TopViewCell: Cell {
         super.init(coder: aDecoder)
     }
     
-//    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
-//        self.tradeVolumeLabel.text = data.symbol
-//        self.tradeValueLabel.text = data.symbol
-//    }
+    override func prepareForReuse() {
+        self.tradeVolumeLabel.text = nil
+        self.tradeValueLabel.text = nil
+    }
+    
+    func setData(data: TradeDescriptionEntity) {
+        let splitedSymbol: [String] = data
+            .symbol
+            .split(separator: "_")
+            .map {
+            "\($0)"
+        }
+        let result = ceil(data.volume.doubleValue ?? 0.0)
+        
+        self.tradeVolumeLabel.text = "\(result)\(splitedSymbol[0])"
+        self.tradeValueLabel.text = data.value
+    }
 }
