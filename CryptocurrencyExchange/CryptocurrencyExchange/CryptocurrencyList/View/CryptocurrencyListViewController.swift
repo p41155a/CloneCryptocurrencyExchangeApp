@@ -42,6 +42,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     func bind() {
         self.viewModel.currentList.bind { [weak self] list in
             self?.eachTabContentStackView.isHidden = list.isEmpty
+            self?.explainEmptyLabel.text = self?.viewModel.getExplainEmpty() ?? ""
             self?.tableView.reloadData()
         }
         

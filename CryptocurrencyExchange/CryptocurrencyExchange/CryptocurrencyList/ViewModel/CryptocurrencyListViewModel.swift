@@ -113,6 +113,13 @@ final class CryptocurrencyListViewModel: XIBInformation {
         return sortDB.existingData() ?? SortInfo(standard: .transaction, orderby: .desc)
     }
     
+    func getExplainEmpty() -> String {
+        guard model.searchWord != "" else {
+            return "등록된 관심 가상자산이 없습니다."
+        }
+        return "조건에 맞는 암호화폐가 없습니다."
+    }
+    
     // MARK: - Private Func
     // MARK: about sort <private>
     private func saveSortInfo(sortInfo: SortInfo, completion: @escaping () -> ()) {
