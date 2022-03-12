@@ -130,7 +130,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
     @objc
     private func sortByVolumePower() {
         model.setTabPopularList()
-        currentList.value = model.getCurrentList(for: .tabInterest)
+        currentList.value = model.getCurrentList(for: .tabPopular)
     }
     
     // MARK: about Interest <private>
