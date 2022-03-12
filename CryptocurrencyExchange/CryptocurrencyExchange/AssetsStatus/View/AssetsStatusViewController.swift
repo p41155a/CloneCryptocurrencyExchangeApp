@@ -10,7 +10,6 @@ import UIKit
 class AssetsStatusViewController: ViewControllerInjectingViewModel<AssetsStatusViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 }
 

@@ -37,9 +37,11 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         let orderCurrency = viewModel.orderCurrency()
         let paymentCurrency = viewModel.paymentCurrency()
         
-        let quoteViewController = QuoteViewController(
-            viewModel: QuoteViewModel(
-                nibName: "QuoteViewController"
+        let orderbookViewController = OrderbookViewController(
+            viewModel: OrderbookViewModel(
+                nibName: "OrderbookViewController",
+                orderCurrency: .appoint(name: orderCurrency),
+                paymentCurrency: PaymentCurrency(rawValue: paymentCurrency) ?? .KRW
             )
         )
         
@@ -52,7 +54,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
             )
         )
         
-        viewControllerByTab[.quote] = quoteViewController
+        viewControllerByTab[.quote] = orderbookViewController
         viewControllerByTab[.chart] = chartViewController
         
         viewControllerByTab.values.forEach {
