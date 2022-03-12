@@ -35,3 +35,29 @@ struct WebSocketEachTransaction: Codable {
         case down = "dn"
     }
 }
+
+extension WebSocketEachTransaction {
+    func generate() -> TransactionEntity {
+        let type = convert(type: buySellGb)
+        let removedMillisecondDate = removeMillisecond(date: contDtm)
+        
+        return TransactionEntity(
+            date: removedMillisecondDate,
+            type: type,
+            price: contPrice,
+            quantity: contQty
+        )
+    }
+    
+    private func convert(type: WebSocketEachTransaction.BuySellGb) -> WebSocketEachTransaction.BuySellGb {
+        return type == .salesBid ? .salesBid : .salesAsk
+    }
+    
+    private func removeMillisecond(date: String) -> String {
+        if let removedMillisecondDate = date.components(separatedBy: ".").first {
+            return removedMillisecondDate
+        }
+        
+        return String()
+    }
+}

@@ -1,17 +1,9 @@
-//
-//  OrderbookViewController.swift
-//  CryptocurrencyExchange
-//
-//  Created by Derrick kim on 2022/03/05.
-//
 
 import UIKit
 import Starscream
 import SpreadsheetView
 
 final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookViewModel> {
-    private var coinName: String = ""
-    private var currrencyType: String = ""
     private var socket: WebSocket?
     private var socketType: [String] = [
         WebSocketType.ticker.rawValue,
@@ -26,16 +18,45 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSpreadsheetView()
-        connect()
+        
+        self.configureSpreadsheetView()
+        self.bind()
+        self.dataInit()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        connect()
     }
     
-    deinit {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         disconnect()
+    }
+
+    // MARK: - Bind viewModel
+    func bind() {
+        self.viewModel.transactionList.bind { [weak self] _ in
+            self?.spreadsheetView.reloadData()
+        }
+        self.viewModel.askOrderbooksList.bind { [weak self] _ in
+            self?.spreadsheetView.reloadData()
+        }
+        self.viewModel.bidOrderbooksList.bind { [weak self] _ in
+            self?.spreadsheetView.reloadData()
+        }
+        self.viewModel.fasteningStrengthList.bind { [weak self] _ in
+            self?.spreadsheetView.reloadData()
+        }
+        self.viewModel.closedPrice.bind { [weak self] _ in
+            self?.spreadsheetView.reloadData()
+        }
+    }
+    
+    private func dataInit() {
+        self.viewModel.setOrderbookAPIData()
+        self.viewModel.setTickerAPIData()
+        self.viewModel.setTransactionAPIData()
     }
     
     private func configureSpreadsheetView() {
@@ -47,23 +68,23 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
     
     /// SpreadsheetView를 위한 Cell 등록을 합니다.
     private func registerCell() {
-        SellQuantityViewCell.register(spreadsheet: spreadsheetView.self)
-        SellPriceViewCell.register(spreadsheet: spreadsheetView.self)
+        AskQuantityViewCell.register(spreadsheet: spreadsheetView.self)
+        AskPriceViewCell.register(spreadsheet: spreadsheetView.self)
         
         TopViewCell.register(spreadsheet: spreadsheetView.self)
         BottomViewCell.register(spreadsheet: spreadsheetView.self)
         
         ConclusionTableView.register(spreadsheet: spreadsheetView.self)
         
-        BuyQuantityViewCell.register(spreadsheet: spreadsheetView.self)
-        BuyPriceViewCell.register(spreadsheet: spreadsheetView.self)
+        BidQuantityViewCell.register(spreadsheet: spreadsheetView.self)
+        BidPriceViewCell.register(spreadsheet: spreadsheetView.self)
     }
     
     /// View가 Center에서 시작을 할 수 있도록 설정합니다.
     private func focusToCenter(of contentView: SpreadsheetView) {
         self.view.layoutIfNeeded()
-        let centerOffsetX = (contentView.contentSize.width - contentView.frame.size.width) / 2
-        let centerOffsetY = (contentView.contentSize.height - contentView.frame.size.height) / 2
+        let centerOffsetX = (contentView.contentSize.width) / 3
+        let centerOffsetY = (contentView.contentSize.height) / 3
         let centerPoint = CGPoint(x: centerOffsetX, y: centerOffsetY)
         contentView.setContentOffset(centerPoint, animated: false)
     }
@@ -73,12 +94,15 @@ extension OrderbookViewController: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(let _):
-            self.writeToSocket(for: "BTC", of: .KRW)
-            
+            self.writeToSocket(
+                for: viewModel.orderCurrency.value,
+                of: viewModel.paymentCurrency
+            )
         case .disconnected(let reason, let code):
             break
         case .text(let data):
             self.viewModel.set(from: data)
+            break
         default:
             break
         }

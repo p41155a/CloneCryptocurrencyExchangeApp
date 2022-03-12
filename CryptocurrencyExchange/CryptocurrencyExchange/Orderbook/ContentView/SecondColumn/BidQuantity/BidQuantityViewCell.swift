@@ -8,8 +8,8 @@
 import UIKit
 import SpreadsheetView
 
-final class BuyQuantityViewCell: Cell {
-    @IBOutlet private var buyQuantityLabel: UILabel!
+final class BidQuantityViewCell: Cell {
+    @IBOutlet private var bidQuantityLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,7 +19,7 @@ final class BuyQuantityViewCell: Cell {
         super.init(coder: aDecoder)
     }
     
-//    func setData(data: CrypotocurrencyKRWListTableViewEntity) {
-//        self.buyQuantityLabel.text = data.symbol
-//    }
+    func setData(data: OrderbookEntity) {
+        self.bidQuantityLabel.text = data.quantity
+    }
 }
