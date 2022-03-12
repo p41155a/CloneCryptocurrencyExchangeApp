@@ -15,7 +15,7 @@
                 <outlet property="changeAmountLabel" destination="Lek-nK-str" id="m2w-zs-Utx"/>
                 <outlet property="changeRateLabel" destination="W71-iv-Jm5" id="Zmv-ah-YcR"/>
                 <outlet property="currentPriceLabel" destination="Jul-5t-ZOw" id="4C0-Ie-Cf9"/>
-                <outlet property="interestButton" destination="pr8-xg-Gbq" id="EIQ-Ah-W4v"/>
+                <outlet property="interestButton" destination="pr8-xg-Gbq" id="vWc-Ye-IwS"/>
                 <outlet property="lineChartView" destination="Wbt-ZQ-ykJ" id="xgz-UV-AuA"/>
                 <outlet property="titleLabel" destination="P27-IM-cBZ" id="R8M-kX-4nR"/>
                 <outlet property="topTabBar" destination="3oH-3u-vr5" id="Gpo-tI-m9h"/>
@@ -38,10 +38,13 @@
                                 <action selector="clickBackButton:" destination="-1" eventType="touchUpInside" id="q4h-q3-SXf"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr8-xg-Gbq">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr8-xg-Gbq" customClass="StarButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                             <rect key="frame" x="372" y="5" width="34" height="34"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" image="starClickedIcon"/>
+                            <connections>
+                                <action selector="interestButtonTap:" destination="-1" eventType="touchUpInside" id="e04-wQ-SVM"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P27-IM-cBZ">
                             <rect key="frame" x="186.5" y="12" width="41.5" height="20.5"/>

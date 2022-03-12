@@ -15,6 +15,8 @@ class CryptocurrencyListModel {
     var tabBTCList: [CryptocurrencySymbolInfo] = []
     var tabInterestList: [CryptocurrencySymbolInfo] = []
     var tabPopularList: [CryptocurrencySymbolInfo] = []
+    var sortInfo: SortInfo = SortInfo()
+    var searchWord: String = ""
     
     // MARK: about websocket
     func getSymbols(for payment: PaymentCurrency) -> [String] {
@@ -42,11 +44,14 @@ class CryptocurrencyListModel {
                                                                  volumePower: tickerInfo.volumePower)
     }
     
+    func getCurrentList(for tab: MainListCurrentTab) -> [CryptocurrencySymbolInfo] {
+        let searchedList = getSearchedList(for: tab, word: searchWord)
+        return sortList(list: searchedList)
+    }
+    
     // MARK: about Interest
-    func setInterestList(from data: Results<InterestCurrency>) {
-        tabInterestList = data.filter { interestInfo in
-            interestInfo.interest == true
-        }.map { interestInfo in
+    func setInterestList(from data: [InterestCurrency]) {
+        tabInterestList = data.map { interestInfo -> CryptocurrencySymbolInfo in
             let splitedSymbol: [String] = interestInfo.currency.split(separator: "_").map { "\($0)" }
             let order = splitedSymbol[0]
             let payment = splitedSymbol[1]
@@ -66,29 +71,58 @@ class CryptocurrencyListModel {
         }[0..<5])
     }
     
-    func getSearchedList(for tap: MainListCurrentTab,
-                         word: String) -> [CryptocurrencySymbolInfo] {
-        switch tap {
-        case .tabKRW:
-            return tabKRWList.filter { word == "" ? true : $0.order.lowercased().contains(word.lowercased()) }
-        case .tabBTC:
-            return tabBTCList.filter { word == "" ? true : $0.order.lowercased().contains(word.lowercased()) }
-        case .tabInterest:
-            return tabInterestList.filter { word == "" ? true : $0.order.lowercased().contains(word.lowercased()) }
-        default:
-            return tabPopularList.filter { word == "" ? true : $0.order.lowercased().contains(word.lowercased()) }
+    func setAPIData(tickerList: [String: CryptocurrencyListTableViewEntity],
+                    symbolsList: [CryptocurrencySymbolInfo],
+                    payment: PaymentCurrency,
+                    _ completion: @escaping () -> ()) {
+        switch payment {
+        case .KRW:
+            self.tickerKRWList = tickerList
+            self.tabKRWList = symbolsList
+        case .BTC:
+            self.tickerBTCList = tickerList
+            self.tabBTCList = symbolsList
+        }
+        completion()
+    }
+    
+    func getEachPaymentList(for payment: PaymentCurrency) -> [String: CryptocurrencyListTableViewEntity] {
+        switch payment {
+        case .KRW:
+            return tickerKRWList
+        case .BTC:
+            return tickerBTCList
         }
     }
     
-    func sortList(orderBy: OrderBy,
-                  standard: MainListSortStandard,
-                  list: [CryptocurrencySymbolInfo]) -> [CryptocurrencySymbolInfo] {
+    // MARK: - Private Func
+    private func getSearchedList(for tab: MainListCurrentTab,
+                         word: String) -> [CryptocurrencySymbolInfo] {
+        return getCurrentTabList(for: tab).filter {
+            word == "" ? true : $0.order.lowercased().contains(word.lowercased())
+        }
+    }
+    
+    private func getCurrentTabList(for tab: MainListCurrentTab) -> [CryptocurrencySymbolInfo] {
+        switch tab {
+        case .tabKRW:
+            return tabKRWList
+        case .tabBTC:
+            return tabBTCList
+        case .tabInterest:
+            return tabInterestList
+        default:
+            return tabPopularList
+        }
+    }
+    
+    private func sortList(list: [CryptocurrencySymbolInfo]) -> [CryptocurrencySymbolInfo] {
         return list.sorted {
-            let frontData = $0.payment == .KRW ? tickerKRWList[$0.order] : tickerBTCList[$0.order]
-            let backData = $0.payment == .KRW ? tickerKRWList[$1.order] : tickerBTCList[$1.order]
-            switch standard {
+            let frontData = getEachPaymentList(for: $0.payment)[$0.order]
+            let backData = getEachPaymentList(for: $1.payment)[$1.order]
+            switch sortInfo.standard {
             case .currencyName:
-                return order(orderBy: orderBy,
+                return order(orderBy: sortInfo.orderby,
                              frontData: $0.order,
                              backData: $1.order)
             case .currentPrice:
@@ -96,7 +130,7 @@ class CryptocurrencyListModel {
                       let backCurrentPrice = backData?.currentPrice else {
                           return true
                       }
-                return order(orderBy: orderBy,
+                return order(orderBy: sortInfo.orderby,
                              frontData: frontCurrentPrice,
                              backData: backCurrentPrice)
             case .changeRate:
@@ -104,7 +138,7 @@ class CryptocurrencyListModel {
                       let backChangeRate = backData?.changeRate else {
                           return true
                       }
-                return order(orderBy: orderBy,
+                return order(orderBy: sortInfo.orderby,
                              frontData: frontChangeRate,
                              backData: backChangeRate)
             case .transaction:
@@ -112,7 +146,7 @@ class CryptocurrencyListModel {
                       let backTransactionAmount = backData?.transactionAmount else {
                           return true
                       }
-                return order(orderBy: orderBy,
+                return order(orderBy: sortInfo.orderby,
                              frontData: frontTransactionAmount,
                              backData: backTransactionAmount)
             }
@@ -126,43 +160,5 @@ class CryptocurrencyListModel {
         case .desc:
             return frontData > backData
         }
-    }
-    
-    func setAPIData(of data: TickerEntity,
-                    payment: PaymentCurrency,
-                    sortInfo: SortInfo,
-                    _ completion: @escaping () -> ()) {
-        let cryptocurrencyData = data.ordersInfo.orderInfo
-        var tickerList: [String: CryptocurrencyListTableViewEntity] = [:]
-        var symbolsList: [CryptocurrencySymbolInfo] = []
-        cryptocurrencyData.forEach { data in
-            let order = data.key
-            let tickerInfo = data.value
-            let paymentInfo = CryptocurrencySymbolInfo(order: order,
-                                                       payment: payment)
-            let tableData = CryptocurrencyListTableViewEntity(order: tickerInfo.currentName ?? "",
-                                                              payment: payment,
-                                                              currentPrice: tickerInfo.closingPrice?.doubleValue ?? 0,
-                                                              changeRate: tickerInfo.fluctateRate24H?.doubleValue ?? 0,
-                                                              changeAmount: tickerInfo.fluctate24H ?? "",
-                                                              transactionAmount: tickerInfo.accTradeValue?.doubleValue ?? 0,
-                                                              volumePower: "")
-            symbolsList.append(paymentInfo)
-            tickerList[order] = tableData
-        }
-        
-        switch payment {
-        case .KRW:
-            self.tickerKRWList = tickerList
-            self.tabKRWList = self.sortList(orderBy: sortInfo.orderby,
-                                            standard: sortInfo.standard,
-                                            list: symbolsList)
-        case .BTC:
-            self.tickerBTCList = tickerList
-            self.tabBTCList = self.sortList(orderBy: sortInfo.orderby,
-                                            standard: sortInfo.standard,
-                                            list: symbolsList)
-        }
-        completion()
     }
 }

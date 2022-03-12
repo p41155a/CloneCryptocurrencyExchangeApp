@@ -14,10 +14,11 @@ final class CryptocurrencyListViewModel: XIBInformation {
     var nibName: String?
     private var timeTrigger = true
     private var timer = Timer()
-    private let realm: Realm
     private var apiManager = TickerAPIManager()
+    private var interestDB = InterestDBManager()
+    private var socketManager = AllTickerWebSocketManager()
+    private var sortDB = SortDBManager()
     private var currentTab: MainListCurrentTab = .tabKRW
-    private var searchWord: String = ""
     let currentList: Observable<[CryptocurrencySymbolInfo]> = Observable([])
     let changeIndex: Observable<Int> = Observable(0)
     let error: Observable<String?> = Observable(nil)
@@ -25,69 +26,44 @@ final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - init
     init(nibName: String? = nil) {
         self.nibName = nibName
-        realm = try! Realm()
+        socketManager.delegate = self
     }
     
     // MARK: - Func
     // MARK: 초기 데이터 설정
     func setInitialData() {
+        model.sortInfo = getSortInfo()
         setInitialDataForPayment(payment: PaymentCurrency.KRW) { [weak self] in
             guard let self = self else { return }
-            self.currentList.value = self.model.tabKRWList}
-        setInitialDataForPayment(payment: PaymentCurrency.BTC) {}
+            self.currentList.value = self.model.getCurrentList(for: self.currentTab)
+            self.socketManager.symbolsKRW = self.getSymbols(for: .KRW)
+        }
+        setInitialDataForPayment(payment: PaymentCurrency.BTC) { [weak self] in
+            self?.socketManager.symbolsBTC = self?.getSymbols(for: .BTC) ?? []
+        }
     }
     
     // MARK: For tableView
     func getTableViewEntity(for info: CryptocurrencySymbolInfo) -> CryptocurrencyListTableViewEntity {
-        var result: CryptocurrencyListTableViewEntity?
-        switch info.payment {
-        case .KRW:
-            result = self.model.tickerKRWList[info.order]
-        case .BTC:
-            result = self.model.tickerBTCList[info.order]
-        }
-        return result ?? CryptocurrencyListTableViewEntity()
-    }
-    
-    // MARK: about websocket
-    func getSymbols(for payment: PaymentCurrency) -> [String] {
-        return model.getSymbols(for: payment)
-    }
-    
-    func setWebSocketData(with entity: WebSocketTickerEntity) {
-        let tickerInfo = entity.content
-        let splitedSymbol: [String] = tickerInfo.symbol.split(separator: "_").map { "\($0)" }
-        let order = splitedSymbol[0]
-        let payment = splitedSymbol[1]
-        
-        /// 변경된 값이 현재 탭에 있는 값일때
-        for (index, paymentInfo) in currentList.value.enumerated() {
-            if paymentInfo.order == order {
-                changeIndex.value = index
-            }
-        }
-        
-        model.setWebSocketData(order: order,
-                               payment: PaymentCurrency(rawValue: payment) ?? .KRW,
-                               tickerInfo: tickerInfo)
+        let list = self.model.getEachPaymentList(for: info.payment)
+        return list[info.order] ?? CryptocurrencyListTableViewEntity()
     }
     
     // MARK: about Interest
-    func setInterestData(interest: InterestCurrency) {
-        do {
-            try realm.write {
-                realm.add(interest, update: .modified)
+    func setInterestData(of symbolInfo: CryptocurrencySymbolInfo, isInterest: Bool) {
+        return interestDB.add(symbolInfo: symbolInfo,
+                              isInterest: isInterest) { [weak self] result in
+            switch result {
+            case .success(_):
+                break
+            case .failure(_):
+                self?.error.value = "DB를 불러오지 못하였습니다.\n앱을 제거 후 다시 설치해주세요"
             }
-        } catch {
-            self.error.value = "관심 데이터를 작성하지 못했습니다. 관리자에게 문의해주세요"
         }
     }
     
-    func getIsInterest(interestKey: String) -> Bool {
-        let interestData = realm.objects(InterestCurrency.self)
-        return !interestData.filter { interestInfo in
-            return interestInfo.currency == interestKey && interestInfo.interest == true
-        }.isEmpty
+    func isInterest(of symbolInfo: CryptocurrencySymbolInfo) -> Bool {
+        return interestDB.isInterest(of: symbolInfo)
     }
     
     // MARK: select tab
@@ -96,14 +72,17 @@ final class CryptocurrencyListViewModel: XIBInformation {
         switch self.currentTab {
         case .tabKRW:
             stopTimer()
-            searchCurrency(for: self.searchWord)
+            currentList.value = model.getCurrentList(for: self.currentTab)
         case .tabBTC:
             stopTimer()
-            searchCurrency(for: self.searchWord)
+            currentList.value = model.getCurrentList(for: self.currentTab)
         case .tabInterest:
             stopTimer()
-            searchCurrency(for: self.searchWord)
-            setInterestList()
+            setInterestList() { [weak self] in
+                self?.currentList.value = self?.model.getCurrentList(
+                    for: self?.currentTab ?? .tabKRW
+                ) ?? []
+            }
         case .tabPopular:
             sortByVolumePower()
             startTimer(interval: 10)
@@ -116,57 +95,80 @@ final class CryptocurrencyListViewModel: XIBInformation {
     }
     
     // MARK: about sort
-    @objc
-    func sortByVolumePower() {
-        model.setTabPopularList()
-        searchCurrency(for: self.searchWord)
+    func sortCurrentTabList(by sortInfo: SortInfo) {
+        saveSortInfo(sortInfo: sortInfo) { [weak self] in
+            self?.model.sortInfo = sortInfo
+            self?.currentList.value = self?.model.getCurrentList(
+                for: self?.currentTab ?? .tabKRW
+            ) ?? []
+        }
     }
     
-    func sortCurrentTabList(orderBy: OrderBy, standard: MainListSortStandard) {
-        let sortInfo = SortInfo(standard: standard,
-                                orderby: orderBy)
-        saveSortInfo(sortInfo: sortInfo)
-        currentList.value = model.sortList(orderBy: orderBy,
-                                           standard: standard,
-                                           list: currentList.value)
+    func searchCurrency(by word: String) {
+        model.searchWord = word
+        currentList.value = model.getCurrentList(for: currentTab)
     }
     
-    // MARK: Search
-    func searchCurrency(for word: String) {
-        searchWord = word
-        currentList.value = model.getSearchedList(for: currentTab, word: word)
+    func getSortInfo() -> SortInfo {
+        return sortDB.existingData() ?? SortInfo(standard: .transaction, orderby: .desc)
     }
     
     // MARK: - Private Func
     // MARK: about sort <private>
-    private func saveSortInfo(sortInfo: SortInfo) {
-        do {
-            try realm.write {
-                realm.add(sortInfo, update: .modified)
+    private func saveSortInfo(sortInfo: SortInfo, completion: @escaping () -> ()) {
+        sortDB.add(sortInfo: sortInfo) { [weak self] result in
+            switch result {
+            case .success(_):
+                completion()
+            case .failure(_):
+                self?.error.value = "DB를 불러오지 못하였습니다.\n앱을 제거 후 다시 설치해주세요"
+                completion()
             }
-        } catch {
-            self.error.value = "정렬 데이터를 작성하지 못했습니다. 관리자에게 문의해주세요"
         }
     }
     
-    func getSortInfo() -> SortInfo {
-        return realm.objects(SortInfo.self).first ?? SortInfo(standard: .transaction, orderby: .desc)
+    @objc
+    private func sortByVolumePower() {
+        model.setTabPopularList()
+        currentList.value = model.getCurrentList(for: .tabInterest)
     }
     
     // MARK: about Interest <private>
-    private func setInterestList() {
-        let interestData = realm.objects(InterestCurrency.self)
-        model.setInterestList(from: interestData)
+    private func setInterestList(_ completion: @escaping () -> ()) {
+        interestDB.existingData() { interestData in
+            self.model.setInterestList(from: interestData)
+            completion()
+        }
     }
     
     // MARK: 초기 데이터 설정 <private>
-    private func setInitialDataForPayment(payment: PaymentCurrency ,_ completion: @escaping () -> ()) {
+    private func setInitialDataForPayment(payment: PaymentCurrency, _ completion: @escaping () -> ()) {
         apiManager.fetchTicker(paymentCurrency: payment) { result in
             switch result {
             case .success(let data):
-                self.model.setAPIData(of: data,
-                                      payment: payment,
-                                      sortInfo: self.getSortInfo()) {
+                let cryptocurrencyData = data.ordersInfo.orderInfo
+                var tickerList: [String: CryptocurrencyListTableViewEntity] = [:]
+                var symbolsList: [CryptocurrencySymbolInfo] = []
+                cryptocurrencyData.forEach { data in
+                    let order = data.key
+                    let tickerInfo = data.value
+                    let paymentInfo = CryptocurrencySymbolInfo(order: order,
+                                                               payment: payment)
+                    let tableData = CryptocurrencyListTableViewEntity(
+                        order: tickerInfo.currentName ?? "",
+                        payment: payment,
+                        currentPrice: tickerInfo.closingPrice?.doubleValue ?? 0,
+                        changeRate: tickerInfo.fluctateRate24H?.doubleValue ?? 0,
+                        changeAmount: tickerInfo.fluctate24H ?? "",
+                        transactionAmount: tickerInfo.accTradeValue24H?.doubleValue ?? 0,
+                        volumePower: ""
+                    )
+                    symbolsList.append(paymentInfo)
+                    tickerList[order] = tableData
+                }
+                self.model.setAPIData(tickerList: tickerList,
+                                      symbolsList: symbolsList,
+                                      payment: payment) {
                     completion()
                 }
             case .failure(let error):
@@ -191,5 +193,39 @@ final class CryptocurrencyListViewModel: XIBInformation {
     private func stopTimer() {
         timeTrigger = true
         timer.invalidate()
+    }
+}
+extension CryptocurrencyListViewModel: AllTickerWebSocketManagerDelegate {
+    func handingError(for error: String) {
+        self.error.value = error
+    }
+    
+    func setWebSocketData(with entity: WebSocketTickerEntity) {
+        let tickerInfo = entity.content
+        let splitedSymbol: [String] = tickerInfo.symbol.split(separator: "_").map { "\($0)" }
+        let order = splitedSymbol[0]
+        let payment = splitedSymbol[1]
+        
+        for (index, paymentInfo) in currentList.value.enumerated() {
+            if paymentInfo.order == order {
+                changeIndex.value = index
+            }
+        }
+        
+        model.setWebSocketData(order: order,
+                               payment: PaymentCurrency(rawValue: payment) ?? .KRW,
+                               tickerInfo: tickerInfo)
+    }
+    
+    func connectSocket() {
+        socketManager.connect()
+    }
+    
+    func disconnectSocket() {
+        socketManager.disconnect()
+    }
+    
+    func getSymbols(for payment: PaymentCurrency) -> [String] {
+        return model.getSymbols(for: payment)
     }
 }

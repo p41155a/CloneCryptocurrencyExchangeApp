@@ -11,4 +11,11 @@ extension Double {
     func displayDecimal(to place: Int) -> String {
         return String(format: "%.\(place)f", self)
     }
+    
+    var decimalType: String? {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        return numberFormatter.string(from: NSNumber(value: self))
+    }
 }
