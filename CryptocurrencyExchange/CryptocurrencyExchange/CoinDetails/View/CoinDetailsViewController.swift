@@ -9,8 +9,6 @@ import UIKit
 import Starscream
 
 class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsViewModel> {
-    
-    private var socket: WebSocket?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var interestButton: StarButton!
     @IBOutlet weak var topTabBar: UIStackView!
@@ -29,13 +27,19 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         drawLineChart()
         setChildViewControllers()
         setTopTapBarTabEvent()
-        connect()
+        self.bindClosures()
         
         self.bringSubviewToFront(with: CoinDetailsTopTabs(rawValue: 0) ?? .quote)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.connectSocket()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.disconnectSocket()
     }
     
     private func configureUI() {
@@ -44,8 +48,36 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         interestButton.isSelected = viewModel.isInterest()
     }
     
-    deinit {
-        disconnect()
+    private func bindClosures() {
+        // WebSocket Ticker 데이터 반환
+        viewModel.tickerData.bind { [weak self] tickerData in
+            /// 상단 헤더에서 사용하기 위한 처리
+            guard let data = tickerData else { return }
+            let entity = CryptocurrencyListTableViewEntity(
+                currentPrice: data.closePrice.doubleValue ?? 0,
+                changeRate: data.chgRate.doubleValue ?? 0,
+                changeAmount: data.chgAmt
+            )
+            self?.reflectData(by: entity)
+            
+            /// 호가 창에서 사용하기 위한 처리를 추가해주세요
+            if let orderBookVC = self?.viewControllerByTab[.quote] as? OrderbookViewController {
+                // orderBookVC.observableData.value = tickerData
+            }
+        }
+        
+        // WebSocket Transaction 데이터 반환
+        viewModel.transactionData.bind { [weak self] transactionData in
+            guard let data = transactionData else { return }
+            
+            /// 시세창에서 사용
+            if let transactionListVC = self?.viewControllerByTab[.transaction] as? TransactionListViewController {
+                transactionListVC.transactionDataFromSocket(data)
+            }
+            
+            /// 호가창에서 사용할 수 있도록 로직을 추가해주세요
+        }
+        
     }
     
     // MARK: - func<UI>
@@ -78,38 +110,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         changeRateLabel.textColor = updown.color
         changeAmountLabel.textColor = updown.color
     }
-    
-    // MARK: - func<websocket>
-    private func connect() {
-        let url = "wss://pubwss.bithumb.com/pub/ws"
-        
-        var request = URLRequest(url: URL(string: url)!)
-        request.timeoutInterval = 5
-        socket = WebSocket(request: request)
-        socket?.delegate = self
-        socket?.connect()
-    }
-    
-    private func disconnect() {
-        socket?.disconnect()
-        socket?.delegate = nil
-    }
-    
-    private func writeToSocket() {
-        let params: [String: Any] = [
-            "type": WebSocketType.ticker.rawValue,
-            "symbols": viewModel.getWebSocketSymbol(),
-            "tickTypes": WebSocketTickType.tick24H.rawValue
-        ]
-        do {
-            let json = try JSONSerialization.data(withJSONObject: params, options: [])
-            socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
-        } catch {
-            showAlert(title: "소켓 요청에 실패하였습니다. 관리자에게 문의해주세요", completion: nil)
-        }
-    }
 
-    
     // MARK: - Private Func
     /// 상단 탭에 연관되는 뷰컨트롤러를 ChildViewController로 설정
     private func setChildViewControllers() {
@@ -199,28 +200,5 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     @IBAction func interestButtonTap(_ sender: StarButton) {
         sender.isSelected.toggle()
         viewModel.setInterest(for: sender.isSelected)
-    }
-}
-
-// MARK: - Delegate WebSocket
-extension CoinDetailsViewController: WebSocketDelegate {
-    func didReceive(event: WebSocketEvent, client: WebSocket) {
-        switch event {
-        case .connected(_):
-            writeToSocket()
-        case .text(let string):
-            do {
-                let data = string.data(using: .utf8)!
-                let json = try JSONDecoder().decode(WebSocketTickerEntity.self, from: data)
-                let tickerInfo = json.content
-                reflectData(by: CryptocurrencyListTableViewEntity(currentPrice: tickerInfo.closePrice.doubleValue ?? 0,
-                                                                  changeRate: tickerInfo.chgRate.doubleValue ?? 0,
-                                                                  changeAmount: tickerInfo.chgAmt))
-            } catch  {
-                print("Received text: \(string)")
-            }
-        default:
-            break
-        }
     }
 }

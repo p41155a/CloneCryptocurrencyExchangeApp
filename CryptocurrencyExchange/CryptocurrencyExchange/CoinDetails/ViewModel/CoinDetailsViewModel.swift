@@ -9,10 +9,20 @@ import Foundation
 import Network
 
 class CoinDetailsViewModel: XIBInformation {
-    let apiManager = CandleStickAPIManager()
     var nibName: String?
-    var interestDB = InterestDBManager()
     var dependency: CryptocurrencyListTableViewEntity
+    
+    let apiManager = CandleStickAPIManager()
+    var interestDB = InterestDBManager()
+    
+    /// 코인상세페이지에서 공통적으로 사용되는 ticker 데이터 관리
+    var tickerSocketManager: TickerWebSocketManager
+    let tickerData: Observable<WebSocketTickerContent?> = Observable(nil)
+    
+    /// 코인상세페이지에서 공통적으로 사용되는 transaction 데이터 관리
+    var transactionSocketManager: TransactionWebSocketManager
+    let transactionData: Observable<WebSocketTransactionContent?> = Observable(nil)
+    
     let error: Observable<String?> = Observable(nil)
     
     init(
@@ -21,6 +31,14 @@ class CoinDetailsViewModel: XIBInformation {
     ) {
         self.nibName = nibName
         self.dependency = dependency
+        self.tickerSocketManager = TickerWebSocketManager(
+            symbols: "\(dependency.order)_\(dependency.payment.value)"
+        )
+        self.transactionSocketManager = TransactionWebSocketManager(
+            paymentCurrency: dependency.payment.value,
+            orderCurrency: dependency.order
+        )
+        self.bindClosures()
     }
     
     func orderCurrency() -> String {
@@ -49,9 +67,19 @@ class CoinDetailsViewModel: XIBInformation {
             }
         }
     }
-    
+
     func getWebSocketSymbol() -> String {
         return "\(dependency.order)_\(dependency.payment.value)"
+    }
+    
+    func connectSocket() {
+        tickerSocketManager.connect()
+        transactionSocketManager.connect()
+    }
+    
+    func disconnectSocket() {
+        tickerSocketManager.disconnect()
+        transactionSocketManager.disconnect()
     }
 
     func setInitialDataForChart(_ completion: @escaping (CandleStickEntity) -> ()) {
@@ -70,6 +98,16 @@ class CoinDetailsViewModel: XIBInformation {
             case .none:
                 self.error.value = "chart 값을 가져오지 못하였습니다."
             }
+        }
+    }
+    
+    private func bindClosures() {
+        tickerSocketManager.tickerData.bind { [weak self] data in
+            self?.tickerData.value = data
+        }
+        
+        transactionSocketManager.transactionData.bind { [weak self] entity in
+            self?.transactionData.value = entity?.content
         }
     }
 }
