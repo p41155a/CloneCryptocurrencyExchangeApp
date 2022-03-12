@@ -24,7 +24,6 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        drawLineChart()
         setChildViewControllers()
         setTopTapBarTabEvent()
         self.bindClosures()
@@ -46,6 +45,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         titleLabel.text = viewModel.dependency.order
         reflectData(by: viewModel.dependency)
         interestButton.isSelected = viewModel.isInterest()
+        drawLineChart()
     }
     
     private func bindClosures() {
@@ -76,6 +76,11 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
             }
             
             /// 호가창에서 사용할 수 있도록 로직을 추가해주세요
+        }
+        
+        viewModel.error.bind { [weak self] error in
+            guard let error = error else { return }
+            self?.showAlert(title: error) {}
         }
         
     }

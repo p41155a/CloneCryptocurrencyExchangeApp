@@ -12,6 +12,7 @@ class TickerWebSocketManager {
     private var socket: WebSocket?
     var symbols: String
     var tickerData: Observable<WebSocketTickerContent?>
+    var error: Observable<String?> = Observable(nil)
     
     init(symbols: String) {
         self.symbols = symbols
@@ -37,15 +38,14 @@ class TickerWebSocketManager {
     private func writeToSocket() {
         let params: [String: Any] = [
             "type": WebSocketType.ticker.rawValue,
-            "symbols": self.symbols,
-            "tickTypes": WebSocketTickType.tick24H.rawValue
+            "symbols": [self.symbols],
+            "tickTypes": [WebSocketTickType.tick24H.rawValue]
         ]
         do {
             let json = try JSONSerialization.data(withJSONObject: params, options: [])
             socket?.write(string: String(data:json, encoding: .utf8)!, completion: nil)
         } catch {
-            print("소켓 요청에 실패")
-//            showAlert(title: "소켓 요청에 실패하였습니다. 관리자에게 문의해주세요", completion: nil)
+            self.error.value = "소켓 요청에 실패하였습니다. 관리자에게 문의해주세요"
         }
     }
 
