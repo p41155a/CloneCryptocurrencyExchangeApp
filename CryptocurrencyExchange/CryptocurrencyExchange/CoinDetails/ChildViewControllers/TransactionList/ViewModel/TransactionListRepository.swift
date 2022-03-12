@@ -10,6 +10,12 @@ import Foundation
 class TransactionListRepository {
     let webSocketManager: TransactionWebSocketManager
     var transactionInformations: Observable<[TransactionInforamtion]?>
+    let socketManager = SoloSocketManager<WebSocketTransactionEntity>(
+        parameter: [
+            "type": "transaction",
+            "symbols": ["BTC_KRW"]
+        ]
+    )
     
     init(webSocketManager: TransactionWebSocketManager) {
         self.webSocketManager = webSocketManager
@@ -29,6 +35,7 @@ class TransactionListRepository {
                 )
             })
         }
+       bindSampleSocketManager()
     }
     
     func socketConnect(on: Bool = true) {
@@ -55,5 +62,11 @@ class TransactionListRepository {
         }
         
         return dateFormatted
+    }
+
+    func bindSampleSocketManager() {
+        socketManager.socketData.bind { [weak self] data in
+            print(data?.content.list.count)
+        }
     }
 }
