@@ -27,6 +27,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         drawLineChart()
         setChildViewControllers()
         setTopTapBarTabEvent()
+        self.bindClosures()
         
         self.bringSubviewToFront(with: CoinDetailsTopTabs(rawValue: 0) ?? .quote)
     }
@@ -63,6 +64,18 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
             if let orderBookVC = self?.viewControllerByTab[.quote] as? OrderbookViewController {
                 // orderBookVC.observableData.value = tickerData
             }
+        }
+        
+        // WebSocket Transaction 데이터 반환
+        viewModel.transactionData.bind { [weak self] transactionData in
+            guard let data = transactionData else { return }
+            
+            /// 시세창에서 사용
+            if let transactionListVC = self?.viewControllerByTab[.transaction] as? TransactionListViewController {
+                transactionListVC.transactionDataFromSocket(data)
+            }
+            
+            /// 호가창에서 사용할 수 있도록 로직을 추가해주세요
         }
         
     }
