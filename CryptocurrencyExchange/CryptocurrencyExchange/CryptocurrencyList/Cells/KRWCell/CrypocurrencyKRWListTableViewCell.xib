@@ -114,10 +114,10 @@
                                 <rect key="frame" x="372" y="0.0" width="40" height="61"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnQ-qY-Rku" customClass="StarButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="16.5" width="28" height="28"/>
+                                        <rect key="frame" x="0.0" y="12.5" width="36" height="36"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="28" id="LMi-ny-VvR"/>
                                             <constraint firstAttribute="width" secondItem="hnQ-qY-Rku" secondAttribute="height" multiplier="1:1" id="M2C-LC-YYt"/>
+                                            <constraint firstAttribute="width" constant="36" id="ekV-ef-wZF"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="starIcon"/>
@@ -129,8 +129,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="hnQ-qY-Rku" firstAttribute="centerY" secondItem="VBd-Oe-MOq" secondAttribute="centerY" id="2ce-4V-dkx"/>
-                                    <constraint firstItem="hnQ-qY-Rku" firstAttribute="leading" secondItem="VBd-Oe-MOq" secondAttribute="leading" constant="4" id="ZCw-Xj-yki"/>
-                                    <constraint firstAttribute="trailing" secondItem="hnQ-qY-Rku" secondAttribute="trailing" constant="8" id="xqt-ld-b9s"/>
+                                    <constraint firstItem="hnQ-qY-Rku" firstAttribute="leading" secondItem="VBd-Oe-MOq" secondAttribute="leading" id="ZCw-Xj-yki"/>
+                                    <constraint firstAttribute="trailing" secondItem="hnQ-qY-Rku" secondAttribute="trailing" constant="4" id="xqt-ld-b9s"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -171,7 +171,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="starIcon" width="34" height="34"/>
+        <image name="starIcon" width="44" height="44"/>
         <namedColor name="backgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
