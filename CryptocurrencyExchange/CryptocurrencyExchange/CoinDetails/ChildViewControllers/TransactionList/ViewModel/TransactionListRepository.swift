@@ -8,19 +8,19 @@
 import Foundation
 
 class TransactionListRepository {
-    let webSocketManager: TransactionWebSocketManager
+    var transactionDataFromSocket: Observable<WebSocketTransactionContent?>
     var transactionInformations: Observable<[TransactionInforamtion]?>
     
-    init(webSocketManager: TransactionWebSocketManager) {
-        self.webSocketManager = webSocketManager
-        self.transactionInformations = Observable(nil)
-        self.bindClosures()
+    init() {
+        transactionDataFromSocket = Observable(nil)
+        transactionInformations = Observable(nil)
+        bindClosures()
     }
     
     func bindClosures() {
-        webSocketManager.transactionData.bind { [weak self] data in
+        transactionDataFromSocket.bind { [weak self] data in
             guard let `self` = self else { return }
-            self.transactionInformations.value = data?.content.list.map({ content -> TransactionInforamtion in
+            self.transactionInformations.value = data?.list.map({ content -> TransactionInforamtion in
                 return TransactionInforamtion(
                     saleType: content.buySellGb,
                     date: self.formattedDate(from: content.contDtm),
@@ -28,14 +28,6 @@ class TransactionListRepository {
                     amount: content.contQty
                 )
             })
-        }
-    }
-    
-    func socketConnect(on: Bool = true) {
-        if on {
-            webSocketManager.connect()
-        } else {
-            webSocketManager.disconnect()
         }
     }
     

@@ -34,9 +34,9 @@ class TransactionListViewController: ViewControllerInjectingViewModel<Transactio
 
     }
     
+    /// 상위 뷰컨트롤러에서 받아온 transaction socket 데이터 처리
     func transactionDataFromSocket(_ data: WebSocketTransactionContent?) {
-        /// 소켓 데이터로 업데이트 하는 로직 필요
-        print(data)
+        viewModel.updateSocketData(data)
     }
 }
 

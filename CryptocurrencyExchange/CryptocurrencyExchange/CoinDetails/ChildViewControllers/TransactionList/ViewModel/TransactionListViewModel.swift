@@ -30,12 +30,7 @@ class TransactionListViewModel: XIBInformation {
         self.nibName = nibName
         self.paymentCurrency = paymentCurrency
         self.orderCurrency = orderCurrency
-        self.repository = TransactionListRepository(
-            webSocketManager: TransactionWebSocketManager(
-                paymentCurrency: paymentCurrency,
-                orderCurrency: orderCurrency
-            )
-        )
+        self.repository = TransactionListRepository()
         self.indiceToReload = Observable(nil)
         transactionInformations = []
         self.bindClosures()
@@ -62,7 +57,7 @@ class TransactionListViewModel: XIBInformation {
         return transactionInformations[index]
     }
     
-    func socketConnect(on: Bool = true) {
-        repository.socketConnect(on: on)
+    func updateSocketData(_ data: WebSocketTransactionContent?) {
+        repository.transactionDataFromSocket.value = data
     }
 }
