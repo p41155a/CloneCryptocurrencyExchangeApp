@@ -10,12 +10,6 @@ import Foundation
 class TransactionListRepository {
     var transactionDataFromSocket: Observable<WebSocketTransactionContent?>
     var transactionInformations: Observable<[TransactionInforamtion]?>
-    let socketManager = SoloSocketManager<WebSocketTransactionEntity>(
-        parameter: [
-            "type": "transaction",
-            "symbols": ["BTC_KRW"]
-        ]
-    )
     
     init() {
         transactionDataFromSocket = Observable(nil)
@@ -35,7 +29,6 @@ class TransactionListRepository {
                 )
             })
         }
-       bindSampleSocketManager()
     }
     
     private func decimal(from quantity: String) -> String {
@@ -54,11 +47,5 @@ class TransactionListRepository {
         }
         
         return dateFormatted
-    }
-
-    func bindSampleSocketManager() {
-        socketManager.socketData.bind { [weak self] data in
-            print(data?.content.list.count)
-        }
     }
 }
