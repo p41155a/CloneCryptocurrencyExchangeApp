@@ -106,3 +106,17 @@ extension TickerInfo {
         currentName = container.codingPath[1].stringValue
     }
 }
+
+extension TickerInfo {
+    func generate() -> TradeDescriptionEntity {
+        return TradeDescriptionEntity(
+            volume: accTradeValue24H ?? "",
+            value: unitsTraded24H ?? "",
+            prevClosingPrice: prevClosingPrice ?? "",
+            openingPrice: openingPrice ?? "",
+            maxPrice: maxPrice ?? "",
+            minPrice: minPrice ?? "",
+            symbol: currentName ?? ""
+        )
+    }
+}
