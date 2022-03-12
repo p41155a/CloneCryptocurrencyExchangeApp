@@ -40,22 +40,28 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     // MARK: - Bind viewModel
     func bind() {
-        self.viewModel.currentList.bind { [weak self] _ in
+        self.viewModel.currentList.bind { [weak self] list in
+            self?.eachTabContentStackView.isHidden = list.isEmpty
+            self?.explainEmptyLabel.text = self?.viewModel.getExplainEmpty() ?? ""
             self?.tableView.reloadData()
         }
         
         self.viewModel.changeIndex.bind { [weak self] index in
             let indexPath = IndexPath(item: index, section: 0)
             
-            self?.tableView.beginUpdates()
-            /// iOS13에서 타이밍 이슈로 if 문이 필요함
-            if self?.viewModel.currentList.value.count ?? 1 > index {
-                self?.tableView.reloadRows(at: [indexPath], with: .fade)
-            }
-            self?.tableView.endUpdates()
-            
-            if let cell = self?.tableView.cellForRow(at: indexPath) as? CrypocurrencyListTableViewCell {
-                cell.animateBackgroundColor()
+            // UITableView was told to layout its visible cells and other contents without being in the view hierarchy
+            // 위 에러를 처리하기 하려면 DispatchQueue.main.async로 감싸야 함
+            DispatchQueue.main.async {
+                self?.tableView.beginUpdates()
+                /// iOS13에서 타이밍 이슈로 if 문이 필요함
+                if self?.viewModel.currentList.value.count ?? 1 > index {
+                    self?.tableView.reloadRows(at: [indexPath], with: .fade)
+                }
+                self?.tableView.endUpdates()
+                
+                if let cell = self?.tableView.cellForRow(at: indexPath) as? CrypocurrencyListTableViewCell {
+                    cell.animateBackgroundColor()
+                }
             }
         }
         
@@ -174,6 +180,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     // MARK: - Property
     private var tabButtonList: [TabButton] = []
     private var sortButtonList: [SortListButton] = []
+    @IBOutlet weak var explainEmptyLabel: UILabel!
     @IBOutlet weak var explainPopolurRuleLabel: UILabel!
     @IBOutlet weak var sortStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
@@ -186,6 +193,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     @IBOutlet weak var sortChangeRateButton: SortListButton!
     @IBOutlet weak var sortTransactionButton: SortListButton!
     @IBOutlet weak var eventButton: UIButton!
+    @IBOutlet weak var eachTabContentStackView: UIStackView!
     @IBOutlet weak var searchTextField: UITextField!
 }
 // MARK: - TableView

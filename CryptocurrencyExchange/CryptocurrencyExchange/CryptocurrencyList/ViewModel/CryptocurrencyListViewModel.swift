@@ -10,7 +10,7 @@ import RealmSwift
 
 final class CryptocurrencyListViewModel: XIBInformation {
     // MARK: - Property
-    var model = CryptocurrencyListModel()
+    private let model = CryptocurrencyListModel()
     var nibName: String?
     private var timeTrigger = true
     private var timer = Timer()
@@ -113,6 +113,13 @@ final class CryptocurrencyListViewModel: XIBInformation {
         return sortDB.existingData() ?? SortInfo(standard: .transaction, orderby: .desc)
     }
     
+    func getExplainEmpty() -> String {
+        guard model.searchWord != "" else {
+            return "등록된 관심 가상자산이 없습니다."
+        }
+        return "조건에 맞는 암호화폐가 없습니다."
+    }
+    
     // MARK: - Private Func
     // MARK: about sort <private>
     private func saveSortInfo(sortInfo: SortInfo, completion: @escaping () -> ()) {
@@ -130,7 +137,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
     @objc
     private func sortByVolumePower() {
         model.setTabPopularList()
-        currentList.value = model.getCurrentList(for: .tabInterest)
+        currentList.value = model.getCurrentList(for: .tabPopular)
     }
     
     // MARK: about Interest <private>

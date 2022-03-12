@@ -123,7 +123,6 @@
 		FF19E20D27C628E100DBD52D /* CryptocurrencyExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E20C27C628E100DBD52D /* CryptocurrencyExchangeUITests.swift */; };
 		FF19E20F27C628E100DBD52D /* CryptocurrencyExchangeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E20E27C628E100DBD52D /* CryptocurrencyExchangeUITestsLaunchTests.swift */; };
 		FF19E21D27C62A9A00DBD52D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF19E21C27C62A9A00DBD52D /* Alamofire */; };
-		FF19E22027C62B8700DBD52D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF19E21F27C62B8700DBD52D /* Kingfisher */; };
 		FF19E22327C62BA000DBD52D /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = FF19E22227C62BA000DBD52D /* Starscream */; };
 		FF19E22627C62BC900DBD52D /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = FF19E22527C62BC900DBD52D /* Charts */; };
 		FF19E28127C7280600DBD52D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28027C7280600DBD52D /* APIService.swift */; };
@@ -142,7 +141,10 @@
 		FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */; };
 		FF91279B27DAEF3D0053164E /* InterestDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91279A27DAEF3D0053164E /* InterestDBManager.swift */; };
 		FF91279D27DAF7DA0053164E /* SortDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91279C27DAF7DA0053164E /* SortDBManager.swift */; };
-		FF9127CA27DBBAE10053164E /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9127C927DBBAE10053164E /* WebSocketManager.swift */; };
+		FF9127CA27DBBAE10053164E /* AllTickerWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */; };
+		FF9127D127DC81080053164E /* AssetsStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9127CF27DC81080053164E /* AssetsStatusTableViewCell.swift */; };
+		FF9127D227DC81080053164E /* AssetsStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF9127D027DC81080053164E /* AssetsStatusTableViewCell.xib */; };
+		FF9127D527DC845F0053164E /* AssetsStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9127D427DC845F0053164E /* AssetsStatusModel.swift */; };
 		FF9D0CBC27D45E350074E861 /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D0CBB27D45E350074E861 /* StarButton.swift */; };
 		FF9D0CC427D59FC50074E861 /* CryptocurrencyListEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D0CC327D59FC50074E861 /* CryptocurrencyListEnum.swift */; };
 		FF9D0CC627D5A4FA0074E861 /* SortListButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D0CC527D5A4FA0074E861 /* SortListButtonView.swift */; };
@@ -326,7 +328,10 @@
 		FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsAPIService.swift; sourceTree = "<group>"; };
 		FF91279A27DAEF3D0053164E /* InterestDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestDBManager.swift; sourceTree = "<group>"; };
 		FF91279C27DAF7DA0053164E /* SortDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortDBManager.swift; sourceTree = "<group>"; };
-		FF9127C927DBBAE10053164E /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTickerWebSocketManager.swift; sourceTree = "<group>"; };
+		FF9127CF27DC81080053164E /* AssetsStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusTableViewCell.swift; sourceTree = "<group>"; };
+		FF9127D027DC81080053164E /* AssetsStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetsStatusTableViewCell.xib; sourceTree = "<group>"; };
+		FF9127D427DC845F0053164E /* AssetsStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusModel.swift; sourceTree = "<group>"; };
 		FF9D0CBB27D45E350074E861 /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		FF9D0CC327D59FC50074E861 /* CryptocurrencyListEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyListEnum.swift; sourceTree = "<group>"; };
 		FF9D0CC527D5A4FA0074E861 /* SortListButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortListButtonView.swift; sourceTree = "<group>"; };
@@ -357,7 +362,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF19E22027C62B8700DBD52D /* Kingfisher in Frameworks */,
 				FF19E21D27C62A9A00DBD52D /* Alamofire in Frameworks */,
 				FF19E22327C62BA000DBD52D /* Starscream in Frameworks */,
 				9B16F5C227D0B939003DC9BC /* RealmSwift in Frameworks */,
@@ -529,6 +533,7 @@
 			children = (
 				90DBCF6827DA40E800EE8737 /* AssetsStatusValue.swift */,
 				90DBCF6A27DA411100EE8737 /* AssetsEntity.swift */,
+				FF9127D427DC845F0053164E /* AssetsStatusModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1209,11 +1214,20 @@
 		FF91279927DAEEDA0053164E /* DBManager */ = {
 			isa = PBXGroup;
 			children = (
-				FF9127C927DBBAE10053164E /* WebSocketManager.swift */,
+				FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */,
 				FF91279A27DAEF3D0053164E /* InterestDBManager.swift */,
 				FF91279C27DAF7DA0053164E /* SortDBManager.swift */,
 			);
 			name = DBManager;
+			sourceTree = "<group>";
+		};
+		FF9127CE27DC80DE0053164E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FF9127CF27DC81080053164E /* AssetsStatusTableViewCell.swift */,
+				FF9127D027DC81080053164E /* AssetsStatusTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		FF9D0CC927D666E90074E861 /* AssetsStatus */ = {
@@ -1222,6 +1236,7 @@
 				90DBCF6727DA40D900EE8737 /* Model */,
 				FF9D0CD027D6674D0074E861 /* ViewModel */,
 				FF9D0CD127D6675B0074E861 /* View */,
+				FF9127CE27DC80DE0053164E /* Cell */,
 			);
 			path = AssetsStatus;
 			sourceTree = "<group>";
@@ -1352,7 +1367,6 @@
 			name = CryptocurrencyExchange;
 			packageProductDependencies = (
 				FF19E21C27C62A9A00DBD52D /* Alamofire */,
-				FF19E21F27C62B8700DBD52D /* Kingfisher */,
 				FF19E22227C62BA000DBD52D /* Starscream */,
 				FF19E22527C62BC900DBD52D /* Charts */,
 				9B16F5C127D0B939003DC9BC /* RealmSwift */,
@@ -1434,7 +1448,6 @@
 			mainGroup = FF19E1DF27C628DD00DBD52D;
 			packageReferences = (
 				FF19E21B27C62A9A00DBD52D /* XCRemoteSwiftPackageReference "Alamofire" */,
-				FF19E21E27C62B8600DBD52D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FF19E22127C62BA000DBD52D /* XCRemoteSwiftPackageReference "Starscream" */,
 				FF19E22427C62BC900DBD52D /* XCRemoteSwiftPackageReference "Charts" */,
 				9B16F5C027D0B939003DC9BC /* XCRemoteSwiftPackageReference "realm-swift" */,
@@ -1455,6 +1468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF9127D227DC81080053164E /* AssetsStatusTableViewCell.xib in Resources */,
 				B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */,
 				9B5421DB27D9B1940016DCE2 /* TimeInTransactionListCell.xib in Resources */,
 				B4B4CB9527D5F2D0009F08D7 /* CoinInformationInChartView.xib in Resources */,
@@ -1667,6 +1681,7 @@
 				90DBCF6627DA3E4400EE8737 /* OrderBook.swift in Sources */,
 				9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */,
 				9B778C6527CF14350009D343 /* Observable.swift in Sources */,
+				FF9127D127DC81080053164E /* AssetsStatusTableViewCell.swift in Sources */,
 				FF91279B27DAEF3D0053164E /* InterestDBManager.swift in Sources */,
 				B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */,
 				9071202127D460FD0033B4A5 /* ConclusionTableView.swift in Sources */,
@@ -1684,6 +1699,7 @@
 				B44C749627D8AF7F00A9765D /* CandleStickDBManager.swift in Sources */,
 				9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */,
 				FF10FD8727D9C8970080C5B5 /* Array+Extension.swift in Sources */,
+				FF9127D527DC845F0053164E /* AssetsStatusModel.swift in Sources */,
 				9B5421DA27D9B1940016DCE2 /* TimeInTransactionListCell.swift in Sources */,
 				9B778C6527CF14350009D343 /* Observable.swift in Sources */,
 				B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */,
@@ -1698,7 +1714,8 @@
 				B4F04D3427DCB3060076663F /* CommonSocketAdaptable.swift in Sources */,
 				B4B4CB9F27D6021A009F08D7 /* SignSymbol.swift in Sources */,
 				FF10FD8527D9C50D0080C5B5 /* StickInfo.swift in Sources */,
-				FF9127CA27DBBAE10053164E /* WebSocketManager.swift in Sources */,
+				FF9127CA27DBBAE10053164E /* AllTickerWebSocketManager.swift in Sources */,
+				FF9127CA27DBBAE10053164E /* AllTickerWebSocketManager.swift in Sources */,
 				B4F04D2F27DC86830076663F /* TickerWebSocketManager.swift in Sources */,
 				FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */,
 				900B5C5927D4F7DA001DA6A1 /* OrderbookViewController+Extension.swift in Sources */,
@@ -2103,14 +2120,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		FF19E21E27C62B8600DBD52D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
 		FF19E22127C62BA000DBD52D /* XCRemoteSwiftPackageReference "Starscream" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/daltoniam/Starscream";
@@ -2139,11 +2148,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF19E21B27C62A9A00DBD52D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		FF19E21F27C62B8700DBD52D /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FF19E21E27C62B8600DBD52D /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 		FF19E22227C62BA000DBD52D /* Starscream */ = {
 			isa = XCSwiftPackageProductDependency;

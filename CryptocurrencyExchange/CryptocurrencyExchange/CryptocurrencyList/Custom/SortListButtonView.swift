@@ -42,7 +42,6 @@ class SortListButton: UIButton {
         
         sortStandardLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            sortStandardLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             sortStandardLabel.topAnchor.constraint(equalTo: self.topAnchor),
             sortStandardLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
@@ -57,9 +56,14 @@ class SortListButton: UIButton {
             sortMarkImageView.heightAnchor.constraint(equalToConstant: 12),
             sortMarkImageView.widthAnchor.constraint(equalToConstant: 11),
             sortMarkImageView.leadingAnchor.constraint(equalTo: sortStandardLabel.trailingAnchor),
-            sortMarkImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             sortMarkImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
+        
+        if self.contentHorizontalAlignment == .left {
+            sortStandardLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        } else {
+            sortMarkImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        }
     }
     
     private func changeImageForMark() {

@@ -9,7 +9,6 @@ import UIKit
 
 class LineChart: UIView {
     func drawChart(data: [Double], duration: Double = 2.0) {
-        let currentDispatchTime = DispatchTime.now()
         let points = setPoints(data: data)
         let animationDuration = duration / Double(data.count)
         var previousPoint = points.first ?? CGPoint.zero
@@ -17,8 +16,9 @@ class LineChart: UIView {
             let linePath = drawLine(previousPoint: previousPoint, nextPoint: point)
             let strokeColor = strokeColor(prePoint: previousPoint, currentPoint: point)
             let lineLayer = makeLayer(from: linePath, strokeColor: strokeColor)
-            let time = currentDispatchTime + Double(index) * animationDuration
-            DispatchQueue.main.asyncAfter(deadline: time) {
+            let time = Double(index) * animationDuration
+            
+            Timer.scheduledTimer(withTimeInterval: time, repeats: false) { (timer) in
                 self.layer.addSublayer(lineLayer)
             }
             
