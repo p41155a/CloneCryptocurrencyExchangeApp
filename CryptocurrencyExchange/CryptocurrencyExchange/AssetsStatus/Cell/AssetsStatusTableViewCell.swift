@@ -28,12 +28,20 @@ final class AssetsStatusTableViewCell: UITableViewCell {
         titleLabel.text = order
         possibleWithdrawalView.backgroundColor = getColor(by: status.withdrawalStatus)
         possibleDepositView.backgroundColor = getColor(by: status.depositStatus)
+        possibleDepositLabel.text = getStatus(by: status.withdrawalStatus)
+        possibleWithdrawalLabel.text = getStatus(by: status.depositStatus)
     }
     
     private func getColor(by status: Int) -> UIColor {
         return status == 1 ? .blue : .red
     }
     
+    private func getStatus(by status: Int) -> String {
+        return status == 1 ? "정상" : "중단"
+    }
+    
+    @IBOutlet weak var possibleWithdrawalLabel: UILabel!
+    @IBOutlet weak var possibleDepositLabel: UILabel!
     @IBOutlet weak var possibleWithdrawalView: UIView!
     @IBOutlet weak var possibleDepositView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
