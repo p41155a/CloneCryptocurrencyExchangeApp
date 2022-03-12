@@ -89,8 +89,17 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
             )
         )
         
+        let transactionListViewController = TransactionListViewController(
+            viewModel: TransactionListViewModel(
+                nibName: "TransactionListViewController",
+                paymentCurrency: paymentCurrency,
+                orderCurrency: orderCurrency
+            )
+        )
+        
         viewControllerByTab[.quote] = quoteViewController
         viewControllerByTab[.chart] = chartViewController
+        viewControllerByTab[.transaction] = transactionListViewController
         
         viewControllerByTab.values.forEach {
             self.addChildVC($0)
