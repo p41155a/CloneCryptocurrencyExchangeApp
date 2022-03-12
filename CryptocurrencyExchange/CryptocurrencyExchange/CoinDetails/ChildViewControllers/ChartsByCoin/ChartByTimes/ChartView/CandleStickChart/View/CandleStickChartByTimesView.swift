@@ -41,6 +41,7 @@ class CandleStickChartByTimesView: UIView {
         chartView.scaleYEnabled = false
 
         chartView.autoScaleMinMaxEnabled = true
+        chartView.doubleTapToZoomEnabled = false
 
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawLabelsEnabled = false
