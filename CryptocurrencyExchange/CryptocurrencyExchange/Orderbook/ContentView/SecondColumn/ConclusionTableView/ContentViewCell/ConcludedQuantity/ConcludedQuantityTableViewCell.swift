@@ -24,8 +24,8 @@ class ConcludedQuantityTableViewCell: UITableViewCell {
         self.concludedQuantityLabel.text = nil
     }
     
-    func setData(data: ConclusionTableViewEntity) {
-        self.concludedPriceLabel.text = data.contPrice
-        self.concludedQuantityLabel.text = data.contQty
+    func setData(data: TransactionEntity) {
+        self.concludedPriceLabel.text = data.commaPrice
+        self.concludedQuantityLabel.text = data.quantity
     }
 }

@@ -21,19 +21,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05m-II-u9q" customClass="SpreadsheetView" customModule="SpreadsheetView">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="05m-II-u9q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1Je-QV-uX4"/>
                 <constraint firstAttribute="trailing" secondItem="05m-II-u9q" secondAttribute="trailing" id="7KU-PM-v4g"/>
                 <constraint firstItem="05m-II-u9q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JOB-2l-LWT"/>
-                <constraint firstItem="05m-II-u9q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="PMh-Zn-tzh"/>
-                <constraint firstAttribute="bottom" secondItem="05m-II-u9q" secondAttribute="bottom" constant="34" id="wod-yD-FZU"/>
+                <constraint firstItem="05m-II-u9q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iyx-PN-hn9"/>
+                <constraint firstAttribute="bottom" secondItem="05m-II-u9q" secondAttribute="bottom" id="uAY-IN-JsL"/>
+                <constraint firstItem="05m-II-u9q" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xVK-u7-8cj"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="65"/>
+            <point key="canvasLocation" x="137.68115942028987" y="64.955357142857139"/>
         </view>
     </objects>
     <resources>
