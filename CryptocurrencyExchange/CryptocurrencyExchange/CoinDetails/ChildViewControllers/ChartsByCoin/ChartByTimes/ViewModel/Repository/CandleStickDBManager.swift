@@ -6,6 +6,7 @@
 //
 
 import RealmSwift
+import UIKit
 
 class CandleStickDBManager: DBAccessable {
     typealias T = CandleStickByTimeInterval
@@ -50,24 +51,29 @@ class CandleStickDBManager: DBAccessable {
     func update(
         stickValuesArr: [[StickValue]],
         existingDatas: T,
-        completion: @escaping ([CandleStickData]) -> Void
+        completion: @escaping () -> Void
     ) {
-        var candleStickDatas = [CandleStickData]()
-        
         update(block: {
-            var candleStickDataList = existingDatas.stickDatas
-            candleStickDataList = List<CandleStickData>()
+            let candleStickDataList = existingDatas.stickDatas
+            let lastUpdated = existingDatas.lastUpdated
             
-           candleStickDatas = stickValuesArr.map({ stickValues -> CandleStickData in
+            var newDatasToAdd = [CandleStickData]()
+            for stickValues in stickValuesArr.reversed() {
                 let data = CandleStickData(values: stickValues)
-                candleStickDataList.append(data)
-                return data
-            })
-            existingDatas.lastUpdated = candleStickDatas.last?.time ?? 0
+                // 존재하는 최신데이터의 시간보다 최신데이터일 경우에만 추가한다
+                if data.time <= lastUpdated { break }
+                newDatasToAdd.append(data)
+            }
+            newDatasToAdd = newDatasToAdd.reversed()
+            candleStickDataList.append(objectsIn: newDatasToAdd)
+            
+            if !newDatasToAdd.isEmpty {
+                existingDatas.lastUpdated = newDatasToAdd.last?.time ?? Date().timeIntervalSince1970
+            }
         }) { result in
             switch result {
             case .success():
-                completion(candleStickDatas)
+                completion()
             case .failure(_):
                 break
             }

@@ -70,9 +70,13 @@ extension ProductionCandleStickRepository {
         /// 해당 intervalType에 해당하는 데이터가 저장되어 있는 경우, 기존 데이터에  업데이트
         dbManager.update(
             stickValuesArr: data,
-            existingDatas: existingDatas,
-            completion: completion
-        )
+            existingDatas: existingDatas) {
+                guard let candleStickDatas = self.dbManager.existingData(with: parameter) else {
+                    return
+                }
+                completion(candleStickDatas.stickDatas.map({$0}))
+            }
+
     }
     
     /// DB에 저장되어 있는 캔들스틱 Data 반환
@@ -90,7 +94,7 @@ extension ProductionCandleStickRepository {
         ) {
             return nil
         }
-    
+        
         return candleStickDatas.stickDatas.map({$0})
     }
     
