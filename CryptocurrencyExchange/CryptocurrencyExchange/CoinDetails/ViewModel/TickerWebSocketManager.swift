@@ -37,8 +37,8 @@ class TickerWebSocketManager {
     private func writeToSocket() {
         let params: [String: Any] = [
             "type": WebSocketType.ticker.rawValue,
-            "symbols": self.symbols,
-            "tickTypes": WebSocketTickType.tick24H.rawValue
+            "symbols": [self.symbols],
+            "tickTypes": [WebSocketTickType.tick24H.rawValue]
         ]
         do {
             let json = try JSONSerialization.data(withJSONObject: params, options: [])
