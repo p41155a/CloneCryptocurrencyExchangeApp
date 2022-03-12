@@ -157,6 +157,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="backgroundColor"/>
             <connections>
                 <outlet property="changeAmountLabel" destination="mqd-D5-RYj" id="wkA-M8-9Ms"/>
                 <outlet property="changeRateLabel" destination="f1a-o5-rTq" id="xCI-nh-ph0"/>
@@ -171,6 +172,9 @@
     </objects>
     <resources>
         <image name="starIcon" width="34" height="34"/>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="baseColor">
             <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
