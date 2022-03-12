@@ -9,10 +9,16 @@ import Foundation
 import Network
 
 class CoinDetailsViewModel: XIBInformation {
-    let apiManager = CandleStickAPIManager()
     var nibName: String?
-    var interestDB = InterestDBManager()
     var dependency: CryptocurrencyListTableViewEntity
+    
+    let apiManager = CandleStickAPIManager()
+    var interestDB = InterestDBManager()
+    
+    /// 코인상세페이지에서 사용되는 ticker 데이터 관리
+    var tickerSocketManager: TickerWebSocketManager
+    let tickerData: Observable<WebSocketTickerContent?> = Observable(nil)
+    
     let error: Observable<String?> = Observable(nil)
     
     init(
@@ -21,6 +27,10 @@ class CoinDetailsViewModel: XIBInformation {
     ) {
         self.nibName = nibName
         self.dependency = dependency
+        self.tickerSocketManager = TickerWebSocketManager(
+            symbols: "\(dependency.order)_\(dependency.payment.value)"
+        )
+        self.bindClosures()
     }
     
     func orderCurrency() -> String {
@@ -49,9 +59,17 @@ class CoinDetailsViewModel: XIBInformation {
             }
         }
     }
-    
+
     func getWebSocketSymbol() -> String {
         return "\(dependency.order)_\(dependency.payment.value)"
+    }
+    
+    func connectSocket() {
+        tickerSocketManager.connect()
+    }
+    
+    func disconnectSocket() {
+        tickerSocketManager.disconnect()
     }
 
     func setInitialDataForChart(_ completion: @escaping (CandleStickEntity) -> ()) {
@@ -70,6 +88,12 @@ class CoinDetailsViewModel: XIBInformation {
             case .none:
                 self.error.value = "chart 값을 가져오지 못하였습니다."
             }
+        }
+    }
+    
+    private func bindClosures() {
+        tickerSocketManager.tickerData.bind { [weak self] data in
+            self?.tickerData.value = data
         }
     }
 }
