@@ -15,9 +15,13 @@ class CoinDetailsViewModel: XIBInformation {
     let apiManager = CandleStickAPIManager()
     var interestDB = InterestDBManager()
     
-    /// 코인상세페이지에서 사용되는 ticker 데이터 관리
+    /// 코인상세페이지에서 공통적으로 사용되는 ticker 데이터 관리
     var tickerSocketManager: TickerWebSocketManager
     let tickerData: Observable<WebSocketTickerContent?> = Observable(nil)
+    
+    /// 코인상세페이지에서 공통적으로 사용되는 transaction 데이터 관리
+    var transactionSocketManager: TransactionWebSocketManager
+    let transactionData: Observable<WebSocketTransactionContent?> = Observable(nil)
     
     let error: Observable<String?> = Observable(nil)
     
@@ -29,6 +33,10 @@ class CoinDetailsViewModel: XIBInformation {
         self.dependency = dependency
         self.tickerSocketManager = TickerWebSocketManager(
             symbols: "\(dependency.order)_\(dependency.payment.value)"
+        )
+        self.transactionSocketManager = TransactionWebSocketManager(
+            paymentCurrency: dependency.payment.value,
+            orderCurrency: dependency.order
         )
         self.bindClosures()
     }
@@ -66,10 +74,12 @@ class CoinDetailsViewModel: XIBInformation {
     
     func connectSocket() {
         tickerSocketManager.connect()
+        transactionSocketManager.connect()
     }
     
     func disconnectSocket() {
         tickerSocketManager.disconnect()
+        transactionSocketManager.disconnect()
     }
 
     func setInitialDataForChart(_ completion: @escaping (CandleStickEntity) -> ()) {
@@ -94,6 +104,10 @@ class CoinDetailsViewModel: XIBInformation {
     private func bindClosures() {
         tickerSocketManager.tickerData.bind { [weak self] data in
             self?.tickerData.value = data
+        }
+        
+        transactionSocketManager.transactionData.bind { [weak self] entity in
+            self?.transactionData.value = entity?.content
         }
     }
 }
