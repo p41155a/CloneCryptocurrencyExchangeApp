@@ -56,7 +56,7 @@ class CrypocurrencyBTCListTableViewCell: UITableViewCell, CrypocurrencyListTable
             let color: UIColor? = self?.changeRateLabel.text?.first == "-" ? .decreasingColor : .increasingColor
             self?.backgroundColor = color?.withAlphaComponent(0.1)
         }) { [weak self] _ in
-            self?.backgroundColor = .clear
+            self?.backgroundColor = .backgroundColor?.withAlphaComponent(1)
         }
     }
     
