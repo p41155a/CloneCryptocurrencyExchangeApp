@@ -102,6 +102,7 @@
 		B4F04D3427DCB3060076663F /* CommonSocketAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3327DCB3060076663F /* CommonSocketAdaptable.swift */; };
 		B4F04D3627DCB3550076663F /* SoloTypeSocketControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3527DCB3550076663F /* SoloTypeSocketControllable.swift */; };
 		B4F04D3827DCB3E70076663F /* SeveralTypeSocketControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3727DCB3E70076663F /* SeveralTypeSocketControllable.swift */; };
+		B4F04D2F27DC86830076663F /* TickerWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */; };
 		B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */; };
 		B4F2787127D4687600BEBFD2 /* BarChartByTimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */; };
 		B4F2787427D47E0400BEBFD2 /* BarChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */; };
@@ -283,6 +284,7 @@
 		B4F04D3327DCB3060076663F /* CommonSocketAdaptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSocketAdaptable.swift; sourceTree = "<group>"; };
 		B4F04D3527DCB3550076663F /* SoloTypeSocketControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloTypeSocketControllable.swift; sourceTree = "<group>"; };
 		B4F04D3727DCB3E70076663F /* SeveralTypeSocketControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeveralTypeSocketControllable.swift; sourceTree = "<group>"; };
+		B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerWebSocketManager.swift; sourceTree = "<group>"; };
 		B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartByTimesView.xib; sourceTree = "<group>"; };
 		B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartByTimesView.swift; sourceTree = "<group>"; };
 		B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartByTimesViewModel.swift; sourceTree = "<group>"; };
@@ -672,7 +674,6 @@
 			children = (
 				9B5421E327D9B7670016DCE2 /* TransactionListViewModel.swift */,
 				9B5421E527D9CF490016DCE2 /* TransactionListRepository.swift */,
-				9B5421E727D9CF940016DCE2 /* TransactionWebSocketManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -815,6 +816,8 @@
 			isa = PBXGroup;
 			children = (
 				B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */,
+				B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */,
+				9B5421E727D9CF940016DCE2 /* TransactionWebSocketManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1692,6 +1695,7 @@
 				B4B4CB9F27D6021A009F08D7 /* SignSymbol.swift in Sources */,
 				FF10FD8527D9C50D0080C5B5 /* StickInfo.swift in Sources */,
 				FF9127CA27DBBAE10053164E /* WebSocketManager.swift in Sources */,
+				B4F04D2F27DC86830076663F /* TickerWebSocketManager.swift in Sources */,
 				FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */,
 				900B5C5927D4F7DA001DA6A1 /* OrderbookViewController+Extension.swift in Sources */,
 				9B5421E627D9CF490016DCE2 /* TransactionListRepository.swift in Sources */,
