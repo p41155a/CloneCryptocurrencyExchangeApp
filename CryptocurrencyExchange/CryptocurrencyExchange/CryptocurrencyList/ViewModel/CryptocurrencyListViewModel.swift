@@ -54,8 +54,9 @@ final class CryptocurrencyListViewModel: XIBInformation {
         return interestDB.add(symbolInfo: symbolInfo,
                               isInterest: isInterest) { [weak self] result in
             switch result {
-            case .success(_):
-                break
+            case .success(let interestData):
+                self?.model.removeInterest(of: interestData)
+                self?.currentList.value = self?.model.getCurrentList(for: self?.currentTab ?? .tabInterest) ?? []
             case .failure(_):
                 self?.error.value = "DB를 불러오지 못하였습니다.\n앱을 제거 후 다시 설치해주세요"
             }

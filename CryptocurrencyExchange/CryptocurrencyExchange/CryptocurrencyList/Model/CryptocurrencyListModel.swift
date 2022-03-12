@@ -60,6 +60,15 @@ class CryptocurrencyListModel {
         }
     }
     
+    func removeInterest(of interestData: InterestCurrency?) {
+        guard let interestData = interestData else {
+            return
+        }
+        tabInterestList = tabInterestList.filter { symbolInfo in
+            "\(symbolInfo.order)_\(symbolInfo.payment.rawValue)" != interestData.currency
+        }
+    }
+    
     // MARK: about Popular
     func setTabPopularList() {
         tabPopularList = Array(tabKRWList.sorted {
