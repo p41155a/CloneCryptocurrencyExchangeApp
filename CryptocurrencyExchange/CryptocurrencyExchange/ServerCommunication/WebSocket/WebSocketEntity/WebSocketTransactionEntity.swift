@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct WebSocketTransactionEntity: Codable {
     let type: WebSocketType
@@ -33,6 +34,17 @@ struct WebSocketEachTransaction: Codable {
     enum UpDown: String, Codable {
         case up = "up"
         case down = "dn"
+    }
+}
+
+extension WebSocketEachTransaction.BuySellGb {
+    var color: UIColor {
+        switch self {
+        case .salesAsk:
+            return .increasingColor ?? .red
+        case .salesBid:
+            return .decreasingColor ?? .blue
+        }
     }
 }
 

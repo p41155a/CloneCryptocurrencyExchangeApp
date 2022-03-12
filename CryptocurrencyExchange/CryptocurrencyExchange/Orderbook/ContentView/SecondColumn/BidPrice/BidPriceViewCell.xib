@@ -21,23 +21,23 @@
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSp-uY-uU3">
                         <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="50,236,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9x0-y8-DWH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9x0-y8-DWH">
                                 <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
                                 <color key="backgroundColor" name="increasingColorBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="90" id="fSf-ZQ-ZrW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <color key="textColor" name="increasingColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.86%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6l-Ot-lOu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6l-Ot-lOu">
                                 <rect key="frame" x="90" y="0.0" width="40" height="30"/>
                                 <color key="backgroundColor" name="increasingColorBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="MXC-Fv-2MV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="8"/>
                                 <color key="textColor" name="increasingColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -51,6 +51,7 @@
                         </constraints>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" name="backgroundColor"/>
                 <constraints>
                     <constraint firstItem="ZSp-uY-uU3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="0v9-ai-adQ"/>
                     <constraint firstAttribute="trailing" secondItem="ZSp-uY-uU3" secondAttribute="trailing" id="I4x-Ws-DZs"/>
@@ -67,11 +68,14 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="increasingColor">
             <color red="0.94900000095367432" green="0.2669999897480011" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="increasingColorBackgroundColor">
-            <color red="1" green="0.7839999794960022" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.98000001907348633" green="0.93699997663497925" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

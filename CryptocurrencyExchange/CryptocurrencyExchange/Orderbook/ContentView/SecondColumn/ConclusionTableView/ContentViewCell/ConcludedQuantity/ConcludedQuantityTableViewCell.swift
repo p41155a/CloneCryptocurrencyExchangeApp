@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConcludedQuantityTableViewCell: UITableViewCell {
+final class ConcludedQuantityTableViewCell: UITableViewCell {
     @IBOutlet private var concludedPriceLabel: UILabel!
     @IBOutlet private var concludedQuantityLabel: UILabel!
     
@@ -27,5 +27,12 @@ class ConcludedQuantityTableViewCell: UITableViewCell {
     func setData(data: TransactionEntity) {
         self.concludedPriceLabel.text = data.commaPrice
         self.concludedQuantityLabel.text = data.quantity
+        
+        setColor(of: data.type)
+    }
+    
+    func setColor(of state: WebSocketEachTransaction.BuySellGb) {
+        concludedPriceLabel.textColor = state.color
+        concludedQuantityLabel.textColor = state.color
     }
 }

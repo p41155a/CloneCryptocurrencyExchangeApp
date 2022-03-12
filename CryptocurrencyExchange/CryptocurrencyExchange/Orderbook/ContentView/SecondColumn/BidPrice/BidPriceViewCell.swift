@@ -11,6 +11,8 @@ import SpreadsheetView
 final class BidPriceViewCell: Cell {
     @IBOutlet private var bidPriceLabel: UILabel!
     @IBOutlet private var bidPriceRateLabel: UILabel!
+    
+    private let viewModel = ContentViewModel.shared
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,25 +28,20 @@ final class BidPriceViewCell: Cell {
     }
     
     func setData(data: OrderbookEntity, closedPrice: String) {
+        let calculated = (data.price.doubleValue ?? 0.0) - (closedPrice.doubleValue ?? 0.0)
+        let sign = calculated > 0 ? "+" : "-"
+        setColor(plusMinus: PlusMinus(rawValue: String(sign).first ?? "0") ?? .zero)
+
         self.bidPriceLabel.text = data.commaPrice
-        self.bidPriceRateLabel.text = calculatePercentage(
+        self.bidPriceRateLabel.text = sign + viewModel.calculatePercentage(
             closePrice: closedPrice,
-            price: data.price
+            price: data.price,
+            calculatedPrice: calculated
         ) + "%"
     }
     
-    private func calculatePercentage(
-        closePrice: String,
-        price: String
-    ) -> String {
-        guard let closePrice = Double(closePrice) as? Double,
-              let price = Double(price) as? Double else {
-                  return ""
-              }
-        let digit: Double = pow(10, 2)
-        let absPrice = abs(closePrice - price)
-        let result = (absPrice)/closePrice * 100
-        
-        return "\(round(result * digit)/digit)"
+    private func setColor(plusMinus: PlusMinus) {
+        self.bidPriceLabel.textColor = plusMinus.color
+        self.bidPriceRateLabel.textColor = plusMinus.color
     }
 }

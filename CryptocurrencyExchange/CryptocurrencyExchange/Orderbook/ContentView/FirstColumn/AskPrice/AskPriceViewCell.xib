@@ -24,21 +24,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFL-px-r8T">
                                 <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="50,236,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b74-sG-GEI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b74-sG-GEI">
                                         <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                                        <color key="backgroundColor" name="decreasingBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="90" id="hlI-xJ-hoX"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                         <color key="textColor" name="decreasingColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.86%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XD-W2-wre">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XD-W2-wre">
                                         <rect key="frame" x="90" y="0.0" width="40" height="30"/>
+                                        <color key="backgroundColor" name="decreasingBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="ZqA-DG-oZO"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="8"/>
                                         <color key="textColor" name="decreasingColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -54,7 +56,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="decreasingBackgroundColor"/>
+                <color key="backgroundColor" name="backgroundColor"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="OgX-jC-ITX" secondAttribute="trailing" id="ob7-5g-PIn"/>
                     <constraint firstItem="OgX-jC-ITX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="spG-0K-npr"/>
@@ -71,8 +73,11 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="decreasingBackgroundColor">
-            <color red="0.0" green="0.6119999885559082" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.89399999380111694" green="0.92199999094009399" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="decreasingColor">
             <color red="0.063000001013278961" green="0.35699999332427979" blue="0.85500001907348633" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

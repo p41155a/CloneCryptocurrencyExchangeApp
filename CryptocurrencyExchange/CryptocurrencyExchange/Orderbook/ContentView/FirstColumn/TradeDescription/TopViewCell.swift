@@ -32,9 +32,10 @@ final class TopViewCell: Cell {
             .map {
             "\($0)"
         }
-        let result = ceil(data.volume.doubleValue ?? 0.0)
+        let result = ceil(data.value.doubleValue ?? 0.0).debugDescription
+        let calculated = (data.volume.doubleValue ?? 0.0) / 1000000
         
-        self.tradeVolumeLabel.text = "\(result)\(splitedSymbol[0])"
-        self.tradeValueLabel.text = data.value
+        self.tradeVolumeLabel.text = "\(result) \(splitedSymbol[0])"
+        self.tradeValueLabel.text = "\(Int((calculated)).decimalType ?? "")백만"
     }
 }

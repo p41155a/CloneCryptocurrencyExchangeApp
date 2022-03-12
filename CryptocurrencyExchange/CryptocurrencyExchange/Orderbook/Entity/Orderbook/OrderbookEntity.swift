@@ -15,7 +15,7 @@ struct OrderbookEntity: Hashable {
 
 extension OrderbookEntity {
     var commaPrice: String {
-        return price.setNumStringForm() ?? ""
+        return price.setNumStringForm(isDecimalType: true) ?? ""
     }
     
     var roundedQuantity: String {

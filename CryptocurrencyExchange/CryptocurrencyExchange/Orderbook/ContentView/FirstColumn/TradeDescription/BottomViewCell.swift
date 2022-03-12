@@ -14,6 +14,8 @@ final class BottomViewCell: Cell {
     @IBOutlet private var highPriceLabel: UILabel!
     @IBOutlet private var lowPriceLabel: UILabel!
 
+    private let viewModel = ContentViewModel.shared
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -33,23 +35,28 @@ final class BottomViewCell: Cell {
         self.prevClosePriceLabel.text = Int(data.prevClosingPrice)?.decimalType ?? ""
         self.openPriceLabel.text = Int(data.openingPrice)?.decimalType ?? ""
         self.highPriceLabel.text =
-        "\(Int(data.maxPrice)?.decimalType ?? "")\n\(calculatePercentage(preClosePrice: data.prevClosingPrice, price: data.maxPrice))%"
+        "\(Int(data.maxPrice)?.decimalType ?? "")\n\(maxRate(data: data))%"
         self.lowPriceLabel.text =
-        "\(Int(data.minPrice)?.decimalType ?? "")\n-\(calculatePercentage(preClosePrice: data.prevClosingPrice, price: data.minPrice))%"
+        "\(Int(data.minPrice)?.decimalType ?? "")\n-\(minRate(data: data))%"
     }
     
-    private func calculatePercentage(
-        preClosePrice: String,
-        price: String
-    ) -> Double {
-        guard let preClosePrice = Double(preClosePrice) as? Double,
-              let price = Double(price) as? Double else {
-                  return 0.0
-              }
-        let digit: Double = pow(10, 3)
-        let absPrice = abs(preClosePrice - price)
-        let result = (absPrice)/preClosePrice * 100
-        
-        return round(result * digit)/digit
+    private func maxRate(data: TradeDescriptionEntity) -> String {
+        let calculatedMax = (data.prevClosingPrice.doubleValue ?? 0.0) - (data.maxPrice.doubleValue ?? 0.0)
+
+        return viewModel.calculatePercentage(
+            closePrice: data.prevClosingPrice,
+            price: data.maxPrice,
+            calculatedPrice: calculatedMax
+        )
+    }
+    
+    private func minRate(data: TradeDescriptionEntity) -> String {
+        let calculatedMin = (data.prevClosingPrice.doubleValue ?? 0.0) - (data.minPrice.doubleValue ?? 0.0)
+
+        return viewModel.calculatePercentage(
+            closePrice: data.prevClosingPrice,
+            price: data.maxPrice,
+            calculatedPrice: calculatedMin
+        )
     }
 }

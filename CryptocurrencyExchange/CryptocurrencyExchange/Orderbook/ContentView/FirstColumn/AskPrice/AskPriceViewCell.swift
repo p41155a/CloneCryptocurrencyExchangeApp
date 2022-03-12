@@ -12,12 +12,9 @@ final class AskPriceViewCell: Cell {
     @IBOutlet private var askPriceLabel: UILabel!
     @IBOutlet private var askPriceRateLabel: UILabel!
     
-    init() {
-        super.init(frame: .zero)
-    }
+    private let viewModel = ContentViewModel.shared
     
     override init(frame: CGRect) {
-        
         super.init(frame: frame)
     }
     
@@ -25,30 +22,21 @@ final class AskPriceViewCell: Cell {
         super.init(coder: aDecoder)
     }
     
-    override func prepareForReuse() {
-        self.askPriceLabel.text = nil
-        self.askPriceRateLabel.text = nil
-    }
-    
     func setData(data: OrderbookEntity, closedPrice: String) {
+        let calculated = (data.price.doubleValue ?? 0.0) - (closedPrice.doubleValue ?? 0.0)
+        let sign = calculated > 0 ? "+" : "-"
+        setColor(plusMinus: PlusMinus(rawValue: String(sign).first ?? "0") ?? .zero)
+
         self.askPriceLabel.text = data.commaPrice
-        self.askPriceRateLabel.text = calculatePercentage(
+        self.askPriceRateLabel.text = sign + viewModel.calculatePercentage(
             closePrice: closedPrice,
-            price: data.price) + "%"
+            price: data.price,
+            calculatedPrice: calculated
+        ) + "%"
     }
     
-    private func calculatePercentage(
-        closePrice: String,
-        price: String
-    ) -> String {
-        guard let closePrice = Double(closePrice) as? Double,
-              let price = Double(price) as? Double else {
-                  return ""
-              }
-        let digit: Double = pow(10, 2)
-        let absPrice = abs(closePrice - price)
-        let result = (absPrice)/closePrice * 100
-        
-        return "\(round(result * digit)/digit)"
+    private func setColor(plusMinus: PlusMinus) {
+        self.askPriceLabel.textColor = plusMinus.color
+        self.askPriceRateLabel.textColor = plusMinus.color
     }
 }

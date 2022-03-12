@@ -25,10 +25,5 @@ final class AskQuantityViewCell: Cell {
     
     func setData(data: OrderbookEntity) {
         self.askQuantityLabel.text = data.quantity
-        setColor(updown: UpDown(rawValue: data.price.first ?? "0") ?? .zero)
-    }
-    
-    private func setColor(updown: UpDown) {
-        self.askQuantityLabel.textColor = updown.color
     }
 }

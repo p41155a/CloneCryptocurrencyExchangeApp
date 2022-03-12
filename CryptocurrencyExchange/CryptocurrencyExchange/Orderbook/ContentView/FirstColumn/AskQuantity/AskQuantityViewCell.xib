@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -19,9 +21,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHC-M6-Ssy">
                         <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.123123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jy6-SR-DAY">
-                                <rect key="frame" x="82.5" y="4" width="43.5" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jy6-SR-DAY">
+                                <rect key="frame" x="126" y="4" width="0.0" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -34,7 +36,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="decreasingBackgroundColor"/>
+                <color key="backgroundColor" name="baseColor"/>
                 <constraints>
                     <constraint firstItem="CHC-M6-Ssy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ian-PJ-EOn"/>
                     <constraint firstAttribute="bottom" secondItem="CHC-M6-Ssy" secondAttribute="bottom" id="JNF-PM-J8C"/>
@@ -50,8 +52,11 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="baseColor">
+            <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="decreasingBackgroundColor">
-            <color red="0.0" green="0.6119999885559082" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.89399999380111694" green="0.92199999094009399" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="titleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
