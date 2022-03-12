@@ -37,8 +37,13 @@ class CandleStickDBManager: DBAccessable {
         }
         sticksByTimeInterval.lastUpdated = candleStickDatas.last?.time ?? 0
         
-        add(data: sticksByTimeInterval) { savedDatas in
-            completion(candleStickDatas)
+        add(data: sticksByTimeInterval) { result in
+            switch result {
+            case .success(_):
+                completion(candleStickDatas)
+            case .failure(_):
+                break
+            }
         }
     }
     
