@@ -106,6 +106,10 @@ class CoinDetailsViewModel: XIBInformation {
             self?.tickerData.value = data
         }
         
+        tickerSocketManager.error.bind { [weak self] error in
+            self?.error.value = error
+        }
+        
         transactionSocketManager.transactionData.bind { [weak self] entity in
             self?.transactionData.value = entity?.content
         }
