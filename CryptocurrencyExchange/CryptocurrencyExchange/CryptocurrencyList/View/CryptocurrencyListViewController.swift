@@ -40,7 +40,8 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     
     // MARK: - Bind viewModel
     func bind() {
-        self.viewModel.currentList.bind { [weak self] _ in
+        self.viewModel.currentList.bind { [weak self] list in
+            self?.eachTabContentStackView.isHidden = list.isEmpty
             self?.tableView.reloadData()
         }
         
@@ -174,6 +175,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     // MARK: - Property
     private var tabButtonList: [TabButton] = []
     private var sortButtonList: [SortListButton] = []
+    @IBOutlet weak var explainEmptyLabel: UILabel!
     @IBOutlet weak var explainPopolurRuleLabel: UILabel!
     @IBOutlet weak var sortStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
@@ -186,6 +188,7 @@ final class CryptocurrencyListViewController: ViewControllerInjectingViewModel<C
     @IBOutlet weak var sortChangeRateButton: SortListButton!
     @IBOutlet weak var sortTransactionButton: SortListButton!
     @IBOutlet weak var eventButton: UIButton!
+    @IBOutlet weak var eachTabContentStackView: UIStackView!
     @IBOutlet weak var searchTextField: UITextField!
 }
 // MARK: - TableView

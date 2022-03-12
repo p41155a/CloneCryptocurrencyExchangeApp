@@ -12,7 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CryptocurrencyListViewController" customModule="CryptocurrencyExchange" customModuleProvider="target">
             <connections>
                 <outlet property="btcTabButton" destination="f9n-OE-W8x" id="L2l-QN-y2K"/>
+                <outlet property="eachTabContentStackView" destination="Zy4-Oi-AuI" id="9vL-KM-ZvB"/>
                 <outlet property="eventButton" destination="nMv-Pu-T5G" id="a3z-uK-IDa"/>
+                <outlet property="explainEmptyLabel" destination="Otm-5a-pxD" id="9lh-NY-01w"/>
                 <outlet property="explainPopolurRuleLabel" destination="0zZ-eS-Z17" id="n9w-F3-he9"/>
                 <outlet property="interestTabButton" destination="2pF-CZ-U1o" id="tZJ-F2-6E1"/>
                 <outlet property="krwTabButton" destination="TxN-dh-Kvp" id="glE-mL-tiN"/>
@@ -110,8 +112,14 @@
                         <constraint firstItem="waR-2b-xDR" firstAttribute="width" secondItem="TxN-dh-Kvp" secondAttribute="width" id="mQ2-4q-Ehw"/>
                     </constraints>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록된 관심 가상자산이 없습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otm-5a-pxD">
+                    <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" name="contourColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zy4-Oi-AuI">
-                    <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                    <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                     <subviews>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기순은 차례대로 5위까지의 순서입니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zZ-eS-Z17">
                             <rect key="frame" x="0.0" y="-44" width="414" height="44"/>
@@ -204,7 +212,7 @@
                             </constraints>
                         </stackView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a9u-Rf-bAU">
-                            <rect key="frame" x="0.0" y="44" width="414" height="708"/>
+                            <rect key="frame" x="0.0" y="44" width="414" height="674"/>
                             <color key="backgroundColor" name="backgroundColor"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="1af-vT-LKo"/>
@@ -218,13 +226,17 @@
             <color key="backgroundColor" name="backgroundColor"/>
             <constraints>
                 <constraint firstItem="T5F-eX-gJb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="3Ea-r1-Wft"/>
+                <constraint firstItem="Otm-5a-pxD" firstAttribute="top" secondItem="T5F-eX-gJb" secondAttribute="bottom" id="5ix-Jc-EcI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Otm-5a-pxD" secondAttribute="bottom" id="5ue-6g-Xwp"/>
+                <constraint firstItem="Otm-5a-pxD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6RA-hJ-0La"/>
                 <constraint firstItem="Zy4-Oi-AuI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Nua-IF-vfr"/>
                 <constraint firstItem="T5F-eX-gJb" firstAttribute="top" secondItem="rC5-2m-7Op" secondAttribute="bottom" constant="16" id="U4H-rx-vom"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Otm-5a-pxD" secondAttribute="trailing" id="UQP-An-Zha"/>
                 <constraint firstItem="rC5-2m-7Op" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZcZ-6V-kyu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zy4-Oi-AuI" secondAttribute="trailing" id="o6T-Iz-Cft"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rC5-2m-7Op" secondAttribute="trailing" constant="8" id="orT-cG-ZHp"/>
                 <constraint firstItem="Zy4-Oi-AuI" firstAttribute="top" secondItem="T5F-eX-gJb" secondAttribute="bottom" id="r2f-gx-URr"/>
-                <constraint firstAttribute="bottom" secondItem="Zy4-Oi-AuI" secondAttribute="bottom" id="ueY-3G-Xyc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Zy4-Oi-AuI" secondAttribute="bottom" id="ueY-3G-Xyc"/>
                 <constraint firstItem="rC5-2m-7Op" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="yt4-yg-53F"/>
             </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="132.58928571428572"/>
