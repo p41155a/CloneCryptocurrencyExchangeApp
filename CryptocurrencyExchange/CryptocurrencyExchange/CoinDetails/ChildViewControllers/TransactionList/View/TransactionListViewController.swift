@@ -23,16 +23,6 @@ class TransactionListViewController: ViewControllerInjectingViewModel<Transactio
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.socketConnect(on: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        viewModel.socketConnect(on: false)
-    }
-    
     private func configureTransactionList() {
         TimeInTransactionListCell.register(collectionView: transactionList)
         TransactionInformationCell.register(collectionView: transactionList)
@@ -42,6 +32,11 @@ class TransactionListViewController: ViewControllerInjectingViewModel<Transactio
         self.priceLabel.text = "가격(\(viewModel.paymentCurrency))"
         self.amountLabel.text = "체결량(\(viewModel.orderCurrency))"
 
+    }
+    
+    func transactionDataFromSocket(_ data: WebSocketTransactionContent?) {
+        /// 소켓 데이터로 업데이트 하는 로직 필요
+        print(data)
     }
 }
 

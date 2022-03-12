@@ -668,7 +668,6 @@
 			children = (
 				9B5421E327D9B7670016DCE2 /* TransactionListViewModel.swift */,
 				9B5421E527D9CF490016DCE2 /* TransactionListRepository.swift */,
-				9B5421E727D9CF940016DCE2 /* TransactionWebSocketManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -812,6 +811,7 @@
 			children = (
 				B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */,
 				B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */,
+				9B5421E727D9CF940016DCE2 /* TransactionWebSocketManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
