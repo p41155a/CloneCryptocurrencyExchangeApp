@@ -99,6 +99,9 @@
 		B4C373C027D8846100DD424A /* CandleStickIndentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
 		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
+		B4F04D3427DCB3060076663F /* CommonSocketAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3327DCB3060076663F /* CommonSocketAdaptable.swift */; };
+		B4F04D3627DCB3550076663F /* SoloTypeSocketControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3527DCB3550076663F /* SoloTypeSocketControllable.swift */; };
+		B4F04D3827DCB3E70076663F /* SeveralTypeSocketControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3727DCB3E70076663F /* SeveralTypeSocketControllable.swift */; };
 		B4F04D2F27DC86830076663F /* TickerWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */; };
 		B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */; };
 		B4F2787127D4687600BEBFD2 /* BarChartByTimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */; };
@@ -278,6 +281,9 @@
 		B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickIndentifier.swift; sourceTree = "<group>"; };
 		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B4F04D3327DCB3060076663F /* CommonSocketAdaptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSocketAdaptable.swift; sourceTree = "<group>"; };
+		B4F04D3527DCB3550076663F /* SoloTypeSocketControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloTypeSocketControllable.swift; sourceTree = "<group>"; };
+		B4F04D3727DCB3E70076663F /* SeveralTypeSocketControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeveralTypeSocketControllable.swift; sourceTree = "<group>"; };
 		B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerWebSocketManager.swift; sourceTree = "<group>"; };
 		B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartByTimesView.xib; sourceTree = "<group>"; };
 		B4F2787027D4687600BEBFD2 /* BarChartByTimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartByTimesView.swift; sourceTree = "<group>"; };
@@ -935,6 +941,16 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		B4F04D3227DCB2F00076663F /* SocketControllable */ = {
+			isa = PBXGroup;
+			children = (
+				B4F04D3327DCB3060076663F /* CommonSocketAdaptable.swift */,
+				B4F04D3527DCB3550076663F /* SoloTypeSocketControllable.swift */,
+				B4F04D3727DCB3E70076663F /* SeveralTypeSocketControllable.swift */,
+			);
+			path = SocketControllable;
+			sourceTree = "<group>";
+		};
 		B4F2786727D465ED00BEBFD2 /* BarChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -985,6 +1001,7 @@
 			children = (
 				B4E57FE127CA07F4007C3BF3 /* TabBar */,
 				B4F5AF8427C8D7A800EB60A1 /* ViewController */,
+				B4F04D3227DCB2F00076663F /* SocketControllable */,
 				9B778C6427CF14350009D343 /* Observable.swift */,
 				B44C749827D8C86800A9765D /* DBAccessable.swift */,
 			);
@@ -1674,6 +1691,7 @@
 				FFE7197627CE0864008DF7B9 /* CrypocurrencyKRWListTableViewCell.swift in Sources */,
 				FFB2EFC827D147E800944E97 /* Int+Extension.swift in Sources */,
 				FFE7198927CE88A0008DF7B9 /* CryptocurrencyListEntity.swift in Sources */,
+				B4F04D3427DCB3060076663F /* CommonSocketAdaptable.swift in Sources */,
 				B4B4CB9F27D6021A009F08D7 /* SignSymbol.swift in Sources */,
 				FF10FD8527D9C50D0080C5B5 /* StickInfo.swift in Sources */,
 				FF9127CA27DBBAE10053164E /* WebSocketManager.swift in Sources */,
@@ -1693,6 +1711,8 @@
 				FFE7197927CE0E95008DF7B9 /* UIView+Extension.swift in Sources */,
 				9B5421E427D9B7670016DCE2 /* TransactionListViewModel.swift in Sources */,
 				9B5421E127D9B3C90016DCE2 /* UICollectionView+Extension.swift in Sources */,
+				B4F04D3827DCB3E70076663F /* SeveralTypeSocketControllable.swift in Sources */,
+				B4F04D3627DCB3550076663F /* SoloTypeSocketControllable.swift in Sources */,
 				B4B4CB8D27D5CB86009F08D7 /* ChartViewUpdatable.swift in Sources */,
 				FF91279D27DAF7DA0053164E /* SortDBManager.swift in Sources */,
 				90BD15D527CDE68700C5CBAC /* UIColor.swift in Sources */,
