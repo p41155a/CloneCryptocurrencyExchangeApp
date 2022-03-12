@@ -10,18 +10,18 @@ import Foundation
 /// AssetsStatus
 struct TickerEntity: Codable {
     let status: String
-    let currentInfo: CurrentInfo
+    let ordersInfo: OrdersInfoDic
 }
 
 extension TickerEntity {
     enum CodingKeys: String, CodingKey {
         case status = "status"
-        case currentInfo = "data"
+        case ordersInfo = "data"
     }
 }
 
-struct CurrentInfo: Codable {
-    var current: [String: TickerInfo]
+struct OrdersInfoDic: Codable {
+    var orderInfo: [String: OrderInfo]
     
     private struct DynamicCodingKeys: CodingKey {
         var stringValue: String
@@ -38,23 +38,22 @@ struct CurrentInfo: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: DynamicCodingKeys.self)
 
-        var tempDic = [String: TickerInfo]()
+        var tempDic = [String: OrderInfo]()
 
         for key in container.allKeys {
             do {
-                let decodedObject = try container.decode(TickerInfo.self,
-                                                         forKey: DynamicCodingKeys(stringValue: key.stringValue)!)
+                let decodedObject = try container.decode(OrderInfo.self, forKey: DynamicCodingKeys(stringValue: key.stringValue)!)
                 tempDic[key.stringValue] = decodedObject
             } catch {
                 
             }
         }
-        current = tempDic
+        orderInfo = tempDic
     }
 }
 
 /// EachAccountStatus
-struct TickerInfo: Codable {
+struct OrderInfo: Codable {
     let openingPrice: String?
     let closingPrice: String?
     let minPrice: String?
@@ -70,7 +69,7 @@ struct TickerInfo: Codable {
     let currentName: String?
 }
 
-extension TickerInfo {
+extension OrderInfo {
     enum CodingKeys: String, CodingKey {
         case openingPrice = "opening_price"
         case closingPrice = "closing_price"
@@ -107,7 +106,7 @@ extension TickerInfo {
     }
 }
 
-extension TickerInfo {
+extension OrderInfo {
     func generate() -> TradeDescriptionEntity {
         return TradeDescriptionEntity(
             volume: accTradeValue24H ?? "",

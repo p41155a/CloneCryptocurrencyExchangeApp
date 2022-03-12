@@ -78,7 +78,10 @@ extension ChartByTimesViewController: ChartViewUpdatable {
     /// 두 차트 중 하나의 차트의 transform을 변경시킬 때, 나머지 차트에도 똑같은 모양으로 변경되도록 함
     /// - Parameter chartView: 모양의 변경이 발생한 차트
     /// - Parameter transform: 변경된 수치
-    func chartViewDidChangeTransform(chartView: ChartViewBase, with transform: CGAffineTransform) {
+    func chartViewDidChangeTransform(
+        chartView: ChartViewBase,
+        with transform: CGAffineTransform
+    ) {
         if let _ = chartView as? CandleStickChartView {
             barChartView.setTransform(with: transform)
         } else {
@@ -88,15 +91,20 @@ extension ChartByTimesViewController: ChartViewUpdatable {
 
     /// 캔들스틱을 선택할 때마다 왼쪽 상단에 시/고/저/종/변화량 정보 노출
     /// - Parameter x: 선택된 캔들스틱의 x 인덱스 전달
-    func chartViewDidSelectCandleStick(at x: Double, xPosition: CGFloat, yPosition: CGFloat) {
-        self.coinInformationView.setUI(with: viewModel.candleStickData(at: Int(x)))
-        self.dateMarkerView.isHidden = false
-        self.dateMarkerView.frame = CGRect(
-            origin: CGPoint(
-                x: xPosition - self.dateMarkerView.frame.width/2,
-                y: self.barChartView.frame.maxY
-            ),
-            size: self.dateMarkerView.frame.size
+    /// - Parameter xPosition: 선택된 캔들스틱의 x 인덱스 전달
+    /// - Parameter yPosition: 선택된 캔들스틱의 x 인덱스 전달
+
+    func chartViewDidSelectCandleStick(
+        at xValue: Double,
+        xPosition: CGFloat,
+        yPosition: CGFloat
+    ) {
+        guard let data = viewModel.candleStickData(at: Int(xValue)) else { return }
+        self.coinInformationView.setUI(with: data)
+        self.dateMarkerView.updateDateLabel(
+            timeInterval: data.time,
+            centerXPosition: xPosition,
+            yPosition: self.barChartView.frame.maxY
         )
     }
 }

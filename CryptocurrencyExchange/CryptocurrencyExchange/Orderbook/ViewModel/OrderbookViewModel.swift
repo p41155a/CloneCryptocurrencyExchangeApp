@@ -66,14 +66,15 @@ extension OrderbookViewModel {
     func setOrderbookAPIData() {
         orderbookAPI.fetchOrderbook(
             orderCurrency: orderCurrency,
-            paymentCurrency: paymentCurrency) { [weak self] result in
-                switch result {
-                case .success(let data):
-                    self?.setOrderbooks(from: data)
-                case .failure(_):
-                    break
-                }
+            paymentCurrency: paymentCurrency
+        ) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.setOrderbooks(from: data)
+            case .failure(_):
+                break
             }
+        }
     }
     
     private func setOrderbooks(from orderbook: OrderBook) {
@@ -103,7 +104,7 @@ extension OrderbookViewModel {
     }
     
     private func setTickers(from ticker: TickerEntity) {
-        let tickerInfo = ticker.currentInfo.current.map {
+        let tickerInfo = ticker.ordersInfo.orderInfo.map {
             $0.value.generate()
         }
         tradeDescriptionList.value = tickerInfo

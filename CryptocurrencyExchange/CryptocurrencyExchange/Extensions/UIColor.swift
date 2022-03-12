@@ -12,6 +12,11 @@ extension UIColor {
         return UIColor(named: "backgroundColor")
     }
     
+    /// background color - (255, 255, 255, 100%)
+    class var tabBarColor: UIColor? {
+        return UIColor(named: "tabBarColor")
+    }
+    
     /// darkGray color - (102, 102, 102, 100%)
     class var darkgrayColor: UIColor? {
         return UIColor(named: "darkgrayColor")
@@ -27,7 +32,7 @@ extension UIColor {
         return UIColor(named: "contourColor")
     }
 
-    /// increasing color - (0, 0, 0, 100%)
+    /// titleColor color - (0, 0, 0, 100%)
     class var titleColor: UIColor? {
         return UIColor(named: "titleColor")
     }

@@ -66,7 +66,8 @@
 		B4471E5827CFB47100668B64 /* CoinDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4471E5627CFB47100668B64 /* CoinDetailsViewController.xib */; };
 		B4471E5A27CFB9AD00668B64 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */; };
 		B4471E6A27CFC3ED00668B64 /* CoinDetailsTopTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4471E6927CFC3ED00668B64 /* CoinDetailsTopTabs.swift */; };
-		B4498D6827D63A4A00F9B2CE /* CoinDetailsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4498D6727D63A4A00F9B2CE /* CoinDetailsDependency.swift */; };
+		B44C749627D8AF7F00A9765D /* CandleStickDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C749527D8AF7F00A9765D /* CandleStickDBManager.swift */; };
+		B44C749927D8C86800A9765D /* DBAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C749827D8C86800A9765D /* DBAccessable.swift */; };
 		B467102F27CA8A1600A11C3F /* ViewControllerInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */; };
 		B4B4CB8D27D5CB86009F08D7 /* ChartViewUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B4CB8C27D5CB86009F08D7 /* ChartViewUpdatable.swift */; };
 		B4B4CB8F27D5D992009F08D7 /* BarChartDataEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B4CB8E27D5D992009F08D7 /* BarChartDataEntries.swift */; };
@@ -82,6 +83,9 @@
 		B4BC4EA227CE680C00DE19EC /* CandleStickIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA127CE680C00DE19EC /* CandleStickIntervals.swift */; };
 		B4BC4EA427CE6AEE00DE19EC /* CandleStickParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA327CE6AEE00DE19EC /* CandleStickParameters.swift */; };
 		B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */; };
+		B4C373BC27D872C500DD424A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BB27D872C500DD424A /* Date+Extension.swift */; };
+		B4C373BE27D8841A00DD424A /* CandleStickData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BD27D8841A00DD424A /* CandleStickData.swift */; };
+		B4C373C027D8846100DD424A /* CandleStickIndentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
 		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
 		B4F2786F27D4686000BEBFD2 /* BarChartByTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */; };
@@ -89,6 +93,12 @@
 		B4F2787427D47E0400BEBFD2 /* BarChartByTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2787327D47E0400BEBFD2 /* BarChartByTimesViewModel.swift */; };
 		B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */; };
 		EDCFD65469C27236139337F8 /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06048D9DCE94D9D66ABFD58E /* Pods_CryptocurrencyExchange_CryptocurrencyExchangeUITests.framework */; };
+		FF10FD7727D860A00080C5B5 /* CryptocurrencyTabList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10FD7627D860A00080C5B5 /* CryptocurrencyTabList.swift */; };
+		FF10FD7B27D8702F0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10FD7A27D8702E0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift */; };
+		FF10FD7E27D8C01D0080C5B5 /* CryptocurrencyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10FD7D27D8C01D0080C5B5 /* CryptocurrencyListModel.swift */; };
+		FF10FD8127D918C50080C5B5 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10FD8027D918C50080C5B5 /* LineChart.swift */; };
+		FF10FD8527D9C50D0080C5B5 /* StickInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10FD8427D9C50D0080C5B5 /* StickInfo.swift */; };
+		FF10FD8727D9C8970080C5B5 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10FD8627D9C8970080C5B5 /* Array+Extension.swift */; };
 		FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */; };
 		FF19E1EE27C628DD00DBD52D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */; };
 		FF19E1F527C628E100DBD52D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF19E1F427C628E100DBD52D /* Assets.xcassets */; };
@@ -220,7 +230,8 @@
 		B4471E5627CFB47100668B64 /* CoinDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinDetailsViewController.xib; sourceTree = "<group>"; };
 		B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
 		B4471E6927CFC3ED00668B64 /* CoinDetailsTopTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsTopTabs.swift; sourceTree = "<group>"; };
-		B4498D6727D63A4A00F9B2CE /* CoinDetailsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsDependency.swift; sourceTree = "<group>"; };
+		B44C749527D8AF7F00A9765D /* CandleStickDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickDBManager.swift; sourceTree = "<group>"; };
+		B44C749827D8C86800A9765D /* DBAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAccessable.swift; sourceTree = "<group>"; };
 		B467102E27CA8A1600A11C3F /* ViewControllerInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInNavigation.swift; sourceTree = "<group>"; };
 		B4B4CB8C27D5CB86009F08D7 /* ChartViewUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewUpdatable.swift; sourceTree = "<group>"; };
 		B4B4CB8E27D5D992009F08D7 /* BarChartDataEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartDataEntries.swift; sourceTree = "<group>"; };
@@ -236,6 +247,9 @@
 		B4BC4EA127CE680C00DE19EC /* CandleStickIntervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickIntervals.swift; sourceTree = "<group>"; };
 		B4BC4EA327CE6AEE00DE19EC /* CandleStickParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickParameters.swift; sourceTree = "<group>"; };
 		B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickEntity.swift; sourceTree = "<group>"; };
+		B4C373BB27D872C500DD424A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		B4C373BD27D8841A00DD424A /* CandleStickData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickData.swift; sourceTree = "<group>"; };
+		B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickIndentifier.swift; sourceTree = "<group>"; };
 		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		B4F2786E27D4686000BEBFD2 /* BarChartByTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartByTimesView.xib; sourceTree = "<group>"; };
@@ -244,6 +258,12 @@
 		B4F5AF8627C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInjectingViewModel.swift; sourceTree = "<group>"; };
 		EE86B47D3BAF18DE190AF792 /* Pods-CryptocurrencyExchangeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchangeTests.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchangeTests/Pods-CryptocurrencyExchangeTests.release.xcconfig"; sourceTree = "<group>"; };
 		F19B2A7442316AB646DD3F53 /* Pods-CryptocurrencyExchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyExchange.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyExchange/Pods-CryptocurrencyExchange.debug.xcconfig"; sourceTree = "<group>"; };
+		FF10FD7627D860A00080C5B5 /* CryptocurrencyTabList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyTabList.swift; sourceTree = "<group>"; };
+		FF10FD7A27D8702E0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrypocurrencyListTableViewCellProtocol.swift; sourceTree = "<group>"; };
+		FF10FD7D27D8C01D0080C5B5 /* CryptocurrencyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyListModel.swift; sourceTree = "<group>"; };
+		FF10FD8027D918C50080C5B5 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		FF10FD8427D9C50D0080C5B5 /* StickInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickInfo.swift; sourceTree = "<group>"; };
+		FF10FD8627D9C8970080C5B5 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		FF19E1E827C628DD00DBD52D /* CryptocurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptocurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF19E1EB27C628DD00DBD52D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF19E1ED27C628DD00DBD52D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -577,24 +597,26 @@
 				9B745FAC27D1D1240001C0D3 /* DB */,
 				B4F2786A27D4678B00BEBFD2 /* ChartView */,
 				B4B4CB9227D5F2A2009F08D7 /* CoinInformation */,
-				9B5A8AC927D7259300C2170F /* CandleStickDate */,
+				9B5A8AC927D7259300C2170F /* DateMarkerView */,
 			);
 			path = ChartByTimes;
 			sourceTree = "<group>";
 		};
-		9B5A8AC927D7259300C2170F /* CandleStickDate */ = {
+		9B5A8AC927D7259300C2170F /* DateMarkerView */ = {
 			isa = PBXGroup;
 			children = (
 				9B5A8ACA27D725AF00C2170F /* DateMarkerView.xib */,
 				9B5A8ACC27D725C400C2170F /* DateMarkerView.swift */,
 			);
-			path = CandleStickDate;
+			path = DateMarkerView;
 			sourceTree = "<group>";
 		};
 		9B745FAC27D1D1240001C0D3 /* DB */ = {
 			isa = PBXGroup;
 			children = (
 				9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */,
+				B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */,
+				B4C373BD27D8841A00DD424A /* CandleStickData.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -669,6 +691,7 @@
 		B4471E5427CFB3FE00668B64 /* CoinDetails */ = {
 			isa = PBXGroup;
 			children = (
+				FF10FD7F27D916BE0080C5B5 /* Custom */,
 				B4471E6C27CFCF8A00668B64 /* Model */,
 				B4471E6D27CFCF9300668B64 /* View */,
 				B4471E6E27CFCF9A00668B64 /* ViewModel */,
@@ -689,7 +712,7 @@
 		B4471E6C27CFCF8A00668B64 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B4498D6727D63A4A00F9B2CE /* CoinDetailsDependency.swift */,
+				FF10FD8427D9C50D0080C5B5 /* StickInfo.swift */,
 				B4471E6927CFC3ED00668B64 /* CoinDetailsTopTabs.swift */,
 			);
 			path = Model;
@@ -710,6 +733,15 @@
 				B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B44C749727D8C82800A9765D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */,
+				B44C749527D8AF7F00A9765D /* CandleStickDBManager.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		B467184E27D46478001EBAEC /* Model */ = {
@@ -734,7 +766,7 @@
 			isa = PBXGroup;
 			children = (
 				9B16F5BA27D08CB9003DC9BC /* ChartByTimesViewModel.swift */,
-				9B778C7127CF4D9C0009D343 /* CandleStickRepository.swift */,
+				B44C749727D8C82800A9765D /* Repository */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -873,6 +905,7 @@
 				B4E57FE127CA07F4007C3BF3 /* TabBar */,
 				B4F5AF8427C8D7A800EB60A1 /* ViewController */,
 				9B778C6427CF14350009D343 /* Observable.swift */,
+				B44C749827D8C86800A9765D /* DBAccessable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -887,6 +920,8 @@
 				FF9D0CC727D5E8500074E861 /* Double+Extension.swift */,
 				FFB2EFC327D1415F00944E97 /* String+Extension.swift */,
 				FFB2EFC727D147E800944E97 /* Int+Extension.swift */,
+				FF10FD8627D9C8970080C5B5 /* Array+Extension.swift */,
+				B4C373BB27D872C500DD424A /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -920,6 +955,22 @@
 				EE86B47D3BAF18DE190AF792 /* Pods-CryptocurrencyExchangeTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FF10FD7C27D8BF990080C5B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF10FD7D27D8C01D0080C5B5 /* CryptocurrencyListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF10FD7F27D916BE0080C5B5 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				FF10FD8027D918C50080C5B5 /* LineChart.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		FF19E1DF27C628DD00DBD52D = {
@@ -1103,8 +1154,10 @@
 			children = (
 				FFE7197F27CE6461008DF7B9 /* Custom */,
 				FFE7198727CE8881008DF7B9 /* Entity */,
+				FF10FD7C27D8BF990080C5B5 /* Model */,
 				FFE7196627CE032C008DF7B9 /* ViewModel */,
 				FFE7196527CE0328008DF7B9 /* View */,
+				FFE7197327CE082D008DF7B9 /* Cells */,
 			);
 			path = CryptocurrencyList;
 			sourceTree = "<group>";
@@ -1114,7 +1167,6 @@
 			children = (
 				FFE7196727CE0349008DF7B9 /* CryptocurrencyListViewController.swift */,
 				FFE7196827CE0349008DF7B9 /* CryptocurrencyListViewController.xib */,
-				FFE7197327CE082D008DF7B9 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1130,6 +1182,7 @@
 		FFE7197327CE082D008DF7B9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				FF10FD7A27D8702E0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift */,
 				FFB2EFD527D3429A00944E97 /* KRWCell */,
 				FFB2EFD627D342AC00944E97 /* BTCCell */,
 			);
@@ -1161,6 +1214,7 @@
 				FFE7198827CE88A0008DF7B9 /* CryptocurrencyListEntity.swift */,
 				FFB2EFB327D05F0D00944E97 /* CryptocurrencyListTableViewEntity.swift */,
 				FF9D0CC327D59FC50074E861 /* CryptocurrencyListEnum.swift */,
+				FF10FD7627D860A00080C5B5 /* CryptocurrencyTabList.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1447,6 +1501,7 @@
 				B4471E6A27CFC3ED00668B64 /* CoinDetailsTopTabs.swift in Sources */,
 				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
 				FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */,
+				B4C373BE27D8841A00DD424A /* CandleStickData.swift in Sources */,
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
 				900B5C5427D4A10C001DA6A1 /* BidQuantityViewCell.swift in Sources */,
 				FF19E1EC27C628DD00DBD52D /* AppDelegate.swift in Sources */,
@@ -1455,6 +1510,7 @@
 				FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */,
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
 				FF19E28A27C75F2000DBD52D /* ParamOptionDataType.swift in Sources */,
+				FF10FD7E27D8C01D0080C5B5 /* CryptocurrencyListModel.swift in Sources */,
 				B4BC4EA027CE66FF00DE19EC /* CandleStickAPIService.swift in Sources */,
 				9065B93327DB1F5A00D112ED /* OrderbookAPIManager.swift in Sources */,
 				B4BC4EA227CE680C00DE19EC /* CandleStickIntervals.swift in Sources */,
@@ -1481,6 +1537,7 @@
 				9B745FAE27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift in Sources */,
 				9088050427DBB31A00ABCAE5 /* TransactionAPIManager.swift in Sources */,
 				FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */,
+				B44C749927D8C86800A9765D /* DBAccessable.swift in Sources */,
 				FF9D0CC427D59FC50074E861 /* CryptocurrencyListEnum.swift in Sources */,
 				9B16F5BB27D08CB9003DC9BC /* ChartByTimesViewModel.swift in Sources */,
 				9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */,
@@ -1493,17 +1550,22 @@
 				B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */,
 				9071202127D460FD0033B4A5 /* ConclusionTableView.swift in Sources */,
 				9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */,
+				FF10FD8127D918C50080C5B5 /* LineChart.swift in Sources */,
 				B4471E5A27CFB9AD00668B64 /* CoinDetailsViewModel.swift in Sources */,
+				FF10FD7B27D8702F0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift in Sources */,
 				9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */,
+				B4C373BC27D872C500DD424A /* Date+Extension.swift in Sources */,
 				FFB2EFB427D05F0D00944E97 /* CryptocurrencyListTableViewEntity.swift in Sources */,
 				90DBCF6D27DAD59A00EE8737 /* TransactionValue.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
 				FF9D0CC827D5E8500074E861 /* Double+Extension.swift in Sources */,
-				B4498D6827D63A4A00F9B2CE /* CoinDetailsDependency.swift in Sources */,
+				B44C749627D8AF7F00A9765D /* CandleStickDBManager.swift in Sources */,
 				9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */,
+				FF10FD8727D9C8970080C5B5 /* Array+Extension.swift in Sources */,
 				9B778C6527CF14350009D343 /* Observable.swift in Sources */,
 				B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */,
 				FF9D0CC627D5A4FA0074E861 /* SortListButtonView.swift in Sources */,
+				FF10FD7727D860A00080C5B5 /* CryptocurrencyTabList.swift in Sources */,
 				9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */,
 				B4471E5727CFB47100668B64 /* CoinDetailsViewController.swift in Sources */,
 				B4BC4EA427CE6AEE00DE19EC /* CandleStickParameters.swift in Sources */,
@@ -1511,6 +1573,7 @@
 				FFB2EFC827D147E800944E97 /* Int+Extension.swift in Sources */,
 				FFE7198927CE88A0008DF7B9 /* CryptocurrencyListEntity.swift in Sources */,
 				B4B4CB9F27D6021A009F08D7 /* SignSymbol.swift in Sources */,
+				FF10FD8527D9C50D0080C5B5 /* StickInfo.swift in Sources */,
 				FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */,
 				900B5C5927D4F7DA001DA6A1 /* OrderbookViewController+Extension.swift in Sources */,
 				FFE7196927CE0349008DF7B9 /* CryptocurrencyListViewController.swift in Sources */,
@@ -1535,6 +1598,7 @@
 				909BEEDF27D1183E00E4EE87 /* OrderbookViewModel.swift in Sources */,
 				90E12EB527D335AF00373FF9 /* OrderbookViewController.swift in Sources */,
 				90E12E7B27D251E600373FF9 /* AskPriceViewCell.swift in Sources */,
+				B4C373C027D8846100DD424A /* CandleStickIndentifier.swift in Sources */,
 				B4B4CB9727D5F2DE009F08D7 /* CoinInformationInChartView.swift in Sources */,
 				90E12E9C27D274A100373FF9 /* TopViewCell.swift in Sources */,
 				B4F5AF8727C8D87300EB60A1 /* ViewControllerInjectingViewModel.swift in Sources */,
@@ -1640,7 +1704,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1695,7 +1759,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

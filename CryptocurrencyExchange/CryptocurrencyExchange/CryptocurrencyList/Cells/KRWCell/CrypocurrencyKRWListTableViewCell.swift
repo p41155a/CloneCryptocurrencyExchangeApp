@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CrypocurrencyKRWListTableViewCell: UITableViewCell {
+final class CrypocurrencyKRWListTableViewCell: UITableViewCell, CrypocurrencyListTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         interestButton.becomeFirstResponder()
@@ -32,7 +32,7 @@ final class CrypocurrencyKRWListTableViewCell: UITableViewCell {
         let changeAmount: String = "\(data.changeAmount)".setNumStringForm(isDecimalType: true, isMarkPlusMiuns: true)
         let transactionAmount: String = "\(Int(data.transactionAmount / 1000000).decimalType ?? "")백만"
         
-        self.currencyNameLabel.text = data.symbol
+        self.currencyNameLabel.text = data.order
         self.currencyNameSubNameLabel.text = data.payment.value
         self.currentPriceLabel.text = currentPrice
         self.changeRateLabel.text = changeRate
@@ -42,7 +42,16 @@ final class CrypocurrencyKRWListTableViewCell: UITableViewCell {
         setColor(updown: UpDown(rawValue: changeAmount.first ?? "0") ?? .zero)
     }
     
-    private func setColor(updown: UpDown) {
+    func animateBackgroundColor() {
+        UIView.animate(withDuration: 0.2, animations: { [weak self] in
+            let color: UIColor? = self?.changeRateLabel.text?.first == "-" ? .decreasingColor : .increasingColor
+            self?.backgroundColor = color?.withAlphaComponent(0.1)
+        }) { [weak self] _ in
+            self?.backgroundColor = .clear
+        }
+    }
+    
+    func setColor(updown: UpDown) {
         currentPriceLabel.textColor = updown.color
         changeRateLabel.textColor = updown.color
         changeAmountLabel.textColor = updown.color
