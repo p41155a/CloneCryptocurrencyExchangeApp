@@ -24,6 +24,7 @@ class SoloSocketManager<T: Codable>: SoloTypeSocketControllable {
     var socket: WebSocket?
     var parameter: [String : Any]
     var socketData: Observable<T?> = Observable(nil)
+    var errorMessage: Observable<String?> = Observable(nil)
     
     init(parameter: [String: Any]) {
         self.parameter = parameter
@@ -56,7 +57,7 @@ class SoloSocketManager<T: Codable>: SoloTypeSocketControllable {
                 let entity = try JSONDecoder().decode(T.self, from: data)
                 socketData.value = entity
             } catch  {
-                print("Received text: \(string)\n", error)
+                errorMessage.value = error.localizedDescription
             }
         default:
             break

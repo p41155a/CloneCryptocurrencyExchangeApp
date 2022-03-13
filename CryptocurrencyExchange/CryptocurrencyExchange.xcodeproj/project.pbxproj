@@ -66,7 +66,6 @@
 		9B5421E127D9B3C90016DCE2 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5421E027D9B3C90016DCE2 /* UICollectionView+Extension.swift */; };
 		9B5421E427D9B7670016DCE2 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5421E327D9B7670016DCE2 /* TransactionListViewModel.swift */; };
 		9B5421E627D9CF490016DCE2 /* TransactionListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5421E527D9CF490016DCE2 /* TransactionListRepository.swift */; };
-		9B5421E827D9CF940016DCE2 /* TransactionWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5421E727D9CF940016DCE2 /* TransactionWebSocketManager.swift */; };
 		9B5421EB27D9E3BC0016DCE2 /* TransactionInforamtion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5421EA27D9E3BC0016DCE2 /* TransactionInforamtion.swift */; };
 		9B5A8ACB27D725AF00C2170F /* DateMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5A8ACA27D725AF00C2170F /* DateMarkerView.xib */; };
 		9B5A8ACD27D725C400C2170F /* DateMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A8ACC27D725C400C2170F /* DateMarkerView.swift */; };
@@ -105,7 +104,6 @@
 		B4C373C027D8846100DD424A /* CandleStickIndentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */; };
 		B4E57FE027C9F434007C3BF3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */; };
 		B4E57FE527CA1D4B007C3BF3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */; };
-		B4F04D2F27DC86830076663F /* TickerWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */; };
 		B4F04D3427DCB3060076663F /* CommonSocketAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3327DCB3060076663F /* CommonSocketAdaptable.swift */; };
 		B4F04D3627DCB3550076663F /* SoloTypeSocketControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3527DCB3550076663F /* SoloTypeSocketControllable.swift */; };
 		B4F04D3827DCB3E70076663F /* SeveralTypeSocketControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F04D3727DCB3E70076663F /* SeveralTypeSocketControllable.swift */; };
@@ -258,7 +256,6 @@
 		9B5421E027D9B3C90016DCE2 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		9B5421E327D9B7670016DCE2 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
 		9B5421E527D9CF490016DCE2 /* TransactionListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListRepository.swift; sourceTree = "<group>"; };
-		9B5421E727D9CF940016DCE2 /* TransactionWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionWebSocketManager.swift; sourceTree = "<group>"; };
 		9B5421EA27D9E3BC0016DCE2 /* TransactionInforamtion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInforamtion.swift; sourceTree = "<group>"; };
 		9B5A8ACA27D725AF00C2170F /* DateMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateMarkerView.xib; sourceTree = "<group>"; };
 		9B5A8ACC27D725C400C2170F /* DateMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMarkerView.swift; sourceTree = "<group>"; };
@@ -298,7 +295,6 @@
 		B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickIndentifier.swift; sourceTree = "<group>"; };
 		B4E57FDF27C9F434007C3BF3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B4E57FE427CA1D4B007C3BF3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerWebSocketManager.swift; sourceTree = "<group>"; };
 		B4F04D3327DCB3060076663F /* CommonSocketAdaptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSocketAdaptable.swift; sourceTree = "<group>"; };
 		B4F04D3527DCB3550076663F /* SoloTypeSocketControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloTypeSocketControllable.swift; sourceTree = "<group>"; };
 		B4F04D3727DCB3E70076663F /* SeveralTypeSocketControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeveralTypeSocketControllable.swift; sourceTree = "<group>"; };
@@ -858,8 +854,6 @@
 			isa = PBXGroup;
 			children = (
 				B4471E5927CFB9AD00668B64 /* CoinDetailsViewModel.swift */,
-				B4F04D2E27DC86830076663F /* TickerWebSocketManager.swift */,
-				9B5421E727D9CF940016DCE2 /* TransactionWebSocketManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1732,7 +1726,6 @@
 				90DBCF6D27DAD59A00EE8737 /* TransactionValue.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
 				FF9D0CC827D5E8500074E861 /* Double+Extension.swift in Sources */,
-				9B5421E827D9CF940016DCE2 /* TransactionWebSocketManager.swift in Sources */,
 				B44C749627D8AF7F00A9765D /* CandleStickDBManager.swift in Sources */,
 				9B778C6A27CF31C20009D343 /* BithumbCandleStickDataSet.swift in Sources */,
 				FF10FD8727D9C8970080C5B5 /* Array+Extension.swift in Sources */,
@@ -1754,7 +1747,6 @@
 				FF10FD8527D9C50D0080C5B5 /* StickInfo.swift in Sources */,
 				FF9127CA27DBBAE10053164E /* AllTickerWebSocketManager.swift in Sources */,
 				FF9127CA27DBBAE10053164E /* AllTickerWebSocketManager.swift in Sources */,
-				B4F04D2F27DC86830076663F /* TickerWebSocketManager.swift in Sources */,
 				FFE7197B27CE16F7008DF7B9 /* UITableViewCell+Extension.swift in Sources */,
 				900B5C5927D4F7DA001DA6A1 /* OrderbookViewController+Extension.swift in Sources */,
 				9B5421E627D9CF490016DCE2 /* TransactionListRepository.swift in Sources */,
