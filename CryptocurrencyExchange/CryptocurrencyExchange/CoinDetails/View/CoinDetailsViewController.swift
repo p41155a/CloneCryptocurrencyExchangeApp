@@ -105,7 +105,6 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         let currentPrice: String = "\(data.currentPrice)".setNumStringForm(isDecimalType: true)
         let changeRate: String = "\(data.changeRate.displayDecimal(to: 2).setNumStringForm(isMarkPlusMiuns: true))%"
         let changeAmount: String = "\(data.changeAmount)".setNumStringForm(isDecimalType: true, isMarkPlusMiuns: true)
-        print("Amount: \(changeAmount)")
         currentPriceLabel.text = currentPrice
         changeRateLabel.text = changeRate
         changeAmountLabel.text = changeAmount
