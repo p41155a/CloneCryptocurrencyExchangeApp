@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,7 +38,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr8-xg-Gbq" customClass="StarButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                            <rect key="frame" x="372" y="5" width="34" height="34"/>
+                            <rect key="frame" x="362" y="0.0" width="44" height="44"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" image="starClickedIcon"/>
                             <connections>
@@ -53,7 +52,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="backgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="pr8-xg-Gbq" secondAttribute="trailing" constant="8" id="A1G-Lv-e7k"/>
                         <constraint firstItem="P27-IM-cBZ" firstAttribute="centerY" secondItem="FGd-GV-vaL" secondAttribute="centerY" id="EM7-Y4-HAJ"/>
@@ -99,7 +98,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" name="backgroundColor"/>
                             <constraints>
                                 <constraint firstItem="ghd-D6-Ga7" firstAttribute="leading" secondItem="B7A-rl-d0K" secondAttribute="leading" constant="16" id="J1J-cZ-Poz"/>
                                 <constraint firstItem="ghd-D6-Ga7" firstAttribute="centerY" secondItem="B7A-rl-d0K" secondAttribute="centerY" id="Vw8-Xu-fPw"/>
@@ -107,10 +106,10 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbt-ZQ-ykJ" customClass="LineChart" customModule="CryptocurrencyExchange" customModuleProvider="target">
                             <rect key="frame" x="207" y="0.0" width="207" height="100"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" name="backgroundColor"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="backgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="B7A-rl-d0K" secondAttribute="bottom" id="7jM-BP-EMc"/>
                         <constraint firstAttribute="trailing" secondItem="Wbt-ZQ-ykJ" secondAttribute="trailing" id="8bj-db-UO1"/>
@@ -169,7 +168,7 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="backgroundColor"/>
             <constraints>
                 <constraint firstItem="H8W-FR-v7d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9HH-y6-KzY"/>
                 <constraint firstItem="3oH-3u-vr5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Jo3-T0-MG5"/>
@@ -186,7 +185,7 @@
     </objects>
     <resources>
         <image name="backButton" width="28" height="28"/>
-        <image name="starClickedIcon" width="34" height="34"/>
+        <image name="starClickedIcon" width="44" height="44"/>
         <namedColor name="backgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -196,8 +195,5 @@
         <namedColor name="titleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
