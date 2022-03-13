@@ -18,6 +18,7 @@
                 <outlet property="lineChartView" destination="Wbt-ZQ-ykJ" id="xgz-UV-AuA"/>
                 <outlet property="titleLabel" destination="P27-IM-cBZ" id="R8M-kX-4nR"/>
                 <outlet property="topTabBar" destination="3oH-3u-vr5" id="Gpo-tI-m9h"/>
+                <outlet property="topTabBarContainer" destination="NCr-M2-lxJ" id="mRn-um-ySv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -122,63 +123,80 @@
                         <constraint firstItem="Wbt-ZQ-ykJ" firstAttribute="top" secondItem="H8W-FR-v7d" secondAttribute="top" id="zfg-5C-Ptm"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="3oH-3u-vr5">
-                    <rect key="frame" x="0.0" y="188" width="414" height="52"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCr-M2-lxJ">
+                    <rect key="frame" x="0.0" y="188" width="414" height="72"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vZ-jF-VfY">
-                            <rect key="frame" x="0.0" y="1" width="137.5" height="50"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3oH-3u-vr5">
+                            <rect key="frame" x="8" y="8" width="398" height="56"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vZ-jF-VfY" customClass="ShadowButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="2" width="127.5" height="52"/>
+                                    <color key="backgroundColor" name="backgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="52" id="HVg-F0-u0J"/>
+                                    </constraints>
+                                    <buttonConfiguration key="configuration" style="plain" title="호가">
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <color key="baseForegroundColor" name="titleColor"/>
+                                    </buttonConfiguration>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1v-fe-SYD" customClass="ShadowButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                    <rect key="frame" x="135.5" y="2" width="127" height="52"/>
+                                    <color key="backgroundColor" name="backgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="52" id="f2x-QA-e2Z"/>
+                                    </constraints>
+                                    <buttonConfiguration key="configuration" style="plain" title="차트">
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <color key="baseForegroundColor" name="titleColor"/>
+                                    </buttonConfiguration>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbz-CF-Znz" customClass="ShadowButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
+                                    <rect key="frame" x="270.5" y="2" width="127.5" height="52"/>
+                                    <color key="backgroundColor" name="backgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="52" id="ftf-Xb-CFI"/>
+                                    </constraints>
+                                    <buttonConfiguration key="configuration" style="plain" title="시세">
+                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <color key="baseForegroundColor" name="titleColor"/>
+                                    </buttonConfiguration>
+                                </button>
+                            </subviews>
                             <color key="backgroundColor" name="backgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="2Up-VC-rJf"/>
+                                <constraint firstAttribute="bottom" secondItem="2vZ-jF-VfY" secondAttribute="bottom" constant="2" id="09F-2i-N6a"/>
+                                <constraint firstAttribute="bottom" secondItem="W1v-fe-SYD" secondAttribute="bottom" constant="2" id="6Dg-9R-BAh"/>
+                                <constraint firstItem="W1v-fe-SYD" firstAttribute="top" secondItem="3oH-3u-vr5" secondAttribute="top" constant="2" id="HIB-fl-nVC"/>
+                                <constraint firstItem="W1v-fe-SYD" firstAttribute="width" secondItem="2vZ-jF-VfY" secondAttribute="width" id="NeE-W9-ARW"/>
+                                <constraint firstItem="gbz-CF-Znz" firstAttribute="width" secondItem="2vZ-jF-VfY" secondAttribute="width" id="WKi-I5-nue"/>
+                                <constraint firstAttribute="bottom" secondItem="gbz-CF-Znz" secondAttribute="bottom" constant="2" id="fl9-5Z-xak"/>
+                                <constraint firstItem="2vZ-jF-VfY" firstAttribute="top" secondItem="3oH-3u-vr5" secondAttribute="top" constant="2" id="gay-rM-CDE"/>
+                                <constraint firstItem="gbz-CF-Znz" firstAttribute="top" secondItem="3oH-3u-vr5" secondAttribute="top" constant="2" id="oYC-Xd-6r2"/>
                             </constraints>
-                            <buttonConfiguration key="configuration" style="plain" title="호가">
-                                <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
-                                <color key="baseForegroundColor" name="titleColor"/>
-                            </buttonConfiguration>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1v-fe-SYD">
-                            <rect key="frame" x="138.5" y="1" width="137" height="50"/>
-                            <color key="backgroundColor" name="backgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="h9z-vf-Yer"/>
-                            </constraints>
-                            <buttonConfiguration key="configuration" style="plain" title="차트">
-                                <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
-                                <color key="baseForegroundColor" name="titleColor"/>
-                            </buttonConfiguration>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbz-CF-Znz">
-                            <rect key="frame" x="276.5" y="1" width="137.5" height="50"/>
-                            <color key="backgroundColor" name="backgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Qj9-Aa-tsF"/>
-                            </constraints>
-                            <buttonConfiguration key="configuration" style="plain" title="시세">
-                                <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
-                                <color key="baseForegroundColor" name="titleColor"/>
-                            </buttonConfiguration>
-                        </button>
+                        </stackView>
                     </subviews>
-                    <color key="backgroundColor" name="baseColor"/>
+                    <color key="backgroundColor" name="backgroundColor"/>
                     <constraints>
-                        <constraint firstItem="W1v-fe-SYD" firstAttribute="width" secondItem="2vZ-jF-VfY" secondAttribute="width" id="NeE-W9-ARW"/>
-                        <constraint firstItem="gbz-CF-Znz" firstAttribute="width" secondItem="2vZ-jF-VfY" secondAttribute="width" id="WKi-I5-nue"/>
-                        <constraint firstAttribute="height" constant="52" id="cKa-JI-zy7"/>
+                        <constraint firstAttribute="bottom" secondItem="3oH-3u-vr5" secondAttribute="bottom" constant="8" id="HTE-2i-Yiu"/>
+                        <constraint firstItem="3oH-3u-vr5" firstAttribute="leading" secondItem="NCr-M2-lxJ" secondAttribute="leading" constant="8" id="Izo-Vh-IAR"/>
+                        <constraint firstAttribute="trailing" secondItem="3oH-3u-vr5" secondAttribute="trailing" constant="8" id="YEx-ml-PaV"/>
+                        <constraint firstItem="3oH-3u-vr5" firstAttribute="top" secondItem="NCr-M2-lxJ" secondAttribute="top" constant="8" id="sKd-JS-uUD"/>
                     </constraints>
-                </stackView>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="backgroundColor"/>
             <constraints>
                 <constraint firstItem="H8W-FR-v7d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9HH-y6-KzY"/>
-                <constraint firstItem="3oH-3u-vr5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Jo3-T0-MG5"/>
                 <constraint firstItem="H8W-FR-v7d" firstAttribute="top" secondItem="FGd-GV-vaL" secondAttribute="bottom" id="KUg-jU-qcr"/>
+                <constraint firstItem="NCr-M2-lxJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="LNr-ag-ome"/>
+                <constraint firstItem="NCr-M2-lxJ" firstAttribute="top" secondItem="H8W-FR-v7d" secondAttribute="bottom" id="MFV-mb-K5I"/>
                 <constraint firstItem="FGd-GV-vaL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OA9-PF-PXK"/>
-                <constraint firstItem="3oH-3u-vr5" firstAttribute="top" secondItem="H8W-FR-v7d" secondAttribute="bottom" id="Ozz-LV-yPr"/>
                 <constraint firstItem="FGd-GV-vaL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="avD-HJ-IdJ"/>
+                <constraint firstItem="NCr-M2-lxJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cNb-Ht-lOP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FGd-GV-vaL" secondAttribute="trailing" id="dM9-uD-bXQ"/>
                 <constraint firstItem="H8W-FR-v7d" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xMi-oV-8CP"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3oH-3u-vr5" secondAttribute="trailing" id="xSF-rQ-p7L"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="148.66071428571428"/>
         </view>
@@ -188,9 +206,6 @@
         <image name="starClickedIcon" width="44" height="44"/>
         <namedColor name="backgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="baseColor">
-            <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="titleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

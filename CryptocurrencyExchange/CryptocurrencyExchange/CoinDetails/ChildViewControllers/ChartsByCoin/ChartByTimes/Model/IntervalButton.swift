@@ -20,7 +20,7 @@ class IntervalButton: UIButton {
     
     override var isSelected: Bool {
         didSet {
-            self.backgroundColor = isSelected ? .baseColor : .backgroundColor
+            self.backgroundColor = isSelected ? .baseColor : .clear
             setNeedsDisplay()
         }
     }
