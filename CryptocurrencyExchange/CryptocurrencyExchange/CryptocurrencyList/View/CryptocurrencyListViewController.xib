@@ -137,33 +137,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMb-ic-yqe">
-                                            <rect key="frame" x="0.0" y="0.0" width="98" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="108" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52v-XZ-7qb" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="0.0" width="90" height="44"/>
+                                                    <rect key="frame" x="8" y="0.0" width="100" height="44"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="가산자산명"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="52v-XZ-7qb" secondAttribute="trailing" id="9wn-L0-qg3"/>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="TzC-9Z-EpF"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="85" id="TzC-9Z-EpF"/>
                                                 <constraint firstAttribute="bottom" secondItem="52v-XZ-7qb" secondAttribute="bottom" id="mBk-oB-YND"/>
                                                 <constraint firstItem="52v-XZ-7qb" firstAttribute="top" secondItem="eMb-ic-yqe" secondAttribute="top" id="oWN-YY-CWT"/>
                                                 <constraint firstItem="52v-XZ-7qb" firstAttribute="leading" secondItem="eMb-ic-yqe" secondAttribute="leading" constant="8" id="zkN-UC-nz9"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-M4-lGt">
-                                            <rect key="frame" x="98" y="0.0" width="80" height="44"/>
+                                            <rect key="frame" x="108" y="0.0" width="75" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6H4-rP-fmB" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                                                    <rect key="frame" x="19.5" y="0.0" width="60.5" height="44"/>
+                                                    <rect key="frame" x="14.5" y="0.0" width="60.5" height="44"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="현재가"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="5cZ-vx-TuM"/>
+                                                <constraint firstAttribute="width" constant="75" id="5cZ-vx-TuM"/>
                                                 <constraint firstItem="6H4-rP-fmB" firstAttribute="top" secondItem="L7E-M4-lGt" secondAttribute="top" id="OwC-zq-rx6"/>
                                                 <constraint firstAttribute="bottom" secondItem="6H4-rP-fmB" secondAttribute="bottom" id="XQf-kR-cjE"/>
                                                 <constraint firstAttribute="trailing" secondItem="6H4-rP-fmB" secondAttribute="trailing" id="gse-Sz-wBl"/>
@@ -171,10 +171,10 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-Un-AHa">
-                                            <rect key="frame" x="178" y="0.0" width="75" height="44"/>
+                                            <rect key="frame" x="183" y="0.0" width="70" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSw-pV-yST" customClass="SortListButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
-                                                    <rect key="frame" x="14.5" y="0.0" width="60.5" height="44"/>
+                                                    <rect key="frame" x="9.5" y="0.0" width="60.5" height="44"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="변동률"/>
                                                 </button>
@@ -182,7 +182,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="SSw-pV-yST" secondAttribute="trailing" id="4eX-eg-c83"/>
                                                 <constraint firstAttribute="bottom" secondItem="SSw-pV-yST" secondAttribute="bottom" id="G1V-X5-RSg"/>
-                                                <constraint firstAttribute="width" constant="75" id="U5S-OL-pra"/>
+                                                <constraint firstAttribute="width" constant="70" id="U5S-OL-pra"/>
                                                 <constraint firstItem="SSw-pV-yST" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EQd-Un-AHa" secondAttribute="leading" id="VJo-RW-kHE"/>
                                                 <constraint firstItem="SSw-pV-yST" firstAttribute="top" secondItem="EQd-Un-AHa" secondAttribute="top" id="WKn-mg-xfu"/>
                                             </constraints>
