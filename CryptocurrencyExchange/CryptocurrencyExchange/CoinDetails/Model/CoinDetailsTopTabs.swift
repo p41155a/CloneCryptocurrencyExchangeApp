@@ -8,7 +8,7 @@
 import Foundation
 
 enum CoinDetailsTopTabs: Int {
-    case quote = 0
+    case orderbook = 0
     case chart = 1
     case transaction = 2
 }

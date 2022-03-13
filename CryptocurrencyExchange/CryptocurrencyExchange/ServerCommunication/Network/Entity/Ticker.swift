@@ -49,13 +49,13 @@ extension TickerInfo {
 extension TickerInfo {
     func generate(currencyName: String) -> TradeDescriptionEntity {
         return TradeDescriptionEntity(
-            volume: accTradeValue24H ?? "",
-            value: unitsTraded24H ?? "",
-            prevClosingPrice: prevClosingPrice ?? "",
-            openingPrice: openingPrice ?? "",
-            maxPrice: maxPrice ?? "",
-            minPrice: minPrice ?? "",
-            symbol: currencyName ?? ""
+            volume: accTradeValue24H ,
+            value: unitsTraded24H ,
+            prevClosingPrice: prevClosingPrice ,
+            openingPrice: openingPrice,
+            maxPrice: maxPrice,
+            minPrice: minPrice,
+            symbol: currencyName
         )
     }
 }
