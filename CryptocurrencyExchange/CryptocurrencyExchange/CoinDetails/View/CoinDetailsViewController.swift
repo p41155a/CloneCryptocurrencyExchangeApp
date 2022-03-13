@@ -11,6 +11,7 @@ import Starscream
 class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsViewModel> {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var interestButton: StarButton!
+    @IBOutlet weak var topTabBarContainer: UIView!
     @IBOutlet weak var topTabBar: UIStackView!
     @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var changeRateLabel: UILabel!
@@ -29,6 +30,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         self.bindClosures()
         
         self.bringSubviewToFront(with: CoinDetailsTopTabs(rawValue: 0) ?? .quote)
+        self.setTabBarButtonUI(selectedButtonTag: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -161,18 +163,32 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         topTabBar.arrangedSubviews.enumerated().forEach { (index, button) in
             guard let button = button as? UIButton else { return }
             button.tag = index
+            button.layer.cornerRadius = 8
+            button.clipsToBounds = true
+            button.layer.borderColor = UIColor.baseColor?.cgColor
+            button.layer.borderWidth = 1
+            button.titleLabel?.textColor = .titleColor
             button.addTarget(
                 self,
-                action: #selector(didTapTab(button:)),
+                action: #selector(didTapTab(selectedButton:)),
                 for: .touchUpInside
             )
         }
     }
     
     /// touch 이벤트가 발생할 때마다 누른 탭에 연관되는 view를 최상단 subView로 가져온다
-    @objc func didTapTab(button: UIButton) {
-        guard let tabType = CoinDetailsTopTabs(rawValue: button.tag) else { return }
+    @objc func didTapTab(selectedButton: UIButton) {
+        guard let tabType = CoinDetailsTopTabs(rawValue: selectedButton.tag) else { return }
         self.bringSubviewToFront(with: tabType)
+        self.setTabBarButtonUI(selectedButtonTag: selectedButton.tag)
+    }
+    
+    private func setTabBarButtonUI(selectedButtonTag: Int) {
+        topTabBar.arrangedSubviews.enumerated().forEach { (index, button) in
+            guard let button = button as? UIButton else { return }
+            let isSelectedButton = selectedButtonTag == index
+            button.backgroundColor = isSelectedButton ? .baseColor : .clear
+        }
     }
     
     private func bringSubviewToFront(with type: CoinDetailsTopTabs) {
@@ -187,7 +203,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         NSLayoutConstraint.activate([
             viewController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             viewController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            viewController.view.topAnchor.constraint(equalTo: self.topTabBar.bottomAnchor),
+            viewController.view.topAnchor.constraint(equalTo: self.topTabBarContainer.bottomAnchor),
             viewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         viewController.didMove(toParent: self)
