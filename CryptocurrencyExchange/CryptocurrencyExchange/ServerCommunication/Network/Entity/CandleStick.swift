@@ -8,11 +8,6 @@
 import Foundation
 
 // MARK: - CandleStickEntity
-struct CandleStickEntity: Codable {
-    let status: String
-    let data: [[StickValue]]
-}
-
 struct StickValue: Codable {
     var value: Double
 

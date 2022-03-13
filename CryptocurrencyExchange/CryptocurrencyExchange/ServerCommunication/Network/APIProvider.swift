@@ -27,13 +27,20 @@ extension APIProvider {
             do {
                 let statusCode: Int = response.response?.statusCode ?? 0
                 if statusCode >= 200 && statusCode < 300 {
-                    let json = try JSONDecoder().decode(T.self, from: data)
-                    return .success(json)
+                    let json = try JSONDecoder().decode(CommonResponseEntity<T>.self, from: data)
+                    switch json.status {
+                    case "0000":
+                        return .success(json.data)
+                    default:
+                        let json = try JSONDecoder().decode(ErrorEnity.self, from: data)
+                        return .failure(.bithumbDefinedError(error: json))
+                    }
                 } else {
                     let json = try JSONDecoder().decode(ErrorEnity.self, from: data)
                     return .failure(.bithumbDefinedError(error: json))
                 }
             } catch(_) {
+                print(String(decoding: data, as: UTF8.self))
                 return .failure(.incorrectFormat)
             }
         case .failure(let error):

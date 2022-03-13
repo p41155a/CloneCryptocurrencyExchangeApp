@@ -7,7 +7,6 @@
 
 import Foundation
 
-/// AssetsStatus
 struct TickerEntity: Codable {
     let status: String
     let ordersInfo: OrdersInfoDic

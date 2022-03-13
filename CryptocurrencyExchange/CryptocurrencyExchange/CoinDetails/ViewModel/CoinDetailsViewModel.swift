@@ -89,7 +89,7 @@ class CoinDetailsViewModel: XIBInformation {
         transactionSocketManager.disconnect()
     }
 
-    func setInitialDataForChart(_ completion: @escaping (CandleStickEntity) -> ()) {
+    func setInitialDataForChart(_ completion: @escaping ([[StickValue]]) -> ()) {
         apiManager.candleStick(
             parameters: CandleStickParameters(
                 orderCurrency: .appoint(name: dependency.order),

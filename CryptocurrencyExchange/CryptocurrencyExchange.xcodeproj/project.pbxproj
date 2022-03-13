@@ -35,7 +35,7 @@
 		90DBCF6627DA3E4400EE8737 /* OrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBCF6527DA3E4400EE8737 /* OrderBook.swift */; };
 		90DBCF6927DA40E800EE8737 /* AssetsStatusValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBCF6827DA40E800EE8737 /* AssetsStatusValue.swift */; };
 		90DBCF6B27DA411100EE8737 /* AssetsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBCF6A27DA411100EE8737 /* AssetsEntity.swift */; };
-		90DBCF6D27DAD59A00EE8737 /* TransactionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBCF6C27DAD59A00EE8737 /* TransactionValue.swift */; };
+		90DBCF6D27DAD59A00EE8737 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBCF6C27DAD59A00EE8737 /* Transaction.swift */; };
 		90DBCF7127DADC8200EE8737 /* OrderbookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBCF7027DADC8200EE8737 /* OrderbookManager.swift */; };
 		90DFA4EB27D88B3D00491721 /* Decoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DFA4EA27D88B3D00491721 /* Decoded.swift */; };
 		90DFA4ED27D8942500491721 /* TransactionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DFA4EC27D8942500491721 /* TransactionEntity.swift */; };
@@ -98,7 +98,7 @@
 		B4BC4EA027CE66FF00DE19EC /* CandleStickAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4E9F27CE66FF00DE19EC /* CandleStickAPIService.swift */; };
 		B4BC4EA227CE680C00DE19EC /* CandleStickIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA127CE680C00DE19EC /* CandleStickIntervals.swift */; };
 		B4BC4EA427CE6AEE00DE19EC /* CandleStickParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA327CE6AEE00DE19EC /* CandleStickParameters.swift */; };
-		B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */; };
+		B4BC4EA727CE6CA300DE19EC /* CandleStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC4EA627CE6CA300DE19EC /* CandleStick.swift */; };
 		B4C373BC27D872C500DD424A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BB27D872C500DD424A /* Date+Extension.swift */; };
 		B4C373BE27D8841A00DD424A /* CandleStickData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BD27D8841A00DD424A /* CandleStickData.swift */; };
 		B4C373C027D8846100DD424A /* CandleStickIndentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */; };
@@ -132,7 +132,7 @@
 		FF19E28127C7280600DBD52D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28027C7280600DBD52D /* APIService.swift */; };
 		FF19E28327C72AF200DBD52D /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28227C72AF200DBD52D /* APIProvider.swift */; };
 		FF19E28527C74FA600DBD52D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28427C74FA600DBD52D /* APIError.swift */; };
-		FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28727C753CC00DBD52D /* AssetsStatusEntity.swift */; };
+		FF19E28827C753CC00DBD52D /* AssetsStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28727C753CC00DBD52D /* AssetsStatus.swift */; };
 		FF19E28A27C75F2000DBD52D /* ParamOptionDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28927C75F2000DBD52D /* ParamOptionDataType.swift */; };
 		FF19E28D27C8DB3600DBD52D /* AssetsAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E28C27C8DB3600DBD52D /* AssetsAPIManager.swift */; };
 		FF19E29127C9DECB00DBD52D /* ErrorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E29027C9DECB00DBD52D /* ErrorEntity.swift */; };
@@ -145,6 +145,7 @@
 		FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */; };
 		FF33EE1527DDCAEB0044EB3E /* InterestCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF33EE1427DDCAEB0044EB3E /* InterestCurrency.swift */; };
 		FF33EE1727DDCB1F0044EB3E /* SortInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF33EE1627DDCB1F0044EB3E /* SortInfo.swift */; };
+		FF33EE1927DE20840044EB3E /* CommonResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF33EE1827DE20840044EB3E /* CommonResponseEntity.swift */; };
 		FF91279B27DAEF3D0053164E /* InterestDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91279A27DAEF3D0053164E /* InterestDBManager.swift */; };
 		FF91279D27DAF7DA0053164E /* SortDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91279C27DAF7DA0053164E /* SortDBManager.swift */; };
 		FF9127CA27DBBAE10053164E /* AllTickerWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */; };
@@ -225,7 +226,7 @@
 		90DBCF6527DA3E4400EE8737 /* OrderBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBook.swift; sourceTree = "<group>"; };
 		90DBCF6827DA40E800EE8737 /* AssetsStatusValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusValue.swift; sourceTree = "<group>"; };
 		90DBCF6A27DA411100EE8737 /* AssetsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsEntity.swift; sourceTree = "<group>"; };
-		90DBCF6C27DAD59A00EE8737 /* TransactionValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionValue.swift; sourceTree = "<group>"; };
+		90DBCF6C27DAD59A00EE8737 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		90DBCF7027DADC8200EE8737 /* OrderbookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookManager.swift; sourceTree = "<group>"; };
 		90DFA4EA27D88B3D00491721 /* Decoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoded.swift; sourceTree = "<group>"; };
 		90DFA4EC27D8942500491721 /* TransactionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntity.swift; sourceTree = "<group>"; };
@@ -289,7 +290,7 @@
 		B4BC4E9F27CE66FF00DE19EC /* CandleStickAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickAPIService.swift; sourceTree = "<group>"; };
 		B4BC4EA127CE680C00DE19EC /* CandleStickIntervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickIntervals.swift; sourceTree = "<group>"; };
 		B4BC4EA327CE6AEE00DE19EC /* CandleStickParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickParameters.swift; sourceTree = "<group>"; };
-		B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickEntity.swift; sourceTree = "<group>"; };
+		B4BC4EA627CE6CA300DE19EC /* CandleStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStick.swift; sourceTree = "<group>"; };
 		B4C373BB27D872C500DD424A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		B4C373BD27D8841A00DD424A /* CandleStickData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickData.swift; sourceTree = "<group>"; };
 		B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickIndentifier.swift; sourceTree = "<group>"; };
@@ -325,7 +326,7 @@
 		FF19E28027C7280600DBD52D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FF19E28227C72AF200DBD52D /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		FF19E28427C74FA600DBD52D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		FF19E28727C753CC00DBD52D /* AssetsStatusEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusEntity.swift; sourceTree = "<group>"; };
+		FF19E28727C753CC00DBD52D /* AssetsStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatus.swift; sourceTree = "<group>"; };
 		FF19E28927C75F2000DBD52D /* ParamOptionDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamOptionDataType.swift; sourceTree = "<group>"; };
 		FF19E28C27C8DB3600DBD52D /* AssetsAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsAPIManager.swift; sourceTree = "<group>"; };
 		FF19E29027C9DECB00DBD52D /* ErrorEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEntity.swift; sourceTree = "<group>"; };
@@ -338,6 +339,7 @@
 		FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsAPIService.swift; sourceTree = "<group>"; };
 		FF33EE1427DDCAEB0044EB3E /* InterestCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestCurrency.swift; sourceTree = "<group>"; };
 		FF33EE1627DDCB1F0044EB3E /* SortInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortInfo.swift; sourceTree = "<group>"; };
+		FF33EE1827DE20840044EB3E /* CommonResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponseEntity.swift; sourceTree = "<group>"; };
 		FF91279A27DAEF3D0053164E /* InterestDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestDBManager.swift; sourceTree = "<group>"; };
 		FF91279C27DAF7DA0053164E /* SortDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortDBManager.swift; sourceTree = "<group>"; };
 		FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTickerWebSocketManager.swift; sourceTree = "<group>"; };
@@ -954,8 +956,6 @@
 				B4BC4EA527CE6C4B00DE19EC /* Entity */,
 				B4BC4EA127CE680C00DE19EC /* CandleStickIntervals.swift */,
 				B4BC4EA327CE6AEE00DE19EC /* CandleStickParameters.swift */,
-				B4BC4E9D27CE66EE00DE19EC /* CandleStickAPIManager.swift */,
-				B4BC4E9F27CE66FF00DE19EC /* CandleStickAPIService.swift */,
 			);
 			path = CandleStickAPI;
 			sourceTree = "<group>";
@@ -963,7 +963,6 @@
 		B4BC4EA527CE6C4B00DE19EC /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				B4BC4EA627CE6CA300DE19EC /* CandleStickEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1163,6 +1162,7 @@
 		FF19E27F27C7271000DBD52D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FF33EE1B27DE2A9F0044EB3E /* CandleStick */,
 				9088050027DBB2A100ABCAE5 /* Transaction */,
 				9065B93627DB1F7D00D112ED /* Orderbook */,
 				FFE7198227CE851F008DF7B9 /* Ticker */,
@@ -1178,11 +1178,12 @@
 		FF19E28627C753B300DBD52D /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				FF33EE1A27DE20930044EB3E /* Common */,
 				90DBCF6527DA3E4400EE8737 /* OrderBook.swift */,
-				90DBCF6C27DAD59A00EE8737 /* TransactionValue.swift */,
-				FF19E28727C753CC00DBD52D /* AssetsStatusEntity.swift */,
-				FF19E29027C9DECB00DBD52D /* ErrorEntity.swift */,
+				90DBCF6C27DAD59A00EE8737 /* Transaction.swift */,
+				FF19E28727C753CC00DBD52D /* AssetsStatus.swift */,
 				9088050827DC60FC00ABCAE5 /* Ticker.swift */,
+				B4BC4EA627CE6CA300DE19EC /* CandleStick.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1245,6 +1246,24 @@
 				FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		FF33EE1A27DE20930044EB3E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FF33EE1827DE20840044EB3E /* CommonResponseEntity.swift */,
+				FF19E29027C9DECB00DBD52D /* ErrorEntity.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FF33EE1B27DE2A9F0044EB3E /* CandleStick */ = {
+			isa = PBXGroup;
+			children = (
+				B4BC4E9D27CE66EE00DE19EC /* CandleStickAPIManager.swift */,
+				B4BC4E9F27CE66FF00DE19EC /* CandleStickAPIService.swift */,
+			);
+			path = CandleStick;
 			sourceTree = "<group>";
 		};
 		FF8CDF6B27CDF49B00957015 /* ServerCommunication */ = {
@@ -1657,7 +1676,7 @@
 				B4BC4E9727CE00F600DE19EC /* CandleStickChartByTimesView.swift in Sources */,
 				FF9D0CBC27D45E350074E861 /* StarButton.swift in Sources */,
 				B4471E6A27CFC3ED00668B64 /* CoinDetailsTopTabs.swift in Sources */,
-				FF19E28827C753CC00DBD52D /* AssetsStatusEntity.swift in Sources */,
+				FF19E28827C753CC00DBD52D /* AssetsStatus.swift in Sources */,
 				FFE7198127CE648D008DF7B9 /* TabButton.swift in Sources */,
 				B4C373BE27D8841A00DD424A /* CandleStickData.swift in Sources */,
 				FF19E29D27C9FFC700DBD52D /* WebSocketTickerEntity.swift in Sources */,
@@ -1713,7 +1732,7 @@
 				9B778C6527CF14350009D343 /* Observable.swift in Sources */,
 				FF9127D127DC81080053164E /* AssetsStatusTableViewCell.swift in Sources */,
 				FF91279B27DAEF3D0053164E /* InterestDBManager.swift in Sources */,
-				B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */,
+				B4BC4EA727CE6CA300DE19EC /* CandleStick.swift in Sources */,
 				9071202127D460FD0033B4A5 /* ConclusionTableView.swift in Sources */,
 				9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */,
 				FF10FD8127D918C50080C5B5 /* LineChart.swift in Sources */,
@@ -1723,7 +1742,7 @@
 				B4C373BC27D872C500DD424A /* Date+Extension.swift in Sources */,
 				FF33EE1727DDCB1F0044EB3E /* SortInfo.swift in Sources */,
 				FFB2EFB427D05F0D00944E97 /* CryptocurrencyListTableViewEntity.swift in Sources */,
-				90DBCF6D27DAD59A00EE8737 /* TransactionValue.swift in Sources */,
+				90DBCF6D27DAD59A00EE8737 /* Transaction.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
 				FF9D0CC827D5E8500074E861 /* Double+Extension.swift in Sources */,
 				B44C749627D8AF7F00A9765D /* CandleStickDBManager.swift in Sources */,
@@ -1732,10 +1751,11 @@
 				FF9127D527DC845F0053164E /* AssetsStatusModel.swift in Sources */,
 				9B5421DA27D9B1940016DCE2 /* TimeInTransactionListCell.swift in Sources */,
 				9B778C6527CF14350009D343 /* Observable.swift in Sources */,
-				B4BC4EA727CE6CA300DE19EC /* CandleStickEntity.swift in Sources */,
+				B4BC4EA727CE6CA300DE19EC /* CandleStick.swift in Sources */,
 				FF9D0CC627D5A4FA0074E861 /* SortListButtonView.swift in Sources */,
 				FF10FD7727D860A00080C5B5 /* CryptocurrencyTabList.swift in Sources */,
 				9B778C6C27CF33170009D343 /* ChartZoomFactor.swift in Sources */,
+				FF33EE1927DE20840044EB3E /* CommonResponseEntity.swift in Sources */,
 				9088050D27DC814000ABCAE5 /* OrderbookViewModelWebsocket+Extension.swift in Sources */,
 				B4471E5727CFB47100668B64 /* CoinDetailsViewController.swift in Sources */,
 				B4BC4EA427CE6AEE00DE19EC /* CandleStickParameters.swift in Sources */,

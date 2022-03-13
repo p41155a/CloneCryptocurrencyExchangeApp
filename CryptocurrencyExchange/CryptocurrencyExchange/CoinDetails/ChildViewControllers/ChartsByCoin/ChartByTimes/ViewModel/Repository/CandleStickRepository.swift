@@ -39,7 +39,7 @@ class ProductionCandleStickRepository: CandleStickChartRepository {
                 switch result {
                 case .success(let data):
                     self.writeCandleStickDatas(
-                        with: data.data,
+                        with: data,
                         type: error as! CandleStickDBError,
                         parameter: parameter,
                         completion: completion

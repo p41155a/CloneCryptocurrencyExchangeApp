@@ -7,14 +7,10 @@
 
 import Foundation
 
+// MARK: - TransactionEntity
 enum TransactionType: String, Codable {
         case ask = "ask"
         case bid = "bid"
-}
-
-struct TransactionValue: Codable {
-    let status: String
-    let data: [TransactionData]
 }
 
 struct TransactionData: Codable {

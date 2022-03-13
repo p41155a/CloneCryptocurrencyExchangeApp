@@ -22,8 +22,8 @@ class AssetsStatusViewModel: XIBInformation {
         apiManager.fetchAssetsStatus { [weak self] result in
             switch result {
             case .success(let data):
-                self?.accountList.value = data.accountStatus.keys.map { $0 }
-                self?.assetsStatus = data.accountStatus
+                self?.accountList.value = data.keys.map { $0 }
+                self?.assetsStatus = data
             case .failure(let error):
                 self?.error.value = error.debugDescription
             }

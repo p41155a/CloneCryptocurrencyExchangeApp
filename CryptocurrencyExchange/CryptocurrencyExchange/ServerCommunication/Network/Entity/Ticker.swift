@@ -7,13 +7,7 @@
 
 import Foundation
 
-/// AssetsStatus
-struct Ticker: Codable {
-    let status: String
-    let data: TickerInfo
-}
-
-/// EachAccountStatus
+// MARK: - TickerEntity
 struct TickerInfo: Codable {
     let openingPrice: String
     let closingPrice: String

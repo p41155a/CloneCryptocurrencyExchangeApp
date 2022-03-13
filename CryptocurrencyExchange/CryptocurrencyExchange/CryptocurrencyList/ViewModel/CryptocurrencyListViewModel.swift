@@ -154,7 +154,7 @@ final class CryptocurrencyListViewModel: XIBInformation {
         apiManager.fetchTicker(paymentCurrency: payment) { result in
             switch result {
             case .success(let data):
-                let cryptocurrencyData = data.ordersInfo.orderInfo
+                let cryptocurrencyData = data.orderInfo
                 var tickerList: [String: CryptocurrencyListTableViewEntity] = [:]
                 var symbolsList: [CryptocurrencySymbolInfo] = []
                 cryptocurrencyData.forEach { data in

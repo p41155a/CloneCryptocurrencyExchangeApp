@@ -10,14 +10,14 @@ import Foundation
 protocol CandleStickRepository: APIProvider {
     func candleStick(
         parameters: CandleStickParameters,
-        completion: @escaping (Result<CandleStickEntity, APIError>?) -> ()
+        completion: @escaping (Result<[[StickValue]], APIError>?) -> ()
     )
 }
 
 class CandleStickAPIManager: CandleStickRepository {
     func candleStick(
         parameters: CandleStickParameters,
-        completion: @escaping (Result<CandleStickEntity, APIError>?) -> ()
+        completion: @escaping (Result<[[StickValue]], APIError>?) -> ()
     ) {
         guard let requestURL = CandleStickAPIService
                 .candleStick(candleStickParameters: parameters)

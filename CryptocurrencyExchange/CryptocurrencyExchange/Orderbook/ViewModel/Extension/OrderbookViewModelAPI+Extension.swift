@@ -24,11 +24,11 @@ extension OrderbookViewModel {
     }
     
     private func setOrderbooks(from orderbook: OrderBook) {
-        askOrderbooksList.value = orderbook.data.asks.map {
+        askOrderbooksList.value = orderbook.asks.map {
             $0.generate(type: .ask)
         }.reversed()
         
-        bidOrderbooksList.value = orderbook.data.bids.map {
+        bidOrderbooksList.value = orderbook.bids.map {
             $0.generate(type: .bid)
         }
     }
@@ -48,10 +48,10 @@ extension OrderbookViewModel {
         }
     }
     
-    private func setTickers(from ticker: Ticker) {
-        let tickerInfo = ticker.data.generate(currencyName: orderCurrency.value)
+    private func setTickers(from ticker: TickerInfo) {
+        let tickerInfo = ticker.generate(currencyName: orderCurrency.value)
         
-        closedPrice.value = ticker.data.closingPrice
+        closedPrice.value = ticker.closingPrice
         print("ticker Info: \(tickerInfo) ")
         tradeDescriptionList.value.append(tickerInfo)
     }
@@ -71,8 +71,8 @@ extension OrderbookViewModel {
         }
     }
     
-    private func setTransactions(from transaction: TransactionValue) {
-        let transactionInfo = transaction.data.map {
+    private func setTransactions(from transaction: [TransactionData]) {
+        let transactionInfo = transaction.map {
             $0.generate()
         }.reversed()
         

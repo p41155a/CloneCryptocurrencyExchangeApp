@@ -12,7 +12,7 @@ class TransactionAPIManager: APIProvider {
     func fetchTransaction(
         orderCurrency: OrderCurrency,
         paymentCurrency: PaymentCurrency,
-        completion: @escaping (Result<TransactionValue, APIError>
+        completion: @escaping (Result<[TransactionData], APIError>
         ) -> ()) {
         guard let requestURL = TransactionAPIService.list(orderCurrency: orderCurrency, paymentCurrency: paymentCurrency).setRequest() else {
             completion(.failure(APIError.invalidURL))

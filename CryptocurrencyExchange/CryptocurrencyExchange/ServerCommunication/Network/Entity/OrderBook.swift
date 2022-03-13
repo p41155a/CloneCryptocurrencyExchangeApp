@@ -7,13 +7,8 @@
 
 import Foundation
 
-struct OrderBook: Codable {
-    let status: String
-    let data: DataClass
-}
-
 // MARK: - DataClass
-struct DataClass: Codable {
+struct OrderBook: Codable {
     let timestamp: String
     let orderCurrency, paymentCurrency: String
     let bids, asks: [Ask]

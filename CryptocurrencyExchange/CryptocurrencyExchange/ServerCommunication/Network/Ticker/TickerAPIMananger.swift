@@ -10,7 +10,7 @@ import Foundation
 class TickerAPIManager: APIProvider {
     /// 모든 현재가 검색
     func fetchTicker(paymentCurrency: PaymentCurrency,
-                           completion: @escaping (Result<TickerEntity, APIError>) -> ()) {
+                           completion: @escaping (Result<OrdersInfoDic, APIError>) -> ()) {
         guard let requestURL = TickerAPIService.ticker(orderCurrency: OrderCurrency.all,
                                                        paymentCurrency: paymentCurrency).setRequest() else {
             completion(.failure(APIError.invalidURL))
@@ -20,7 +20,7 @@ class TickerAPIManager: APIProvider {
     }
     
     /// 각 자산 검색
-    func fetchTicker(orderCurrency: OrderCurrency, paymentCurrency: PaymentCurrency ,completion: @escaping (Result<Ticker, APIError>) -> ()) {
+    func fetchTicker(orderCurrency: OrderCurrency, paymentCurrency: PaymentCurrency ,completion: @escaping (Result<TickerInfo, APIError>) -> ()) {
         guard let requestURL = TickerAPIService.ticker(orderCurrency: orderCurrency, paymentCurrency: paymentCurrency).setRequest() else {
             completion(.failure(APIError.invalidURL))
             return

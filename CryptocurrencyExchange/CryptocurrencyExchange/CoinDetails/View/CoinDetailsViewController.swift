@@ -103,7 +103,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         viewModel.setInitialDataForChart() { [weak self] data in
             let oneDayToSec: Double = 86400
             let startSec = Date().timeIntervalSince1970 - (oneDayToSec * 30 * 6)
-            let openPrice = data.data
+            let openPrice = data
                 .compactMap { StickInfo(data: $0) }
                 .filter { $0.time > startSec * 1000 }
                 .map { $0.openPrice }
