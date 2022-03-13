@@ -13,7 +13,7 @@ class CandleStickChartByTimesView: UIView {
     @IBOutlet weak var chartView: CandleStickChartView!
     
     var viewModel = CandleStickChartByTimesViewModel()
-    var delegate: ChartViewUpdatable?
+    weak var delegate: ChartViewUpdatable?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
