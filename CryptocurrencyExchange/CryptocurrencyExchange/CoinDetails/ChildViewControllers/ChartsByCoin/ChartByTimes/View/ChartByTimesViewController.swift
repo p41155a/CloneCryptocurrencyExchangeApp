@@ -52,6 +52,7 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
             guard let type = TimeIntervalInChart(rawValue: index) else { return }
             button.tag = index
             button.setTitle(type.title, for: .normal)
+            button.setTitleColor(.baseColor, for: .normal)
             button.isSelected = index == 0
             button.addTarget(
                 self,
@@ -65,8 +66,10 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
     @objc
     private func didTap(intervalButton: UIButton) {
         intervalStackView.arrangedSubviews.enumerated().forEach { (index, subview) in
-            guard let button = subview as? UIButton else { return }
-            button.isSelected = intervalButton.tag == index
+            guard let button = subview as? IntervalButton else { return }
+            let isSelectedButton = intervalButton.tag == index
+            button.isSelected = isSelectedButton
+            button.titleLabel?.textColor = isSelectedButton ? .titleColor : .baseColor
         }
         
         guard let intervalType = TimeIntervalInChart(rawValue: intervalButton.tag) else { return }

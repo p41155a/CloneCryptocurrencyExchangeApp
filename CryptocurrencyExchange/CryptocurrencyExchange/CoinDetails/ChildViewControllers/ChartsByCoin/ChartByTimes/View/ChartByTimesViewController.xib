@@ -32,6 +32,7 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXy-bq-XcB" customClass="IntervalButton" customModule="CryptocurrencyExchange" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="68.5" height="24"/>
+                                    <color key="backgroundColor" name="backgroundColor"/>
                                     <color key="tintColor" name="titleColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button">
@@ -80,7 +81,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="backgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="rFB-Pj-YzM" secondAttribute="trailing" id="GdP-HI-7Pu"/>
                         <constraint firstAttribute="bottom" secondItem="rFB-Pj-YzM" secondAttribute="bottom" id="Gz3-ri-6dy"/>
@@ -93,7 +94,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-To-eSc" customClass="CandleStickChartByTimesView" customModule="CryptocurrencyExchange" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="40" width="414" height="477"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="backgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYB-lg-32Z" customClass="BarChartByTimesView" customModule="CryptocurrencyExchange" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="517" width="414" height="116"/>
@@ -108,7 +109,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="backgroundColor"/>
             <constraints>
                 <constraint firstItem="Leq-To-eSc" firstAttribute="top" secondItem="8vz-N5-OZU" secondAttribute="bottom" id="0e3-fi-n1J"/>
                 <constraint firstItem="tYB-lg-32Z" firstAttribute="top" secondItem="Leq-To-eSc" secondAttribute="bottom" id="2XM-kK-7ps"/>
@@ -129,8 +130,11 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="baseColor">
-            <color red="0.84399998188018799" green="0.85199999809265137" blue="0.85199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.67491234824501134" green="0.68841059520991155" blue="0.68841059520991155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="titleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

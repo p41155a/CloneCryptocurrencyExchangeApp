@@ -35,6 +35,8 @@ class BarChartByTimesView: UIView {
     }
     
     private func setChartUI() {
+        chartView.backgroundColor = .backgroundColor
+        
         chartView.delegate = self
         chartView.dragEnabled = true
         chartView.scaleYEnabled = false
