@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class StarButton: UIButton {
     override init(frame: CGRect) {
@@ -22,21 +21,5 @@ class StarButton: UIButton {
     func configureUI() {
         self.setImage(UIImage(named: "starIcon"), for: .normal)
         self.setImage(UIImage(named: "starClickedIcon"), for: .selected)
-    }
-}
-
-class InterestCurrency: Object {
-    @Persisted var currency: String // BTC_KRW
-    @Persisted var interest: Bool
-    
-    convenience init(currency: CryptocurrencySymbolInfo,
-                     interest: Bool) {
-        self.init()
-        self.currency = "\(currency.order)_\(currency.payment.value)"
-        self.interest = interest
-    }
-    
-    override static func primaryKey() -> String? {
-      return "currency"
     }
 }

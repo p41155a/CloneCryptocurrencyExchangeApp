@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class SortListButton: UIButton {
     var sortStandardLabel = UILabel()
@@ -75,25 +74,5 @@ class SortListButton: UIButton {
         default:
             sortMarkImageView.image = UIImage(named: "arrow")
         }
-    }
-}
-
-class SortInfo: Object {
-    @Persisted var primaryKey: String
-    @Persisted var standard: MainListSortStandard
-    @Persisted var orderby: OrderBy
-    
-    convenience init(
-        standard: MainListSortStandard,
-        orderby: OrderBy
-    ) {
-        self.init()
-        self.primaryKey = "sortInfo"
-        self.standard = standard
-        self.orderby = orderby
-    }
-    
-    override static func primaryKey() -> String {
-      return "primaryKey"
     }
 }
