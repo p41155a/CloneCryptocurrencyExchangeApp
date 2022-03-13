@@ -24,10 +24,9 @@ class DateMarkerView: UIView {
     private func commonInit() {
         let superView = Bundle.main.loadNibNamed("DateMarkerView", owner: self, options: nil)?.first as! UIView
         self.addSubview(superView)
+        self.frame = CGRect(x: 0, y: 0, width: 132, height: 23)
         superView.frame = self.bounds
         superView.layoutIfNeeded()
-        
-        self.frame = CGRect(x: 0, y: 0, width: 132, height: 23)
     }
     
     func updateDateLabel(
