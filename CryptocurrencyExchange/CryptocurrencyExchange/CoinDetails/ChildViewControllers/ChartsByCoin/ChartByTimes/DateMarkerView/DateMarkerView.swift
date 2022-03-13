@@ -52,9 +52,10 @@ class DateMarkerView: UIView {
         centerXPosition: CGFloat,
         yPosition: CGFloat
     ) -> CGRect {
+        let calculatedX = centerXPosition - self.frame.width/2
         return CGRect(
             origin: CGPoint(
-                x: centerXPosition - self.frame.width/2,
+                x: max(0, calculatedX),
                 y: yPosition
             ),
             size: self.frame.size

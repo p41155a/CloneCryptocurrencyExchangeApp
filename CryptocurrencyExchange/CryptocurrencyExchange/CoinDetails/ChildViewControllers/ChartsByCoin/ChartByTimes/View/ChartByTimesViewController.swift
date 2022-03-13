@@ -71,6 +71,7 @@ class ChartByTimesViewController: ViewControllerInjectingViewModel<ChartByTimesV
         
         guard let intervalType = TimeIntervalInChart(rawValue: intervalButton.tag) else { return }
         self.viewModel.getCandleStickData(intervalType: intervalType)
+        self.dateMarkerView.isHidden = true
     }
 }
 

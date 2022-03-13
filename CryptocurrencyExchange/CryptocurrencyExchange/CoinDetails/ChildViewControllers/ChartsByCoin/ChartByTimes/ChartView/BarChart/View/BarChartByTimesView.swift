@@ -39,6 +39,7 @@ class BarChartByTimesView: UIView {
         chartView.dragEnabled = true
         chartView.scaleYEnabled = false
         chartView.autoScaleMinMaxEnabled = true
+        chartView.doubleTapToZoomEnabled = false
 
         let xAxis = chartView.xAxis
         xAxis.drawLabelsEnabled = false
