@@ -1966,7 +1966,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X6WTK8Z5MC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";
@@ -1998,7 +1998,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X6WTK8Z5MC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";

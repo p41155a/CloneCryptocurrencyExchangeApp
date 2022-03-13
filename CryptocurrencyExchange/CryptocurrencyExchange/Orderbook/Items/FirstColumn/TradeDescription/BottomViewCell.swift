@@ -32,12 +32,12 @@ final class BottomViewCell: Cell {
     }
     
     func setData(data: TradeDescriptionEntity) {
-        self.prevClosePriceLabel.text = Int(data.prevClosingPrice)?.decimalType ?? ""
-        self.openPriceLabel.text = Int(data.openingPrice)?.decimalType ?? ""
+        self.prevClosePriceLabel.text = data.prevClosingPrice.setNumStringForm()
+        self.openPriceLabel.text = data.openingPrice.setNumStringForm()
         self.highPriceLabel.text =
-        "\(Int(data.maxPrice)?.decimalType ?? "")\n\(maxRate(data: data))%"
+        "\(data.maxPrice.setNumStringForm())\n\(maxRate(data: data))%"
         self.lowPriceLabel.text =
-        "\(Int(data.minPrice)?.decimalType ?? "")\n-\(minRate(data: data))%"
+        "\(data.minPrice.setNumStringForm())\n-\(minRate(data: data))%"
     }
     
     private func maxRate(data: TradeDescriptionEntity) -> String {

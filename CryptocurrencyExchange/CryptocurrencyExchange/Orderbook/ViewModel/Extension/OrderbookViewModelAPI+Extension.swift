@@ -52,7 +52,8 @@ extension OrderbookViewModel {
         let tickerInfo = ticker.data.generate(currencyName: orderCurrency.value)
         
         closedPrice.value = ticker.data.closingPrice
-        tradeDescriptionList.value = [tickerInfo]
+        print("ticker Info: \(tickerInfo) ")
+        tradeDescriptionList.value.append(tickerInfo)
     }
     
     //MARK: Transaction
