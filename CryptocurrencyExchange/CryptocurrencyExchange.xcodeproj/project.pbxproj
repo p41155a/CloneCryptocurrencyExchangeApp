@@ -145,6 +145,8 @@
 		FF19E2A627CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */; };
 		FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2A827CA73C300DBD52D /* WebSocketTickType.swift */; };
 		FF19E2AF27CC680F00DBD52D /* AssetsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */; };
+		FF33EE1527DDCAEB0044EB3E /* InterestCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF33EE1427DDCAEB0044EB3E /* InterestCurrency.swift */; };
+		FF33EE1727DDCB1F0044EB3E /* SortInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF33EE1627DDCB1F0044EB3E /* SortInfo.swift */; };
 		FF91279B27DAEF3D0053164E /* InterestDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91279A27DAEF3D0053164E /* InterestDBManager.swift */; };
 		FF91279D27DAF7DA0053164E /* SortDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91279C27DAF7DA0053164E /* SortDBManager.swift */; };
 		FF9127CA27DBBAE10053164E /* AllTickerWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */; };
@@ -338,6 +340,8 @@
 		FF19E2A527CA1F4A00DBD52D /* CryptocurrencyExchangeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyExchangeAPITests.swift; sourceTree = "<group>"; };
 		FF19E2A827CA73C300DBD52D /* WebSocketTickType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTickType.swift; sourceTree = "<group>"; };
 		FF19E2AE27CC680F00DBD52D /* AssetsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsAPIService.swift; sourceTree = "<group>"; };
+		FF33EE1427DDCAEB0044EB3E /* InterestCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestCurrency.swift; sourceTree = "<group>"; };
+		FF33EE1627DDCB1F0044EB3E /* SortInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortInfo.swift; sourceTree = "<group>"; };
 		FF91279A27DAEF3D0053164E /* InterestDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestDBManager.swift; sourceTree = "<group>"; };
 		FF91279C27DAF7DA0053164E /* SortDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortDBManager.swift; sourceTree = "<group>"; };
 		FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTickerWebSocketManager.swift; sourceTree = "<group>"; };
@@ -738,6 +742,8 @@
 				9B745FAD27D1D14F0001C0D3 /* CandleStickByTimeInterval.swift */,
 				B4C373BF27D8846100DD424A /* CandleStickIndentifier.swift */,
 				B4C373BD27D8841A00DD424A /* CandleStickData.swift */,
+				FF33EE1427DDCAEB0044EB3E /* InterestCurrency.swift */,
+				FF33EE1627DDCB1F0044EB3E /* SortInfo.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -1667,6 +1673,7 @@
 				9B16F5BD27D09E2A003DC9BC /* ChartByTimesModel.swift in Sources */,
 				FF19E2A927CA73C300DBD52D /* WebSocketTickType.swift in Sources */,
 				FF19E28127C7280600DBD52D /* APIService.swift in Sources */,
+				FF33EE1527DDCAEB0044EB3E /* InterestCurrency.swift in Sources */,
 				9088050627DC524A00ABCAE5 /* ContentViewModel.swift in Sources */,
 				FF19E28A27C75F2000DBD52D /* ParamOptionDataType.swift in Sources */,
 				FF10FD7E27D8C01D0080C5B5 /* CryptocurrencyListModel.swift in Sources */,
@@ -1720,6 +1727,7 @@
 				FF10FD7B27D8702F0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift in Sources */,
 				9B778C7827CF53900009D343 /* CandleChartDataEntries.swift in Sources */,
 				B4C373BC27D872C500DD424A /* Date+Extension.swift in Sources */,
+				FF33EE1727DDCB1F0044EB3E /* SortInfo.swift in Sources */,
 				FFB2EFB427D05F0D00944E97 /* CryptocurrencyListTableViewEntity.swift in Sources */,
 				90DBCF6D27DAD59A00EE8737 /* TransactionValue.swift in Sources */,
 				FF19E29827C9FB6D00DBD52D /* WebSoketType.swift in Sources */,
@@ -1958,7 +1966,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZX9TD66UC;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";
@@ -1990,7 +1998,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZX9TD66UC;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CryptocurrencyExchange/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빗썸클론";
