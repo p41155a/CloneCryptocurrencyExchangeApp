@@ -15,22 +15,4 @@ struct TradeDescriptionEntity {
     var maxPrice: String           // 고가 (24H)
     var minPrice: String            // 저가 (24H)
     var symbol: String
-    
-    init(
-        volume: String,
-        value: String,
-        prevClosingPrice: String,
-        openingPrice: String,
-        maxPrice: String,
-        minPrice: String,
-        symbol: String
-    ) {
-        self.volume = volume
-        self.value = value
-        self.prevClosingPrice = prevClosingPrice
-        self.openingPrice = openingPrice
-        self.maxPrice = maxPrice
-        self.minPrice = minPrice
-        self.symbol = symbol
-    }
 }

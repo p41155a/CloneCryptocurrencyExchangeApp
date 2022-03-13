@@ -29,7 +29,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
         setTopTapBarTabEvent()
         self.bindClosures()
         
-        self.bringSubviewToFront(with: CoinDetailsTopTabs(rawValue: 0) ?? .quote)
+        self.bringSubviewToFront(with: CoinDetailsTopTabs(rawValue: 0) ?? .orderbook)
         self.setTabBarButtonUI(selectedButtonTag: 0)
     }
     
@@ -62,9 +62,12 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
             )
             self?.reflectData(by: entity)
             
-            /// 호가 창에서 사용하기 위한 처리를 추가해주세요
-            if let orderBookVC = self?.viewControllerByTab[.quote] as? OrderbookViewController {
-                // orderBookVC.observableData.value = tickerData
+            /// 호가 창에서 사용하기 위한 데이터
+            if let orderBookVC = self?.viewControllerByTab[.orderbook] as? OrderbookViewController {
+                let viewModel = orderBookVC.viewModel
+                viewModel.closedPrice.value = tickerData?.closePrice ?? ""
+                viewModel.fasteningStrengthList.value = tickerData?.volumePower ?? ""
+                viewModel.tradeDescriptionList.value.append(data.generate())
             }
         }
         
@@ -77,7 +80,15 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
                 transactionListVC.transactionDataFromSocket(data)
             }
             
-            /// 호가창에서 사용할 수 있도록 로직을 추가해주세요
+            /// 호가 창에서 사용하기 위한 데이터
+            if let orderBookVC = self?.viewControllerByTab[.orderbook] as? OrderbookViewController {
+                let viewModel = orderBookVC.viewModel
+                let transactionInfo = data.list.map {
+                    $0.generate()
+                }.reversed()
+                
+                viewModel.transactionList.value.insert(contentsOf: transactionInfo, at: Int.zero)
+            }
         }
         
         viewModel.error.bind { [weak self] error in
@@ -148,7 +159,7 @@ class CoinDetailsViewController: ViewControllerInjectingViewModel<CoinDetailsVie
             )
         )
         
-        viewControllerByTab[.quote] = orderbookViewController
+        viewControllerByTab[.orderbook] = orderbookViewController
         viewControllerByTab[.chart] = chartViewController
         viewControllerByTab[.transaction] = transactionListViewController
         

@@ -29,3 +29,17 @@ struct WebSocketTickerContent: Codable {
     let chgAmt: String              // 변동금액
     let volumePower: String         // 체결강도
 }
+
+extension WebSocketTickerContent {
+    func generate() -> TradeDescriptionEntity{
+        return TradeDescriptionEntity(
+            volume: volume,
+            value: value,
+            prevClosingPrice: prevClosePrice,
+            openingPrice: openPrice,
+            maxPrice: highPrice,
+            minPrice: lowPrice,
+            symbol: symbol
+        )
+    }
+}

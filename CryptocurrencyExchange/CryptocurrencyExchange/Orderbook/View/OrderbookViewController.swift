@@ -9,7 +9,6 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
     private var socketType: [String] = [
         WebSocketType.ticker.rawValue,
         WebSocketType.orderbookdepth.rawValue,
-        WebSocketType.transaction.rawValue
     ]
     
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
@@ -19,15 +18,16 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
         self.configureSpreadsheetView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.connect()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.dataInit {
+            self.connect()
+        }
         self.bind()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.dataInit()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,7 +57,7 @@ final class OrderbookViewController: ViewControllerInjectingViewModel<OrderbookV
         }
     }
     
-    private func dataInit() {
+    private func dataInit(completionHandler: @escaping (() -> Void)) {
         self.viewModel.setOrderbookAPIData()
         self.viewModel.setTickerAPIData()
         self.viewModel.setTransactionAPIData()
