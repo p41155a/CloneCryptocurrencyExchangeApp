@@ -522,11 +522,10 @@
 		909BEED027D1126700E4EE87 /* Orderbook */ = {
 			isa = PBXGroup;
 			children = (
-				900B5C5727D4F7AC001DA6A1 /* Extension */,
 				909BEED127D1127B00E4EE87 /* Entity */,
 				909BEEDD27D1182700E4EE87 /* ViewModel */,
 				909BEEDA27D117D600E4EE87 /* View */,
-				90E12E6227D2506400373FF9 /* ContentView */,
+				90E12E6227D2506400373FF9 /* Items */,
 			);
 			name = Orderbook;
 			path = ../../Orderbook;
@@ -545,6 +544,7 @@
 		909BEEDA27D117D600E4EE87 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				900B5C5727D4F7AC001DA6A1 /* Extension */,
 				90E12EB327D335AF00373FF9 /* OrderbookViewController.swift */,
 				90E12EB427D335AF00373FF9 /* OrderbookViewController.xib */,
 			);
@@ -556,7 +556,6 @@
 			children = (
 				9088050E27DC818D00ABCAE5 /* Extension */,
 				909BEEDE27D1183E00E4EE87 /* OrderbookViewModel.swift */,
-				90DFA4EA27D88B3D00491721 /* Decoded.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -588,14 +587,14 @@
 			path = Transaction;
 			sourceTree = "<group>";
 		};
-		90E12E6227D2506400373FF9 /* ContentView */ = {
+		90E12E6227D2506400373FF9 /* Items */ = {
 			isa = PBXGroup;
 			children = (
 				9088050727DC525300ABCAE5 /* ViewModel */,
 				9071201827D44B800033B4A5 /* FirstColumn */,
 				9071201927D44B940033B4A5 /* SecondColumn */,
 			);
-			path = ContentView;
+			path = Items;
 			sourceTree = "<group>";
 		};
 		90E12E6327D2508100373FF9 /* FasteningStrength */ = {
@@ -670,10 +669,8 @@
 				B467184E27D46478001EBAEC /* Model */,
 				B467184F27D46482001EBAEC /* View */,
 				B498E2DE27D30BA400E4B787 /* ViewModel */,
-				9B745FAC27D1D1240001C0D3 /* DB */,
 				B4F2786A27D4678B00BEBFD2 /* ChartView */,
 				B4B4CB9227D5F2A2009F08D7 /* CoinInformation */,
-				9B5A8AC927D7259300C2170F /* DateMarkerView */,
 			);
 			path = ChartByTimes;
 			sourceTree = "<group>";
@@ -815,7 +812,6 @@
 		B4471E5427CFB3FE00668B64 /* CoinDetails */ = {
 			isa = PBXGroup;
 			children = (
-				FF10FD7F27D916BE0080C5B5 /* Custom */,
 				B4471E6C27CFCF8A00668B64 /* Model */,
 				B4471E6D27CFCF9300668B64 /* View */,
 				B4471E6E27CFCF9A00668B64 /* ViewModel */,
@@ -875,7 +871,6 @@
 		B467184E27D46478001EBAEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */,
 				9B16F5BC27D09E2A003DC9BC /* ChartByTimesModel.swift */,
 			);
 			path = Model;
@@ -1045,6 +1040,7 @@
 				B4F04D3227DCB2F00076663F /* SocketControllable */,
 				9B778C6427CF14350009D343 /* Observable.swift */,
 				B44C749827D8C86800A9765D /* DBAccessable.swift */,
+				90DFA4EA27D88B3D00491721 /* Decoded.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1105,14 +1101,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		FF10FD7F27D916BE0080C5B5 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-				FF10FD8027D918C50080C5B5 /* LineChart.swift */,
-			);
-			path = Custom;
-			sourceTree = "<group>";
-		};
 		FF19E1DF27C628DD00DBD52D = {
 			isa = PBXGroup;
 			children = (
@@ -1143,6 +1131,7 @@
 				FF8CDF6B27CDF49B00957015 /* ServerCommunication */,
 				B4F5AF8327C8D7A000EB60A1 /* Extensions */,
 				B4F5AF8227C8D79800EB60A1 /* Common */,
+				FF33EE1227DDC4EC0044EB3E /* CustomView */,
 				B4471E5427CFB3FE00668B64 /* CoinDetails */,
 				FFE7196427CE030D008DF7B9 /* CryptocurrencyList */,
 				FF9D0CC927D666E90074E861 /* AssetsStatus */,
@@ -1235,33 +1224,47 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		FF33EE1227DDC4EC0044EB3E /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				9B5A8AC927D7259300C2170F /* DateMarkerView */,
+				FF10FD8027D918C50080C5B5 /* LineChart.swift */,
+				FF9D0CBB27D45E350074E861 /* StarButton.swift */,
+				FFE7198027CE648D008DF7B9 /* TabButton.swift */,
+				FF9D0CC527D5A4FA0074E861 /* SortListButtonView.swift */,
+				9B16F5BE27D0AFC5003DC9BC /* IntervalButton.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		FF33EE1327DDC6990044EB3E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FF91279A27DAEF3D0053164E /* InterestDBManager.swift */,
+				FF91279C27DAF7DA0053164E /* SortDBManager.swift */,
+				FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		FF8CDF6B27CDF49B00957015 /* ServerCommunication */ = {
 			isa = PBXGroup;
 			children = (
 				FF19E29627C9FAB600DBD52D /* ParameterType */,
 				FF19E2A727CA732400DBD52D /* WebSocket */,
 				FF19E27F27C7271000DBD52D /* Network */,
+				9B745FAC27D1D1240001C0D3 /* DB */,
 			);
 			path = ServerCommunication;
 			sourceTree = "<group>";
 		};
-		FF91279927DAEEDA0053164E /* DBManager */ = {
-			isa = PBXGroup;
-			children = (
-				FF9127C927DBBAE10053164E /* AllTickerWebSocketManager.swift */,
-				FF91279A27DAEF3D0053164E /* InterestDBManager.swift */,
-				FF91279C27DAF7DA0053164E /* SortDBManager.swift */,
-			);
-			name = DBManager;
-			sourceTree = "<group>";
-		};
-		FF9127CE27DC80DE0053164E /* Cell */ = {
+		FF9127CE27DC80DE0053164E /* Items */ = {
 			isa = PBXGroup;
 			children = (
 				FF9127CF27DC81080053164E /* AssetsStatusTableViewCell.swift */,
 				FF9127D027DC81080053164E /* AssetsStatusTableViewCell.xib */,
 			);
-			path = Cell;
+			path = Items;
 			sourceTree = "<group>";
 		};
 		FF9D0CC927D666E90074E861 /* AssetsStatus */ = {
@@ -1270,7 +1273,7 @@
 				90DBCF6727DA40D900EE8737 /* Model */,
 				FF9D0CD027D6674D0074E861 /* ViewModel */,
 				FF9D0CD127D6675B0074E861 /* View */,
-				FF9127CE27DC80DE0053164E /* Cell */,
+				FF9127CE27DC80DE0053164E /* Items */,
 			);
 			path = AssetsStatus;
 			sourceTree = "<group>";
@@ -1313,12 +1316,12 @@
 		FFE7196427CE030D008DF7B9 /* CryptocurrencyList */ = {
 			isa = PBXGroup;
 			children = (
-				FFE7197F27CE6461008DF7B9 /* Custom */,
 				FFE7198727CE8881008DF7B9 /* Entity */,
 				FF10FD7C27D8BF990080C5B5 /* Model */,
 				FFE7196627CE032C008DF7B9 /* ViewModel */,
+				FF33EE1327DDC6990044EB3E /* Manager */,
 				FFE7196527CE0328008DF7B9 /* View */,
-				FFE7197327CE082D008DF7B9 /* Cells */,
+				FFE7197327CE082D008DF7B9 /* Items */,
 			);
 			path = CryptocurrencyList;
 			sourceTree = "<group>";
@@ -1336,29 +1339,18 @@
 			isa = PBXGroup;
 			children = (
 				FFE7196B27CE035D008DF7B9 /* CryptocurrencyListViewModel.swift */,
-				FF91279927DAEEDA0053164E /* DBManager */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		FFE7197327CE082D008DF7B9 /* Cells */ = {
+		FFE7197327CE082D008DF7B9 /* Items */ = {
 			isa = PBXGroup;
 			children = (
 				FF10FD7A27D8702E0080C5B5 /* CrypocurrencyListTableViewCellProtocol.swift */,
 				FFB2EFD527D3429A00944E97 /* KRWCell */,
 				FFB2EFD627D342AC00944E97 /* BTCCell */,
 			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		FFE7197F27CE6461008DF7B9 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-				FF9D0CBB27D45E350074E861 /* StarButton.swift */,
-				FFE7198027CE648D008DF7B9 /* TabButton.swift */,
-				FF9D0CC527D5A4FA0074E861 /* SortListButtonView.swift */,
-			);
-			path = Custom;
+			path = Items;
 			sourceTree = "<group>";
 		};
 		FFE7198227CE851F008DF7B9 /* Ticker */ = {
